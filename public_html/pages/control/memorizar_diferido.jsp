@@ -29,6 +29,9 @@
                             <html:hidden property="difApMatPersona"/>
                             <html:hidden property="difNombrePersona"/>
                             <html:hidden property="difExpCIPersona"/>
+                            <html:hidden property="mgestion"/>
+                            <html:hidden property="maduana"/>
+                            <html:hidden property="mnumero"/>
                             <br>
                             <div class="form-group">
                                 <h3>

@@ -333,11 +333,17 @@ public class MemorizacionControlAction extends MappingDispatchAction {
                     if (bean.getBoton().equals("diferido")) {
                         Respuesta<Boolean> res = neg.grabaMemorizacionDiferido(bean);
                         if (res.getCodigo() == 1) {
-                            AlcanceForm balc = new AlcanceForm();    
+                            AlcanceForm balc = new AlcanceForm();  
+                            balc.setCodigo(res.getMensaje());
                             balc.setTipoTramite("DUI");
                             balc.setGestion(bean.getMgestion());
                             balc.setAduana(bean.getMaduana());
                             balc.setNumero(bean.getMnumero());
+                            if(bean.getDifTipoDocPersona().equals("NIT"))
+                                balc.setNumeroOperador(bean.getDifNitEmpresa());
+                            else
+                                balc.setNumeroOperador(bean.getDifNroCIPersona());
+                            balc.setUsuario(bean.getUsuario());
                             balc.setChvalor("on");
                             balc.setChpartida("on");
                             balc.setChorigen("on");
