@@ -108,10 +108,16 @@ public class Util {
         String res = "";
         res = numero;
         if(numero != null)
-            if(numero.length() > 0)
-                if(numero.substring(0, 1).equals("."))
+            if(numero.length() > 0){
+                if(numero.substring(0, 1).equals(".")){
                     res = "0"+numero;    
-            
+                }
+                if(numero.length() > 1){
+                    if(numero.substring(0, 2).equals("-.")){
+                        res = "-0"+numero.substring(1);    
+                    }
+                }
+            }
         return res;
     }
     

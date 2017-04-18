@@ -6,6 +6,7 @@ import anb.bean.CuadroLiquidacionForm;
 import anb.entidades.CuadroLiquidacion;
 
 import anb.general.Conexion;
+import anb.general.Util;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -47,68 +48,68 @@ public class CuadroLiquidacionDao extends Conexion {
                 
                 ht.setDecfobusd(rs.getString(10));
                 String fob1 = rs.getString(10);
-                ht.setDecfleteusd(rs.getString(11));
-                ht.setDecsegurousd(rs.getString(12));                
-                ht.setDecotrosusd(rs.getString(13));
-                ht.setDeccifusd(rs.getString(14));
-                ht.setDectc(rs.getString(15));
-                ht.setDeccifbs(rs.getString(16));
-                ht.setDecga(rs.getString(17));
-                ht.setDeciva(rs.getString(18));
-                ht.setDecice(rs.getString(19));
-                ht.setDeciehd(rs.getString(20));
-                ht.setDecicd(rs.getString(21));
+                ht.setDecfleteusd(Util.completaCerosDecimal(rs.getString(11)));
+                ht.setDecsegurousd(Util.completaCerosDecimal(rs.getString(12)));                
+                ht.setDecotrosusd(Util.completaCerosDecimal(rs.getString(13)));
+                ht.setDeccifusd(Util.completaCerosDecimal(rs.getString(14)));
+                ht.setDectc(Util.completaCerosDecimal(rs.getString(15)));
+                ht.setDeccifbs(Util.completaCerosDecimal(rs.getString(16)));
+                ht.setDecga(Util.completaCerosDecimal(rs.getString(17)));
+                ht.setDeciva(Util.completaCerosDecimal(rs.getString(18)));
+                ht.setDecice(Util.completaCerosDecimal(rs.getString(19)));
+                ht.setDeciehd(Util.completaCerosDecimal(rs.getString(20)));
+                ht.setDecicd(Util.completaCerosDecimal(rs.getString(21)));
                 
                 String fob2 = rs.getString(22);
-                ht.setDetfobusd(rs.getString(22));
-                ht.setDetfleteusd(rs.getString(23));
-                ht.setDetsegurousd(rs.getString(24));
-                ht.setDetotrosusd(rs.getString(25));
-                ht.setDetcifusd(rs.getString(26));
-                ht.setDettc(rs.getString(27));
-                ht.setDetcifbs(rs.getString(28));
-                ht.setDetga(rs.getString(29));
-                ht.setDetiva(rs.getString(30));
-                ht.setDetice(rs.getString(31));   
-                ht.setDetiehd(rs.getString(32)); 
-                ht.setDeticd(rs.getString(33)); 
+                ht.setDetfobusd(Util.completaCerosDecimal(rs.getString(22)));
+                ht.setDetfleteusd(Util.completaCerosDecimal(rs.getString(23)));
+                ht.setDetsegurousd(Util.completaCerosDecimal(rs.getString(24)));
+                ht.setDetotrosusd(Util.completaCerosDecimal(rs.getString(25)));
+                ht.setDetcifusd(Util.completaCerosDecimal(rs.getString(26)));
+                ht.setDettc(Util.completaCerosDecimal(rs.getString(27)));
+                ht.setDetcifbs(Util.completaCerosDecimal(rs.getString(28)));
+                ht.setDetga(Util.completaCerosDecimal(rs.getString(29)));
+                ht.setDetiva(Util.completaCerosDecimal(rs.getString(30)));
+                ht.setDetice(Util.completaCerosDecimal(rs.getString(31)));   
+                ht.setDetiehd(Util.completaCerosDecimal(rs.getString(32))); 
+                ht.setDeticd(Util.completaCerosDecimal(rs.getString(33))); 
                 
-                ht.setUfvvenc(rs.getString(34));
+                ht.setUfvvenc(Util.completaCerosDecimal(rs.getString(34)));
                 
-                ht.setToga(rs.getString(35));
-                ht.setToiva(rs.getString(36));
-                ht.setToice(rs.getString(37));
-                ht.setToiehd(rs.getString(38));
-                ht.setToicd(rs.getString(39));
-                ht.setTototal(rs.getString(40));
+                ht.setToga(Util.completaCerosDecimal(rs.getString(35)));
+                ht.setToiva(Util.completaCerosDecimal(rs.getString(36)));
+                ht.setToice(Util.completaCerosDecimal(rs.getString(37)));
+                ht.setToiehd(Util.completaCerosDecimal(rs.getString(38)));
+                ht.setToicd(Util.completaCerosDecimal(rs.getString(39)));
+                ht.setTototal(Util.completaCerosDecimal(rs.getString(40)));
                 
-                ht.setToufvga(rs.getString(41));
-                ht.setToufviva(rs.getString(42));
-                ht.setToufvice(rs.getString(43));
-                ht.setToufviehd(rs.getString(44));
-                ht.setToufvicd(rs.getString(45));
-                ht.setToufvtotal(rs.getString(46));
+                ht.setToufvga(Util.completaCerosDecimal(rs.getString(41)));
+                ht.setToufviva(Util.completaCerosDecimal(rs.getString(42)));
+                ht.setToufvice(Util.completaCerosDecimal(rs.getString(43)));
+                ht.setToufviehd(Util.completaCerosDecimal(rs.getString(44)));
+                ht.setToufvicd(Util.completaCerosDecimal(rs.getString(45)));
+                ht.setToufvtotal(Util.completaCerosDecimal(rs.getString(46)));
                 
                 ht.setDias(rs.getString(47));
                 ht.setFormula(rs.getString(48));
                 
-                ht.setIga(rs.getString(49));
-                ht.setIiva(rs.getString(50));
-                ht.setIice(rs.getString(51));
-                ht.setIiehd(rs.getString(52));
-                ht.setIicd(rs.getString(53));
-                ht.setItotal(rs.getString(54));
+                ht.setIga(Util.completaCerosDecimal(rs.getString(49)));
+                ht.setIiva(Util.completaCerosDecimal(rs.getString(50)));
+                ht.setIice(Util.completaCerosDecimal(rs.getString(51)));
+                ht.setIiehd(Util.completaCerosDecimal(rs.getString(52)));
+                ht.setIicd(Util.completaCerosDecimal(rs.getString(53)));
+                ht.setItotal(Util.completaCerosDecimal(rs.getString(54)));
                 
-                ht.setDtufvga(rs.getString(55));
-                ht.setDtufviva(rs.getString(56));
-                ht.setDtufvice(rs.getString(57));
-                ht.setDtufviehd(rs.getString(58));
-                ht.setDtufvicd(rs.getString(59));
-                ht.setDtufvtotal(rs.getString(60));
+                ht.setDtufvga(Util.completaCerosDecimal(rs.getString(55)));
+                ht.setDtufviva(Util.completaCerosDecimal(rs.getString(56)));
+                ht.setDtufvice(Util.completaCerosDecimal(rs.getString(57)));
+                ht.setDtufviehd(Util.completaCerosDecimal(rs.getString(58)));
+                ht.setDtufvicd(Util.completaCerosDecimal(rs.getString(59)));
+                ht.setDtufvtotal(Util.completaCerosDecimal(rs.getString(60)));
                 
-                ht.setSancion(rs.getString(61));
-                ht.setAdeudo_totalbs(rs.getString(62));
-                ht.setAdeudo_totalufv(rs.getString(63));
+                ht.setSancion(Util.completaCerosDecimal(rs.getString(61)));
+                ht.setAdeudo_totalbs(Util.completaCerosDecimal(rs.getString(62)));
+                ht.setAdeudo_totalufv(Util.completaCerosDecimal(rs.getString(63)));
 
                 htls.add(ht);
             }

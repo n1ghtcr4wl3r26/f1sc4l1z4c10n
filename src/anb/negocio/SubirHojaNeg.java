@@ -194,7 +194,7 @@ public class SubirHojaNeg {
                                 res = dao.graba_resultados(dui, item, String.valueOf(dpartida), fob, flete, seguro, otros, cifusd, cifbob, contrav, ilicito, observacion, usuario, codigo, contravorden);
                                 if (res.equals("CORRECTO")) {
                                     grab++;
-                                    marcador = marcador + " se grabo correctamente.<br>";
+                                    marcador = marcador + " se grab&oacute; correctamente.<br>";
                                 } else {
                                     marcador = marcador + " no pudo ser grabada:" + res + " <br>";
                                 }
@@ -418,7 +418,7 @@ public class SubirHojaNeg {
                                     otros,  cifusd,  cifbob,  cifufv,  usuario , ilicito, contrav);
                                 if (res.equals("CORRECTO")) {
                                     grab++;
-                                    marcador = marcador + " se grabo correctamente.<br>";
+                                    marcador = marcador + " se grab&oacute; correctamente.<br>";
                                 } else {
                                     marcador = marcador + " no pudo ser grabada:" + res + " <br>";
                                 }

@@ -30,6 +30,7 @@ public class DeclaracionItem {
     private String partida;
     
     private String canal;
+    private String ficha;
     
     
     public void setGestion(String gestion) {
@@ -230,5 +231,13 @@ public class DeclaracionItem {
 
     public String getCanal() {
         return canal;
+    }
+
+    public void setFicha(String ficha) {
+        this.ficha = ficha;
+    }
+
+    public String getFicha() {
+        return ficha;
     }
 }

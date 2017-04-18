@@ -97,7 +97,7 @@
             %>
             <br></br>
             <br></br>
-            <div class="panel-title">
+            <div class="panel-title imp">
                 <strong>CUADRO DE LIQUIDACION</strong>
             </div>
             <table class="table table-striped table-hover" id="main-table">
@@ -117,12 +117,11 @@
                         <th colspan="6" class="text-center">TRIBUTOS OMITIDOS UFV</th>
                         <th rowspan="2" class="text-center">UFV FECHA VENCIMIENTO</th>
                         <th rowspan="2" class="text-center">D&iacute;as</th>
-                        <th rowspan="2" class="text-center">(1+r/360)^n</th>
-                        
-                        <th colspan="5" class="text-center">INTERES TRIBUTOS OMITIDOS</th>   
+                          
                         <th colspan="5" class="text-center">TRIBUTOS OMITIDOS + INTERESES</th>
-                        <th rowspan="2" class="text-center">Sansi&oacute; 100% UFV's</th>
                         <th rowspan="2" class="text-center">ADEUDO TOTAL UFV</th>
+                        <th rowspan="2" class="text-center">&nbsp;</th>
+                        <th rowspan="2" class="text-center">&nbsp;</th>
                     </tr>
                     <tr>
                         <th class="text-center">FOB USD</th>
@@ -165,11 +164,7 @@
                         <th class="text-center">ICD UFV</th>
                         <th class="text-center">TOTAL UFV</th>
                                                 
-                        <th class="text-center">GA UFV</th>
-                        <th class="text-center">IVA UFV</th>
-                        <th class="text-center">ICE UFV</th>
-                        <th class="text-center">IEHD UFV</th>
-                        <th class="text-center">ICD UFV</th>
+                        
                         <th class="text-center">GA UFV</th>
                         <th class="text-center">IVA UFV</th>
                         <th class="text-center">ICE UFV</th>
@@ -322,33 +317,12 @@
                             </td>
                             
                             
-                            
                             <td class="text-right">
                                 ${esc.ufvvenc}
                             </td>
                             <td class="text-right">
                                 ${esc.dias}
                             </td>
-                            <td class="text-right">
-                                ${esc.formula}
-                            </td>
-                            
-                            <td class="text-right">
-                                ${esc.iga}
-                            </td>
-                            <td class="text-right">
-                                ${esc.iiva}
-                            </td>
-                            <td class="text-right">
-                                ${esc.iice}
-                            </td>
-                            <td class="text-right">
-                                ${esc.iiehd}
-                            </td>
-                            <td class="text-right">
-                                ${esc.iicd}
-                            </td>
-                           
                             
                             <td class="text-right">
                                 ${esc.dtufvga}
@@ -367,11 +341,13 @@
                             </td>
                            
                             <td class="text-right">
-                                ${esc.sancion}
-                            </td>
-                            
-                            <td class="text-right">
                                 ${esc.adeudo_totalufv}
+                            </td>
+                            <td class="text-right">
+                                &nbsp;
+                            </td>
+                            <td class="text-right">
+                                &nbsp;
                             </td>
                             
                             

@@ -179,6 +179,7 @@
                                     <th class="text-center">&nbsp;</th>
                                     <th class="text-center">&nbsp;</th>
                                     <th class="text-center">&nbsp;</th>
+                                    <th class="text-center">&nbsp;</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -243,6 +244,11 @@
                                             FRV
                                         </a>
                                     </td>
+                                    <td class="text-center">
+                                        <a onclick=window.open('http://deslogic01:7011/mira/reportes/Dili1.jsp?dma=${esc.ficha}&tec=%20','_blank','width=550,height=580,menubar=0,scrollbars=yes,toolbar=0,location=0,directories=0,resizable=0,top=0,left=0') href='javascript:void(0)' >
+                                            Ficha Informativa
+                                        </a>
+                                    </td>
                                     <td class="text-center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
                                 </tr>
                                 </c:forEach>
@@ -296,6 +302,7 @@
                                     <th class="text-center">Proveedor</th>
                                     <th class="text-center">Descripción</th>
                                     <th class="text-center">Estado</th>
+                                    <th class="text-center">&nbsp;</th>
                                     <th class="text-center">&nbsp;</th>
                                     <th class="text-center">&nbsp;</th>
                                     <th class="text-center">&nbsp;</th>
@@ -368,6 +375,11 @@
                                     <td class="text-center">
                                         <a onclick=window.open('http://anbsw07.aduana.gob.bo:7601/mira/DUI_frv.jsp?gestion=${esc.gestion}&aduana=${esc.aduana}&registro=${esc.numero}&vdec=&vop=&vusu=&bandera=undefined','_blank','width=550,height=580,menubar=0,scrollbars=yes,toolbar=0,location=0,directories=0,resizable=0,top=0,left=0') href='javascript:void(0)' >
                                             FRV
+                                        </a>
+                                    </td>
+                                    <td class="text-center">
+                                        <a onclick=window.open('http://deslogic01:7011/mira/reportes/Dili1.jsp?dma=${esc.ficha}&tec=%20','_blank','width=550,height=580,menubar=0,scrollbars=yes,toolbar=0,location=0,directories=0,resizable=0,top=0,left=0') href='javascript:void(0)' >
+                                            Ficha Informativa
                                         </a>
                                     </td>
                                     <td class="text-center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>

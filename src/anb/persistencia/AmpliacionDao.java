@@ -80,6 +80,7 @@ public class AmpliacionDao extends Conexion {
                     dec.setProveedor(rs.getString(5));
                     dec.setFechaPase(rs.getString(5));
                     dec.setCanal(rs.getString(17));
+                    dec.setFicha(rs.getString(18));
                     dec.setSequencia(String.valueOf(cont++));
                     if(dec.getEstado().substring(0,7).equals("SICODIF")){
                         dec.setVerifitem("1111");
@@ -169,6 +170,7 @@ public class AmpliacionDao extends Conexion {
                 dec.setProveedor(rs.getString(17));
                 dec.setDescripcion(rs.getString(18));
                 dec.setCanal(rs.getString(19));
+                dec.setFicha(rs.getString(20));
                 decls.add(dec);
             }
         } finally {
