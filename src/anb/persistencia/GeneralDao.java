@@ -492,6 +492,29 @@ public class GeneralDao extends Conexion{
        return res;
     }
     
+    public Boolean esFechaMenorIgualAHoy(String fecha) throws SQLException, ClassNotFoundException, NamingException {
+        Boolean res;
+        String valor;
+        try {
+            open();
+            call = cn.prepareCall("{ ? = call pkg_general.esFechaMenorIgualAHoy ( ? )}");
+            call.registerOutParameter(1, OracleTypes.VARCHAR);
+            call.setString(2, fecha);
+            call.execute();
+            valor = (String) call.getObject(1);
+            if(valor.equals("CORRECTO")){
+                res = true;    
+            } else {
+                res = false;
+            }
+        } finally {
+            if (cn != null) {
+                cn.close();
+            }
+        }
+        return res;        
+    }
+    
     public Boolean mostrar_botones_concluir(String codigo,String usuario, String opcion) throws SQLException, ClassNotFoundException, NamingException {
        Boolean res;
        String valor;

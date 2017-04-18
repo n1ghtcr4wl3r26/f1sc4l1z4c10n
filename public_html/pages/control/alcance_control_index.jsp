@@ -16,7 +16,7 @@
             <div class="form-group">
                 <label class="col-sm-2 control-label">N&uacute;mero Control Memorizado:</label>
                 <div class="col-sm-2">
-                    <html:text property="codigo" styleId="codigo" maxlength="15" styleClass="form-control required" size="15"/>
+                    <html:text property="codigo" styleId="codigo" maxlength="15" styleClass="form-control required numeric" size="15"/>
                 </div>
             </div>
             <div class="form-group">

@@ -53,7 +53,7 @@
                             <div class="form-group">
                                 <label class="col-sm-3 control-label">Fecha de Documento:</label>
                                 <div class="col-sm-3">
-                                    <html:text property="difFecDocumento" styleId="difFecDocumento" styleClass="form-control datepicker required" size="30" maxlength="10" />
+                                    <html:text property="difFecDocumento" styleId="difFecDocumento" styleClass="form-control datepicker required date-less-than" size="30" maxlength="10" />
                                 </div>
                             </div>
                             <div class="form-group">
@@ -217,7 +217,7 @@
                             <div class="form-group">
                                 <label class="col-sm-3 control-label">Fecha de Documento:</label>
                                 <div class="col-sm-3">
-                                    <html:text property="posFecDocumento" styleId="posFecDocumento" styleClass="form-control datepicker required" size="30" maxlength="30" />
+                                    <html:text property="posFecDocumento" styleId="posFecDocumento" styleClass="form-control datepicker required date-less-than" size="30" maxlength="30" />
                                 </div>
                             </div>
                             <div class="form-group">
@@ -527,12 +527,19 @@
             $('#ampNombrePersona').removeClass('required');
             $('#ampApPatPersona').removeClass('required');
             $('#ampApMatPersona').removeClass('required');
+            $('#ampNroCIPersona').val('');
+            $('#ampExpCIPersona').val('');
+            $('#ampNombrePersona').val('');
+            $('#ampApPatPersona').val('');
+            $('#ampApMatPersona').val('');
         }
         if ($('#ampTipoDocPersona').val()=="CI") {
             $('#amp-nit-panel').hide();
             $('#amp-ci-panel').show();
             $('#ampNitEmpresa').removeClass('required');
             $('#ampNomEmpresa').removeClass('required');
+            $('#ampNitEmpresa').val('');
+            $('#ampNomEmpresa').val('');
             $('#ampNroCIPersona').addClass('required');
             $('#ampExpCIPersona').addClass('required');
             $('#ampNombrePersona').addClass('required');
@@ -549,12 +556,20 @@
             $('#difNombrePersona').removeClass('required');
             $('#difApPatPersona').removeClass('required');
             $('#difApMatPersona').removeClass('required');
+            $('#difNroCIPersona').val('');
+            $('#difExpCIPersona').val('');
+            $('#difNombrePersona').val('');
+            $('#difApPatPersona').val('');
+            $('#difApMatPersona').val('');
+            
         }
         if ($('#difTipoDocPersona').val()=="CI") {
             $('#dif-nit-panel').hide();
             $('#dif-ci-panel').show();
             $('#difNitEmpresa').removeClass('required');
             $('#difNomEmpresa').removeClass('required');
+            $('#difNitEmpresa').val('');
+            $('#difNomEmpresa').val('');
             $('#difNroCIPersona').addClass('required');
             $('#difExpCIPersona').addClass('required');
             $('#difNombrePersona').addClass('required');
@@ -571,12 +586,19 @@
             $('#posNombrePersona').removeClass('required');
             $('#posApPatPersona').removeClass('required');
             $('#posApMatPersona').removeClass('required');
+            $('#posNroCIPersona').val('');
+            $('#posExpCIPersona').val('');
+            $('#posNombrePersona').val('');
+            $('#posApPatPersona').val('');
+            $('#posApMatPersona').val('');
         }
         if ($('#posTipoDocPersona').val()=="CI") {
             $('#pos-nit-panel').hide();
             $('#pos-ci-panel').show();
             $('#posNitEmpresa').removeClass('required');
             $('#posNomEmpresa').removeClass('required');
+            $('#posNitEmpresa').val('');
+            $('#posNomEmpresa').val('');
             $('#posNroCIPersona').addClass('required');
             $('#posExpCIPersona').addClass('required');
             $('#posNombrePersona').addClass('required');
@@ -634,12 +656,21 @@
                 $('#difNombrePersona').removeClass('required');
                 $('#difApPatPersona').removeClass('required');
                 $('#difApMatPersona').removeClass('required');
+                
+                $('#difNroCIPersona').val('');
+                $('#difExpCIPersona').val('');
+                $('#difNombrePersona').val('');
+                $('#difApPatPersona').val('');
+                $('#difApMatPersona').val('');
             }
             if ($('#difTipoDocPersona').val()=="CI") {
                 $('#dif-nit-panel').hide();
                 $('#dif-ci-panel').show();
                 $('#difNitEmpresa').removeClass('required');
                 $('#difNomEmpresa').removeClass('required');
+                
+                $('#difNitEmpresa').val('');
+                $('#difNomEmpresa').val('');
                 $('#difNroCIPersona').addClass('required');
                 $('#difExpCIPersona').addClass('required');
                 $('#difNombrePersona').addClass('required');
@@ -659,12 +690,21 @@
                 $('#posNombrePersona').removeClass('required');
                 $('#posApPatPersona').removeClass('required');
                 $('#posApMatPersona').removeClass('required');
+                
+                $('#posNroCIPersona').val('');
+                $('#posExpCIPersona').val('');
+                $('#posNombrePersona').val('');
+                $('#posApPatPersona').val('');
+                $('#posApMatPersona').val('');
             }
             if ($('#posTipoDocPersona').val()=="CI") {
                 $('#pos-nit-panel').hide();
                 $('#pos-ci-panel').show();
                 $('#posNitEmpresa').removeClass('required');
                 $('#posNomEmpresa').removeClass('required');
+                
+                $('#posNitEmpresa').val('');
+                $('#posNomEmpresa').val('');
                 $('#posNroCIPersona').addClass('required');
                 $('#posExpCIPersona').addClass('required');
                 $('#posNombrePersona').addClass('required');
@@ -684,12 +724,21 @@
                 $('#ampNombrePersona').removeClass('required');
                 $('#ampApPatPersona').removeClass('required');
                 $('#ampApMatPersona').removeClass('required');
+                
+                $('#ampNroCIPersona').val('');
+                $('#ampExpCIPersona').val('');
+                $('#ampNombrePersona').val('');
+                $('#ampApPatPersona').val('');
+                $('#ampApMatPersona').val('');
             }
             if ($('#ampTipoDocPersona').val()=="CI") {
                 $('#amp-nit-panel').hide();
                 $('#amp-ci-panel').show();
                 $('#ampNitEmpresa').removeClass('required');
                 $('#ampNomEmpresa').removeClass('required');
+                
+                $('#ampNitEmpresa').val('');
+                $('#ampNomEmpresa').val('');
                 $('#ampNroCIPersona').addClass('required');
                 $('#ampExpCIPersona').addClass('required');
                 $('#ampNombrePersona').addClass('required');

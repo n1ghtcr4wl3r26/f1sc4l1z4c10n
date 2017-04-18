@@ -323,7 +323,7 @@
                 <label class="col-sm-3 control-label">Fecha de Documento:</label>
                 <div class="col-sm-3">
                     <html:text property="fecDocumento" styleId="fecDocumento"
-                               styleClass="form-control datepicker required" size="30" maxlength="10"/>
+                               styleClass="form-control datepicker required date-less-than" size="30" maxlength="10"/>
                 </div>
             </div>
             <div class="form-group">

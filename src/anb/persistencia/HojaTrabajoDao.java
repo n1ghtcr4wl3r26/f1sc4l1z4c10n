@@ -6,6 +6,7 @@ import anb.bean.GeneracionHojaForm;
 import anb.entidades.HojaTrabajoDui;
 
 import anb.general.Conexion;
+import anb.general.Util;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -48,26 +49,27 @@ public class HojaTrabajoDao extends Conexion {
                 ht.setFechavcto(rs.getString(9));
 
                 ht.setDecfobusd(rs.getString(10));
-                ht.setDecfleteusd(rs.getString(11));
-                ht.setDecsegurousd(rs.getString(12));
-                ht.setDecotrosusd(rs.getString(13));
-                ht.setDeccifusd(rs.getString(14));
-                ht.setDectc(rs.getString(15));
-                ht.setDeccifbs(rs.getString(16));
-                ht.setDecga(rs.getString(17));
-                ht.setDecivabs(rs.getString(18));
-                ht.setDetfobusd(rs.getString(19));
-                ht.setDetfleteusd(rs.getString(20));
-                ht.setDetsegurousd(rs.getString(21));
-                ht.setDetotrosusd(rs.getString(22));
-                ht.setDetcifusd(rs.getString(23));
-                ht.setDetcifbs(rs.getString(24));
+                ht.setDecfleteusd(Util.completaCerosDecimal(rs.getString(11)));
+                ht.setDecfleteusd2(Double.parseDouble(rs.getString(11)));
+                ht.setDecsegurousd(Util.completaCerosDecimal(rs.getString(12)));
+                ht.setDecotrosusd(Util.completaCerosDecimal(rs.getString(13)));
+                ht.setDeccifusd(Util.completaCerosDecimal(rs.getString(14)));
+                ht.setDectc(Util.completaCerosDecimal(rs.getString(15)));
+                ht.setDeccifbs(Util.completaCerosDecimal(rs.getString(16)));
+                ht.setDecga(Util.completaCerosDecimal(rs.getString(17)));
+                ht.setDecivabs(Util.completaCerosDecimal(rs.getString(18)));
+                ht.setDetfobusd(Util.completaCerosDecimal(rs.getString(19)));
+                ht.setDetfleteusd(Util.completaCerosDecimal(rs.getString(20)));
+                ht.setDetsegurousd(Util.completaCerosDecimal(rs.getString(21)));
+                ht.setDetotrosusd(Util.completaCerosDecimal(rs.getString(22)));
+                ht.setDetcifusd(Util.completaCerosDecimal(rs.getString(23)));
+                ht.setDetcifbs(Util.completaCerosDecimal(rs.getString(24)));
 
-                ht.setContravencion(rs.getString(25));
+                ht.setContravencion(Util.completaCerosDecimal(rs.getString(25)));
                 ht.setIlicitodet(rs.getString(26));
                 ht.setObservacion(rs.getString(27));
                 ht.setTipoalcance(rs.getString(28));
-                ht.setContravencionorden(rs.getString(29));
+                ht.setContravencionorden(Util.completaCerosDecimal(rs.getString(29)));
                 htls.add(ht);
             }
         } finally {

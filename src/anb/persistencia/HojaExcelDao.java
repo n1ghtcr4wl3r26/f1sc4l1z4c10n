@@ -7,6 +7,7 @@ import anb.entidades.HojaExcel;
 import anb.entidades.HojaExcelCab;
 
 import anb.general.Conexion;
+import anb.general.Util;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -47,7 +48,7 @@ public class HojaExcelDao extends Conexion {
                 ht.setNumero(rs.getString(7));
                 ht.setFechaval(rs.getString(8));
                 ht.setFechavcto(rs.getString(9));*/
-                ht.setDecfobusd(rs.getString(2));/*
+                ht.setDecfobusd(Util.completaCerosDecimal(rs.getString(2)));/*
                 ht.setDecfleteusd(rs.getString(11));
                 ht.setDecsegurousd(rs.getString(12));
                 ht.setDecotrosusd(rs.getString(13));
@@ -93,12 +94,12 @@ public class HojaExcelDao extends Conexion {
             if (rs.next()) {
                 
                 
-                htls.setFobtotal(rs.getString(1).replace('.', ','));
-                htls.setFlete(rs.getString(2).replace('.', ','));
+                htls.setFobtotal(Util.completaCerosDecimal(rs.getString(1)));
+                htls.setFlete(Util.completaCerosDecimal(rs.getString(2)));
                 htls.setFletediv("");
-                htls.setSeguro(rs.getString(3).replace('.', ','));
+                htls.setSeguro(Util.completaCerosDecimal(rs.getString(3)));
                 htls.setSegurodiv("");
-                htls.setOtrosg(rs.getString(4).replace('.', ','));
+                htls.setOtrosg(Util.completaCerosDecimal(rs.getString(4)));
                 htls.setDui(rs.getString(5));
                 htls.setOtrosgdiv("");
                 htls.setOtrase("");

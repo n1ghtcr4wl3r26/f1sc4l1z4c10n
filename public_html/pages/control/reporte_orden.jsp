@@ -61,7 +61,7 @@ try
 <tr><td colspan="6"  style="height:10px; padding:0px; ">&nbsp;</td></tr>
 
 
-<tr><td colspan="6" style="text-align:justify">En aplicación del artículo 104º parágrafo I. de la Ley No.2492 y el Procedimiento de Fiscalización Aduanera Posterior, aprobado mediante Resolución de Directorio No. RD. 01-008-11, la Aduana Nacional ha dispuesto la verificación del cumplimiento de la normativa legal aplicable y las formalidades aduaneras del Operador.</td></tr>
+<tr><td colspan="6" style="text-align:justify">En aplicación del artículo 104º parágrafo I. de la Ley No.2492 y el Procedimiento Sancionatorio y de Determinación, aprobado mediante Resolución Administrativa No. RA-PE-01-029-16, la Aduana Nacional ha dispuesto la verificación del cumplimiento de la normativa legal aplicable y las formalidades aduaneras del Operador.</td></tr>
 <tr><td colspan="6"><strong>I. INFORMACIÓN DEL OPERADOR</strong></td></tr>
 
 <tr><td colspan="3">Número del ${infoControl2.tipoDocIdentificacion}:</td><td colspan="3">${infoControl2.docIdentificacion}</td></tr>

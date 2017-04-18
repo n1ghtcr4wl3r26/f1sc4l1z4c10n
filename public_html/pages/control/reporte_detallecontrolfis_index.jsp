@@ -18,10 +18,10 @@
             </div>
             <div class="form-group">
                 <div class="col-sm-2">
-                    <html:text property="ffecini" styleId="ffecini" styleClass="form-control datepicker required" size="30" maxlength="10" />
+                    <html:text property="ffecini" styleId="ffecini" styleClass="form-control datepicker required date-less-than" size="30" maxlength="10" />
                 </div>    
                 <div class="col-sm-2">
-                    <html:text property="ffecfin" styleId="ffecfin" styleClass="form-control datepicker required" size="30" maxlength="10" />
+                    <html:text property="ffecfin" styleId="ffecfin" styleClass="form-control datepicker required date-less-than" size="30" maxlength="10" />
                 </div>   
             </div>
             <div class="form-group">

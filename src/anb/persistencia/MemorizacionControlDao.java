@@ -186,7 +186,7 @@ cn.prepareCall("{ ? = call pkg_memorizacion.graba_memorizacion_posterior ( ?,?,?
             call.setString(8, bean.getPosNitEmpresa());
             call.setString(9, bean.getPosNomEmpresa());
             call.setString(10, bean.getPosNroCIPersona());
-            call.setString(11, bean.getDifExpCIPersona());
+            call.setString(11, bean.getPosExpCIPersona());
             call.setString(12, bean.getPosNombrePersona());
             call.setString(13, bean.getPosApPatPersona());
             call.setString(14, bean.getPosApMatPersona());
@@ -235,7 +235,7 @@ cn.prepareCall("{ ? = call pkg_memorizacion.graba_memorizacion_ampliatoria ( ?,?
             call.setString(6, bean.getAmpNitEmpresa());
             call.setString(7, bean.getAmpNomEmpresa());
             call.setString(8, bean.getAmpNroCIPersona());
-            call.setString(9, bean.getDifExpCIPersona());
+            call.setString(9, bean.getAmpExpCIPersona());
             call.setString(10, bean.getAmpNombrePersona());
             call.setString(11, bean.getAmpApPatPersona());
             call.setString(12, bean.getAmpApMatPersona());

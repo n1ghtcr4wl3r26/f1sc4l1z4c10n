@@ -14,6 +14,7 @@ public class HojaTrabajoDui {
     private String fechavcto;
     private String decfobusd;
     private String decfleteusd;
+    private Double decfleteusd2;
     private String decsegurousd;
     private String decotrosusd;
     private String deccifusd;
@@ -344,5 +345,13 @@ public class HojaTrabajoDui {
 
     public Double getDetfobusd2() {
         return detfobusd2;
+    }
+
+    public void setDecfleteusd2(Double decfleteusd2) {
+        this.decfleteusd2 = decfleteusd2;
+    }
+
+    public Double getDecfleteusd2() {
+        return decfleteusd2;
     }
 }

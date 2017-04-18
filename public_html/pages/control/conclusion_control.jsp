@@ -201,7 +201,7 @@
                             <label class="col-sm-3 control-label">Fecha informe Técnico:</label>
                             <div class="col-sm-3">
                                 <html:text property="cvc_fecha_informe" styleId="cvc_fecha_informe"
-                                           styleClass="form-control datepicker" size="30" maxlength="10" disabled="<%=ffisca%>"/>
+                                           styleClass="form-control datepicker date-less-than" size="30" maxlength="10" disabled="<%=ffisca%>"/>
                             </div>
                         </div>
                         <div class="form-group">
@@ -215,7 +215,7 @@
                             <label class="col-sm-3 control-label">Fecha de Vista de Cargo:</label>
                             <div class="col-sm-3">
                                 <html:text property="cvc_fecha_vc" styleId="cvc_fecha_vc"
-                                           styleClass="form-control datepicker" size="30" maxlength="10" disabled="<%=ffisca%>"/>
+                                           styleClass="form-control datepicker date-less-than" size="30" maxlength="10" disabled="<%=ffisca%>"/>
                             </div>
                         </div>
                         <div class="form-group">
@@ -236,14 +236,14 @@
                             <label class="col-sm-3 control-label">Fecha de la Notificaci&oacute;n:</label>
                             <div class="col-sm-3">
                                 <html:text property="cvc_fecha_notificacion" styleId="cvc_fecha_notificacion"
-                                           styleClass="form-control datepicker" size="30" maxlength="10" disabled="<%=ffisca%>" />
+                                           styleClass="form-control datepicker date-less-than" size="30" maxlength="10" disabled="<%=ffisca%>" />
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-3 control-label">Fecha de presentaci&oacute;n de descargos:</label>
                             <div class="col-sm-3">
                                 <html:text property="cvc_fecha_presentacion" styleId="cvc_fecha_presentacion"
-                                           styleClass="form-control datepicker" size="30" maxlength="10" disabled="<%=ffisca%>"/>
+                                           styleClass="form-control datepicker date-less-than" size="30" maxlength="10" disabled="<%=ffisca%>"/>
                             </div>
                         </div>
                         <div class="form-group">
@@ -257,7 +257,7 @@
                             <label class="col-sm-3 control-label">Fecha informe de descargos:</label>
                             <div class="col-sm-3">
                                 <html:text property="cvc_fecha_descargo" styleId="cvc_fecha_descargo"
-                                           styleClass="form-control datepicker" size="30" maxlength="10" disabled="<%=ffisca%>"/>
+                                           styleClass="form-control datepicker date-less-than" size="30" maxlength="10" disabled="<%=ffisca%>"/>
                             </div>
                         </div>
                         
@@ -272,7 +272,7 @@
                             <label class="col-sm-3 control-label">Fecha de la CI de remisi&oacute;n a la GR:</label>
                             <div class="col-sm-3">
                                 <html:text property="cvc_fecha_ci_remision" styleId="cvc_fecha_ci_remision"
-                                           styleClass="form-control datepicker" size="30" maxlength="10" disabled="<%=ffisca%>"/>
+                                           styleClass="form-control datepicker date-less-than" size="30" maxlength="10" disabled="<%=ffisca%>"/>
                             </div>
                         </div>
                         <div class="form-group">
@@ -313,7 +313,7 @@
                             <label class="col-sm-3 control-label label-required">Fecha de notificaci&oacute;n de la RD:</label>
                             <div class="col-sm-3">
                                 <html:text property="cvc_fecha_rd" styleId="cvc_fecha_rd"
-                                           styleClass="form-control datepicker" size="30" maxlength="10" disabled="<%=flegal%>"/>
+                                           styleClass="form-control datepicker date-less-than" size="30" maxlength="10" disabled="<%=flegal%>"/>
                             </div>
                         </div>
                         <div class="btn-container">
@@ -355,7 +355,7 @@
                             <label class="col-sm-3 control-label">Fecha informe Técnico:</label>
                             <div class="col-sm-3">
                                 <html:text property="crd_fecha_informe" styleId="crd_fecha_informe"
-                                           styleClass="form-control datepicker" size="30" maxlength="10" disabled="<%=ffisca%>"/>
+                                           styleClass="form-control datepicker date-less-than" size="30" maxlength="10" disabled="<%=ffisca%>"/>
                             </div>
                         </div> 
                         <div class="form-group">
@@ -369,7 +369,7 @@
                             <label class="col-sm-3 control-label">Fecha de notificaci&oacute;n de la RD final:</label>
                             <div class="col-sm-3">
                                 <html:text property="crd_fecha_not_rd_final" styleId="crd_fecha_not_rd_final"
-                                           styleClass="form-control datepicker" size="30" maxlength="10" disabled="<%=ffisca%>" />
+                                           styleClass="form-control datepicker date-less-than" size="30" maxlength="10" disabled="<%=ffisca%>" />
                             </div>
                         </div>
                         <div class="btn-container">
@@ -406,7 +406,7 @@
                             <label class="col-sm-3 control-label">Fecha informe Técnico:</label>
                             <div class="col-sm-3">
                                 <html:text property="cai_fecha_informe" styleId="cai_fecha_informe"
-                                           styleClass="form-control datepicker" size="30" maxlength="10" disabled="<%=ffisca%>"/>
+                                           styleClass="form-control datepicker date-less-than" size="30" maxlength="10" disabled="<%=ffisca%>"/>
                             </div>
                         </div> 
                         <div class="form-group">
@@ -420,7 +420,7 @@
                             <label class="col-sm-3 control-label">Fecha de la Acta de Intervenci&oacute;n:</label>
                             <div class="col-sm-3">
                                 <html:text property="cai_fecha_acta_interv" styleId="cai_fecha_acta_interv"
-                                           styleClass="form-control datepicker" size="30" maxlength="10" disabled="<%=ffisca%>" />
+                                           styleClass="form-control datepicker date-less-than" size="30" maxlength="10" disabled="<%=ffisca%>" />
                             </div>
                         </div>
                         <div class="form-group">
@@ -446,7 +446,7 @@
                             <label class="col-sm-3 control-label">Fecha de la CI:</label>
                             <div class="col-sm-3">
                                 <html:text property="cai_fecha_ci_remision" styleId="cai_fecha_ci_remision"
-                                           styleClass="form-control datepicker" size="30" maxlength="10" disabled="<%=ffisca%>" />
+                                           styleClass="form-control datepicker date-less-than" size="30" maxlength="10" disabled="<%=ffisca%>" />
                             </div>
                         </div>
                         <div class="form-group">
@@ -467,7 +467,7 @@
                             <label class="col-sm-3 control-label">Fecha de Notificaci&oacute;n del Acta de Intervenci&oacute;n:</label>
                             <div class="col-sm-3">
                                 <html:text property="cai_fecha_not_ai" styleId="cai_fecha_not_ai"
-                                           styleClass="form-control datepicker" size="30" maxlength="10" disabled="<%=ffisca%>"/>
+                                           styleClass="form-control datepicker date-less-than" size="30" maxlength="10" disabled="<%=ffisca%>"/>
                             </div>
                         </div>
                         <div class="form-group">
@@ -489,7 +489,7 @@
                             <label class="col-sm-3 control-label label-required">Fecha de presentaci&oacute;n de descargos:</label>
                             <div class="col-sm-3">
                                 <html:text property="cai_fecha_pres_descargos" styleId="cai_fecha_pres_descargos"
-                                           styleClass="form-control datepicker" size="30" maxlength="10" disabled="<%=flegal%>" />
+                                           styleClass="form-control datepicker date-less-than" size="30" maxlength="10" disabled="<%=flegal%>" />
                             </div>
                         </div>
                         <div class="form-group">
@@ -503,7 +503,7 @@
                             <label class="col-sm-3 control-label label-required">Fecha informe de descargos:</label>
                             <div class="col-sm-3">
                                 <html:text property="cai_fecha_inf_descargo" styleId="cai_fecha_inf_descargo"
-                                           styleClass="form-control datepicker" size="30" maxlength="10" disabled="<%=flegal%>"/>
+                                           styleClass="form-control datepicker date-less-than" size="30" maxlength="10" disabled="<%=flegal%>"/>
                             </div>
                         </div>
                         
@@ -541,7 +541,7 @@
                             <label class="col-sm-3 control-label label-required">Fecha de notificaci&oacute;n de la Resoluci&oacute;n:</label>
                             <div class="col-sm-3">
                                 <html:text property="cai_fecha_rs" styleId="cai_fecha_rs"
-                                           styleClass="form-control datepicker" size="30" maxlength="10" disabled="<%=flegal%>"/>
+                                           styleClass="form-control datepicker date-less-than" size="30" maxlength="10" disabled="<%=flegal%>"/>
                             </div>
                         </div>
                         <div class="btn-container">
@@ -584,7 +584,7 @@
                             <label class="col-sm-3 control-label">Fecha informe T&eacute;cnico:</label>
                             <div class="col-sm-3">
                                 <html:text property="cra_fecha_informe" styleId="cra_fecha_informe"
-                                           styleClass="form-control datepicker" size="30" maxlength="10"
+                                           styleClass="form-control datepicker date-less-than" size="30" maxlength="10"
                                            disabled="<%=ffisca%>"/>
                             </div>
                         </div>
@@ -592,7 +592,7 @@
                             <label class="col-sm-3 control-label">Fecha de pago cuota inicial:</label>
                             <div class="col-sm-3">
                                 <html:text property="cra_fecha_pago_cuini" styleId="cra_fecha_pago_cuini"
-                                           styleClass="form-control datepicker" size="30" maxlength="10"
+                                           styleClass="form-control datepicker date-less-than" size="30" maxlength="10"
                                            disabled="<%=ffisca%>"/>
                             </div>
                         </div>
@@ -643,7 +643,7 @@
                             <label class="col-sm-3 control-label">Fecha de notificaci&oacute;n de la RA:</label>
                             <div class="col-sm-3">
                                 <html:text property="cra_fecha_ra" styleId="cra_fecha_ra"
-                                           styleClass="form-control datepicker" size="30" maxlength="10" disabled="<%=ffisca%>" />
+                                           styleClass="form-control datepicker date-less-than" size="30" maxlength="10" disabled="<%=ffisca%>" />
                             </div>
                         </div>
                         <div class="form-group">
@@ -659,7 +659,7 @@
                                                                   remisi&oacute;n a la SET:</label>
                             <div class="col-sm-3">
                                 <html:text property="cra_fecha_remision_set" styleId="cra_fecha_remision_set"
-                                           styleClass="form-control datepicker" size="30" maxlength="10" disabled="<%=ffisca%>" />
+                                           styleClass="form-control datepicker date-less-than" size="30" maxlength="10" disabled="<%=ffisca%>" />
                             </div>
                         </div>
                         <div class="form-group">
@@ -718,7 +718,7 @@
                             <label class="col-sm-3 control-label">Fecha informe Técnico:</label>
                             <div class="col-sm-3">
                                 <html:text property="cas_fecha_informe" styleId="cas_fecha_informe"
-                                           styleClass="form-control datepicker" size="30" maxlength="10" disabled="<%=ffisca%>"/>
+                                           styleClass="form-control datepicker date-less-than" size="30" maxlength="10" disabled="<%=ffisca%>"/>
                             </div>
                         </div>
                         <div class="form-group">
@@ -732,14 +732,14 @@
                             <label class="col-sm-3 control-label">Fecha de Notificaci&oacute;n:</label>
                             <div class="col-sm-3">
                                 <html:text property="cas_fecha_notificacion" styleId="cas_fecha_notificacion"
-                                           styleClass="form-control datepicker" size="30" maxlength="10" disabled="<%=ffisca%>" />
+                                           styleClass="form-control datepicker date-less-than" size="30" maxlength="10" disabled="<%=ffisca%>" />
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-3 control-label">Fecha de presentaci&oacute;n de descargos:</label>
                             <div class="col-sm-3">
                                 <html:text property="cas_fecha_pres_descargos" styleId="cas_fecha_pres_descargos"
-                                           styleClass="form-control datepicker" size="30" maxlength="10" disabled="<%=ffisca%>" />
+                                           styleClass="form-control datepicker date-less-than" size="30" maxlength="10" disabled="<%=ffisca%>" />
                             </div>
                         </div>
                         <div class="form-group">
@@ -753,7 +753,7 @@
                             <label class="col-sm-3 control-label">Fecha informe de descargos:</label>
                             <div class="col-sm-3">
                                 <html:text property="cas_fecha_inf_descargo" styleId="cas_fecha_inf_descargo"
-                                           styleClass="form-control datepicker" size="30" maxlength="10" disabled="<%=ffisca%>" />
+                                           styleClass="form-control datepicker date-less-than" size="30" maxlength="10" disabled="<%=ffisca%>" />
                             </div>
                         </div>
                         <div class="form-group">
@@ -767,7 +767,7 @@
                             <label class="col-sm-3 control-label">Fecha de notificaci&oacute;n de la RFS:</label>
                             <div class="col-sm-3">
                                 <html:text property="cas_fecha_rfs" styleId="cas_fecha_rfs"
-                                           styleClass="form-control datepicker" size="30" maxlength="10" disabled="<%=ffisca%>" />
+                                           styleClass="form-control datepicker date-less-than" size="30" maxlength="10" disabled="<%=ffisca%>" />
                             </div>
                         </div>
                         <div class="form-group">
@@ -781,7 +781,7 @@
                             <label class="col-sm-3 control-label">Fecha de la CI:</label>
                             <div class="col-sm-3">
                                 <html:text property="cas_fecha_ci" styleId="cas_fecha_ci"
-                                           styleClass="form-control datepicker" size="30" maxlength="10" disabled="<%=ffisca%>" />
+                                           styleClass="form-control datepicker date-less-than" size="30" maxlength="10" disabled="<%=ffisca%>" />
                             </div>
                         </div>
                         <div class="form-group">
@@ -810,7 +810,7 @@
                             <label class="col-sm-3 control-label label-required">Fecha de notificaci&oacute;n de la RS:</label>
                             <div class="col-sm-3">
                                 <html:text property="cas_fecha_rs" styleId="cas_fecha_rs"
-                                           styleClass="form-control datepicker" size="30" maxlength="10" disabled="<%=flegal%>" />
+                                           styleClass="form-control datepicker date-less-than" size="30" maxlength="10" disabled="<%=flegal%>" />
                             </div>
                         </div>
                         <div class="btn-container">

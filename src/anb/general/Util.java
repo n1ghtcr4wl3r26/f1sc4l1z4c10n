@@ -49,6 +49,18 @@ public class Util {
         return res;
     }
     
+    public static Boolean esFechaMenorIgualAHoy(String fecha) {
+        Boolean res;
+        GeneralDao dao = new GeneralDao();
+        try{
+            res = dao.esFechaMenorIgualAHoy(fecha);
+        }
+        catch(Exception ex){
+            res = false;
+        }
+        return res;
+    }
+    
     public static Boolean mostrar_botones_concluir(String codigo, String usuario, String opcion) {
         Boolean res;
         GeneralDao dao = new GeneralDao();
@@ -89,6 +101,17 @@ public class Util {
         if(numero.length() == 1)
             res = "00000"+numero;   
         
+        return res;
+    }
+    
+    public static String completaCerosDecimal(String numero) {
+        String res = "";
+        res = numero;
+        if(numero != null)
+            if(numero.length() > 0)
+                if(numero.substring(0, 1).equals("."))
+                    res = "0"+numero;    
+            
         return res;
     }
     
