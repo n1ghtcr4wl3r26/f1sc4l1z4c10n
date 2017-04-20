@@ -18,7 +18,7 @@
     <!--<link rel="stylesheet" type="text/css" href="lib/datatables/css/jquery.dataTables.min.css?${sessionScope.VERSION_ASSETS}">-->
     <link rel="stylesheet" type="text/css" href="lib/font-awesome/css/font-awesome.min.css?${sessionScope.VERSION_ASSETS}">
     <link rel="stylesheet" type="text/css" href="lib/select2/css/select2.min.css?${sessionScope.VERSION_ASSETS}">
-    <link rel="stylesheet" type="text/css" href="lib/datatables/css/buttons.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="lib/datatables/css/buttons.dataTables.min.css?${sessionScope.VERSION_ASSETS}">
     <link rel="stylesheet" type="text/css" href="css/main.css?${sessionScope.VERSION_ASSETS}"/>
     <script src="lib/jquery/jquery-1.11.2.min.js"></script>
     <logic:notEmpty name="OK">    

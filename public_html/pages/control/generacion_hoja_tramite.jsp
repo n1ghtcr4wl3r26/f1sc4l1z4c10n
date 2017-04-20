@@ -106,6 +106,8 @@
             <br></br>
             <div class="panel-title imp">
                 <strong>HOJA DE TRABAJO TRAMITES - ${infoControl.codigoControl}</strong>
+                <br/>
+                <label style="color:#049dbf;">Solo los valores de las columnas con (M), pueden ser modificados para ser cargados al sistema.</label> 
             </div>
             <table class="table table-striped table-hover" id="main-table">
                 <thead>
@@ -116,15 +118,15 @@
                         <th class="text-center">Fecha</th>
                         <th class="text-center">Proveedor</th>
                         <th class="text-center">Mercancía</th>
-                        <th class="text-center">FOB USD</th>
-                        <th class="text-center">FLETE 5% USD</th>
-                        <th class="text-center">SEGURO 2% USD</th>
-                        <th class="text-center">OTROS GASTOS USD</th>
-                        <th class="text-center">CIF USD</th>
-                        <th class="text-center">CIF Bs.</th>
-                        <th class="text-center">CIF UFV's</th> 
-                        <th class="text-center">Ilicito Determinado</th>
-                        <th class="text-center">Contravenci&oacute;n Aduanera Relacionada con la Orden UFV</th>   
+                        <th class="text-center">(M) FOB USD</th>
+                        <th class="text-center">(M) FLETE 5% USD</th>
+                        <th class="text-center">(M) SEGURO 2% USD</th>
+                        <th class="text-center">(M) OTROS GASTOS USD</th>
+                        <th class="text-center">(M) CIF USD</th>
+                        <th class="text-center">(M) CIF Bs.</th>
+                        <th class="text-center">(M) CIF UFV's</th> 
+                        <th class="text-center">(M) Ilicito Determinado</th>
+                        <th class="text-center">(M) Contravenci&oacute;n Aduanera Relacionada con la Orden UFV</th>   
                         <th class="text-center">Codigo</th> 
                         <th class="text-center">&nbsp;&nbsp;&nbsp;&nbsp;</th>                         
                     </tr>

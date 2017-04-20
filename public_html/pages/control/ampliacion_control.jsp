@@ -159,7 +159,7 @@
                                         <input type="checkbox" style="width:13px;height:13px" class="check_allori" id="check_allori" />Origen
                                     </th>
                                     <th class="text-center">
-                                        <input type="checkbox" style="width:13px;height:13px" class="check_allori" id="check_allori" />Otros
+                                        <input type="checkbox" style="width:13px;height:13px" class="check_allotr" id="check_allotr" />Otros
                                     </th>
                                     <th class="text-center">Número</th>
                                     <th class="text-center">Declaración</th>
@@ -279,7 +279,7 @@
                                         <input type="checkbox" style="width:13px;height:13px" class="check_allori" id="check_allori" />Origen
                                     </th>
                                     <th class="text-center">
-                                        <input type="checkbox" style="width:13px;height:13px" class="check_allori" id="check_allori" />Otros
+                                        <input type="checkbox" style="width:13px;height:13px" class="check_allotr" id="check_allotr" />Otros
                                     </th>
                                     <th class="text-center">Número</th>
                                     <th class="text-center">Declaración</th>

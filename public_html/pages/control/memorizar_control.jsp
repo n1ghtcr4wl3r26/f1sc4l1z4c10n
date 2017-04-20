@@ -10,10 +10,7 @@
     <div class="modal-body form-horizontal">        
             <div id="exTab1" >
                 <ul class="nav nav-pills">
-                    <li class="active" id="tabdif">
-                        <a href="#1a" data-toggle="tab">Control Diferido</a>
-                    </li>
-                    <li id="tabpos">
+                    <li class="active" id="tabpos"  >
                         <a href="#2a" data-toggle="tab">Orden de Fiscalización Posterior</a>
                     </li>
                     <li id="tabamp">
@@ -21,171 +18,7 @@
                     </li>
                 </ul>
                 <div class="tab-content clearfix">
-                    <div class="tab-pane active" id="1a">
-                        <html:form styleId="form-diferido" action="memorizaciondif.do">
-                            <html:hidden property="boton" value= "diferido"/>
-                            <br>
-                            <div class="form-group">
-                                <h3>
-                                    <label class="col-sm-6">
-                                        Memorización de Control Diferido
-                                    </label>
-                                </h3>
-                            </div>
-                            <div class="form-group">                            
-                                <label class="col-sm-3 control-label">Tipo de Documento:</label>
-                                <div class="col-sm-3">
-                                    <html:select property="difTipoDocumento" styleClass="form-control required">
-                                        <html:option value="-">Seleccione...</html:option>
-                                        <html:option value="ARF">ARF</html:option>
-                                        <html:option value="INFORME">INFORME</html:option>
-                                        <html:option value="DENUNCIA">DENUNCIA</html:option>
-                                        <html:option value="OTRO">OTRO</html:option>
-                                    </html:select>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label">N&uacute;mero de Documento:</label>
-                                <div class="col-sm-3">
-                                    <html:text property="difNroDocumento" styleId="difNroDocumento" styleClass="form-control required" size="30" maxlength="30" />
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label">Fecha de Documento:</label>
-                                <div class="col-sm-3">
-                                    <html:text property="difFecDocumento" styleId="difFecDocumento" styleClass="form-control datepicker required date-less-than" size="30" maxlength="10" />
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label">Resumen de la Observaci&oacute;n:</label>
-                                <div class="col-sm-4">
-                                    <textarea name="difDetDocumento" id="difDetDocumento" class="form-control required" data-maxlength="500" onkeyup="Textarea_Sin_Enter(event.keyCode, event.which, 'difDetDocumento');" >${MemorizacionControlForm.difDetDocumento}</textarea>
-                                </div>
-                            </div>
-                            <div class="form-group">                            
-                                <label class="col-sm-3 control-label">Riesgo Identificado:</label>
-                                <div class="col-sm-3">
-                                    <html:checkbox property="difRiesgoDelito" style="width:13px;height:13px" styleId="difRiesgoDelito"  styleClass="form-control ">&nbsp;&nbsp;Delito</html:checkbox><br>
-                                    <html:checkbox property="difRiesgoSubval" style="width:13px;height:13px" styleId="difRiesgoSubval"  styleClass="form-control ">&nbsp;&nbsp;Subvaluación</html:checkbox><br>
-                                    <html:checkbox property="difRiesgoClas" style="width:13px;height:13px" styleId="difRiesgoClas"  styleClass="form-control ">&nbsp;&nbsp;Clasificación</html:checkbox><br>
-                                    <html:checkbox property="difRiesgoContrab" style="width:13px;height:13px" styleId="difRiesgoContrab"  styleClass="form-control ">&nbsp;&nbsp;Contrabando Contravencional</html:checkbox><br>
-                                </div>
-                            </div>
-                            <div class="form-group">                            
-                                <label class="col-sm-3 control-label">Tipo de Operador:</label>
-                                <div class="col-sm-3">
-                                    <html:select property="difTipoOperador" styleClass="form-control required">
-                                        <html:option value="-">Seleccione...</html:option>
-                                        <html:option value="IMPORTADOR/EXPORTADOR">IMPORTADOR/EXPORTADOR</html:option>
-                                        <html:option value="TRANSPORTISTA">TRANSPORTISTA</html:option>
-                                        <html:option value="DECLARANTE">DECLARANTE</html:option>
-                                    </html:select>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label">Tipo Documento de Identidad:</label>
-                                <div class="col-sm-3">
-                                    <html:select property="difTipoDocPersona" styleId="difTipoDocPersona" styleClass="form-control required">
-                                        <html:option value="-">Seleccione...</html:option>
-                                        <html:option value="NIT">NIT</html:option>
-                                        <html:option value="CI">CI</html:option>
-                                    </html:select>
-                                </div>
-                            </div>
-                            <div id="dif-nit-panel" style="display:none">
-                                <div class="form-group">
-                                    <label class="col-sm-3 control-label">NIT:</label>
-                                    <div class="col-sm-3">
-                                        <html:text property="difNitEmpresa" styleId="difNitEmpresa" styleClass="form-control required numeric" size="30" maxlength="30" />
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-sm-3 control-label">Raz&oacute;n Social:</label>
-                                    <div class="col-sm-3">
-                                        <html:text property="difNomEmpresa" styleId="difNomEmpresa" styleClass="form-control required" size="30" maxlength="100" />
-                                    </div>
-                                </div>
-                            </div>
-                            <div id="dif-ci-panel" style="display:none">
-                                <div class="form-group">
-                                    <label class="col-sm-3 control-label">CI:</label>
-                                    <div class="col-sm-2">
-                                        <html:text property="difNroCIPersona" styleId="difNroCIPersona" styleClass="form-control required" size="30" maxlength="10" />
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <html:select property="difExpCIPersona" styleId="difExpCIPersona" styleClass="form-control required">
-                                            <html:option value="-">Seleccione...</html:option>
-                                            <html:option value="LP">La Paz</html:option>
-                                            <html:option value="CB">Cochabamba</html:option>
-                                            <html:option value="SC">Santa Cruz</html:option>
-                                            <html:option value="PN">Pando</html:option>
-                                            <html:option value="PT">Potosi</html:option>
-                                            <html:option value="TR">Tarija</html:option>
-                                            <html:option value="CH">Chuquisaca</html:option>
-                                            <html:option value="BN">Beni</html:option>
-                                            <html:option value="OR">Oruro</html:option>
-                                        </html:select>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-sm-3 control-label">Nombres:</label>
-                                    <div class="col-sm-3">
-                                        <html:text property="difNombrePersona" styleId="difNombrePersona" styleClass="form-control required" size="30" maxlength="30" />
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-sm-3 control-label">Apellido Paterno:</label>
-                                    <div class="col-sm-3">
-                                        <html:text property="difApPatPersona" styleId="difApPatPersona" styleClass="form-control required" size="30" maxlength="30" />
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-sm-3 control-label">Apellido Materno:</label>
-                                    <div class="col-sm-3">
-                                        <html:text property="difApMatPersona" styleId="difApMatPersona" styleClass="form-control required" size="30" maxlength="30" />
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label">Direcci&oacute;n:</label>
-                                <div class="col-sm-3">
-                                    <html:text property="difDireccion" styleId="difDireccion" styleClass="form-control required" size="30" maxlength="100" />
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label">Actividad:</label>
-                                <div class="col-sm-3">
-                                    <html:text property="difActividad" styleId="difActividad" styleClass="form-control required" size="30" maxlength="100" />
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label">Tributos a Fiscalizar:</label>
-                                <div class="col-sm-3">
-                                    <html:checkbox property="difTribGa" style="width:13px;height:13px" styleId="difTribGa"  styleClass="form-control ">&nbsp;&nbsp;GA</html:checkbox><br>
-                                    <html:checkbox property="difTribIva" style="width:13px;height:13px" styleId="difTribIva"  styleClass="form-control ">&nbsp;&nbsp;IVA</html:checkbox><br>
-                                    <html:checkbox property="difTribIce" style="width:13px;height:13px" styleId="difTribIce"  styleClass="form-control ">&nbsp;&nbsp;ICE</html:checkbox><br>
-                                    <html:checkbox property="difTribIehd" style="width:13px;height:13px" styleId="difTribIehd"  styleClass="form-control ">&nbsp;&nbsp;IEHD</html:checkbox><br>
-                                    <html:checkbox property="difTribIcd" style="width:13px;height:13px" styleId="difTribIcd"  styleClass="form-control ">&nbsp;&nbsp;ICD</html:checkbox><br>
-                                    <html:checkbox property="difTribNoaplica" style="width:13px;height:13px" styleId="difTribNoaplica"  styleClass="form-control ">&nbsp;&nbsp;NO APLICA</html:checkbox>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label">Periodo a Fiscalizar:</label>
-                                <div class="col-sm-3">
-                                    <html:text property="difPeriodo" styleId="difPeriodo" styleClass="form-control required" size="30" maxlength="30" />
-                                </div>
-                            </div>
-                            <div class="btn-container">
-                                <button type="submit" id="boton" class="btn btn-primary" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Grabar&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>            
-                            </div>
-                            <div class="form-group">
-                                <label class="label-message-required">
-                                    * Campos Obligatorios
-                                </label>
-                            </div>
-                        </html:form>
-                    </div>
-                    <div class="tab-pane" id="2a">
+                    <div class="tab-pane active" id="2a">
                         <html:form styleId="form-posterior" action="memorizacionpos.do">
                             <html:hidden property="boton" value= "posterior"/>
                             <br>
@@ -502,18 +335,14 @@
 <script>
     $(document).ready(function () {
         if (!($('#posTipoDocPersona').val()=="-")) {
-            $('#1a').removeClass('active');
             $('#2a').addClass('active');
             $('#3a').removeClass('active');
-            $('#tabdif').removeClass('active');
             $('#tabpos').addClass('active');
             $('#tabamp').removeClass('active');            
         }
         if (!($('#ampTipoDocPersona').val()=="-")) {
-            $('#1a').removeClass('active');
             $('#2a').removeClass('active');
             $('#3a').addClass('active');
-            $('#tabdif').removeClass('active');
             $('#tabpos').removeClass('active');
             $('#tabamp').addClass('active');            
         }        
@@ -545,37 +374,7 @@
             $('#ampNombrePersona').addClass('required');
             $('#ampApPatPersona').addClass('required');
             $('#ampApMatPersona').addClass('required');
-        }
-        if ($('#difTipoDocPersona').val()=="NIT") {
-            $('#dif-nit-panel').show();
-            $('#dif-ci-panel').hide();
-            $('#difNitEmpresa').addClass('required');
-            $('#difNomEmpresa').addClass('required');
-            $('#difNroCIPersona').removeClass('required');
-            $('#difExpCIPersona').removeClass('required');
-            $('#difNombrePersona').removeClass('required');
-            $('#difApPatPersona').removeClass('required');
-            $('#difApMatPersona').removeClass('required');
-            $('#difNroCIPersona').val('');
-            $('#difExpCIPersona').val('');
-            $('#difNombrePersona').val('');
-            $('#difApPatPersona').val('');
-            $('#difApMatPersona').val('');
-            
-        }
-        if ($('#difTipoDocPersona').val()=="CI") {
-            $('#dif-nit-panel').hide();
-            $('#dif-ci-panel').show();
-            $('#difNitEmpresa').removeClass('required');
-            $('#difNomEmpresa').removeClass('required');
-            $('#difNitEmpresa').val('');
-            $('#difNomEmpresa').val('');
-            $('#difNroCIPersona').addClass('required');
-            $('#difExpCIPersona').addClass('required');
-            $('#difNombrePersona').addClass('required');
-            $('#difApPatPersona').addClass('required');
-            $('#difApMatPersona').addClass('required');
-        }
+        }        
         if ($('#posTipoDocPersona').val()=="NIT") {
             $('#pos-nit-panel').show();
             $('#pos-ci-panel').hide();
@@ -606,19 +405,6 @@
             $('#posApMatPersona').addClass('required');
         }
         
-        $('#difNitEmpresa').change(function(){
-           var aux = Math.random();
-           if ($("#difNitEmpresa").val() != null && $("#difNitEmpresa").val() != "")
-           $.get('completanit.do',{
-                nit: $(this).val(), 
-                vaux: aux
-            },function(resultado){
-                $("#difNomEmpresa").val(resultado[0].razon);
-                $("#difDireccion").val(resultado[0].direccion);
-                $("#difActividad").val(resultado[0].actividad);
-            },'json');
-        });  
-        
         $('#posNitEmpresa').change(function(){
            var aux = Math.random();
            if ($("#posNitEmpresa").val() != null && $("#posNitEmpresa").val() != "")
@@ -643,41 +429,7 @@
                 $("#ampDireccion").val(resultado[0].direccion);
                 $("#ampActividad").val(resultado[0].actividad);
             },'json');
-        }); 
-        
-        $('#difTipoDocPersona').change(function () {
-            if ($('#difTipoDocPersona').val()=="NIT") {
-                $('#dif-nit-panel').show();
-                $('#dif-ci-panel').hide();
-                $('#difNitEmpresa').addClass('required');
-                $('#difNomEmpresa').addClass('required');
-                $('#difNroCIPersona').removeClass('required');
-                $('#difExpCIPersona').removeClass('required');
-                $('#difNombrePersona').removeClass('required');
-                $('#difApPatPersona').removeClass('required');
-                $('#difApMatPersona').removeClass('required');
-                
-                $('#difNroCIPersona').val('');
-                $('#difExpCIPersona').val('');
-                $('#difNombrePersona').val('');
-                $('#difApPatPersona').val('');
-                $('#difApMatPersona').val('');
-            }
-            if ($('#difTipoDocPersona').val()=="CI") {
-                $('#dif-nit-panel').hide();
-                $('#dif-ci-panel').show();
-                $('#difNitEmpresa').removeClass('required');
-                $('#difNomEmpresa').removeClass('required');
-                
-                $('#difNitEmpresa').val('');
-                $('#difNomEmpresa').val('');
-                $('#difNroCIPersona').addClass('required');
-                $('#difExpCIPersona').addClass('required');
-                $('#difNombrePersona').addClass('required');
-                $('#difApPatPersona').addClass('required');
-                $('#difApMatPersona').addClass('required');
-            }
-        });
+        });         
         
         $('#posTipoDocPersona').change(function () {
             if ($('#posTipoDocPersona').val()=="NIT") {
@@ -777,14 +529,6 @@
            $textarea.value=v.replace(/\n/g,"");
         };
     
-        Anb.form.submit('#form-diferido', function (form) {
-            Anb.form.cleanErrors(form);
-            if (Anb.validate.run(form)) {
-                console.log('Enviado!');
-                Anb.loading.show()                
-                form.submit();
-            }
-        });
         Anb.form.submit('#form-posterior', function (form) {
             Anb.form.cleanErrors(form);
             if (Anb.validate.run(form)) {
