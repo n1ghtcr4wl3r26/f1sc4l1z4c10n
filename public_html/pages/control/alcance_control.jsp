@@ -147,7 +147,12 @@
                         <div class="panel-title imp" >
                             <strong>RESULTADOS DE LA BÚSQUEDA DE DECLARACIONES </strong>
                         </div>
-                         
+                        <button class="btn btn-info btn-sm newHide" 
+                                type="button" id="btnInc2"
+                                title="Agregar Declaraciones"
+                                onfocus="concat_idsitem()">
+                            <i class="fa fa-percent"></i> Agregar Declaraciones
+                        </button>   
                         <table class="table table-striped table-hover" id="main-table">
                             <thead>
                                 <tr>
@@ -468,6 +473,9 @@
     </div>
 </div>
 <script>
+    $(window).load(function() {
+          $(".buttons-excel").hide();
+    });
     $(document).ready(function () {
     $(".buttons-pdf").hide();
     

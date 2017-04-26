@@ -358,7 +358,7 @@
       $("#boton").removeAttr('disabled');
       
       Anb.form.submit('#form-registro', function (form) {
-      Anb.confirm('¿Está seguro de Generar la Orden?, esta operación no podrá ser revertida, debe verificar que se registró correctamente el alcance y se realizó la operación de asignación de fiscalizadores.', function () {
+      Anb.confirm('Esta operación no podrá ser revertida, debe verificar que se registró correctamente el alcance y se realizó la operación de asignación de fiscalizadores. \n ¿Está seguro de Generar la Orden?', function () {
                    
            
           Anb.form.cleanErrors(form);

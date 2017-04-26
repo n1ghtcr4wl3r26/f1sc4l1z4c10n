@@ -11,10 +11,10 @@
         <html:form styleId="form-asigna" action="reasignaidx.do">
             <input type="hidden" name="opcion" id="opcion"/>
             <div class="form-group">
-                <label class="col-sm-2 control-label">Gesti&oacute;n:</label>
-                <label class="col-sm-4 control-label">Tipo Control:</label>
-                <label class="col-sm-2 control-label">Gerencia:</label>
-                <label class="col-sm-2 control-label">N&uacute;mero:</label>
+                <label class="col-sm-2 control-label label-required">Gesti&oacute;n:</label>
+                <label class="col-sm-4 control-label label-required">Tipo Control:</label>
+                <label class="col-sm-2 control-label label-required">Gerencia:</label>
+                <label class="col-sm-2 control-label label-required">N&uacute;mero:</label>
             </div>
             <div class="form-group">
                 <div class="col-sm-2">

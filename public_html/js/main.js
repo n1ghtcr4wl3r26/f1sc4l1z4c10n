@@ -86,11 +86,11 @@ var GROWL_STATIC = true;
             "oLanguage" : {
                 "sSearch" : "Buscar",
                 "sLengthMenu" : "Registros _MENU_", 
-                "sZeroRecords" : "No existe registros.", 
+                "sZeroRecords" : "No existen registros.", 
                 "sInfo" : "Mostrando _START_ al _END_ de _TOTAL_ registros", 
                 "sInfgetoEmpty" : "Mostrando 0 al 0 de 0 registros", 
                 "sProcessing" : "Cargando registros",
-                "sEmptyTable" : "No existe registros para mostrar",
+                "sEmptyTable" : "No existen registros para mostrar",
                 "sInfoEmpty": "",
                 "sInfoFiltered": "",
                 "oPaginate" : {

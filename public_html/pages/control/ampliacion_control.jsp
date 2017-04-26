@@ -7,7 +7,7 @@
 <div class="panel panel-default">
     <div class="panel-heading">
         <h4 class="panel-title">
-            <strong>AMPLIACION CONTROL</strong>
+            <strong>AMPLIACIÓN CONTROL</strong>
         </h4>
     </div>
     <% 
@@ -104,7 +104,7 @@
                         <html:optionsCollection name="paises" value="codigo" label="descripcion"/>
                     </html:select>
                 </div>
-                <label class="col-sm-2 control-label">Tipo de Busqueda:</label>
+                <label class="col-sm-2 control-label">Tipo de Búsqueda:</label>
                 <div class="col-sm-2">
                     <html:select property="tipoBusqueda" styleId="tipoBusqueda" styleClass="form-control required">
                         <html:option value="-">Seleccione...</html:option>
@@ -142,7 +142,12 @@
                         <div class="panel-title" >
                             <strong>RESULTADOS DE LA BUSQUEDA DE DECLARACIONES </strong>
                         </div>
-                         
+                        <button class="btn btn-info btn-sm newHide" 
+                                type="button" id="btnInc2"
+                                title="Agregar Declaraciones"
+                                onfocus="concat_idsitem()">
+                            <i class="fa fa-percent"></i> Agregar Declaraciones
+                        </button>  
                         <table class="table table-striped table-hover" id="main-table">
                             <thead>
                                 <tr>
@@ -260,7 +265,7 @@
                         
                         
                         <div class="panel-title" >
-                            <strong>RESULTADOS DE LA BUSQUEDA DE DECLARACIONES POR ITEM </strong>
+                            <strong>RESULTADOS DE LA BUSQUEDA DE DECLARACIONES POR ÍTEM </strong>
                         </div>
                          
                         <table class="table table-striped table-hover" id="main-table">
@@ -283,7 +288,7 @@
                                     </th>
                                     <th class="text-center">Número</th>
                                     <th class="text-center">Declaración</th>
-                                    <th class="text-center">Número de Item</th>
+                                    <th class="text-center">Número de Ítem</th>
                                     <th class="text-center">Canal</th>
                                     <th class="text-center">Fecha Registro</th>
                                     <th class="text-center">Operador</th>
@@ -374,9 +379,9 @@
                         </table>
                         <button class="btn btn-info btn-sm newHide" 
                                 type="button" id="btnInc"
-                                title="Agregar Items Declaraciones"
+                                title="Agregar Ítems Declaraciones"
                                 onfocus="concat_idsitem()">
-                            <i class="fa fa-percent"></i> Agregar Items Declaraciones
+                            <i class="fa fa-percent"></i> Agregar Ítems Declaraciones
                         </button>    
                     <%
                     }
@@ -397,7 +402,7 @@
                         <tr>
                             <th>N&uacute;mero</th>
                             <th>Tipo</th>
-                            <th>Item</th>
+                            <th>ítem</th>
                             <th>Documento</th>
                             <th>Observaci&oacute;n</th>
                             <th width="100px">Valor</th>
@@ -453,6 +458,9 @@
     </div>
 </div>
 <script>
+    $(window).load(function() {
+          $(".buttons-excel").hide();
+    });
     $(document).ready(function () {
     if($("#tipoOperador").val()=="IMPORTADOR/EXPORTADOR"){
        $("#operador").attr('readonly', 'true');
@@ -682,7 +690,7 @@
             $("#codigoconcatotr").val(selectedotr);
             $("#form-ampliacion").submit();
 	}else{
-            Anb.alert('Debe seleccionar por lo menos un item de las declaraciones para realizar esta acción.');
+            Anb.alert('Debe seleccionar por lo menos un ítem de las declaraciones para realizar esta acción.');
         }
     }
     

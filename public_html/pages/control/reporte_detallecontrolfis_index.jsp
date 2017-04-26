@@ -13,8 +13,8 @@
             <html:hidden property="codigo" styleId="codigo"/>
             <input type="hidden" name="opcion" id="opcion"/>
             <div class="form-group">
-                <label class="col-sm-2 control-label">Fecha Desde:</label>
-                <label class="col-sm-2 control-label">Fecha Hasta:</label>
+                <label class="col-sm-2 control-label label-required">Fecha Desde:</label>
+                <label class="col-sm-2 control-label label-required">Fecha Hasta:</label>
             </div>
             <div class="form-group">
                 <div class="col-sm-2">
@@ -25,8 +25,8 @@
                 </div>   
             </div>
             <div class="form-group">
-                <label class="col-sm-4 control-label">Tipo de Trámite:</label>
-                <label class="col-sm-4 control-label">Estado del Control:</label>
+                <label class="col-sm-4 control-label label-required">Tipo de Trámite:</label>
+                <label class="col-sm-4 control-label label-required">Estado del Control:</label>
             </div>
             <div class="form-group">
                 <div class="col-sm-4">

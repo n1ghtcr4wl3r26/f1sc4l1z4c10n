@@ -43,7 +43,7 @@
                             <div class="form-group">                            
                                 <label class="col-sm-3 control-label">Tipo de Documento:</label>
                                 <div class="col-sm-3">
-                                    ${MemorizacionControlForm.difTipoDocumento}
+                                    DECLARACIÓN
                                 </div>
                             </div>
                             <div class="form-group">
@@ -136,7 +136,7 @@
                             </div>
                             <div class="form-group">
                                 <label class="label-message-required">
-                                    * Campos Obligatorios
+                                    * Campo Obligatorio
                                 </label>
                             </div>
                         </html:form>

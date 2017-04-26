@@ -230,7 +230,10 @@ public class GeneralDao extends Conexion{
                inf.setCodigo(rs.getString(1));
                inf.setCodigoControl(rs.getString(2));
                inf.setTipoControl(rs.getString(3));
-               inf.setTipoDocumento(rs.getString(4));
+               String obs = rs.getString(4);
+               if(obs.equals("DECLARACION"))
+                    obs = "DECLARACI&Oacute;N";
+               inf.setTipoDocumento(obs);
                inf.setNroDocumento(rs.getString(5));
                inf.setFecDocumento(rs.getString(6));
                inf.setDetDocumento(rs.getString(7));
@@ -429,12 +432,16 @@ public class GeneralDao extends Conexion{
                 dec.setCodigo(rs.getString(1));
                 dec.setTipoTramite(rs.getString(2));
                 dec.setTramite(rs.getString(3));
-                if(rs.getString(4).equals("ITEM")){
-                    dec.setObservacion(rs.getString(5)+" "+rs.getString(4));
-                }
-                else{
-                    dec.setObservacion(rs.getString(4));
-                }
+                
+                String obs = rs.getString(4);
+                if(obs.equals("DECLARACION"))
+                    obs = "DECLARACI&Oacute;N";
+                if(obs.equals("TRAMITE"))
+                    obs = "TR&Aacute;MITE";
+                if(obs.equals("ITEM"))
+                    obs = "&Iacute;TEM";
+                dec.setObservacion(obs);
+                
                 dec.setNumero(String.valueOf(cont++));
                 dec.setTipoAlcance(rs.getString(6));
                 decls.add(dec);

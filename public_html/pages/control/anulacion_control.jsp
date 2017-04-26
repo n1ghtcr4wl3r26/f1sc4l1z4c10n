@@ -122,10 +122,10 @@
             </table>
             <br>
             <h4>
-                <strong>JUSTIFICACIÓN PARA LA ANULACION DEL CONTROL</strong>
+                <strong>JUSTIFICACIÓN PARA LA ANULACIÓN DEL CONTROL</strong>
             </h4>
             <div class="form-group">
-                <label class="col-sm-2 control-label">Jutificación:</label>
+                <label class="col-sm-2 control-label">jutificación:</label>
                 <div class="col-sm-4">
                     <textarea name="justificacion" id="justificacion" class="form-control required" data-maxlength="300" onkeyup="Textarea_Sin_Enter(event.keyCode, event.which, 'difDetDocumento');" >${AnulacionForm.justificacion}</textarea>
                 </div>

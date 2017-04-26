@@ -6,7 +6,7 @@
 <div class="panel panel-default">
     <div class="panel-heading">
         <h4 class="panel-title">
-            <strong>GENERACION HOJA DE TRABAJO DECLARACIONES</strong>
+            <strong>GENERACIÓN HOJA DE TRABAJO DECLARACIONES</strong>
         </h4>
     </div>
     <% 
@@ -17,11 +17,11 @@
             <html:hidden property="codigo" styleId="codigo"/>
             <input type="hidden" name="opcion" id="opcion"/>
             <div class="form-group">
-                <label class="col-sm-2 control-label">Codigo:</label>
+                <label class="col-sm-2 control-label">Código:</label>
                 <div class="col-sm-2">
                     ${infoControl.codigo}
                 </div>
-                <label class="col-sm-2 control-label">Codigo Control:</label>
+                <label class="col-sm-2 control-label">Código Control:</label>
                 <div class="col-sm-2">
                     ${infoControl.codigoControl}
                 </div>
@@ -67,7 +67,7 @@
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-2 control-label">N&uacute;mero de Identificacion:</label>
+                <label class="col-sm-2 control-label">N&uacute;mero de Identificación:</label>
                 <div class="col-sm-2">
                     ${infoControl.docIdentificacion}
                 </div>
@@ -123,7 +123,7 @@
                         <th colspan="4" class="text-center">VALORES ENCONTRADOS</th>
                         <th rowspan="2" class="text-center">(M) Contravenci&oacute;n Aduanera Relacionada con la Declaraci&oacute;n UFV</th>
                         <th rowspan="2" class="text-center">(M) Contravenci&oacute;n Aduanera Relacionada con la Orden UFV</th>
-                        <th rowspan="2" class="text-center">(M) Ilicito Determinado</th>
+                        <th rowspan="2" class="text-center">(M) Ilícito Determinado</th>
                         <th rowspan="2" class="text-center">(M) Observaci&oacute;n</th>
                     </tr>
                     <tr>

@@ -6,7 +6,7 @@
 <div class="panel panel-default">
     <div class="panel-heading">
         <h4 class="panel-title">
-            <strong>GENERACION HOJA EXCEL PARA MACRO</strong>
+            <strong>GENERACIÓN HOJA EXCEL PARA MACRO</strong>
         </h4>
     </div>
     <% 
@@ -18,11 +18,11 @@
             <html:hidden property="mostrarid" styleId="mostrarid"/>
             <input type="hidden" name="opcion" id="opcion"/>
             <div class="form-group">
-                <label class="col-sm-2 control-label">Codigo:</label>
+                <label class="col-sm-2 control-label">Código:</label>
                 <div class="col-sm-2">
                     ${infoControl.codigo}
                 </div>
-                <label class="col-sm-2 control-label">Codigo Control:</label>
+                <label class="col-sm-2 control-label">Código Control:</label>
                 <div class="col-sm-2">
                     ${infoControl.codigoControl}
                 </div>
@@ -68,7 +68,7 @@
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-2 control-label">N&uacute;mero de Identificacion:</label>
+                <label class="col-sm-2 control-label">N&uacute;mero de Identificación:</label>
                 <div class="col-sm-2">
                     ${infoControl.docIdentificacion}
                 </div>
@@ -100,7 +100,7 @@
             
             
             <h4>
-                <strong>LISTA DEL ALCANCE DE LA FISCALIZACION</strong>
+                <strong>LISTA DEL ALCANCE DE LA FISCALIZACIÓN</strong>
             </h4>            
             <table class="table table-striped table-hover" id="main-3table">
                 <thead>
@@ -122,10 +122,10 @@
                         <td>
                             <button class="deletebtn btn btn-info btn-sm " 
                                     type="button"
-                                    title="Mostrar Items de la Declaración"
+                                    title="Mostrar Ítems de la Declaración"
                                     data-item="${tra.codigo}"
                                     data-id="${tra.codigo}">
-                                <i class="fa fa-close"></i> Ver Items
+                                <i class="fa fa-close"></i> Ver Ítems
                             </button>
                         </td>
                     </tr>

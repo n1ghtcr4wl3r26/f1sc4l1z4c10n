@@ -6,7 +6,7 @@
 <div class="panel panel-default">
     <div class="panel-heading">
         <h4 class="panel-title">
-            <strong>ALCANCE POR TRÁMITE</strong>
+            <strong>AMPLIACIÓN ALCANCE POR TRÁMITE</strong>
         </h4>
     </div>
     <% 
@@ -46,13 +46,13 @@
             <div class="form-group">
                 <div class="col-sm-10">
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">Tipo:</label>
+                        <label class="col-sm-2 control-label label-required">Tipo:</label>
                          
-                        <label class="col-sm-2 control-label">Gesti&oacute;n:</label>
+                        <label class="col-sm-2 control-label label-required">Gesti&oacute;n:</label>
                          
-                        <label class="col-sm-4 control-label">Aduana:</label>
+                        <label class="col-sm-4 control-label label-required">Aduana:</label>
                          
-                        <label class="col-sm-2 control-label">N&uacute;mero:</label>
+                        <label class="col-sm-2 control-label label-required">N&uacute;mero:</label>
                     </div>
                     <div class="form-group">
                         <div class="form-group">
@@ -127,13 +127,13 @@
             <div class="form-group">
                 <div class="col-sm-10">
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">N&uacute;mero:</label>
+                        <label class="col-sm-2 control-label label-required">N&uacute;mero:</label>
                          
-                        <label class="col-sm-2 control-label">Fecha:</label>
+                        <label class="col-sm-2 control-label label-required">Fecha:</label>
                          
-                        <label class="col-sm-2 control-label">Proveedor:</label>
+                        <label class="col-sm-2 control-label label-required">Proveedor:</label>
                          
-                        <label class="col-sm-4 control-label">Pa&iacute;s</label>
+                        <label class="col-sm-4 control-label label-required">Pa&iacute;s</label>
                     </div>
                     <div class="form-group">
                         <div class="form-group">
@@ -179,11 +179,11 @@
             <div class="form-group">
                 <div class="col-sm-10">
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">Gesti&oacute;n:</label>
+                        <label class="col-sm-2 control-label label-required">Gesti&oacute;n:</label>
                          
-                        <label class="col-sm-2 control-label">Fecha:</label>
+                        <label class="col-sm-2 control-label label-required">Fecha:</label>
                          
-                        <label class="col-sm-4 control-label">Banco:</label>
+                        <label class="col-sm-4 control-label label-required">Banco:</label>
                          
                     </div>
                     <div class="form-group">
@@ -224,13 +224,13 @@
             <div class="form-group">
                 <div class="col-sm-10">
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">Gesti&oacute;n:</label>
+                        <label class="col-sm-2 control-label label-required">Gesti&oacute;n:</label>
                          
-                        <label class="col-sm-2 control-label">Fecha:</label>
+                        <label class="col-sm-2 control-label label-required">Fecha:</label>
                          
-                        <label class="col-sm-3 control-label">Emisor:</label>
+                        <label class="col-sm-3 control-label label-required">Emisor:</label>
                          
-                        <label class="col-sm-3 control-label">Tipo de Documento:</label>
+                        <label class="col-sm-3 control-label label-required">Tipo de Documento:</label>
                     </div>
                     <div class="form-group">
                         <div class="form-group">
@@ -337,6 +337,9 @@
     </div>
 </div>
 <script>
+$(window).load(function() {
+          $(".buttons-excel").hide();
+    });
   $(document).ready(function () {
       Anb.form.submit('#form-tramitedec', function (form) {
           Anb.form.cleanErrors(form);

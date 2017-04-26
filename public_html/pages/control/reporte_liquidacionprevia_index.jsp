@@ -12,9 +12,9 @@
             <html:hidden property="codigo" styleId="codigo"/>
             <input type="hidden" name="opcion" id="opcion"/>
             <div class="form-group">
-                <label class="col-sm-4 control-label">Usuario Supervisor:</label>
-                <label class="col-sm-2 control-label">Fecha Desde:</label>
-                <label class="col-sm-2 control-label">Fecha Hasta:</label>
+                <label class="col-sm-4 control-label label-required">Usuario Supervisor:</label>
+                <label class="col-sm-2 control-label label-required">Fecha Desde:</label>
+                <label class="col-sm-2 control-label label-required">Fecha Hasta:</label>
             </div>
             <div class="form-group">
                 <div class="col-sm-4">

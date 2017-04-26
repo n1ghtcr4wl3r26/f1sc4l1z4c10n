@@ -48,7 +48,7 @@ try
             <td style="width:710px; height:100px">
                 <center>
                     <label style="font-size:16px;">
-                        <strong>NO EXISTE EL NUMERO DE FISCALIZACION <%=bean.getFgestion()%>-<%=control%>-<%=bean.getFgerencia()%>-<%=bean.getFnumero()%></strong>
+                        <strong>NO EXISTE EL NÚMERO DE FISCALIZACIÓN <%=bean.getFgestion()%>-<%=control%>-<%=bean.getFgerencia()%>-<%=bean.getFnumero()%></strong>
                     </label>
                 </center>
             </td>

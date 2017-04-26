@@ -17,11 +17,11 @@
             <html:hidden property="codigo" styleId="codigo"/>
             <input type="hidden" name="opcion" id="opcion"/>
             <div class="form-group">
-                <label class="col-sm-2 control-label">Codigo:</label>
+                <label class="col-sm-2 control-label">Código:</label>
                 <div class="col-sm-2">
                     ${infoControl.codigo}
                 </div>
-                <label class="col-sm-2 control-label">Codigo Control:</label>
+                <label class="col-sm-2 control-label">Código Control:</label>
                 <div class="col-sm-2">
                     ${infoControl.codigoControl}
                 </div>
@@ -67,7 +67,7 @@
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-2 control-label">N&uacute;mero de Identificacion:</label>
+                <label class="col-sm-2 control-label">N&uacute;mero de Identificación:</label>
                 <div class="col-sm-2">
                     ${infoControl.docIdentificacion}
                 </div>

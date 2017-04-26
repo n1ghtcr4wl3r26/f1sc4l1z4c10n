@@ -334,7 +334,14 @@ public class AlcanceDao extends Conexion {
                 dec.setCodigo(rs.getString(1));
                 dec.setTipoTramite(rs.getString(2));
                 dec.setTramite(rs.getString(3));
-                dec.setObservacion(rs.getString(4));
+                String obs = rs.getString(4);
+                if(obs.equals("DECLARACION"))
+                    obs = "DECLARACI&Oacute;N";
+                if(obs.equals("TRAMITE"))
+                    obs = "TR&Aacute;MITE";
+                if(obs.equals("ITEM"))
+                    obs = "&Iacute;TEM";
+                dec.setObservacion(obs);
                 dec.setItem(rs.getString(6));
                 dec.setValor(rs.getString(7));
                 dec.setOrigen(rs.getString(8));

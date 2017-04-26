@@ -20,7 +20,7 @@
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-2 control-label">Tipo de Busqueda:</label>
+                <label class="col-sm-2 control-label">Tipo de Búsqueda:</label>
                 <div class="col-sm-2">
                     <html:select property="tipoBusqueda" styleClass="form-control required">
                         <html:option value="-">Seleccione...</html:option>

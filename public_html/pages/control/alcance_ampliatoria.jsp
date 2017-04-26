@@ -173,7 +173,7 @@
               $("#form-alcance").submit();
           }
           else {
-              Anb.alert('Debe seleccionar por lo menos un item de las declaraciones para realizar esta acción.');
+              Anb.alert('Debe seleccionar por lo menos un ítem de las declaraciones para realizar esta acción.');
           }
       }
 </script>

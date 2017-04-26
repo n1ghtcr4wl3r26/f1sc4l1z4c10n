@@ -6,16 +6,16 @@
 <div class="panel panel-default">
     <div class="panel-heading">
         <h4 class="panel-title">
-            <strong>CONCLUSION DEL CONTROL</strong>
+            <strong>CONCLUSIÓN DEL CONTROL</strong>
         </h4>
     </div>
     <div class="modal-body form-horizontal">
         <div class="form-group">
-            <label class="col-sm-2 control-label">Codigo:</label>
+            <label class="col-sm-2 control-label">Código:</label>
             <div class="col-sm-2">
                 ${infoControl.codigo}
             </div>
-            <label class="col-sm-2 control-label">Codigo Control:</label>
+            <label class="col-sm-2 control-label">Código Control:</label>
             <div class="col-sm-2">
                 ${infoControl.codigoControl}
             </div>
@@ -61,7 +61,7 @@
             </div>
         </div>
         <div class="form-group">
-            <label class="col-sm-2 control-label">N&uacute;mero de Identificacion:</label>
+            <label class="col-sm-2 control-label">N&uacute;mero de Identificación:</label>
             <div class="col-sm-2">
                 ${infoControl.docIdentificacion}
             </div>
@@ -319,7 +319,7 @@
                         <div class="btn-container">
                             <button type="submit" id="boton_viscargo" onclick="con_viscargo()" class="btn btn-primary">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Grabar&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <button type="submit" id="boton_viscargo_conclusion" onclick="con_viscargo_conclusion()" class="btn btn-primary">&nbsp;&nbsp;&nbsp;Registro de la Conclusion del Control&nbsp;&nbsp;&nbsp;</button>
+                            <button type="submit" id="boton_viscargo_conclusion" onclick="con_viscargo_conclusion()" class="btn btn-primary">&nbsp;&nbsp;&nbsp;Registro de la Conclusión del Control&nbsp;&nbsp;&nbsp;</button>
                         </div>
                         <div class="form-group">
                             <label class="label-message-required">
@@ -375,7 +375,7 @@
                         <div class="btn-container">
                             <button type="submit" id="boton_resdeter" onclick="con_resdeter()" class="btn btn-primary">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Grabar&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <button type="submit" id="boton_resdeter_conclusion" onclick="con_resdeter_conclusion()" class="btn btn-primary">&nbsp;&nbsp;&nbsp;Registro de la Conclusion del Control&nbsp;&nbsp;&nbsp;</button>
+                            <button type="submit" id="boton_resdeter_conclusion" onclick="con_resdeter_conclusion()" class="btn btn-primary">&nbsp;&nbsp;&nbsp;Registro de la Conclusión del Control&nbsp;&nbsp;&nbsp;</button>
                         </div>
                     </html:form>
                 </div>
@@ -410,14 +410,14 @@
                             </div>
                         </div> 
                         <div class="form-group">
-                            <label class="col-sm-3 control-label">N&uacute;mero Acta de Intervenci&oacute;n :</label>
+                            <label class="col-sm-3 control-label">N&uacute;mero del Acta de Intervenci&oacute;n :</label>
                             <div class="col-sm-3">
                                 <html:text property="cai_acta_interv" styleId="cai_acta_interv;"
                                            styleClass="form-control" size="30" maxlength="30" disabled="<%=ffisca%>" />
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-3 control-label">Fecha de la Acta de Intervenci&oacute;n:</label>
+                            <label class="col-sm-3 control-label">Fecha del Acta de Intervenci&oacute;n:</label>
                             <div class="col-sm-3">
                                 <html:text property="cai_fecha_acta_interv" styleId="cai_fecha_acta_interv"
                                            styleClass="form-control datepicker date-less-than" size="30" maxlength="10" disabled="<%=ffisca%>" />
@@ -547,7 +547,7 @@
                         <div class="btn-container">
                             <button type="submit" id="boton_actainter" onclick="con_actainter()" class="btn btn-primary">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Grabar&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <button type="submit" id="boton_actainter_conclusion" onclick="con_actainter_conclusion()" class="btn btn-primary">&nbsp;&nbsp;&nbsp;Registro de la Conclusion del Control&nbsp;&nbsp;&nbsp;</button>
+                            <button type="submit" id="boton_actainter_conclusion" onclick="con_actainter_conclusion()" class="btn btn-primary">&nbsp;&nbsp;&nbsp;Registro de la Conclusión del Control&nbsp;&nbsp;&nbsp;</button>
                         </div>
                         <div class="form-group">
                             <label class="label-message-required">
@@ -687,7 +687,7 @@
                         <div class="btn-container">
                             <button type="submit" id="boton_resadmin" onclick="con_resadmin()" class="btn btn-primary">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Grabar&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <button type="submit" id="boton_resadmin_conclusion" onclick="con_resadmin_conclusion()" class="btn btn-primary">&nbsp;&nbsp;&nbsp;Registro de la Conclusion del Control&nbsp;&nbsp;&nbsp;</button>
+                            <button type="submit" id="boton_resadmin_conclusion" onclick="con_resadmin_conclusion()" class="btn btn-primary">&nbsp;&nbsp;&nbsp;Registro de la Conclusión del Control&nbsp;&nbsp;&nbsp;</button>
                         </div>
                     </html:form>
                 </div>
@@ -816,7 +816,7 @@
                         <div class="btn-container">
                             <button type="submit" id="boton_autoinicial" onclick="con_autoinicial()" class="btn btn-primary">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Grabar&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <button type="submit" id="boton_autoinicial_conclusion" onclick="con_autoinicial_conclusion()" class="btn btn-primary">&nbsp;&nbsp;&nbsp;Registro de la Conclusion del Control&nbsp;&nbsp;&nbsp;</button>
+                            <button type="submit" id="boton_autoinicial_conclusion" onclick="con_autoinicial_conclusion()" class="btn btn-primary">&nbsp;&nbsp;&nbsp;Registro de la Conclusión del Control&nbsp;&nbsp;&nbsp;</button>
                         </div>
                         <div class="form-group">
                             <label class="label-message-required">

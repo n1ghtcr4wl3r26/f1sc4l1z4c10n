@@ -47,43 +47,6 @@
         </html:form>
         <br/>
         <br/>
-        <html:form styleId="form-alcance2" action="memorizaciondiferidoidx.do">
-            <html:hidden property="opcion" value="CONSULTA2"/>
-            <legend>Por Importador</legend>
-            <div class="form-group">
-                <label class="col-sm-3 control-label">Fecha de Registro Ficha Informativa Desde:</label>
-                <div class="col-sm-3">
-                    <html:text property="fd2FecIni" maxlength="10" styleClass="form-control required datepicker"
-                               size="50"/>
-                </div>
-                <label class="col-sm-3 control-label">Fecha de Registro Ficha Informativa Hasta:</label>
-                <div class="col-sm-3">
-                    <html:text property="fd2FecFin" maxlength="10" styleClass="form-control required datepicker"
-                               size="50"/>
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="col-sm-3 control-label">Aduana:</label>
-                <div class="col-sm-3">
-                    <html:select property="fd2Aduana" styleClass="form-control required">
-                        <option value="-">Seleccione...</option>
-                        <html:optionsCollection name="aduanas" value="codigo" label="descripcion"/>
-                    </html:select>
-                </div>
-                <label class="col-sm-3 control-label">Importador:</label>
-                <div class="col-sm-3">
-                    <html:text property="fd2Importador" maxlength="10" styleClass="form-control required" size="50"/>
-                </div>
-            </div>
-            <div class="btn-container">
-                <button type="submit" id="boton" value="Consultar" onclick="consultar()" class="btn btn-primary">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Consultar&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
-            </div>
-            <div class="form-group">
-                <label class="label-message-required">* Campos Obligatorios</label>
-            </div>
-        </html:form>
-        <br/>
-        <br/>
         <html:form styleId="form-alcance3" action="memorizaciondiferidoidx.do">
             <html:hidden property="opcion" value="CONSULTA3"/>
             <legend>Por Declaraci&oacute;n</legend>
@@ -101,7 +64,7 @@
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-3 control-label">N&uacute;mero:</label>
+                <label class="col-sm-3 control-label">N&uacute;mero de C:</label>
                 <div class="col-sm-3">
                     <html:text property="fd3Numero" maxlength="10" styleClass="form-control required" size="50"/>
                 </div>
@@ -139,8 +102,8 @@
                         <th class="text-center">&nbsp;</th>
                         <th class="text-center">N&uacute;mero</th>
                         <th class="text-center">Declaraci&oacute;n</th>
-                        <th class="text-center">Items</th>
-                        <th class="text-center">Patron</th>
+                        <th class="text-center">Ítems</th>
+                        <th class="text-center">Patrón</th>
                         <th class="text-center">Ficha Informativa</th>                        
                         <th class="text-center">Fecha Registro</th>
                         <th class="text-center">Fecha Levante</th>
@@ -257,8 +220,11 @@
     </div>
 </div>
 <script>
+    $(window).load(function() {
+          $(".buttons-excel").hide();
+    });
   $(document).ready(function () {
-      $(".buttons-pdf").hide();
+      
 
       var DT = new Anb.datatable( {
           filter : true, "iDisplayLength" :  - 1, oLanguage :  {

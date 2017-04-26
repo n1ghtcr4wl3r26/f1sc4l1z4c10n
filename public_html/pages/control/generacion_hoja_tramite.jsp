@@ -6,7 +6,7 @@
 <div class="panel panel-default">
     <div class="panel-heading">
         <h4 class="panel-title">
-            <strong>GENERACION HOJA DE TRABAJO TRAMITES</strong>
+            <strong>GENERACIÓN HOJA DE TRABAJO TRÁMITES</strong>
         </h4>
     </div>
     <% 
@@ -17,11 +17,11 @@
             <html:hidden property="codigo" styleId="codigo"/>
             <input type="hidden" name="opcion" id="opcion"/>
             <div class="form-group">
-                <label class="col-sm-2 control-label">Codigo:</label>
+                <label class="col-sm-2 control-label">Código:</label>
                 <div class="col-sm-2">
                     ${infoControl.codigo}
                 </div>
-                <label class="col-sm-2 control-label">Codigo Control:</label>
+                <label class="col-sm-2 control-label">Código Control:</label>
                 <div class="col-sm-2">
                     ${infoControl.codigoControl}
                 </div>
@@ -67,7 +67,7 @@
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-2 control-label">N&uacute;mero de Identificacion:</label>
+                <label class="col-sm-2 control-label">N&uacute;mero de Identificación:</label>
                 <div class="col-sm-2">
                     ${infoControl.docIdentificacion}
                 </div>
@@ -105,7 +105,7 @@
             <br></br>
             <br></br>
             <div class="panel-title imp">
-                <strong>HOJA DE TRABAJO TRAMITES - ${infoControl.codigoControl}</strong>
+                <strong>HOJA DE TRABAJO TRÁMITES - ${infoControl.codigoControl}</strong>
                 <br/>
                 <label style="color:#049dbf;">Solo los valores de las columnas con (M), pueden ser modificados para ser cargados al sistema.</label> 
             </div>
@@ -125,7 +125,7 @@
                         <th class="text-center">(M) CIF USD</th>
                         <th class="text-center">(M) CIF Bs.</th>
                         <th class="text-center">(M) CIF UFV's</th> 
-                        <th class="text-center">(M) Ilicito Determinado</th>
+                        <th class="text-center">(M) Ilícito Determinado</th>
                         <th class="text-center">(M) Contravenci&oacute;n Aduanera Relacionada con la Orden UFV</th>   
                         <th class="text-center">Codigo</th> 
                         <th class="text-center">&nbsp;&nbsp;&nbsp;&nbsp;</th>                         
