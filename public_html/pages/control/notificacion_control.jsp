@@ -116,8 +116,7 @@
             <div class="form-group">
                 <label class="col-sm-3 control-label">Observaci&oacute;n:</label>
                 <div class="col-sm-3">
-                    <html:text property="observacion" styleId="observacion;" styleClass="form-control required"
-                               size="30" maxlength="30"/>
+                    <textarea name="observacion" id="observacion" class="form-control required" data-maxlength="100" onkeyup="Textarea_Sin_Enter(event.keyCode, event.which, 'observacion');" >${NotificacionControlForm.observacion}</textarea>
                 </div>
             </div>
             <div class="btn-container">

@@ -152,7 +152,8 @@ public class ReporteAction extends MappingDispatchAction {
                     AlcanceForm bean2 = new AlcanceForm();
                     bean2.setCodigo(bean.getCodigo());
                     Respuesta<Tramite[]> tram = alcneg.ver_TramitesControlreporte(bean2);
-                    request.getSession().setAttribute("tramites2", tram.getResultado());                    
+                    request.getSession().setAttribute("tramites2", tram.getResultado());  
+                    request.getSession().setAttribute("canttram", tram.getCantidad());                   
                     request.getSession().setAttribute("ReporteForm",bean);
                     link = "ok";
                 } 
@@ -203,7 +204,8 @@ public class ReporteAction extends MappingDispatchAction {
                     AlcanceForm bean2 = new AlcanceForm();
                     bean2.setCodigo(bean.getCodigo());
                     Respuesta<Tramite[]> tram = alcneg.ver_TramitesControlrepamp(bean2);
-                    request.getSession().setAttribute("tramites2amp", tram.getResultado());                    
+                    request.getSession().setAttribute("tramites2amp", tram.getResultado());  
+                    request.getSession().setAttribute("canttramamp", tram.getCantidad()); 
                     request.getSession().setAttribute("ReporteForm",bean);
                     link = "ok";
                 } 
@@ -254,7 +256,8 @@ public class ReporteAction extends MappingDispatchAction {
                     AlcanceForm bean2 = new AlcanceForm();
                     bean2.setCodigo(bean.getCodigo());
                     Respuesta<Tramite[]> tram = alcneg.ver_TramitesControlrepamp(bean2);
-                    request.getSession().setAttribute("tramites2amp", tram.getResultado());                    
+                    request.getSession().setAttribute("tramites2amp", tram.getResultado()); 
+                    request.getSession().setAttribute("canttramamp", tram.getCantidad()); 
                     request.getSession().setAttribute("ReporteForm",bean);
                     link = "ok";
                 } 
@@ -305,7 +308,8 @@ public class ReporteAction extends MappingDispatchAction {
                     AlcanceForm bean2 = new AlcanceForm();
                     bean2.setCodigo(bean.getCodigo());
                     Respuesta<Tramite[]> tram = alcneg.ver_TramitesControlrepamp(bean2);
-                    request.getSession().setAttribute("tramites2amp", tram.getResultado());                    
+                    request.getSession().setAttribute("tramites2amp", tram.getResultado());   
+                    request.getSession().setAttribute("canttramamp", tram.getCantidad()); 
                     request.getSession().setAttribute("ReporteForm",bean);
                     link = "ok";
                 } 

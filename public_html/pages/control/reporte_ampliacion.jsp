@@ -30,6 +30,7 @@
     <%
         ReporteForm bean = new ReporteForm();
         bean = (ReporteForm)request.getSession().getAttribute("ReporteForm");
+        int cantidad = (Integer)request.getSession().getAttribute("canttramamp");
         String control = "";
         if(bean.getFcontrol().equals("DIFERIDO")){
             control = "CD";
@@ -38,6 +39,22 @@
         }
 try
 {
+
+    if(cantidad == 0) {
+    %>
+    <table width="710px">        
+        <tr>
+            <td style="width:710px; height:100px">
+                <center>
+                    <label style="font-size:16px;">
+                        <strong>NO EXISTEN TRÁMITES AMPLIADOS PARA EL NÚMERO DE FISCALIZACIÓN <br/>${infoControl2.codigoControl}</strong>
+                    </label>
+                </center>
+            </td>
+        </tr>
+    </table>
+    <%}
+    else {
     if(!(bean.getCodigo()== null))
     {
        
@@ -60,7 +77,7 @@ try
                 <center>
                     <label style="font-size:20px;">
                         <strong>ORDEN DE FISCALIZACIÓN No.:
-                            ${infoControl2.codigoControl}<br>DETALLE DE AMPLIACION DE TRÁMITES A FISCALIZAR</strong>
+                            ${infoControl2.codigoControl}<br>DETALLE DE AMPLIACIÓN DE TRÁMITES A FISCALIZAR</strong>
                     </label>
                 </center>
             </td>
@@ -116,6 +133,7 @@ try
                    
     </table>
     <%}
+    }
       
       }catch (Exception er) 
   {

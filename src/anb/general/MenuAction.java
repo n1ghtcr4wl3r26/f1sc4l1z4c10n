@@ -113,6 +113,12 @@ public class MenuAction extends Action {
         case 91:
             return mapping.findForward("log");
         
+        case 98:
+            return mapping.findForward("account");
+        
+        case 99:
+            return mapping.findForward("password");
+        
         default:
             request.getSession().removeAttribute("user.data");
             request.getSession().removeAttribute("opcion");

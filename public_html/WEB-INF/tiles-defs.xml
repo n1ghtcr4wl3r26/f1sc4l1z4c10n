@@ -112,12 +112,21 @@
         <put name="content" value="/pages/control/notificacion_conclusion.jsp"/>
     </definition>
     
-     <definition name="anulacion.control.index" extends="aud.home">
+    <definition name="anulacion.control.index" extends="aud.home">
         <put name="content" value="/pages/control/anulacion_control_idx.jsp"/>
     </definition>
     <definition name="anulacion.control" extends="aud.home">
         <put name="content" value="/pages/control/anulacion_control.jsp"/>
     </definition>
+    
+    <!-- ADMIN -->
+    <definition name="admin.account" extends="aud.home">
+        <put name="content" value="/pages/control/admin_account.jsp"/>
+    </definition>
+    <definition name="admin.password" extends="aud.home">
+        <put name="content" value="/pages/control/admin_password.jsp"/>
+    </definition>
+    
     
     <!-- REPORTES -->
     <definition name="cuadro.liquidacion.index" extends="aud.home">

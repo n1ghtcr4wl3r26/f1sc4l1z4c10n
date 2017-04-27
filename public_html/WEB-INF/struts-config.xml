@@ -25,6 +25,7 @@
         <form-bean name="ReporteForm" type="anb.bean.ReporteForm"/>
         <form-bean name="ReporteControlForm" type="anb.bean.ReporteControlForm"/>   
         <form-bean name="AnulacionForm" type="anb.bean.AnulacionForm"/>
+        <form-bean name="AdminForm" type="anb.bean.AdminForm"/>
     </form-beans>
     <global-forwards>
         
@@ -59,6 +60,8 @@
             <forward name="repdetallecontrolfis" path="/reportedetallecontrolfisidx.do" redirect="true" />
             <forward name="repcuadroliquidacion" path="/reportecuadroliquidacionidx.do" redirect="true" />
             <forward name="repliquidacionprevia" path="/reporteliquidacionpreviaidx.do" redirect="true" />
+            <forward name="account" path="/account.do" redirect="true" />
+            <forward name="password" path="/passwordidx.do" redirect="true" />
         </action>
         
         <action path="/logout" type="anb.general.LogoutAction" scope="request">
@@ -80,8 +83,21 @@
             <forward name="nook" path="/input.jsp"/>            
         </action>
         
-        <!-- CONTROL -->
+        <!-- ADMIN -->
+        <action path="/account" type="anb.action.AdminAction" name="AdminForm" parameter="account" scope="request">
+            <forward name="ok" path="admin.account" redirect="true" />
+            <forward name="nook" path="/input.jsp"/>
+        </action>
+        <action path="/passwordidx" type="anb.action.AdminAction" name="AdminForm" parameter="passwordidx" scope="request">
+            <forward name="ok" path="admin.password" redirect="true" />
+            <forward name="nook" path="/input.jsp"/>
+        </action>
+        <action path="/password" type="anb.action.AdminAction" name="AdminForm" parameter="password" scope="request">
+            <forward name="ok" path="admin.password" redirect="true" />
+            <forward name="nook" path="/input.jsp"/>
+        </action>
         
+        <!-- CONTROL -->
         <!-- MEMORIZACION CONTROL-->
         <action path="/memorizacion" type="anb.action.MemorizacionControlAction" name="MemorizacionControlForm" parameter="index" scope="request">
             <forward name="ok" path="memorizacion.control" redirect="true" />

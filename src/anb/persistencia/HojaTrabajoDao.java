@@ -6,10 +6,12 @@ import anb.bean.GeneracionHojaForm;
 import anb.entidades.HojaTrabajoDui;
 
 import anb.general.Conexion;
-import anb.general.Util;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,6 +37,14 @@ public class HojaTrabajoDao extends Conexion {
             call.setString(2, bean.getCodigo());
             call.execute();
             rs = (ResultSet)call.getObject(1);
+            
+            DecimalFormatSymbols simbolo = new DecimalFormatSymbols();
+            simbolo.setDecimalSeparator('.');
+            simbolo.setGroupingSeparator(',');
+            DecimalFormat formato = new DecimalFormat("#,###,###.##", simbolo);
+            formato.setMaximumFractionDigits(2);
+            formato.setMinimumFractionDigits(2);           
+            
             while (rs.next()) {
                 HojaTrabajoDui ht = new HojaTrabajoDui();
                 ht.setSequencia(String.valueOf(cont++));
@@ -48,13 +58,32 @@ public class HojaTrabajoDao extends Conexion {
                 ht.setFechaval(rs.getString(8));
                 ht.setFechavcto(rs.getString(9));
 
-                ht.setDecfobusd(rs.getString(10));
+                //ht.setDecfobusd(rs.getString(10));
+                //ht.setDecfleteusd2(Double.parseDouble(rs.getString(11)));
+                ht.setDecfobusd(formato.format(rs.getFloat(10)));
+                ht.setDecfleteusd(formato.format(rs.getFloat(11)));
+                ht.setDecsegurousd(formato.format(rs.getFloat(12)));
+                ht.setDecotrosusd(formato.format(rs.getFloat(13)));
+                ht.setDeccifusd(formato.format(rs.getFloat(14)));
+                ht.setDectc(formato.format(rs.getFloat(15)));
+                ht.setDeccifbs(formato.format(rs.getFloat(16)));
+                ht.setDecga(formato.format(rs.getFloat(17)));
+                ht.setDecivabs(formato.format(rs.getFloat(18)));
+                ht.setDetfobusd(formato.format(rs.getFloat(19)));
+                ht.setDetfleteusd(formato.format(rs.getFloat(20)));
+                ht.setDetsegurousd(formato.format(rs.getFloat(21)));
+                ht.setDetotrosusd(formato.format(rs.getFloat(22)));
+                ht.setDetcifusd(formato.format(rs.getFloat(23)));
+                ht.setDetcifbs(formato.format(rs.getFloat(24)));
+                ht.setContravencion(formato.format(rs.getFloat(25)));
+                ht.setContravencionorden(formato.format(rs.getFloat(29)));
+                
+                /*
                 ht.setDecfleteusd(Util.completaCerosDecimal(rs.getString(11)));
-                ht.setDecfleteusd2(Double.parseDouble(rs.getString(11)));
                 ht.setDecsegurousd(Util.completaCerosDecimal(rs.getString(12)));
                 ht.setDecotrosusd(Util.completaCerosDecimal(rs.getString(13)));
-                ht.setDeccifusd(Util.completaCerosDecimal(rs.getString(14)));
-                ht.setDectc(Util.completaCerosDecimal(rs.getString(15)));
+                ht.setDeccifusd("$"+Util.completaCerosDecimal(rs.getString(14)));
+                ht.setDectc("$"+Util.completaCerosDecimal(rs.getString(15)));
                 ht.setDeccifbs(Util.completaCerosDecimal(rs.getString(16)));
                 ht.setDecga(Util.completaCerosDecimal(rs.getString(17)));
                 ht.setDecivabs(Util.completaCerosDecimal(rs.getString(18)));
@@ -66,10 +95,11 @@ public class HojaTrabajoDao extends Conexion {
                 ht.setDetcifbs(Util.completaCerosDecimal(rs.getString(24)));
 
                 ht.setContravencion(Util.completaCerosDecimal(rs.getString(25)));
+                */
                 ht.setIlicitodet(rs.getString(26));
                 ht.setObservacion(rs.getString(27));
                 ht.setTipoalcance(rs.getString(28));
-                ht.setContravencionorden(Util.completaCerosDecimal(rs.getString(29)));
+                //ht.setContravencionorden(Util.completaCerosDecimal(rs.getString(29)));
                 htls.add(ht);
             }
         } finally {
@@ -90,6 +120,12 @@ public class HojaTrabajoDao extends Conexion {
             call.registerOutParameter(1, OracleTypes.CURSOR);
             call.setString(2, bean.getCodigo());
             call.execute();
+            DecimalFormatSymbols simbolo = new DecimalFormatSymbols();
+            simbolo.setDecimalSeparator('.');
+            simbolo.setGroupingSeparator(',');
+            DecimalFormat formato = new DecimalFormat("#,###,###.##", simbolo);
+            formato.setMaximumFractionDigits(2);
+            formato.setMinimumFractionDigits(2); 
             rs = (ResultSet)call.getObject(1);
             while (rs.next()) {
                 HojaTrabajoDui ht = new HojaTrabajoDui();
@@ -103,7 +139,19 @@ public class HojaTrabajoDao extends Conexion {
                 ht.setFecha(rs.getString(7));
                 ht.setProveedor(rs.getString(8));
                 ht.setMercancia(rs.getString(9));
+                
+                ht.setDecfobusd(formato.format(rs.getFloat(10)));
+                ht.setDetfleteusd(formato.format(rs.getFloat(11)));
+                ht.setDetsegurousd(formato.format(rs.getFloat(12)));
+                ht.setDetotrosusd(formato.format(rs.getFloat(13)));
+                ht.setDetcifusd(formato.format(rs.getFloat(14)));
+                ht.setDetcifbs(formato.format(rs.getFloat(15)));
+                ht.setDetcifufv(formato.format(rs.getFloat(16)));
+                ht.setContravencionorden(formato.format(rs.getFloat(18)));
+                ht.setIlicitodet(rs.getString(17));
+                
                 //ht.setDetfobusd2(Double.parseDouble(rs.getString(10)));
+                /*
                 if(rs.getString(10) == null)
                     ht.setDetfobusd(rs.getString(10));
                 else 
@@ -144,6 +192,7 @@ public class HojaTrabajoDao extends Conexion {
                     ht.setContravencionorden(rs.getString(18));
                 else
                     ht.setContravencionorden(rs.getString(18).replace('.',','));
+                */
                 /*     
                 ht.setDetfleteusd(rs.getString(11));
                 ht.setDetsegurousd(rs.getString(12));

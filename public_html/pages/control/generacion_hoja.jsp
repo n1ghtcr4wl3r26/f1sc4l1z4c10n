@@ -206,10 +206,10 @@
                             <td class="text-right">
                                 ${esc.detotrosusd}
                             </td>
-                            <td class="text-left">
+                            <td class="text-right">
                                 ${esc.contravencion}
                             </td>
-                            <td class="text-left">
+                            <td class="text-right">
                                 ${esc.contravencionorden}
                             </td>
                             <td class="text-left">

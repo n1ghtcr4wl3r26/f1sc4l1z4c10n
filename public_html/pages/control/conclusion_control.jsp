@@ -910,14 +910,8 @@
   }
   
   function con_viscargo_conclusion() {
-      if($("#cvc_numero_vc").val()=='' && $("#cvc_fecha_vc").val()==''){
-        alert("debe llenar lo campos");
-        return false;
-      }
-      else{
         $(".opcion2").val('concluir');
         $(".opcion").val('con_viscargo');
-      }
   }
 
   function con_resdeter_conclusion() {
