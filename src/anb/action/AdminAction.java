@@ -39,7 +39,7 @@ public class AdminAction extends MappingDispatchAction {
                 Respuesta<Funcionario> res = neg.getAccount(bean);
                 if (res.getCodigo() == 1) {
                     //request.setAttribute("OK", res.getMensaje());
-                    request.getSession().setAttribute("funcionario", res.getResultado());
+                    //request.getSession().setAttribute("funcionario", res.getResultado());
                 } else {
                     if (res.getCodigo() == 0) {
                         request.setAttribute("WARNING", res.getMensaje());

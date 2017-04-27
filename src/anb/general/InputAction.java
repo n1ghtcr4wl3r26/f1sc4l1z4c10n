@@ -1,6 +1,8 @@
 package anb.general;
 
 
+import anb.entidades.Funcionario;
+
 import cliente.ClaseEnvio;
 import cliente.ServiciosUsuario;
 
@@ -107,6 +109,16 @@ public class InputAction extends Action {
             Document doc = builder.parse(new InputSource(new StringReader(xml)));
             doc.getDocumentElement().normalize();
 
+            Funcionario fun =  new Funcionario();                                                        
+            fun.setNombreUsuario(ini.getUsuario().toUpperCase());
+            fun.setNombreCompleto(GetTagXML(doc, "Usuario"));
+            fun.setAduana(GetTagXML(doc, "Aduana"));
+            fun.setCorreoElectronico(GetTagXML(doc, "Correo"));
+            fun.setGerencia(GetTagXML(doc, "NombreGerencia"));
+            fun.setUnidad(GetTagXML(doc, "NombreUnidad"));
+            fun.setPerfiles(GetTagXML(doc, "Perfil"));
+            
+            request.getSession().setAttribute("funcionario",fun);
             request.getSession().setAttribute("user", ini.getUsuario().toUpperCase());
             request.getSession().setAttribute("user.codger", GetTagXML(doc, "CodigoGerencia"));
             request.getSession().setAttribute("gerencia", Util.gusuarioGerencia(GetTagXML(doc, "CodigoGerencia")));
