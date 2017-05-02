@@ -52,6 +52,8 @@ public class AlcanceForm extends ActionForm {
     private String opcion;
     private String usuario;
     private String usuarioger;
+
+    private String gerencia;
     
     private String borrarid;
     
@@ -68,6 +70,7 @@ public class AlcanceForm extends ActionForm {
     /* VARIABLE DE INFORMACION DEL CONTROL */
     private String numeroOperador;
     private String tipoOperador;
+    
     
     public AlcanceForm() {
         super();
@@ -456,5 +459,13 @@ public class AlcanceForm extends ActionForm {
 
     public String getChotro() {
         return chotro;
+    }
+
+    public void setGerencia(String gerencia) {
+        this.gerencia = gerencia;
+    }
+
+    public String getGerencia() {
+        return gerencia;
     }
 }

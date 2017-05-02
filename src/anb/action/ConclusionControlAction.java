@@ -40,6 +40,7 @@ public class ConclusionControlAction extends MappingDispatchAction {
         } else {
             bean.setUsuario(usuario);
             bean.setCodger((String)request.getSession().getAttribute("user.codger"));
+            bean.setUsuarioger((String)request.getSession().getAttribute("gerencia"));
             String link = "index";
             String codigo;
             if (!(bean.getOpcion() == null) && bean.getOpcion().equals("CONSULTAR")) {
@@ -52,18 +53,27 @@ public class ConclusionControlAction extends MappingDispatchAction {
                 request.setAttribute("codigo", res.getResultado());
                 if (res.getCodigo() == 1) {
                     bean.setCodigo(res.getMensaje().toString());
-                    Respuesta<InfoControl> inf = gen.devuelveControl(bean.getCodigo());
-                    inf.getResultado().setUsuario(usuario);
-                    request.setAttribute("infoControl", inf.getResultado());
-                    Respuesta<List<Aduana>> adu = gen.obtenerAduanas2();
-                    request.setAttribute("aduanas", adu.getResultado());
-                    Respuesta<ConclusionControlForm> ben = neg.devuelveNotificacion(bean);
-                    if (ben.getCodigo() == 1) {
-                        Respuesta<PanelConclusion> panel = neg.devuelveConclusionPanel(bean.getCodigo());
-                        request.setAttribute("panelConclusion", panel.getResultado());
-                        bean = ben.getResultado();
+                    //verifica si el usuario esta habilitado para el control ******
+                    Respuesta<Boolean> ver =
+                        gen.verificaAccesoUsuario(bean.getCodigo(), bean.getUsuario(), "CONCLUSION",
+                                                  bean.getUsuarioger());
+                    if (ver.getCodigo() == 1) {                        
+                        Respuesta<InfoControl> inf = gen.devuelveControl(bean.getCodigo());
+                        inf.getResultado().setUsuario(usuario);
+                        request.setAttribute("infoControl", inf.getResultado());
+                        Respuesta<List<Aduana>> adu = gen.obtenerAduanas2();
+                        request.setAttribute("aduanas", adu.getResultado());
+                        Respuesta<ConclusionControlForm> ben = neg.devuelveNotificacion(bean);
+                        if (ben.getCodigo() == 1) {
+                            Respuesta<PanelConclusion> panel = neg.devuelveConclusionPanel(bean.getCodigo());
+                            request.setAttribute("panelConclusion", panel.getResultado());
+                            bean = ben.getResultado();
+                        }
+                        link = "ok";
+                    } else {
+                        request.setAttribute("ERROR", "No esta asignado a la Orden de Fiscalizaci&oacute;n");
                     }
-                    link = "ok";
+                    //******
                 } else {
                     if (res.getCodigo() == 0) {
                         request.setAttribute("WARNING", res.getMensaje());
@@ -177,9 +187,9 @@ public class ConclusionControlAction extends MappingDispatchAction {
                 request.setAttribute("fiscalizadores", fis.getResultado());
                 Respuesta<Fiscalizador[]> asig = gen.devuelveFisAsignados(bean.getCodigo());
                 request.setAttribute("asignados", asig.getResultado());
-                
+
                 if (!(bean.getOpcion2() == null) && bean.getOpcion2().equals("concluir")) {
-                    if (!(bean.getCrd_rd_final().equals(""))  &&  !(bean.getCrd_fecha_not_rd_final().equals(""))) {
+                    if (!(bean.getCrd_rd_final().equals("")) && !(bean.getCrd_fecha_not_rd_final().equals(""))) {
                         bean.setTipo_grabado("CONCLUIR");
                         Respuesta<Boolean> res = neg.graba_con_resdeter(bean);
                         if (res.getCodigo() == 1) {
@@ -225,7 +235,7 @@ public class ConclusionControlAction extends MappingDispatchAction {
                 request.setAttribute("asignados", asig.getResultado());
 
                 if (!(bean.getOpcion2() == null) && bean.getOpcion2().equals("concluir")) {
-                    if (!(bean.getCai_acta_interv().equals(""))  && !(bean.getCai_fecha_acta_interv().equals(""))) {
+                    if (!(bean.getCai_acta_interv().equals("")) && !(bean.getCai_fecha_acta_interv().equals(""))) {
                         bean.setTipo_grabado("CONCLUIR");
                         Respuesta<Boolean> res = neg.graba_con_actainter(bean);
                         if (res.getCodigo() == 1) {
@@ -284,7 +294,7 @@ public class ConclusionControlAction extends MappingDispatchAction {
                                 request.setAttribute("ERROR", res.getMensaje());
                                 link = "index";
                             }
-                        }                        
+                        }
                     } else {
                         request.setAttribute("ERROR",
                                              "Para concluir la fiscalización con RESOLUCIÓN ADMINISTRATIVA Y DETERMINATIVA DE FACILIDADES DE PAGO, debe registrar los campos Número de la Resolución Administrativa y Fecha de notificación de la Resolución Administrativa obligatoriamente.");
@@ -317,7 +327,7 @@ public class ConclusionControlAction extends MappingDispatchAction {
                 request.setAttribute("asignados", asig.getResultado());
 
                 if (!(bean.getOpcion2() == null) && bean.getOpcion2().equals("concluir")) {
-                    if (!(bean.getCas_numero_aisc().equals(""))  && !(bean.getCas_fecha_notificacion().equals(""))) {
+                    if (!(bean.getCas_numero_aisc().equals("")) && !(bean.getCas_fecha_notificacion().equals(""))) {
                         bean.setTipo_grabado("CONCLUIR");
                         Respuesta<Boolean> res = neg.graba_con_autoinicial(bean);
                         if (res.getCodigo() == 1) {
@@ -330,7 +340,7 @@ public class ConclusionControlAction extends MappingDispatchAction {
                                 request.setAttribute("ERROR", res.getMensaje());
                                 link = "index";
                             }
-                        }                        
+                        }
                     } else {
                         request.setAttribute("ERROR",
                                              "Para concluir la fiscalización con AUTO INICIAL DE SUMARIO CONTRAVENCIONAL, debe registrar los campos Número AISC y Fecha de Notificación obligatoriamente.");

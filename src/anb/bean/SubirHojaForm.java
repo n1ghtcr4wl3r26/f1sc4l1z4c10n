@@ -23,6 +23,8 @@ public class SubirHojaForm extends ActionForm {
     
     private String excel;
     private FormFile file;
+    
+    private String usuarioger; 
 
     public void setCargo(String cargo) {
         this.cargo = cargo;
@@ -144,6 +146,13 @@ public class SubirHojaForm extends ActionForm {
     public FormFile getFile() {
         return file;
     }
-    
-    
+
+
+    public void setUsuarioger(String usuarioger) {
+        this.usuarioger = usuarioger;
+    }
+
+    public String getUsuarioger() {
+        return usuarioger;
+    }
 }

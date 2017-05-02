@@ -20,6 +20,8 @@ public class TributosOmitidosForm extends ActionForm {
     
     private String cantidad;
     
+    private String usuarioger; 
+    
     public void setCargo(String cargo) {
         this.cargo = cargo;
     }
@@ -122,5 +124,13 @@ public class TributosOmitidosForm extends ActionForm {
 
     public String getCantidad() {
         return cantidad;
+    }
+
+    public void setUsuarioger(String usuarioger) {
+        this.usuarioger = usuarioger;
+    }
+
+    public String getUsuarioger() {
+        return usuarioger;
     }
 }

@@ -19,6 +19,8 @@ public class AsignaFiscalizadorForm extends ActionForm {
     private String usuario;
     
     private String borrarid;
+    
+    private String usuarioger; 
 
     public void setCargo(String cargo) {
         this.cargo = cargo;
@@ -122,5 +124,13 @@ public class AsignaFiscalizadorForm extends ActionForm {
 
     public String getBorrarid() {
         return borrarid;
+    }
+
+    public void setUsuarioger(String usuarioger) {
+        this.usuarioger = usuarioger;
+    }
+
+    public String getUsuarioger() {
+        return usuarioger;
     }
 }

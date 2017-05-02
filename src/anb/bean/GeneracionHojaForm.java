@@ -23,6 +23,8 @@ public class GeneracionHojaForm extends ActionForm {
     private String cantidad;
     private String separador;
 
+    private String usuarioger; 
+
     public void setCargo(String cargo) {
         this.cargo = cargo;
     }
@@ -141,5 +143,13 @@ public class GeneracionHojaForm extends ActionForm {
 
     public String getSeparador() {
         return separador;
+    }
+
+    public void setUsuarioger(String usuarioger) {
+        this.usuarioger = usuarioger;
+    }
+
+    public String getUsuarioger() {
+        return usuarioger;
     }
 }

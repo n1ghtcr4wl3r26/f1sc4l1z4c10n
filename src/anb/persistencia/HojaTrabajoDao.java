@@ -100,6 +100,7 @@ public class HojaTrabajoDao extends Conexion {
                 ht.setObservacion(rs.getString(27));
                 ht.setTipoalcance(rs.getString(28));
                 //ht.setContravencionorden(Util.completaCerosDecimal(rs.getString(29)));
+                ht.setCodigo(rs.getString(30));
                 htls.add(ht);
             }
         } finally {

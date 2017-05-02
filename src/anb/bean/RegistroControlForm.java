@@ -55,6 +55,8 @@ public class RegistroControlForm extends ActionForm {
     private String riesgoSubval;
     private String riesgoClas;
     private String riesgoContrab;
+    
+    private String usuarioger; 
 
     public void setCodigo(String codigo) {
         this.codigo = codigo;
@@ -398,5 +400,13 @@ public class RegistroControlForm extends ActionForm {
 
     public String getRiesgoContrab() {
         return riesgoContrab;
+    }
+
+    public void setUsuarioger(String usuarioger) {
+        this.usuarioger = usuarioger;
+    }
+
+    public String getUsuarioger() {
+        return usuarioger;
     }
 }

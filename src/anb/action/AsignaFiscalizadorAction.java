@@ -41,6 +41,7 @@ public class AsignaFiscalizadorAction extends MappingDispatchAction {
         } else {
             bean.setUsuario(usuario);
             bean.setCodger((String)request.getSession().getAttribute("user.codger"));
+            bean.setUsuarioger((String)request.getSession().getAttribute("gerencia"));
             String link = "index";
             String codigo;
             if (!(bean.getOpcion() == null) && bean.getOpcion().equals("CONSULTAR")) {
@@ -49,22 +50,35 @@ public class AsignaFiscalizadorAction extends MappingDispatchAction {
                 if (res.getCodigo() == 1) {
                     request.getSession().setAttribute("scodigo", bean.getCodigo());
                     Respuesta<InfoControl> inf = gen.devuelveControl(bean.getCodigo());
-                    request.setAttribute("infoControl", inf.getResultado());                                        
-                    if (inf.getResultado().getTipoControl().equals("FISCALIZACION AMPLIATORIA")){
-                        request.setAttribute("ERROR", "No REQUERIDO PARA FISCALIZACION AMPLIATORIA");
-                        link = "index";                        
+                    request.setAttribute("infoControl", inf.getResultado());
+                    if (inf.getResultado().getTipoControl().equals("FISCALIZACION AMPLIATORIA")) {
+                        request.setAttribute("ERROR", "No requerido para Fiscalizaci&oacute;n Ampliatoria");
+                        link = "index";
                     } else {
-                        Respuesta<Tramite[]> tram = gen.ver_TramitesControl(bean.getCodigo());
-                        request.setAttribute("tramites", tram.getResultado());
-                        Respuesta<Fiscalizador[]> asig = gen.devuelveFisAsignados(bean.getCodigo());
-                        request.setAttribute("asignados", asig.getResultado());
-                        Respuesta<List<Fiscalizador>> fis = gen.obtenerFiscalizadores(bean.getCodger());
-                        if (fis.getCodigo() == 1) {
-                            request.setAttribute("fiscalizadores", fis.getResultado());
+                        //verifica si el usuario esta habilitado para el control ******
+                        Respuesta<Boolean> ver =
+                            gen.verificaAccesoUsuario(bean.getCodigo(), bean.getUsuario(), "ASIGNACION",
+                                                      bean.getUsuarioger());
+                        if (ver.getCodigo() == 1) {
+                            Respuesta<Tramite[]> tram = gen.ver_TramitesControl(bean.getCodigo());
+                            request.setAttribute("tramites", tram.getResultado());
+                            Respuesta<Fiscalizador[]> asig = gen.devuelveFisAsignados(bean.getCodigo());
+                            request.setAttribute("asignados", asig.getResultado());
+                            Respuesta<List<Fiscalizador>> fis = gen.obtenerFiscalizadores(bean.getCodger());
+                            if (fis.getCodigo() == 1) {
+                                request.setAttribute("fiscalizadores", fis.getResultado());
+                            } else {
+                                request.setAttribute("fiscalizadores", null);
+                            }
+                            link = "ok";
                         } else {
-                            request.setAttribute("fiscalizadores", null);
+                            if (ver.getMensaje().equals("NOPERFIL")) {
+                                request.setAttribute("ERROR", "No tiene el perfil adecuado.");
+                            } else {
+                                request.setAttribute("ERROR", "No tiene acceso a la Orden de Fiscalizaci&oacute;n.");
+                            }
                         }
-                        link = "ok";
+                        //******
                     }
                 } else {
                     if (res.getCodigo() == 0) {
@@ -75,7 +89,7 @@ public class AsignaFiscalizadorAction extends MappingDispatchAction {
                     }
                 }
             } else {
-                bean.setCodigo((String)request.getSession().getAttribute("scodigo"));           
+                bean.setCodigo((String)request.getSession().getAttribute("scodigo"));
             }
             return mapping.findForward(link);
         }
@@ -100,7 +114,7 @@ public class AsignaFiscalizadorAction extends MappingDispatchAction {
                 Respuesta<Tramite[]> tram = gen.ver_TramitesControl(bean.getCodigo());
                 request.setAttribute("tramites", tram.getResultado());
                 Respuesta<List<Fiscalizador>> fis = gen.obtenerFiscalizadores(bean.getCodger());
-                request.setAttribute("fiscalizadores", fis.getResultado());                
+                request.setAttribute("fiscalizadores", fis.getResultado());
                 Respuesta<Boolean> res = neg.graba_asignacion(bean);
                 if (res.getCodigo() == 1) {
                     request.setAttribute("OK", res.getMensaje());
@@ -124,7 +138,7 @@ public class AsignaFiscalizadorAction extends MappingDispatchAction {
                 Respuesta<Tramite[]> tram = gen.ver_TramitesControl(bean.getCodigo());
                 request.setAttribute("tramites", tram.getResultado());
                 Respuesta<List<Fiscalizador>> fis = gen.obtenerFiscalizadores(bean.getCodger());
-                request.setAttribute("fiscalizadores", fis.getResultado());                
+                request.setAttribute("fiscalizadores", fis.getResultado());
                 Respuesta<Boolean> res = neg.borra_asignacion(bean);
                 if (res.getCodigo() == 1) {
                     request.setAttribute("OK", res.getMensaje());
@@ -143,9 +157,9 @@ public class AsignaFiscalizadorAction extends MappingDispatchAction {
             return mapping.findForward("ok");
         }
     }
-    
+
     public ActionForward reasignaidx(ActionMapping mapping, ActionForm form, HttpServletRequest request,
-                                   HttpServletResponse response) throws Exception {
+                                     HttpServletResponse response) throws Exception {
 
         AsignaFiscalizadorForm bean = new AsignaFiscalizadorForm();
         bean = (AsignaFiscalizadorForm)request.getAttribute("AsignaFiscalizadorForm");
@@ -158,6 +172,7 @@ public class AsignaFiscalizadorAction extends MappingDispatchAction {
         } else {
             bean.setUsuario(usuario);
             bean.setCodger((String)request.getSession().getAttribute("user.codger"));
+            bean.setUsuarioger((String)request.getSession().getAttribute("gerencia"));
             String link = "index";
             String codigo;
             if (!(bean.getOpcion() == null) && bean.getOpcion().equals("CONSULTAR")) {
@@ -169,28 +184,42 @@ public class AsignaFiscalizadorAction extends MappingDispatchAction {
                     gen.devuelveCodigo(bean.getFgestion(), bean.getFcontrol(), bean.getFgerencia(), bean.getFnumero());
                 request.setAttribute("codigo", res2.getResultado());
                 if (res2.getCodigo() == 1) {
-                    bean.setCodigo(res2.getMensaje().toString());                    
+                    bean.setCodigo(res2.getMensaje().toString());
                     Respuesta<Boolean> res = neg.verifica_acceso_control(bean);
-    
+
                     if (res.getCodigo() == 1) {
                         request.getSession().setAttribute("scodigo", bean.getCodigo());
                         Respuesta<InfoControl> inf = gen.devuelveControl(bean.getCodigo());
-                        request.setAttribute("infoControl", inf.getResultado());                                        
-                        if (inf.getResultado().getTipoControl().equals("FISCALIZACION AMPLIATORIA")){
+                        request.setAttribute("infoControl", inf.getResultado());
+                        if (inf.getResultado().getTipoControl().equals("FISCALIZACION AMPLIATORIA")) {
                             request.setAttribute("ERROR", "No REQUERIDO PARA FISCALIZACION AMPLIATORIA");
-                            link = "index";                        
+                            link = "index";
                         } else {
-                            Respuesta<Tramite[]> tram = gen.ver_TramitesControl(bean.getCodigo());
-                            request.setAttribute("tramites", tram.getResultado());
-                            Respuesta<Fiscalizador[]> asig = gen.devuelveFisAccesos(bean.getCodigo());
-                            request.setAttribute("asignados", asig.getResultado());
-                            Respuesta<List<Fiscalizador>> fis = gen.obtenerFiscalizadores(bean.getCodger());
-                            if (fis.getCodigo() == 1) {
-                                request.setAttribute("fiscalizadores", fis.getResultado());
+                            //verifica si el usuario esta habilitado para el control ******
+                            Respuesta<Boolean> ver =
+                                gen.verificaAccesoUsuario(bean.getCodigo(), bean.getUsuario(), "REASIGNA",
+                                                          bean.getUsuarioger());
+                            if (ver.getCodigo() == 1) {
+                                Respuesta<Tramite[]> tram = gen.ver_TramitesControl(bean.getCodigo());
+                                request.setAttribute("tramites", tram.getResultado());
+                                Respuesta<Fiscalizador[]> asig = gen.devuelveFisAccesos(bean.getCodigo());
+                                request.setAttribute("asignados", asig.getResultado());
+                                Respuesta<List<Fiscalizador>> fis = gen.obtenerFiscalizadores(bean.getCodger());
+                                if (fis.getCodigo() == 1) {
+                                    request.setAttribute("fiscalizadores", fis.getResultado());
+                                } else {
+                                    request.setAttribute("fiscalizadores", null);
+                                }
+                                link = "ok";
                             } else {
-                                request.setAttribute("fiscalizadores", null);
+                                if (ver.getMensaje().equals("NOPERFIL")) {
+                                    request.setAttribute("ERROR", "No tiene el perfil adecuado.");
+                                } else {
+                                    request.setAttribute("ERROR",
+                                                         "No tiene acceso a la Orden de Fiscalizaci&oacute;n.");
+                                }
                             }
-                            link = "ok";
+                            //******
                         }
                     } else {
                         if (res.getCodigo() == 0) {
@@ -200,7 +229,7 @@ public class AsignaFiscalizadorAction extends MappingDispatchAction {
                             link = "index";
                         }
                     }
-                }  else {
+                } else {
                     if (res2.getCodigo() == 0) {
                         request.setAttribute("WARNING", res2.getMensaje());
                     } else {
@@ -211,14 +240,14 @@ public class AsignaFiscalizadorAction extends MappingDispatchAction {
                 bean.setFgestion((String)request.getSession().getAttribute("sgestion"));
                 bean.setFgerencia((String)request.getSession().getAttribute("sgerencia"));
                 bean.setFcontrol((String)request.getSession().getAttribute("scontrol"));
-                bean.setFnumero((String)request.getSession().getAttribute("snumero"));            
+                bean.setFnumero((String)request.getSession().getAttribute("snumero"));
             }
             return mapping.findForward(link);
         }
     }
 
     public ActionForward reasigna(ActionMapping mapping, ActionForm form, HttpServletRequest request,
-                                HttpServletResponse response) throws Exception {
+                                  HttpServletResponse response) throws Exception {
 
         AsignaFiscalizadorForm bean = new AsignaFiscalizadorForm();
         bean = (AsignaFiscalizadorForm)request.getAttribute("AsignaFiscalizadorForm");
@@ -236,7 +265,7 @@ public class AsignaFiscalizadorAction extends MappingDispatchAction {
                 Respuesta<Tramite[]> tram = gen.ver_TramitesControl(bean.getCodigo());
                 request.setAttribute("tramites", tram.getResultado());
                 Respuesta<List<Fiscalizador>> fis = gen.obtenerFiscalizadores(bean.getCodger());
-                request.setAttribute("fiscalizadores", fis.getResultado());                
+                request.setAttribute("fiscalizadores", fis.getResultado());
                 Respuesta<Boolean> res = neg.graba_acceso(bean);
                 if (res.getCodigo() == 1) {
                     request.setAttribute("OK", res.getMensaje());
@@ -260,7 +289,7 @@ public class AsignaFiscalizadorAction extends MappingDispatchAction {
                 Respuesta<Tramite[]> tram = gen.ver_TramitesControl(bean.getCodigo());
                 request.setAttribute("tramites", tram.getResultado());
                 Respuesta<List<Fiscalizador>> fis = gen.obtenerFiscalizadores(bean.getCodger());
-                request.setAttribute("fiscalizadores", fis.getResultado());                
+                request.setAttribute("fiscalizadores", fis.getResultado());
                 Respuesta<Boolean> res = neg.borra_acceso(bean);
                 if (res.getCodigo() == 1) {
                     request.setAttribute("OK", res.getMensaje());

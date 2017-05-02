@@ -43,16 +43,28 @@ public class AlcanceAction extends MappingDispatchAction {
             return mapping.findForward("nook");
         } else {
             bean.setUsuario(usuario);
+            bean.setUsuarioger((String)request.getSession().getAttribute("gerencia"));
             if (!(bean.getOpcion() == null) && bean.getOpcion().equals("CONSULTACTL")) {
                 Respuesta<Boolean> res = alcneg.verifica_alcance_control(bean);
                 if (res.getCodigo() == 1) {
-                    request.setAttribute("OK", res.getMensaje());
-                    request.getSession().setAttribute("codigoalc", bean.getCodigo());
-                    if (bean.getTipoBusqueda().equals("FILTRO")) {
-                        link = "ok";
+                    //verifica si el usuario esta habilitado para el control ******
+                    Respuesta<Boolean> ver = neg.verificaAccesoUsuario(bean.getCodigo(), bean.getUsuario(), "ALCANCE", bean.getUsuarioger());
+                    if (ver.getCodigo() == 1) {
+                        request.setAttribute("OK", res.getMensaje());
+                        request.getSession().setAttribute("codigoalc", bean.getCodigo());
+                        if (bean.getTipoBusqueda().equals("FILTRO")) {
+                            link = "ok";
+                        } else {
+                            link = "oktram";
+                        }
                     } else {
-                        link = "oktram";
+                        if (ver.getMensaje().equals("NOPERFIL")){
+                            request.setAttribute("ERROR", "No tiene el perfil adecuado.");
+                        } else {
+                            request.setAttribute("ERROR", "No tiene acceso a la Orden de Fiscalizaci&oacute;n.");   
+                        }
                     }
+                    //******                    
                 } else {
                     if (res.getMensaje().equals("NO SE PUEDE REGISTRAR ALCANCE DE UNA FISCALIZACION AMPLIATORIA")) {
 

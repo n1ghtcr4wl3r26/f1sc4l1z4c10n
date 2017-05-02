@@ -355,6 +355,34 @@ public class GeneralNeg {
         return respuesta;
     }  
     
+    public Respuesta<Tramite[]> ver_TramitesControlxls(String codigo) {
+        Respuesta<Tramite[]> respuesta = new Respuesta<Tramite[]>();
+        respuesta.setCodigo(-1);
+        if (estaConectadoBd()) {
+            try {
+                List<Tramite> result = dao.tramitesxls(codigo);
+                if (result == null || result.size() == 0) {
+                    respuesta.setMensaje("No existen registros");
+                    respuesta.setCodigo(0);
+                } else {
+                    respuesta.setCantidad(result.size());
+                    respuesta.setCodigo(1);
+                    respuesta.setMensaje("OK");
+                    respuesta.setResultado(result.toArray(new Tramite[result.size()]));
+                }
+            } catch (SQLException e) {
+                respuesta.setMensaje("Error no identificado -  " + e.getMessage());
+            } catch (ClassNotFoundException e) {
+                respuesta.setMensaje("Error no identificado -  " + e.getMessage());
+            } catch (NamingException e) {
+                respuesta.setMensaje("Error no identificado -  " + e.getMessage());
+            }
+        } else {
+            respuesta.setMensaje("Error. No se puede conectar a la base de datos.");
+        }
+        return respuesta;
+    }  
+    
     public Respuesta<Boolean> devuelveCodigo(String gestion,String tipo, String gerencia, String numero){
         Respuesta<Boolean> respuesta = new Respuesta<Boolean>();
         respuesta.setCodigo(-1);
@@ -472,4 +500,35 @@ public class GeneralNeg {
         }
         return respuesta;
     }
+    public Respuesta<Boolean> verificaAccesoUsuario(String idControl,String usuario, String opcion, String gerencia){
+        Respuesta<Boolean> respuesta = new Respuesta<Boolean>();
+        respuesta.setCodigo(-1);
+        respuesta.setResultado(false);
+        if (estaConectadoBd()) {
+            try {
+                String result = dao.verificaAccesoUsuario(idControl, usuario, opcion, gerencia);
+                if (result == null) {
+                    respuesta.setMensaje("NOCORRECTO");
+                } else if (result.equals(CORRECTO_BD)) {
+                    respuesta.setCodigo(1);
+                    respuesta.setMensaje(result);
+                    respuesta.setResultado(true);
+                } else {
+                    respuesta.setCodigo(0);
+                    respuesta.setMensaje(result);
+                    respuesta.setResultado(false);
+                }
+            } catch (SQLException e) {
+                respuesta.setMensaje("Error no identificado -  " + e.getMessage());
+            } catch (ClassNotFoundException e) {
+                respuesta.setMensaje("Error no identificado -  " + e.getMessage());
+            } catch (NamingException e) {
+                respuesta.setMensaje("Error no identificado -  " + e.getMessage());
+            }
+        } else {
+            respuesta.setMensaje("Error. No se puede conectar a la base de datos.");
+        }
+        return respuesta;
+    }
+    
 }
