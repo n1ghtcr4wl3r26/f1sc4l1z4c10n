@@ -21,39 +21,55 @@ import org.apache.struts.actions.MappingDispatchAction;
 
 
 public class AnulacionAction extends MappingDispatchAction {
-    
+
     private final AnulacionNeg neg = new AnulacionNeg();
     private final GeneralNeg gen = new GeneralNeg();
-    
+
     public ActionForward anulacionidx(ActionMapping mapping, ActionForm form, HttpServletRequest request,
-                                     HttpServletResponse response) throws Exception {
+                                      HttpServletResponse response) throws Exception {
 
         AnulacionForm bean = new AnulacionForm();
         String link = "index";
         bean = (AnulacionForm)request.getAttribute("AnulacionForm");
-        
+
         String usuario = (String)request.getSession().getAttribute("user");
         if (usuario == null) {
             return mapping.findForward("nook");
         } else {
             bean.setGerencia((String)request.getSession().getAttribute("gerencia"));
+            bean.setUsuarioger((String)request.getSession().getAttribute("gerencia"));
             bean.setUsuario(usuario);
             if (!(bean.getOpcion() == null) && bean.getOpcion().equals("CONSULTAR")) {
-               
+                request.getSession().setAttribute("sgestion", bean.getFgestion());
+                request.getSession().setAttribute("sgerencia", bean.getFgerencia());
+                request.getSession().setAttribute("scontrol", bean.getFcontrol());
+                request.getSession().setAttribute("snumero", bean.getFnumero());
                 Respuesta<Boolean> res2 =
                     gen.devuelveCodigo(bean.getFgestion(), bean.getFcontrol(), bean.getFgerencia(), bean.getFnumero());
                 if (res2.getCodigo() == 1) {
                     bean.setCodigo(res2.getMensaje());
-                    
                     Respuesta<Boolean> res = neg.verifica_anulacion_control(bean);
                     if (res.getCodigo() == 1) {
-                        request.setAttribute("OK", res.getMensaje());
-                        Respuesta<InfoControl> inf = gen.devuelveControl(bean.getCodigo());
-                        request.setAttribute("AnulacionForm", bean);
-                        request.setAttribute("infoControl", inf.getResultado());
-                        Respuesta<Tramite[]> tram = gen.ver_TramitesControl(bean.getCodigo());
-                        request.setAttribute("tramites", tram.getResultado());                    
-                        link = "ok";
+                        //verifica si el usuario esta habilitado para el control ******
+                        Respuesta<Boolean> ver =
+                            gen.verificaAccesoUsuario(bean.getCodigo(), bean.getUsuario(), "ANULACION",
+                                                      bean.getUsuarioger());
+                        if (ver.getCodigo() == 1) {
+                            request.setAttribute("OK", res.getMensaje());
+                            Respuesta<InfoControl> inf = gen.devuelveControl(bean.getCodigo());
+                            request.setAttribute("AnulacionForm", bean);
+                            request.setAttribute("infoControl", inf.getResultado());
+                            Respuesta<Tramite[]> tram = gen.ver_TramitesControl(bean.getCodigo());
+                            request.setAttribute("tramites", tram.getResultado());
+                            link = "ok";
+                        } else {
+                            if (ver.getMensaje().equals("NOPERFIL")) {
+                                request.setAttribute("ERROR", "No tiene el perfil adecuado.");
+                            } else {
+                                request.setAttribute("ERROR", "No tiene acceso a la Orden de Fiscalizaci&oacute;n.");
+                            }
+                        }
+                        //******
                     } else {
                         if (res.getCodigo() == 0) {
                             request.setAttribute("WARNING", res.getMensaje());
@@ -70,43 +86,51 @@ public class AnulacionAction extends MappingDispatchAction {
                         link = "index";
                     }
                 }
-                
-                
-                
             }
-            
             if (!(bean.getOpcion() == null) && bean.getOpcion().equals("CONSULTAR2")) {
-                
-                    bean.setCodigo(bean.getFcodigo());
-              
-                    Respuesta<Boolean> res = neg.verifica_anulacion_control(bean);
-                    if (res.getCodigo() == 1) {
+                bean.setCodigo(bean.getFcodigo());
+                Respuesta<Boolean> res = neg.verifica_anulacion_control(bean);
+                if (res.getCodigo() == 1) {
+                    //verifica si el usuario esta habilitado para el control ******
+                    Respuesta<Boolean> ver =
+                        gen.verificaAccesoUsuario(bean.getCodigo(), bean.getUsuario(), "ANULACION",
+                                                  bean.getUsuarioger());
+                    if (ver.getCodigo() == 1) {
                         request.setAttribute("OK", res.getMensaje());
                         Respuesta<InfoControl> inf = gen.devuelveControl(bean.getCodigo());
                         request.setAttribute("AnulacionForm", bean);
                         request.setAttribute("infoControl", inf.getResultado());
                         Respuesta<Tramite[]> tram = gen.ver_TramitesControl(bean.getCodigo());
-                        request.setAttribute("tramites", tram.getResultado());                    
+                        request.setAttribute("tramites", tram.getResultado());
                         link = "ok";
                     } else {
-                        if (res.getCodigo() == 0) {
-                            request.setAttribute("WARNING", res.getMensaje());
+                        if (ver.getMensaje().equals("NOPERFIL")) {
+                            request.setAttribute("ERROR", "No tiene el perfil adecuado.");
                         } else {
-                            request.setAttribute("ERROR", res.getMensaje());
-                            link = "index";
+                            request.setAttribute("ERROR", "No tiene acceso a la Orden de Fiscalizaci&oacute;n.");
                         }
                     }
-              
-                
-                
-                
+                    //******
+                } else {
+                    if (res.getCodigo() == 0) {
+                        request.setAttribute("WARNING", res.getMensaje());
+                    } else {
+                        request.setAttribute("ERROR", res.getMensaje());
+                        link = "index";
+                    }
+                }
+            } else {
+                bean.setFgestion((String)request.getSession().getAttribute("sgestion"));
+                bean.setFgerencia((String)request.getSession().getAttribute("sgerencia"));
+                bean.setFcontrol((String)request.getSession().getAttribute("scontrol"));
+                bean.setFnumero((String)request.getSession().getAttribute("snumero"));
             }
             return mapping.findForward(link);
         }
     }
 
     public ActionForward anulacion(ActionMapping mapping, ActionForm form, HttpServletRequest request,
-                                  HttpServletResponse response) throws Exception {
+                                   HttpServletResponse response) throws Exception {
 
         AnulacionForm bean = new AnulacionForm();
         String link = "ok";
@@ -126,7 +150,7 @@ public class AnulacionAction extends MappingDispatchAction {
                 Respuesta<Boolean> res = neg.anula_control(bean);
                 if (res.getCodigo() == 1) {
                     request.setAttribute("OK", res.getMensaje());
-                    /*String[] fisca = res.getMensaje().split("-");                    
+                    /*String[] fisca = res.getMensaje().split("-");
                     request.getSession().setAttribute("sgestion", fisca[0].substring(37));
                     request.getSession().setAttribute("sgerencia", fisca[2]);
                     request.getSession().setAttribute("scontrol", fisca[1]);

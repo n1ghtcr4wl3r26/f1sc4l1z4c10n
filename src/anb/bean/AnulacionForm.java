@@ -8,6 +8,8 @@ public class AnulacionForm extends ActionForm {
     private String tipo;
     private String gerencia;
     private String numero;
+
+    private String usuarioger; 
     
     private String fcodigo;
     private String fgestion;
@@ -130,5 +132,13 @@ public class AnulacionForm extends ActionForm {
 
     public String getFnumero() {
         return fnumero;
+    }
+
+    public void setUsuarioger(String usuarioger) {
+        this.usuarioger = usuarioger;
+    }
+
+    public String getUsuarioger() {
+        return usuarioger;
     }
 }

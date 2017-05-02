@@ -20,6 +20,8 @@ public class NotificacionConclusionForm extends ActionForm {
     private String codigo;
     private String codger;
     private String usuario;
+    
+    private String usuarioger; 
 
     public void setCargo(String cargo) {
         this.cargo = cargo;
@@ -131,5 +133,13 @@ public class NotificacionConclusionForm extends ActionForm {
 
     public String getTipoNotificacion() {
         return tipoNotificacion;
+    }
+
+    public void setUsuarioger(String usuarioger) {
+        this.usuarioger = usuarioger;
+    }
+
+    public String getUsuarioger() {
+        return usuarioger;
     }
 }

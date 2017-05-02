@@ -17,12 +17,12 @@ public class SubirExcelDao extends Conexion {
 
     public String graba_resultados(String dui, String item, String partida, double fob, double flete, double seguro,
                                    double otros, double cifusd, double cifbob, double contrav, String ilicito,
-                                   String observacion, String usuario, String codigo, double contravorden) throws SQLException, ClassNotFoundException,
+                                   String observacion, String usuario, String codigo, double contravorden, String idalcance) throws SQLException, ClassNotFoundException,
                                                                               NamingException {
         String res;
         try {
             open();
-            call = cn.prepareCall("{ ? = call pkg_seguimiento.graba_resultados2 ( ?,?,?,?,?,  ?,?,?,?,?,  ?,?,?,?,?)}");
+            call = cn.prepareCall("{ ? = call pkg_seguimiento.graba_resultados2 ( ?,?,?,?,?,  ?,?,?,?,?,  ?,?,?,?,?,?)}");
             call.registerOutParameter(1, OracleTypes.VARCHAR);
             call.setString(2, dui);
             call.setString(3, item);
@@ -39,6 +39,7 @@ public class SubirExcelDao extends Conexion {
             call.setString(14, usuario);
             call.setString(15, codigo);
             call.setDouble(16, contravorden);
+            call.setString(17, idalcance);
             call.execute();
             res = (String)call.getObject(1);
         } finally {

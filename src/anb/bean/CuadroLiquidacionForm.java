@@ -12,6 +12,8 @@ public class CuadroLiquidacionForm extends ActionForm {
     private String fgerencia;
     private String fnumero;
     
+    private String usuarioger; 
+    
     private String boton;
     private String opcion;
     private String codigo;
@@ -123,5 +125,13 @@ public class CuadroLiquidacionForm extends ActionForm {
 
     public String getCantidad() {
         return cantidad;
+    }
+
+    public void setUsuarioger(String usuarioger) {
+        this.usuarioger = usuarioger;
+    }
+
+    public String getUsuarioger() {
+        return usuarioger;
     }
 }

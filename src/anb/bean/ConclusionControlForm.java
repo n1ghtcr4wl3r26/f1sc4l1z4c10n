@@ -18,6 +18,8 @@ public class ConclusionControlForm extends ActionForm {
     private String fgerencia;
     private String fnumero;
 
+    private String usuarioger; 
+
     private String boton;
     private String opcion;
     private String opcion2;
@@ -796,5 +798,13 @@ public class ConclusionControlForm extends ActionForm {
 
     public String getTipo_grabado() {
         return tipo_grabado;
+    }
+
+    public void setUsuarioger(String usuarioger) {
+        this.usuarioger = usuarioger;
+    }
+
+    public String getUsuarioger() {
+        return usuarioger;
     }
 }

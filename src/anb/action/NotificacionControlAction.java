@@ -38,6 +38,7 @@ public class NotificacionControlAction extends MappingDispatchAction {
         } else {
             bean.setUsuario(usuario);
             bean.setCodger((String)request.getSession().getAttribute("user.codger"));
+            bean.setUsuarioger((String)request.getSession().getAttribute("gerencia"));
             String link = "index";
             String codigo;
             if (!(bean.getOpcion() == null) && bean.getOpcion().equals("CONSULTAR")) {
@@ -48,16 +49,22 @@ public class NotificacionControlAction extends MappingDispatchAction {
                 Respuesta<Boolean> res =
                     gen.devuelveCodigo(bean.getFgestion(), bean.getFcontrol(), bean.getFgerencia(), bean.getFnumero());
                 request.setAttribute("codigo", res.getResultado());
-
                 if (res.getCodigo() == 1) {
                     bean.setCodigo(res.getMensaje().toString());
-                    Respuesta<InfoControl> inf = gen.devuelveControl(bean.getCodigo());
-                    request.setAttribute("infoControl", inf.getResultado());
-                    Respuesta<NotificacionControlForm> ben = neg.devuelveNotificacion(bean);
-                    if (ben.getCodigo() == 1) {
-                        bean = ben.getResultado();
+                    //verifica si el usuario esta habilitado para el control ******
+                    Respuesta<Boolean> ver = gen.verificaAccesoUsuario(bean.getCodigo(), bean.getUsuario(), "NOTIFICACION", bean.getUsuarioger());
+                    if (ver.getCodigo() == 1) {
+                        Respuesta<InfoControl> inf = gen.devuelveControl(bean.getCodigo());
+                        request.setAttribute("infoControl", inf.getResultado());
+                        Respuesta<NotificacionControlForm> ben = neg.devuelveNotificacion(bean);
+                        if (ben.getCodigo() == 1) {
+                            bean = ben.getResultado();
+                        }
+                        link = "ok";
+                    } else {
+                        request.setAttribute("ERROR", "No esta asignado a la Orden de Fiscalizaci&oacute;n");   
                     }
-                    link = "ok";
+                    //******
                 } 
                 else {
                     if (res.getCodigo() == 0) {

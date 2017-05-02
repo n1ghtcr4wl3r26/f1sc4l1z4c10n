@@ -21,7 +21,7 @@ public class GeneracionExcelForm extends ActionForm {
     private String usuario;
     private String mostrarid;
     
-    
+    private String usuarioger; 
 
     public void setCargo(String cargo) {
         this.cargo = cargo;
@@ -133,6 +133,14 @@ public class GeneracionExcelForm extends ActionForm {
 
     public String getMostrarid() {
         return mostrarid;
+    }
+
+    public void setUsuarioger(String usuarioger) {
+        this.usuarioger = usuarioger;
+    }
+
+    public String getUsuarioger() {
+        return usuarioger;
     }
 }
 

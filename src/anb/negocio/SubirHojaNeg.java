@@ -28,11 +28,11 @@ public class SubirHojaNeg {
         respuesta.setCodigo(-1);
         int cont = 0;
         int grab = 0;
-        String marcador="";        
-        try {            
+        String marcador = "";
+        try {
             File excel = new File(archivo);
             FileInputStream fis = new FileInputStream(excel);
-            XSSFWorkbook wb = new XSSFWorkbook(fis);            
+            XSSFWorkbook wb = new XSSFWorkbook(fis);
             XSSFSheet ws = wb.getSheetAt(0);
             String dui;
             String item;
@@ -51,9 +51,11 @@ public class SubirHojaNeg {
             String res;
             int rowNum = ws.getLastRowNum() + 1;
             int colNum = ws.getRow(0).getLastCellNum();
-            String[][] data = new String[rowNum][colNum];           
+            String[][] data = new String[rowNum][colNum];
+            long idalcance = 0;
 
-            for (int i = 1; i < rowNum; i++) {                
+            for (int i = 1; i < rowNum; i++) {
+                idalcance = 0;
                 fob = -1;
                 flete = -1;
                 seguro = -1;
@@ -65,159 +67,181 @@ public class SubirHojaNeg {
                 ilicito = "";
                 observacion = "";
                 partida = "";
-                dpartida = -1;                
-                cont ++;
+                dpartida = -1;
+                cont++;
                 XSSFRow row = ws.getRow(i);
                 XSSFCell cell;
                 boolean sw = false;
                 String error = "";
-                try{
+                try {
                     cell = row.getCell(4);
                     dui = cell.toString();
-                    if(dui.length() >= 12)
-                    {   
+                    if (dui.length() >= 12) {
                         sw = true;
-                        marcador = marcador + "Fila " + String.valueOf(cont) +" la DUI " + dui;
+                        marcador = marcador + "Fila " + String.valueOf(cont) + " la DUI " + dui;
                         cell = row.getCell(1);
-                        item = cell.getRawValue().toString();                        
-                        try{
-                            cell = row.getCell(3);
-                            if(!(cell == null)){
-                                String prueba2 = cell.toString();
-                                if(prueba2.length() > 0){
-                                    if(cell.getCellType() == cell.CELL_TYPE_NUMERIC){
-                                        dpartida = (long)cell.getNumericCellValue();
-                                        sw = true;
-                                    }else{
-                                        error = ", la columna PARTIDA no es un n&uacute;mero v&aacute;lido ";    
+                        item = cell.getRawValue().toString();
+
+                        cell = row.getCell(24);
+                        if (!(cell == null)) {
+                            String prueba2 = cell.toString();
+                            if (prueba2.length() > 0) {
+                                if (cell.getCellType() == cell.CELL_TYPE_NUMERIC) {
+                                    idalcance = (long)cell.getNumericCellValue();
+                                    sw = true;
+                                } else {
+                                    error =
+                                            ", el C&oacute;digo del Tr&aacute;mite no es un n&uacute;mero v&aacute;lido ";
+                                }
+                            }
+                        }
+                        if (idalcance > 0) {
+                            try {
+                                cell = row.getCell(3);
+                                if (!(cell == null)) {
+                                    String prueba2 = cell.toString();
+                                    if (prueba2.length() > 0) {
+                                        if (cell.getCellType() == cell.CELL_TYPE_NUMERIC) {
+                                            dpartida = (long)cell.getNumericCellValue();
+                                            sw = true;
+                                        } else {
+                                            error = ", la columna PARTIDA no es un n&uacute;mero v&aacute;lido ";
+                                        }
                                     }
                                 }
-                            }                            
-                        } catch(Exception exe){
-                            dpartida = -1;
-                        }
-                        cell = row.getCell(16);
-                        if(!(cell == null)){
-                            String prueba2 = cell.toString();
-                            if(prueba2.length() > 0){
-                                if(cell.getCellType() == cell.CELL_TYPE_NUMERIC){
-                                    fob = cell.getNumericCellValue();
-                                    sw = true;
-                                }else{
-                                    error = ", la columna FOB no es un n&uacute;mero v&aacute;lido ";    
+                            } catch (Exception exe) {
+                                dpartida = -1;
+                            }
+                            cell = row.getCell(16);
+                            if (!(cell == null)) {
+                                String prueba2 = cell.toString();
+                                if (prueba2.length() > 0) {
+                                    if (cell.getCellType() == cell.CELL_TYPE_NUMERIC) {
+                                        fob = cell.getNumericCellValue();
+                                        sw = true;
+                                    } else {
+                                        error = ", la columna FOB no es un n&uacute;mero v&aacute;lido ";
+                                    }
                                 }
                             }
-                        }
-                        cell = row.getCell(17);
-                        if(!(cell == null)){
-                            String prueba2 = cell.toString();
-                            if(prueba2.length() > 0){
-                                if(cell.getCellType() == cell.CELL_TYPE_NUMERIC){
-                                    flete = cell.getNumericCellValue();
-                                    sw = true;
-                                }else{
-                                    error = ", la columna FLETE no es un n&uacute;mero v&aacute;lido ";    
+                            cell = row.getCell(17);
+                            if (!(cell == null)) {
+                                String prueba2 = cell.toString();
+                                if (prueba2.length() > 0) {
+                                    if (cell.getCellType() == cell.CELL_TYPE_NUMERIC) {
+                                        flete = cell.getNumericCellValue();
+                                        sw = true;
+                                    } else {
+                                        error = ", la columna FLETE no es un n&uacute;mero v&aacute;lido ";
+                                    }
                                 }
                             }
-                        }
-                        cell = row.getCell(18);
-                        if(!(cell == null)){
-                            String prueba2 = cell.toString();
-                            if(prueba2.length() > 0){
-                                if(cell.getCellType() == cell.CELL_TYPE_NUMERIC){
-                                    seguro = cell.getNumericCellValue();
-                                    sw = true;
-                                }else{
-                                    error = ", la columna SEGURO no es un n&uacute;mero v&aacute;lido ";    
+                            cell = row.getCell(18);
+                            if (!(cell == null)) {
+                                String prueba2 = cell.toString();
+                                if (prueba2.length() > 0) {
+                                    if (cell.getCellType() == cell.CELL_TYPE_NUMERIC) {
+                                        seguro = cell.getNumericCellValue();
+                                        sw = true;
+                                    } else {
+                                        error = ", la columna SEGURO no es un n&uacute;mero v&aacute;lido ";
+                                    }
                                 }
                             }
-                        }
-                        cell = row.getCell(19);
-                        if(!(cell == null)){
-                            String prueba2 = cell.toString();
-                            if(prueba2.length() > 0){
-                                if(cell.getCellType() == cell.CELL_TYPE_NUMERIC){
-                                    otros = cell.getNumericCellValue();
-                                    sw = true;
-                                }else{
-                                    error = ", la columna OTROS no es un n&uacute;mero v&aacute;lido ";    
+                            cell = row.getCell(19);
+                            if (!(cell == null)) {
+                                String prueba2 = cell.toString();
+                                if (prueba2.length() > 0) {
+                                    if (cell.getCellType() == cell.CELL_TYPE_NUMERIC) {
+                                        otros = cell.getNumericCellValue();
+                                        sw = true;
+                                    } else {
+                                        error = ", la columna OTROS no es un n&uacute;mero v&aacute;lido ";
+                                    }
                                 }
                             }
-                        }      
-                        cell = row.getCell(20);
-                        if(!(cell == null)){
-                            String prueba2 = cell.toString();
-                            if(prueba2.length() > 0){
-                                if(cell.getCellType() == cell.CELL_TYPE_NUMERIC){
-                                    contrav = cell.getNumericCellValue();
-                                    sw = true;
-                                }else{
-                                    error = ", la columna CONTRAVENCION no es un n&uacute;mero v&aacute;lido ";    
+                            cell = row.getCell(20);
+                            if (!(cell == null)) {
+                                String prueba2 = cell.toString();
+                                if (prueba2.length() > 0) {
+                                    if (cell.getCellType() == cell.CELL_TYPE_NUMERIC) {
+                                        contrav = cell.getNumericCellValue();
+                                        sw = true;
+                                    } else {
+                                        error =
+                                                ", la columna CONTRAVENCI&Oacute;N no es un n&uacute;mero v&aacute;lido ";
+                                    }
                                 }
                             }
-                        }     
-                        cell = row.getCell(21);
-                        if(!(cell == null)){
-                            String prueba2 = cell.toString();
-                            if(prueba2.length() > 0){
-                                if(cell.getCellType() == cell.CELL_TYPE_NUMERIC){
-                                    contravorden = cell.getNumericCellValue();
-                                    sw = true;
-                                }else{
-                                    error = ", la columna CONTRAVENCION ORDEN no es un n&uacute;mero v&aacute;lido ";    
+                            cell = row.getCell(21);
+                            if (!(cell == null)) {
+                                String prueba2 = cell.toString();
+                                if (prueba2.length() > 0) {
+                                    if (cell.getCellType() == cell.CELL_TYPE_NUMERIC) {
+                                        contravorden = cell.getNumericCellValue();
+                                        sw = true;
+                                    } else {
+                                        error =
+                                                ", la columna CONTRAVENCI&Oacute;N ORDEN no es un n&uacute;mero v&aacute;lido ";
+                                    }
                                 }
                             }
-                        }     
-                        cell = row.getCell(22);
-                        if(!(cell == null)){
-                            String prueba2 = cell.toString();
-                            if(prueba2.length() > 0){
-                                ilicito = cell.toString();
-                                sw = true;
+                            cell = row.getCell(22);
+                            if (!(cell == null)) {
+                                String prueba2 = cell.toString();
+                                if (prueba2.length() > 0) {
+                                    ilicito = cell.toString();
+                                    sw = true;
+                                }
                             }
-                        }  
-                        
-                        cell = row.getCell(23);
-                        if(!(cell == null)){
-                            String prueba2 = cell.toString();
-                            if(prueba2.length() > 0){
-                                observacion = cell.toString();
-                                sw = true;
-                            }
-                        } 
 
-
-                        if (error.length() > 0) {
-                            marcador = marcador + " no pudo ser grabada:" + error + " <br>";
-                        } else {
-                            if (sw) {
-                                res = dao.graba_resultados(dui, item, String.valueOf(dpartida), fob, flete, seguro, otros, cifusd, cifbob, contrav, ilicito, observacion, usuario, codigo, contravorden);
-                                if (res.equals("CORRECTO")) {
-                                    grab++;
-                                    marcador = marcador + " se grab&oacute; correctamente.<br>";
-                                } else {
-                                    marcador = marcador + " no pudo ser grabada:" + res + " <br>";
+                            cell = row.getCell(23);
+                            if (!(cell == null)) {
+                                String prueba2 = cell.toString();
+                                if (prueba2.length() > 0) {
+                                    observacion = cell.toString();
+                                    sw = true;
                                 }
+                            }
+
+                            if (error.length() > 0) {
+                                marcador = marcador + " no pudo ser grabada:" + error + " <br>";
                             } else {
-                                marcador =
-                                        marcador + " no hay datos para actualizar el item<br>";
+                                if (sw) {
+                                    res =
+dao.graba_resultados(dui, item, String.valueOf(dpartida), fob, flete, seguro, otros, cifusd, cifbob, contrav, ilicito,
+                     observacion, usuario, codigo, contravorden, String.valueOf(idalcance));
+                                    if (res.equals("CORRECTO")) {
+                                        grab++;
+                                        marcador = marcador + " se grab&oacute; correctamente.<br>";
+                                    } else {
+                                        marcador = marcador + " no pudo ser grabada:" + res + " <br>";
+                                    }
+                                } else {
+                                    marcador = marcador + " no hay datos para actualizar el item<br>";
+                                }
                             }
+                        } else {
+                            marcador =
+                                    marcador + "Fila " + String.valueOf(cont) + " error el C&oacute;digo del Tr&aacute;mite no es un n&uacute;mero v&aacute;lido.<br>";
                         }
 
                     } else {
-                        marcador = marcador + "Fila " + String.valueOf(cont) +" error no tiene la longitud de una declaracion.<br>";
+                        marcador =
+                                marcador + "Fila " + String.valueOf(cont) + " error no tiene la longitud de una declaracion.<br>";
                     }
-                }catch(Exception ex){
+                } catch (Exception ex) {
                     //marcador = marcador + "Fila " + String.valueOf(cont) +" error no tiene valores legibles.";
-                    i=rowNum;
-                }    
-                
+                    i = rowNum;
+                }
+
             }
-            respuesta.setMensaje("Se grabaron "+ String.valueOf(grab) + " de "+String.valueOf(cont)+ "<br>"+ marcador);
+            respuesta.setMensaje("Se grabaron " + String.valueOf(grab) + " de " + String.valueOf(cont) + "<br>" +
+                                 marcador);
             respuesta.setCodigo(1);
 
         } catch (Exception e) {
-            respuesta.setMensaje("Se produjo un error al leer el archivo excel en la fila: "+ String.valueOf(cont));
+            respuesta.setMensaje("Se produjo un error al leer el archivo excel en la fila: " + String.valueOf(cont));
             respuesta.setCodigo(-1);
         } finally {
 
@@ -231,17 +255,17 @@ public class SubirHojaNeg {
     public Respuesta<Boolean> leerArchivoExcelTramite(String archivo, String codigo, String usuario) {
         Respuesta<Boolean> respuesta = new Respuesta<Boolean>();
         respuesta.setCodigo(-1);
-        int cont = 0;  
+        int cont = 0;
         int grab = 0;
-        String marcador="";
-        
+        String marcador = "";
+
         try {
-            
+
             File excel = new File(archivo);
 
             FileInputStream fis = new FileInputStream(excel);
             XSSFWorkbook wb = new XSSFWorkbook(fis);
-            
+
             XSSFSheet ws = wb.getSheetAt(0);
             String tramite;
             String mercancia;
@@ -259,10 +283,10 @@ public class SubirHojaNeg {
             int colNum = ws.getRow(0).getLastCellNum();
             long idalcance = 0;
             String[][] data = new String[rowNum][colNum];
-            
+
 
             for (int i = 1; i < rowNum; i++) {
-                
+
                 idalcance = 0;
                 tramite = "";
                 mercancia = "";
@@ -275,147 +299,148 @@ public class SubirHojaNeg {
                 cifufv = -1;
                 ilicito = "";
                 contrav = -1;
-                
-                cont ++;
+
+                cont++;
                 XSSFRow row = ws.getRow(i);
                 XSSFCell cell;
                 boolean sw = false;
                 String error = "";
-                try{
+                try {
                     cell = row.getCell(15);
-                    if(!(cell == null)){
+                    if (!(cell == null)) {
                         String prueba2 = cell.toString();
-                        if(prueba2.length() > 0){
-                            if(cell.getCellType() == cell.CELL_TYPE_NUMERIC){
+                        if (prueba2.length() > 0) {
+                            if (cell.getCellType() == cell.CELL_TYPE_NUMERIC) {
                                 idalcance = (long)cell.getNumericCellValue();
                                 sw = true;
-                            }else{
-                                error = ", el Código del Tramite no es un n&uacute;mero v&aacute;lido ";    
+                            } else {
+                                error = ", el C&oacute;digo del Tr&aacute;mite no es un n&uacute;mero v&aacute;lido ";
                             }
                         }
                     }
                     cell = row.getCell(2);
                     tramite = cell.toString();
-                    if(idalcance > 0)
-                    {
-                        marcador = marcador + "Fila " + String.valueOf(cont) +" el TRÁMITE " + tramite;
-                        
+                    if (idalcance > 0) {
+                        marcador = marcador + "Fila " + String.valueOf(cont) + " el TR�?MITE " + tramite;
+
                         cell = row.getCell(5);
                         mercancia = cell.toString();
                         cell = row.getCell(6);
-                        if(!(cell == null)){
+                        if (!(cell == null)) {
                             String prueba2 = cell.toString();
-                            if(prueba2.length() > 0){
-                                if(cell.getCellType() == cell.CELL_TYPE_NUMERIC){
+                            if (prueba2.length() > 0) {
+                                if (cell.getCellType() == cell.CELL_TYPE_NUMERIC) {
                                     fob = cell.getNumericCellValue();
                                     sw = true;
-                                }else{
-                                    error = ", la columna FOB no es un n&uacute;mero v&aacute;lido ";    
+                                } else {
+                                    error = ", la columna FOB no es un n&uacute;mero v&aacute;lido ";
                                 }
                             }
                         }
                         cell = row.getCell(7);
-                        if(!(cell == null)){
+                        if (!(cell == null)) {
                             String prueba2 = cell.toString();
-                            if(prueba2.length() > 0){
-                                if(cell.getCellType() == cell.CELL_TYPE_NUMERIC){
+                            if (prueba2.length() > 0) {
+                                if (cell.getCellType() == cell.CELL_TYPE_NUMERIC) {
                                     flete = cell.getNumericCellValue();
                                     sw = true;
-                                }else{
-                                    error = ", la columna FLETE no es un n&uacute;mero v&aacute;lido ";    
+                                } else {
+                                    error = ", la columna FLETE no es un n&uacute;mero v&aacute;lido ";
                                 }
                             }
                         }
                         cell = row.getCell(8);
-                        if(!(cell == null)){
+                        if (!(cell == null)) {
                             String prueba2 = cell.toString();
-                            if(prueba2.length() > 0){
-                                if(cell.getCellType() == cell.CELL_TYPE_NUMERIC){
+                            if (prueba2.length() > 0) {
+                                if (cell.getCellType() == cell.CELL_TYPE_NUMERIC) {
                                     seguro = cell.getNumericCellValue();
                                     sw = true;
-                                }else{
-                                    error = ", la columna SEGURO no es un n&uacute;mero v&aacute;lido ";    
+                                } else {
+                                    error = ", la columna SEGURO no es un n&uacute;mero v&aacute;lido ";
                                 }
                             }
                         }
                         cell = row.getCell(9);
-                        if(!(cell == null)){
+                        if (!(cell == null)) {
                             String prueba2 = cell.toString();
-                            if(prueba2.length() > 0){
-                                if(cell.getCellType() == cell.CELL_TYPE_NUMERIC){
+                            if (prueba2.length() > 0) {
+                                if (cell.getCellType() == cell.CELL_TYPE_NUMERIC) {
                                     otros = cell.getNumericCellValue();
                                     sw = true;
-                                }else{
-                                    error = ", la columna OTROS no es un n&uacute;mero v&aacute;lido ";    
+                                } else {
+                                    error = ", la columna OTROS no es un n&uacute;mero v&aacute;lido ";
                                 }
                             }
                         }
                         cell = row.getCell(10);
-                        if(!(cell == null)){
+                        if (!(cell == null)) {
                             String prueba2 = cell.toString();
-                            if(prueba2.length() > 0){
-                                if(cell.getCellType() == cell.CELL_TYPE_NUMERIC){
+                            if (prueba2.length() > 0) {
+                                if (cell.getCellType() == cell.CELL_TYPE_NUMERIC) {
                                     cifusd = cell.getNumericCellValue();
                                     sw = true;
-                                }else{
-                                    error = ", la columna CIF USD no es un n&uacute;mero v&aacute;lido ";    
+                                } else {
+                                    error = ", la columna CIF USD no es un n&uacute;mero v&aacute;lido ";
                                 }
                             }
                         }
                         cell = row.getCell(11);
-                        if(!(cell == null)){
+                        if (!(cell == null)) {
                             String prueba2 = cell.toString();
-                            if(prueba2.length() > 0){
-                                if(cell.getCellType() == cell.CELL_TYPE_NUMERIC){
+                            if (prueba2.length() > 0) {
+                                if (cell.getCellType() == cell.CELL_TYPE_NUMERIC) {
                                     cifbob = cell.getNumericCellValue();
                                     sw = true;
-                                }else{
-                                    error = ", la columna CIF Bs. no es un n&uacute;mero v&aacute;lido ";    
+                                } else {
+                                    error = ", la columna CIF Bs. no es un n&uacute;mero v&aacute;lido ";
                                 }
                             }
                         }
                         cell = row.getCell(12);
-                        if(!(cell == null)){
+                        if (!(cell == null)) {
                             String prueba2 = cell.toString();
-                            if(prueba2.length() > 0){
-                                if(cell.getCellType() == cell.CELL_TYPE_NUMERIC){
+                            if (prueba2.length() > 0) {
+                                if (cell.getCellType() == cell.CELL_TYPE_NUMERIC) {
                                     cifufv = cell.getNumericCellValue();
                                     sw = true;
-                                }else{
-                                    error = ", la columna CIF UFV's no es un n&uacute;mero v&aacute;lido ";    
+                                } else {
+                                    error = ", la columna CIF UFV's no es un n&uacute;mero v&aacute;lido ";
                                 }
                             }
                         }
-                        
+
                         cell = row.getCell(13);
-                        if(!(cell == null)){
+                        if (!(cell == null)) {
                             String prueba2 = cell.toString();
-                            if(prueba2.length() > 0){
+                            if (prueba2.length() > 0) {
                                 ilicito = cell.toString();
                                 sw = true;
                             }
-                        }  
-                        
+                        }
+
                         cell = row.getCell(14);
-                        if(!(cell == null)){
+                        if (!(cell == null)) {
                             String prueba2 = cell.toString();
-                            if(prueba2.length() > 0){
-                                if(cell.getCellType() == cell.CELL_TYPE_NUMERIC){
+                            if (prueba2.length() > 0) {
+                                if (cell.getCellType() == cell.CELL_TYPE_NUMERIC) {
                                     contrav = cell.getNumericCellValue();
                                     sw = true;
-                                }else{
-                                    error = ", el columna Contravenci&oacute;n Aduanera Relacionada con la Orden no es un n&uacute;mero v&aacute;lido ";    
+                                } else {
+                                    error =
+                                            ", el columna Contravenci&oacute;n Aduanera Relacionada con la Orden no es un n&uacute;mero v&aacute;lido ";
                                 }
                             }
                         }
-                                             
-                        
+
+
                         if (error.length() > 0) {
                             marcador = marcador + " no pudo ser grabada:" + error + " <br>";
                         } else {
                             if (sw) {
-                                res = dao.graba_resultados_tramite(codigo,  String.valueOf(idalcance),  mercancia,  fob,  flete,  seguro,
-                                    otros,  cifusd,  cifbob,  cifufv,  usuario , ilicito, contrav);
+                                res =
+dao.graba_resultados_tramite(codigo, String.valueOf(idalcance), mercancia, fob, flete, seguro, otros, cifusd, cifbob,
+                             cifufv, usuario, ilicito, contrav);
                                 if (res.equals("CORRECTO")) {
                                     grab++;
                                     marcador = marcador + " se grab&oacute; correctamente.<br>";
@@ -423,25 +448,26 @@ public class SubirHojaNeg {
                                     marcador = marcador + " no pudo ser grabada:" + res + " <br>";
                                 }
                             } else {
-                                marcador =
-                                        marcador + " no hay datos para actualizar el item<br>";
+                                marcador = marcador + " no hay datos para actualizar el item<br>";
                             }
                         }
 
                     } else {
-                        marcador = marcador + "Fila " + String.valueOf(cont) +" error el Código del Tramite no es un n&uacute;mero v&aacute;lido.<br>";
+                        marcador =
+                                marcador + "Fila " + String.valueOf(cont) + " error el Código del Tramite no es un n&uacute;mero v&aacute;lido.<br>";
                     }
-                }catch(Exception ex){
+                } catch (Exception ex) {
                     //marcador = marcador + "Fila " + String.valueOf(cont) +" error no tiene valores legibles.";
-                    i=rowNum;
-                }    
-                
+                    i = rowNum;
+                }
+
             }
-            respuesta.setMensaje("Se grabaron "+ String.valueOf(grab) + " de "+String.valueOf(cont)+ "<br>"+ marcador);
+            respuesta.setMensaje("Se grabaron " + String.valueOf(grab) + " de " + String.valueOf(cont) + "<br>" +
+                                 marcador);
             respuesta.setCodigo(1);
 
         } catch (Exception e) {
-            respuesta.setMensaje("Se produjo un error al leer el archivo excel en la fila: "+ String.valueOf(cont));
+            respuesta.setMensaje("Se produjo un error al leer el archivo excel en la fila: " + String.valueOf(cont));
             respuesta.setCodigo(-1);
         } finally {
 

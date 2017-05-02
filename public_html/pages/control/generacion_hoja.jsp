@@ -125,6 +125,8 @@
                         <th rowspan="2" class="text-center">(M) Contravenci&oacute;n Aduanera Relacionada con la Orden UFV</th>
                         <th rowspan="2" class="text-center">(M) Ilícito Determinado</th>
                         <th rowspan="2" class="text-center">(M) Observaci&oacute;n</th>
+                        <th rowspan="2" class="text-center">Codigo</th> 
+                        <th rowspan="2" class="text-center">&nbsp;&nbsp;&nbsp;&nbsp;</th>  
                     </tr>
                     <tr>
                         <th class="text-center">FOB USD</th>
@@ -217,7 +219,13 @@
                             </td>
                             <td class="text-left">
                                 ${esc.observacion}
-                            </td>                           
+                            </td>     
+                            <td class="text-left">
+                                ${esc.codigo}
+                            </td>   
+                            <td class="text-left">
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                            </td>   
                         </tr>
                     </c:forEach>
                 </tbody>

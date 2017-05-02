@@ -42,7 +42,7 @@ public class AmpliacionAction extends MappingDispatchAction {
             return mapping.findForward("nook");
         } else {
             bean.setUsuario(usuario);
-
+            bean.setUsuarioger((String)request.getSession().getAttribute("gerencia"));
             String codigo;
             if (!(bean.getOpcion() == null) && bean.getOpcion().equals("CONSULTACTL")) {
                 request.getSession().setAttribute("sgestion", bean.getFgestion());
@@ -56,13 +56,22 @@ public class AmpliacionAction extends MappingDispatchAction {
                     bean.setCodigo(resu.getMensaje());
                     Respuesta<Boolean> res = ampneg.verifica_ampliacion_control(bean);
                     if (res.getCodigo() == 1) {
-                        request.setAttribute("OK", res.getMensaje());
-                        request.getSession().setAttribute("codigoamp", bean.getCodigo());
-                        if (bean.getTipoBusqueda().equals("FILTRO")) {
-                            link = "ok";
+                        //verifica si el usuario esta habilitado para el control ******
+                        Respuesta<Boolean> ver =
+                            neg.verificaAccesoUsuario(bean.getCodigo(), bean.getUsuario(), "AMPLIACION",
+                                                      bean.getUsuarioger());
+                        if (ver.getCodigo() == 1) {
+                            request.setAttribute("OK", res.getMensaje());
+                            request.getSession().setAttribute("codigoamp", bean.getCodigo());
+                            if (bean.getTipoBusqueda().equals("FILTRO")) {
+                                link = "ok";
+                            } else {
+                                link = "oktram";
+                            }
                         } else {
-                            link = "oktram";
+                            request.setAttribute("ERROR", "No esta asignado a la Orden de Fiscalizaci&oacute;n");
                         }
+                        //******
                     } else {
                         if (res.getCodigo() == 0) {
                             request.setAttribute("WARNING", res.getMensaje());
@@ -70,16 +79,15 @@ public class AmpliacionAction extends MappingDispatchAction {
                             request.setAttribute("ERROR", res.getMensaje());
                             link = "index";
                         }
-                    }                    
-                } 
-                
+                    }
+                }
+
+            } else {
+                bean.setFgestion((String)request.getSession().getAttribute("sgestion"));
+                bean.setFgerencia((String)request.getSession().getAttribute("sgerencia"));
+                bean.setFcontrol((String)request.getSession().getAttribute("scontrol"));
+                bean.setFnumero((String)request.getSession().getAttribute("snumero"));
             }
-            else {
-                                bean.setFgestion((String)request.getSession().getAttribute("sgestion"));
-                                bean.setFgerencia((String)request.getSession().getAttribute("sgerencia"));
-                                bean.setFcontrol((String)request.getSession().getAttribute("scontrol"));
-                                bean.setFnumero((String)request.getSession().getAttribute("snumero"));
-                            }
             return mapping.findForward(link);
         }
     }
@@ -265,7 +273,7 @@ public class AmpliacionAction extends MappingDispatchAction {
 
 
     public ActionForward ampliaciontramite(ActionMapping mapping, ActionForm form, HttpServletRequest request,
-                                        HttpServletResponse response) throws Exception {
+                                           HttpServletResponse response) throws Exception {
         //AlcanceForm bean = new AlcanceForm();
         AmpliacionForm bean = (AmpliacionForm)request.getAttribute("AmpliacionForm");
         bean.setCodigo((String)request.getSession().getAttribute("codigoamp"));

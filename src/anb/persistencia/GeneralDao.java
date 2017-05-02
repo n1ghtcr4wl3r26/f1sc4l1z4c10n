@@ -454,6 +454,45 @@ public class GeneralDao extends Conexion{
         return decls;
     }
     
+    public List<Tramite> tramitesxls(String codigo) throws SQLException, ClassNotFoundException,
+                                                                  NamingException {
+        List<Tramite> decls = new ArrayList<Tramite>();
+        int cont = 1;
+        try {
+            open();
+            call = cn.prepareCall("{ ? = call pkg_memorizacion.devuelve_tramites ( ?,?)}");
+            call.registerOutParameter(1, OracleTypes.VARCHAR);
+            call.setString(2, codigo);
+            call.registerOutParameter(3, OracleTypes.CURSOR);
+            call.execute();
+            rs = (ResultSet)call.getObject(3);
+            while (rs.next()) {
+                String obs = rs.getString(4);
+                if(obs.equals("DECLARACION") || obs.equals("ITEM")){
+                    Tramite dec = new Tramite();
+                    dec.setCodigo(rs.getString(1));
+                    dec.setTipoTramite(rs.getString(2));
+                    dec.setTramite(rs.getString(3));
+                    if(obs.equals("DECLARACION"))
+                        obs = "DECLARACI&Oacute;N";
+                    if(obs.equals("TRAMITE"))
+                        obs = "TR&Aacute;MITE";
+                    if(obs.equals("ITEM"))
+                        obs = "&Iacute;TEM";
+                    dec.setObservacion(obs);                
+                    dec.setNumero(String.valueOf(cont++));
+                    dec.setTipoAlcance(rs.getString(6));
+                    decls.add(dec);
+                }
+            }
+        } finally {
+            if (cn != null) {
+                cn.close();
+            }
+        }
+        return decls;
+    }
+    
     public String devuelveCodigo(String gestion,String tipo, String gerencia, String numero) throws SQLException, ClassNotFoundException, NamingException {
        String res;
        try {
@@ -565,6 +604,26 @@ public class GeneralDao extends Conexion{
            } else {
                res = false;
            }
+       } finally {
+           if (cn != null) {
+               cn.close();
+           }
+       }
+       return res;
+    }
+    
+    public String verificaAccesoUsuario(String idControl,String usuario, String opcion, String gerencia) throws SQLException, ClassNotFoundException, NamingException {
+       String res;
+       try {
+           open();
+           call = cn.prepareCall("{ ? = call pkg_general.verifica_acceso ( ?,?,?,? )}");
+           call.registerOutParameter(1, OracleTypes.VARCHAR);
+           call.setString(2, idControl);
+           call.setString(3, usuario);
+           call.setString(4, opcion);
+           call.setString(5, gerencia);
+           call.execute();
+           res = (String) call.getObject(1);
        } finally {
            if (cn != null) {
                cn.close();

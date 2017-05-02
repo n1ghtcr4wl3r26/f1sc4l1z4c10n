@@ -20,6 +20,8 @@ public class ReporteForm extends ActionForm {
     private String gerencia;
     private String numero;
     
+    private String usuarioger; 
+    
     public void setFmemorizado(String fmemorizado) {
         this.fmemorizado = fmemorizado;
     }
@@ -130,5 +132,13 @@ public class ReporteForm extends ActionForm {
 
     public String getNumero() {
         return numero;
+    }
+
+    public void setUsuarioger(String usuarioger) {
+        this.usuarioger = usuarioger;
+    }
+
+    public String getUsuarioger() {
+        return usuarioger;
     }
 }

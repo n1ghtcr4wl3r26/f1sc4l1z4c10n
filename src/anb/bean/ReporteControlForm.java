@@ -25,6 +25,8 @@ public class ReporteControlForm extends ActionForm {
     private String festado;
     private String ftipotramite;
     
+    
+    private String usuarioger; 
 
     public void setCargo(String cargo) {
         this.cargo = cargo;
@@ -160,5 +162,13 @@ public class ReporteControlForm extends ActionForm {
 
     public String getFtipotramite() {
         return ftipotramite;
+    }
+
+    public void setUsuarioger(String usuarioger) {
+        this.usuarioger = usuarioger;
+    }
+
+    public String getUsuarioger() {
+        return usuarioger;
     }
 }
