@@ -68,12 +68,14 @@
         });*/
     });
     function consultar(){
-        $("#opcion").val('CONSULTAR');  
+        $("#opcion").val('CONSULTAR'); 
+        Anb.form.submit('#form-asigna', function (form) {
         Anb.form.cleanErrors(form);           
             if (Anb.validate.run(form)) {
                 console.log('Enviado!');
                 Anb.loading.show()                
                 form.submit();
             }
+        });
     }
 </script>

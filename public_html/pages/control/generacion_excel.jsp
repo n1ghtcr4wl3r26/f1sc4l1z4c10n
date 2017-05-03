@@ -102,6 +102,7 @@
             <h4>
                 <strong>LISTA DEL ALCANCE DE LA FISCALIZACIÓN</strong>
             </h4>            
+            <div class="table-responsive">
             <table class="table table-striped table-hover" id="main-3table">
                 <thead>
                     <tr>
@@ -132,7 +133,7 @@
                     </c:forEach>
                 </tbody>
             </table>   
-            
+            </div>
            
              <% 
             if(!(gen.getOpcion() == null) && (gen.getOpcion().equals("MOSTRAR"))) {

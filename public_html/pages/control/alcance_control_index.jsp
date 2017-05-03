@@ -54,6 +54,7 @@
       
   });
   function consultar(){
-        $("#opcion").val('CONSULTACTL');    
+        $("#opcion").val('CONSULTACTL');   
+        
   }
 </script>

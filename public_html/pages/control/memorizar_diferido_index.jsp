@@ -95,6 +95,7 @@
         <html:form styleId="form-resultados" action="memorizaciondiferidoidx.do">
             <input type="hidden" name="fropcion" id="fropcion"/>
             <input type="hidden" name="frcodigo" id="frcodigo"/>
+            <div class="table-responsive">
             <table class="table table-striped table-hover" id="main-table">
                 <thead>
                     <tr>
@@ -212,6 +213,7 @@
                     </c:forEach>
                 </tbody>
             </table>
+            </div>
         </html:form>
         <%             
                 }

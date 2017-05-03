@@ -3,6 +3,7 @@
 <%@ taglib uri="/WEB-INF/struts-logic.tld" prefix="logic"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page import="anb.bean.*"%>
+<%@ page import="anb.general.*"%>
 <%@ page import="java.sql.*, oracle.jdbc.driver.*, java.util.*, java.text.*"%>
 <%@ page import="oracle.jdbc.OracleTypes"%>
 <style type="text/css">
@@ -62,7 +63,7 @@ En cumplimiento de la Orden de Fiscalización N° ${infoControl2.codigoControl} 
 Para dicho fin se solicita:<br/>
 <strong>1.</strong> Designar un representante, responsable de coordinar y proporcionar la información requerida por los Fiscalizadores  en el curso de su trabajo.  
 <br/>
-<strong>2.</strong>  Remitir a la Gerencia Nacional de Fiscalización, ubicada en la Av. 20 de Octubre Nº 2038 de la ciudad de La Paz, fotocopias 
+<strong>2.</strong>  <%=Util.devuelveDireccionGerencia(bean.getFgerencia())%>, fotocopias 
      legalizadas de la documentación e información detallada (1),  <strong>en el término improrrogable de diez (10) días hábiles</strong> a    
      partir de la recepción de la presente notificación:
 <br/>

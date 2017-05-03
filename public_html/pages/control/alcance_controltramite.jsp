@@ -140,11 +140,11 @@
                         <div class="form-group">
                             <div class="col-sm-2">
                                 <html:text property="facnumero" styleId="facnumero"
-                                           styleClass="form-control required numeric" size="30" maxlength="20"/>
+                                           styleClass="form-control required numeric" size="30" maxlength="10"/>
                             </div>
                             <div class="col-sm-2">
                                 <html:text property="facfecha" styleId="facfecha"
-                                           styleClass="form-control required datepicker" size="30" maxlength="10"/>
+                                           styleClass="form-control required datepicker date-less-than" size="30" maxlength="10"/>
                             </div>
                             <div class="col-sm-2">
                                 <html:text property="facemisor" styleId="facemisor"
@@ -195,7 +195,7 @@
                             </div>
                             <div class="col-sm-2">
                                 <html:text property="trafecha" styleId="trafecha"
-                                           styleClass="form-control required datepicker" size="30" maxlength="10"/>
+                                           styleClass="form-control required datepicker date-less-than" size="30" maxlength="10"/>
                             </div>
                             <div class="col-sm-4">
                                 <html:text property="traemisor" styleId="traemisor"
@@ -241,7 +241,7 @@
                             </div>
                             <div class="col-sm-2">
                                 <html:text property="otrfecha" styleId="otrfecha"
-                                           styleClass="form-control required datepicker" size="30" maxlength="10"/>
+                                           styleClass="form-control required datepicker date-less-than" size="30" maxlength="10"/>
                             </div>
                             <div class="col-sm-3">
                                 <html:text property="otremisor" styleId="otremisor"

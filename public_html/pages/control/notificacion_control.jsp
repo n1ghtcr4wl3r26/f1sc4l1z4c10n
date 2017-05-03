@@ -97,7 +97,7 @@
                 <label class="col-sm-3 control-label">Fecha de Notificaci&oacute;n:</label>
                 <div class="col-sm-3">
                     <html:text property="fechaNotificacion" styleId="fechaNotificacion"
-                               styleClass="form-control required datepicker" size="30" maxlength="10"/>
+                               styleClass="form-control required datepicker date-less-than" size="30" maxlength="10"/>
                 </div>
             </div>
             <div class="form-group">

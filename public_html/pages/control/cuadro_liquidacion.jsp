@@ -100,6 +100,7 @@
             <div class="panel-title imp">
                 <strong>CUADRO DE LIQUIDACIÓN</strong>
             </div>
+            <div class="table-responsive">
             <table class="table table-striped table-hover" id="main-table">
                 <thead>
                     <tr>
@@ -358,6 +359,7 @@
                     </c:forEach>
                 </tbody>
             </table>
+            </div>
             <%
               
             }

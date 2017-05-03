@@ -12,7 +12,7 @@
     <div class="modal-body form-horizontal">
         <html:form styleId="form-anulacion" action="anulacionidx.do">
             <html:hidden property="codigo" styleId="codigo"/>
-            <input type="hidden" name="opcion" id="opcion"/>
+            <input type="hidden" name="opcion" class="opcion"/>
             <div class="form-group">
                 <label class="col-sm-2 control-label label-required">Gesti&oacute;n:</label>
                 <label class="col-sm-4 control-label label-required">Tipo Control:</label>
@@ -52,7 +52,10 @@
             <div class="btn-container">
                 <button type="submit" id="boton" onclick="consultar()" class="btn btn-primary" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Consultar&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>            
             </div>
-            
+            </html:form>
+            <html:form styleId="form-anulacion2" action="anulacionidx.do">
+            <html:hidden property="codigo" styleId="codigo"/>
+            <input type="hidden" name="opcion" class="opcion"/>
             <div class="form-group">
                 <label class="col-sm-2 control-label">N&uacute;mero Control Memorizado:</label>
                 <div class="col-sm-2">
@@ -82,21 +85,25 @@
         });*/
     });
     function consultar(){
-        $("#opcion").val('CONSULTAR');  
+        $(".opcion").val('CONSULTAR');  
+        Anb.form.submit('#form-anulacion', function (form) {
         Anb.form.cleanErrors(form);           
             if (Anb.validate.run(form)) {
                 console.log('Enviado!');
                 Anb.loading.show()                
                 form.submit();
             }
+        });
     }
     function consultar2(){
-        $("#opcion").val('CONSULTAR2');  
+        $(".opcion").val('CONSULTAR2');  
+        Anb.form.submit('#form-anulacion2', function (form) {
         Anb.form.cleanErrors(form);           
             if (Anb.validate.run(form)) {  
                 console.log('Enviado!');
                 Anb.loading.show()                
                 form.submit();
             }
+        });
     }
 </script>

@@ -109,6 +109,7 @@
                 <br/>
                 <label style="color:#049dbf;">Solo los valores de las columnas con (M), pueden ser modificados para ser cargados al sistema.</label> 
             </div>
+            <div class="table-responsive">
             <table class="table table-striped table-hover" id="main-table">
                 <thead>
                     <tr>
@@ -190,6 +191,7 @@
                     </c:forEach>
                 </tbody>
             </table>
+            </div>
             <%
                 }
             }

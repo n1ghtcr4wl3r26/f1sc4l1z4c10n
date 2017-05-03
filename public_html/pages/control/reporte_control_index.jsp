@@ -58,11 +58,13 @@
     });
     function consultar(){
         $("#opcion").val('CONSULTAR');   
+        Anb.form.submit('#form-reportecontrol', function (form) {
         Anb.form.cleanErrors(form);           
             if (Anb.validate.run(form)) {
                 console.log('Enviado!');
                 Anb.loading.show()                
                 form.submit();
             }
+        });
     }
 </script>

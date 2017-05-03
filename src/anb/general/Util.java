@@ -104,6 +104,31 @@ public class Util {
         return res;
     }
     
+    public static String devuelveDireccionGerencia(String gerencia) {
+        String res = "-";
+        
+        if(gerencia.length() == 3){
+            if(gerencia.equals("GNF"))
+                res = "Remitir a la Gerencia Nacional de Fiscalización, ubicada en la Av. 20 de Octubre Nº 2038 de la ciudad de La Paz";
+            if(gerencia.equals("GRL"))
+                res = "Remitir a la Gerencia Regional La Paz, ubicada en Ciudad Satélite – Av. del Policía s/n entre calle Diego de Portugal y Av. Ballivian Otero de la Ciudad de El Alto";
+            if(gerencia.equals("GRC"))
+                res = "Remitir a la Gerencia Regional Cochabamba, ubicada en la Av. Capitán Victor Ustariz Km. 7.5";
+            if(gerencia.equals("GRS"))
+                res = "Remitir a la Gerencia Regional Santa Cruz, ubicada en la Av. La Salle esq. Claudio Peñaranda s/n Edificio Don Uruguay de la ciudad de Santa Cruz de la Sierra";
+            if(gerencia.equals("GRO"))
+                res = "Remitir a la Gerencia Regional Oruro, ubicada en la calle Madrid N° 390 entre América y Colón, zona sud, Oruro";
+            if(gerencia.equals("GRT"))
+                res = "Remitir a la Gerencia Regional Tarija, ubicada en la Av. Jaime Paz Zamora N° 2381 (Zona Juan XXIII) – Tarija";
+            if(gerencia.equals("GRP"))
+                res = "Remitir a la Gerencia Regional Potosi, ubicada en la Av. Villazon N° 242, segundo piso, ambiente N° 20";
+            
+        
+        }
+        
+        return res;
+    }
+    
     public static String completaCerosDecimal(String numero) {
         String res = "";
         res = numero;

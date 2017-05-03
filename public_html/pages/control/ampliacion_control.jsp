@@ -60,11 +60,11 @@
             <div class="form-group">
                 <label class="col-sm-2 control-label">Fecha de Registro Desde:</label>
                 <div class="col-sm-2">
-                    <html:text property="fecIni" maxlength="10" styleClass="form-control required datepicker" size="50"/>
+                    <html:text property="fecIni" maxlength="10" styleClass="form-control required datepicker date-less-than" size="50"/>
                 </div>
                 <label class="col-sm-2 control-label">Fecha de Registro Hasta:</label>
                 <div class="col-sm-2">
-                    <html:text property="fecFin" maxlength="10" styleClass="form-control required datepicker" size="50"/>
+                    <html:text property="fecFin" maxlength="10" styleClass="form-control required datepicker date-less-than" size="50"/>
                 </div>
             </div>
             <div class="form-group">
@@ -148,6 +148,7 @@
                                 onfocus="concat_idsitem()">
                             <i class="fa fa-percent"></i> Agregar Declaraciones
                         </button>  
+                        <div class="table-responsive">
                         <table class="table table-striped table-hover" id="main-table">
                             <thead>
                                 <tr>
@@ -249,6 +250,7 @@
                                 </c:forEach>
                             </tbody>
                         </table>
+                        </div>
                         <button class="btn btn-info btn-sm newHide" 
                                 type="button" id="btnInc"
                                 title="Agregar Declaraciones"
@@ -267,7 +269,13 @@
                         <div class="panel-title" >
                             <strong>RESULTADOS DE LA BUSQUEDA DE DECLARACIONES POR ÍTEM </strong>
                         </div>
-                         
+                        <button class="btn btn-info btn-sm newHide" 
+                                type="button" id="btnInc"
+                                title="Agregar Ítems Declaraciones"
+                                onfocus="concat_idsitem()">
+                            <i class="fa fa-percent"></i> Agregar Ítems Declaraciones
+                        </button>   
+                        <div class="table-responsive">
                         <table class="table table-striped table-hover" id="main-table">
                             <thead>
                                 <tr>
@@ -377,6 +385,7 @@
                                 </c:forEach>
                             </tbody>
                         </table>
+                        </div>
                         <button class="btn btn-info btn-sm newHide" 
                                 type="button" id="btnInc"
                                 title="Agregar Ítems Declaraciones"
@@ -396,7 +405,8 @@
                 <br>
                 <h4>
                     <strong>LISTA DE LA AMPLIACIÓN DEL ALCANCE DE LA FISCALIZACIÓN</strong>
-                </h4>            
+                </h4>       
+                <div class="table-responsive">
                 <table class="table table-striped table-hover" id="main-table">
                     <thead>
                         <tr>
@@ -450,7 +460,8 @@
                             </tr>
                         </c:forEach>
                     </tbody>
-                </table>    
+                </table>   
+                </div>
             <%
             }
             %>   

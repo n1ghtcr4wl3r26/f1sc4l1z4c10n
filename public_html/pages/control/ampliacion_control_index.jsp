@@ -82,11 +82,13 @@
     });
     function consultar(){
         $("#opcion").val('CONSULTACTL');  
+        Anb.form.submit('#form-ampliacion', function (form) {
         Anb.form.cleanErrors(form);           
             if (Anb.validate.run(form)) {
                 console.log('Enviado!');
                 Anb.loading.show()                
                 form.submit();
             }
+        });
     }
 </script>
