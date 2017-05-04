@@ -70,7 +70,7 @@
                 </div>
             </div>
             <div class="btn-container">
-                <button type="submit" id="boton" value="Consultar" onclick="consultar()" class="btn btn-primary">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Consultar&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+                <button type="submit" id="boton3" value="Consultar" onclick="consultar()" class="btn btn-primary">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Consultar&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
             </div>
             <div class="form-group">
                 <label class="label-message-required">* Campos Obligatorios</label>
@@ -264,17 +264,8 @@
               form.submit();
           }
       });
+      $("#boton").removeAttr("disabled");
 
-      Anb.form.submit('#form-alcance2', function (form) {
-          Anb.form.cleanErrors(form);
-          debugger;
-          if (Anb.validate.run(form)) {
-              console.log('Enviado!');
-              Anb.loading.show()
-              form.submit();
-          }
-      });
-      
       Anb.form.submit('#form-alcance3', function (form) {
           Anb.form.cleanErrors(form);
           debugger;
@@ -284,6 +275,7 @@
               form.submit();
           }
       });
+      $("#boton3").removeAttr("disabled");
 
       function diasentrefechas(fechadesde, fechahasta) {
           var dia1 = fechadesde.substring(0, 2);

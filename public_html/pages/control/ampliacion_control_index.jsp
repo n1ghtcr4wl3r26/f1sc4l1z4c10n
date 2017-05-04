@@ -71,24 +71,18 @@
 </div>
 <script>
     $(document).ready(function () {
-        /*Anb.form.submit('#form-asigna', function (form) {
+        Anb.form.submit('#form-ampliacion', function (form) {
             Anb.form.cleanErrors(form);           
             if (Anb.validate.run(form)) {
-                console.log('Enviado!');
-                Anb.loading.show()                
-                form.submit();
-            }
-        });*/
-    });
-    function consultar(){
-        $("#opcion").val('CONSULTACTL');  
-        Anb.form.submit('#form-ampliacion', function (form) {
-        Anb.form.cleanErrors(form);           
-            if (Anb.validate.run(form)) {
+                $("#opcion").val('CONSULTACTL');
                 console.log('Enviado!');
                 Anb.loading.show()                
                 form.submit();
             }
         });
+        $("#boton").removeAttr("disabled");
+    });
+    function consultar(){
+        $("#opcion").val('CONSULTACTL'); 
     }
 </script>

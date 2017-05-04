@@ -75,35 +75,31 @@
 </div>
 <script>
     $(document).ready(function () {
-        /*Anb.form.submit('#form-asigna', function (form) {
+        Anb.form.submit('#form-anulacion', function (form) {
             Anb.form.cleanErrors(form);           
             if (Anb.validate.run(form)) {
+                $(".opcion").val('CONSULTAR');  
                 console.log('Enviado!');
                 Anb.loading.show()                
                 form.submit();
             }
-        });*/
+        });
+        $("#boton").removeAttr("disabled");
+        Anb.form.submit('#form-anulacion2', function (form) {
+            Anb.form.cleanErrors(form);           
+            if (Anb.validate.run(form)) {
+                $(".opcion").val('CONSULTAR2');  
+                console.log('Enviado!');
+                Anb.loading.show()                
+                form.submit();
+            }
+        });
+        $("#boton2").removeAttr("disabled");
     });
     function consultar(){
-        $(".opcion").val('CONSULTAR');  
-        Anb.form.submit('#form-anulacion', function (form) {
-        Anb.form.cleanErrors(form);           
-            if (Anb.validate.run(form)) {
-                console.log('Enviado!');
-                Anb.loading.show()                
-                form.submit();
-            }
-        });
+        $(".opcion").val('CONSULTAR');         
     }
     function consultar2(){
-        $(".opcion").val('CONSULTAR2');  
-        Anb.form.submit('#form-anulacion2', function (form) {
-        Anb.form.cleanErrors(form);           
-            if (Anb.validate.run(form)) {  
-                console.log('Enviado!');
-                Anb.loading.show()                
-                form.submit();
-            }
-        });
+        $(".opcion").val('CONSULTAR2');          
     }
 </script>

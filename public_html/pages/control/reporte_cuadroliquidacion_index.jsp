@@ -47,24 +47,18 @@
 </div>
 <script>
     $(document).ready(function () {
-        /*Anb.form.submit('#form-liquidacion', function (form) {
+        Anb.form.submit('#form-reportecontrol', function (form) {
             Anb.form.cleanErrors(form);           
             if (Anb.validate.run(form)) {
-                console.log('Enviado!');
-                Anb.loading.show()                
-                form.submit();
-            }
-        });*/
-    });
-    function consultar(){
-        $("#opcion").val('CONSULTAR');  
-        Anb.form.submit('#form-reportecontrol', function (form) {
-        Anb.form.cleanErrors(form);           
-            if (Anb.validate.run(form)) {
+                $("#opcion").val('CONSULTAR');  
                 console.log('Enviado!');
                 Anb.loading.show()                
                 form.submit();
             }
         });
+        $("#boton").removeAttr("disabled");
+    });
+    function consultar(){
+        $("#opcion").val('CONSULTAR');  
     }
 </script>

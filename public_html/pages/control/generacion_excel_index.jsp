@@ -4,7 +4,7 @@
 <div class="panel panel-default">
     <div class="panel-heading">
         <h4 class="panel-title">
-            <strong>GENERACION HOJA DE TRABAJO</strong>
+            <strong>GENERACIÓN HOJA EXCEL PARA MACRO</strong>
         </h4>
     </div>
     <div class="modal-body form-horizontal">
@@ -59,17 +59,6 @@
 </div>
 <script>
     $(document).ready(function () {
-        /*Anb.form.submit('#form-hojaexcel', function (form) {
-            Anb.form.cleanErrors(form);           
-            if (Anb.validate.run(form)) {
-                console.log('Enviado!');
-                Anb.loading.show()                
-                form.submit();
-            }
-        });*/
-    });
-    function consultar(){
-        $("#opcion").val('CONSULTAR'); 
         Anb.form.submit('#form-hojaexcel', function (form) {
             Anb.form.cleanErrors(form);           
             if (Anb.validate.run(form)) {
@@ -78,5 +67,9 @@
                 form.submit();
             }
         });
+        $("#boton").removeAttr("disabled");
+    });
+    function consultar(){
+        $("#opcion").val('CONSULTAR'); 
     }
 </script>

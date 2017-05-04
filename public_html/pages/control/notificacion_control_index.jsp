@@ -13,13 +13,17 @@
             <input type="hidden" name="opcion" id="opcion"/>
             <div class="form-group">
                 <label class="col-sm-2 control-label label-required">Gesti&oacute;n:</label>
+                 
                 <label class="col-sm-4 control-label label-required">Tipo Control:</label>
+                 
                 <label class="col-sm-2 control-label label-required">Gerencia:</label>
+                 
                 <label class="col-sm-2 control-label label-required">N&uacute;mero:</label>
             </div>
             <div class="form-group">
                 <div class="col-sm-2">
-                    <html:text property="fgestion" styleId="fgestion" styleClass="form-control required numeric" size="30" maxlength="4" />
+                    <html:text property="fgestion" styleId="fgestion" styleClass="form-control required numeric"
+                               size="30" maxlength="4"/>
                 </div>
                 <div class="col-sm-4">
                     <html:select property="fcontrol" styleClass="form-control required">
@@ -43,40 +47,37 @@
                     </html:select>
                 </div>
                 <div class="col-sm-2">
-                    <html:text property="fnumero" styleId="fnumero" styleClass="form-control required " size="30" maxlength="10" />
-                </div>                
+                    <html:text property="fnumero" styleId="fnumero" styleClass="form-control required " size="30"
+                               maxlength="10"/>
+                </div>
             </div>
             <div class="btn-container">
-                <button type="submit" id="boton" onclick="consultar()" class="btn btn-primary" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Consultar&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>            
+                <button type="submit" id="boton" onclick="consultar()" class="btn btn-primary">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Consultar&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
             </div>
             <div class="form-group">
-                <label class="label-message-required">
-                    * Campos Obligatorios
-                </label>
+                <label class="label-message-required">* Campos Obligatorios</label>
             </div>
         </html:form>
     </div>
 </div>
 <script>
-    $(document).ready(function () {
-        /*Anb.form.submit('#form-notificacioncontrol', function (form) {
-            Anb.form.cleanErrors(form);           
-            if (Anb.validate.run(form)) {
-                console.log('Enviado!');
-                Anb.loading.show()                
-                form.submit();
-            }
-        });*/
-    });
-    function consultar(){
-        $("#opcion").val('CONSULTAR'); 
-        Anb.form.submit('#form-notificacioncontrol', function (form) {
-            Anb.form.cleanErrors(form);           
-            if (Anb.validate.run(form)) {
-                console.log('Enviado!');
-                Anb.loading.show()                
-                form.submit();
-            }
-        });
-    }
+        $(document).ready(function () {
+          debugger;
+          Anb.form.submit('#form-notificacioncontrol', function (form) {
+              Anb.form.cleanErrors(form);
+              if (Anb.validate.run(form)) {
+                  $("#opcion").val('CONSULTAR');
+                  console.log('Enviado!');
+                  Anb.loading.show()
+                  form.submit();
+              }
+          });
+          $("#boton").removeAttr('disabled');
+
+      });
+  function consultar() {
+      debugger;
+                  $("#opcion").val('CONSULTAR');
+           
+  }
 </script>

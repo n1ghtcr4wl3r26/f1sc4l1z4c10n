@@ -80,8 +80,14 @@ public class AmpliacionAction extends MappingDispatchAction {
                             link = "index";
                         }
                     }
+                } else {
+                    if (resu.getCodigo() == 0) {
+                        request.setAttribute("WARNING", resu.getMensaje());
+                    } else {
+                        request.setAttribute("ERROR", resu.getMensaje());
+                        link = "index";
+                    }
                 }
-
             } else {
                 bean.setFgestion((String)request.getSession().getAttribute("sgestion"));
                 bean.setFgerencia((String)request.getSession().getAttribute("sgerencia"));

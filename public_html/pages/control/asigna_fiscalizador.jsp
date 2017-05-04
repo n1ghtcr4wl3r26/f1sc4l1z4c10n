@@ -121,7 +121,11 @@
             <div class="btn-container">
                 <button type="submit" id="boton" onclick="consultar()" class="btn btn-primary" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Asignar Fiscalizador&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>            
             </div>
-            
+            <div class="form-group">
+                <label class="label-message-required">
+                    * Campos Obligatorios
+                </label>
+            </div>
             
             <h4>
                 <strong>LISTA DEL FISCALIZADORES ASIGNADOS</strong>
