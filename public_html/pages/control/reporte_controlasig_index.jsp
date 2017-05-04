@@ -21,7 +21,7 @@
                 <div class="col-sm-4">
                     <html:select property="funcionario" styleId="funcionario" styleClass="form-control required">
                         <html:option value="-">Seleccione...</html:option>
-                        <html:option value="%">Todos los Funcionarios</html:option>
+                        <html:option value="%">TODOS LOS FUNCIONARIOS</html:option>
                         <c:forEach items="${fiscalizadores}" var="fis">
                             <html:option value="${fis.codigo}">${fis.nombre}</html:option>
                         </c:forEach>

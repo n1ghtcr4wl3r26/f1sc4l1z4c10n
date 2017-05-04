@@ -15,17 +15,18 @@
     <div class="modal-body form-horizontal">
         <html:form styleId="form-reportecontrol" action="reportecontrolidx.do">
         <html:hidden property="fcontrol" styleId="fcontrol"/>
+        <html:hidden property="fcontrolnombre" styleId="fcontrol"/>
         <html:hidden property="ffecini" styleId="ffecini"/>
         <html:hidden property="ffecfin" styleId="ffecfin"/>
             
             <% 
             if(!(gen.getOpcion() == null) && (gen.getOpcion().equals("CONSULTAR"))) {
             %>
-            <strong>Tipo Control:</strong>  ${ReporteControlForm.fcontrol}  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <strong>Tipo Control:</strong>  ${ReporteControlForm.fcontrolnombre}  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <strong>Fecha desde:</strong>   ${ReporteControlForm.ffecini}  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <strong>Fecha hasta:</strong>   ${ReporteControlForm.ffecfin}  
-            <br>
-            <br>
+            <br/>
+            <br/>
             <div class="panel-title">
                 <strong>CONTROLES REGISTRADOS</strong>
             </div>

@@ -5,6 +5,7 @@ import org.apache.struts.action.ActionForm;
 public class ReporteControlForm extends ActionForm {
     private String cargo;
     private String funcionario;
+    private String funcionarionombre;
     
     private String fmemorizado;
     private String fgestion;
@@ -24,8 +25,9 @@ public class ReporteControlForm extends ActionForm {
     
     private String festado;
     private String ftipotramite;
-    
-    
+    private String ftipotramitenombre;
+    private String fcontrolnombre;
+    private String festadonombre;
     private String usuarioger; 
 
     public void setCargo(String cargo) {
@@ -170,5 +172,37 @@ public class ReporteControlForm extends ActionForm {
 
     public String getUsuarioger() {
         return usuarioger;
+    }
+
+    public void setFcontrolnombre(String fcontrolnombre) {
+        this.fcontrolnombre = fcontrolnombre;
+    }
+
+    public String getFcontrolnombre() {
+        return fcontrolnombre;
+    }
+
+    public void setFuncionarionombre(String funcionarionombre) {
+        this.funcionarionombre = funcionarionombre;
+    }
+
+    public String getFuncionarionombre() {
+        return funcionarionombre;
+    }
+
+    public void setFestadonombre(String festadonombre) {
+        this.festadonombre = festadonombre;
+    }
+
+    public String getFestadonombre() {
+        return festadonombre;
+    }
+
+    public void setFtipotramitenombre(String ftipotramitenombre) {
+        this.ftipotramitenombre = ftipotramitenombre;
+    }
+
+    public String getFtipotramitenombre() {
+        return ftipotramitenombre;
     }
 }

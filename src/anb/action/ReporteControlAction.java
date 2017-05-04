@@ -41,6 +41,12 @@ public class ReporteControlAction extends MappingDispatchAction {
             String link = "index";
             String codigo;
             if (!(bean.getOpcion() == null) && bean.getOpcion().equals("CONSULTAR")) {
+                
+                if(bean.getFcontrol().equals("%")){
+                    bean.setFcontrolnombre("TODOS");
+                } else {
+                    bean.setFcontrolnombre(bean.getFcontrol());
+                }
                 bean.setFgerencia((String)request.getSession().getAttribute("sgerencia"));
                 Respuesta<RepControl[]> ben = neg.reporteControl(bean);
                 if (ben.getCodigo() == 1) {
@@ -110,6 +116,11 @@ public class ReporteControlAction extends MappingDispatchAction {
                 request.setAttribute("fiscalizadores", null);
             }
             if (!(bean.getOpcion() == null) && bean.getOpcion().equals("CONSULTAR")) {
+                if(bean.getFuncionario().equals("%")){
+                    bean.setFuncionarionombre("TODOS LOS FUNCIONARIOS");
+                } else {
+                    bean.setFuncionarionombre(bean.getFcontrol());
+                }
                 bean.setFgerencia((String)request.getSession().getAttribute("sgerencia"));
                 Respuesta<RepCantidades[]> ben = neg.reporteControlAsig(bean);
                 if (ben.getCodigo() == 1) {
@@ -150,6 +161,21 @@ public class ReporteControlAction extends MappingDispatchAction {
                 request.setAttribute("fiscalizadores", null);
             }
             if (!(bean.getOpcion() == null) && bean.getOpcion().equals("CONSULTAR")) {
+                if(bean.getFuncionario().equals("%")){
+                    bean.setFuncionarionombre("TODOS LOS FUNCIONARIOS");
+                } else {
+                    bean.setFuncionarionombre(bean.getFcontrol());
+                }
+                if(bean.getFtipotramite().equals("%")){
+                    bean.setFtipotramitenombre("TODOS");
+                } else {
+                    bean.setFtipotramitenombre(bean.getFtipotramite());
+                }
+                if(bean.getFestado().equals("%")){
+                    bean.setFestadonombre("TODOS");
+                } else {
+                    bean.setFestadonombre(bean.getFestado());
+                }
                 bean.setFgerencia((String)request.getSession().getAttribute("sgerencia"));
                 Respuesta<RepEstadoControl[]> ben = neg.reporteDetalleControles(bean);//modificar
                 if (ben.getCodigo() == 1) {
@@ -186,6 +212,16 @@ public class ReporteControlAction extends MappingDispatchAction {
             String codigo;
 
             if (!(bean.getOpcion() == null) && bean.getOpcion().equals("CONSULTAR")) {
+                    if(bean.getFtipotramite().equals("%")){
+                        bean.setFtipotramitenombre("TODOS");
+                    } else {
+                        bean.setFtipotramitenombre(bean.getFtipotramite());
+                    }
+                if(bean.getFestado().equals("%")){
+                    bean.setFestadonombre("TODOS");
+                } else {
+                    bean.setFestadonombre(bean.getFestado());
+                }
                 bean.setFgerencia((String)request.getSession().getAttribute("sgerencia"));
                 bean.setFuncionario(usuario);
                 Respuesta<RepEstadoControl[]> ben = neg.reporteDetalleControles(bean);//modificar

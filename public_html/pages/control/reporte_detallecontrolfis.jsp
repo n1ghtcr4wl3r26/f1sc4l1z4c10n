@@ -14,9 +14,20 @@
     %>
     <div class="modal-body form-horizontal">
         <html:form styleId="form-reportecontrol" action="reportedetallecontrolfisidx.do">
+            <html:hidden property="ffecini" styleId="ffecini"/>
+            <html:hidden property="ffecfin" styleId="ffecfin"/>
+            <html:hidden property="ftipotramite" styleId="ftipotramite"/>
+            <html:hidden property="ftipotramitenombre" styleId="ftipotramitenombre"/>
+            <html:hidden property="festado" styleId="festado"/>
+            <html:hidden property="festadonombre" styleId="festadonombre"/>
             <% 
             if(!(gen.getOpcion() == null) && (gen.getOpcion().equals("CONSULTAR"))) {
             %>
+            <strong>Fecha desde:</strong>   ${ReporteControlForm.ffecini}  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <strong>Fecha hasta:</strong>   ${ReporteControlForm.ffecfin}  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <strong>Tipo de Trámite:</strong>  ${ReporteControlForm.ftipotramitenombre}  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <strong>Estado del Control:</strong>   ${ReporteControlForm.festadonombre}  
+            <br/>
             <br/>
             <table class="table table-striped table-hover" id="main-table" style="width:90%">
                 <thead>

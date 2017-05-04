@@ -126,7 +126,8 @@
                     * Campos Obligatorios
                 </label>
             </div>
-            
+            <br/>
+            <br/>
             <h4>
                 <strong>LISTA DEL FISCALIZADORES ASIGNADOS</strong>
             </h4>            

@@ -14,11 +14,18 @@
     %>
     <div class="modal-body form-horizontal">
         <html:form styleId="form-reportecontrol" action="reportecontrolidx.do">
+            <html:hidden property="funcionario" styleId="funcionario"/>
+            <html:hidden property="funcionarionombre" styleId="funcionarionombre"/>
+            <html:hidden property="ffecini" styleId="ffecini"/>
+            <html:hidden property="ffecfin" styleId="ffecfin"/>
             <% 
             if(!(gen.getOpcion() == null) && (gen.getOpcion().equals("CONSULTAR"))) {
             %>
-           
-            <br>
+            <strong>Usuario Supervisor:</strong>  ${ReporteControlForm.funcionarionombre}  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <strong>Fecha desde:</strong>   ${ReporteControlForm.ffecini}  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <strong>Fecha hasta:</strong>   ${ReporteControlForm.ffecfin}  
+            <br/>
+            <br/>
             <table class="table table-striped table-hover" id="main-table">
                 <thead>
                     <tr>
