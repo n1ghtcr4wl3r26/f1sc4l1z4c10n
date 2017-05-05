@@ -514,8 +514,8 @@
                                              styleClass="form-control" disabled="<%=flegal%>" >
                                     <html:option value="-">-- Seleccione el Tipo --</html:option>
                                     <html:option value="DESCARGOS ACEPTADOS">DESCARGOS ACEPTADOS</html:option>
-                                    <html:option value="SANCION PAGADA">SANCION PAGADA</html:option>
-                                    <html:option value="OBSERVACION RATIFICAD">OBSERVACION RATIFICADA</html:option>
+                                    <html:option value="SANCION PAGADA">SANCIÓN PAGADA</html:option>
+                                    <html:option value="OBSERVACION RATIFICAD">OBSERVACIÓN RATIFICADA</html:option>
                                 </html:select>
                             </div>
                         </div>
@@ -525,8 +525,8 @@
                                 <html:select property="cai_tipo_resolucion" styleId="cai_tipo_resolucion"
                                              styleClass="form-control" disabled="<%=flegal%>" >
                                     <html:option value="-">-- Seleccione el Tipo --</html:option>
-                                    <html:option value="RESOLUCION FINAL DE SUMARIO">RESOLUCION FINAL DE SUMARIO</html:option>
-                                    <html:option value="RESOLUCION SANCIONATORIA">RESOLUCION SANCIONATORIA</html:option>
+                                    <html:option value="RESOLUCION FINAL DE SUMARIO">RESOLUCIÓN FINAL DE SUMARIO</html:option>
+                                    <html:option value="RESOLUCION SANCIONATORIA">RESOLUCIÓN SANCIONATORIA</html:option>
                                 </html:select>
                             </div>
                         </div>                              

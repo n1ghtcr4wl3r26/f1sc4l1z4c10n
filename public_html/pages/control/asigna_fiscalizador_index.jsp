@@ -4,7 +4,7 @@
 <div class="panel panel-default">
     <div class="panel-heading">
         <h4 class="panel-title">
-            <strong>ASIGNACION DE FISCALIZADOR</strong>
+            <strong>ASIGNACIÓN DE FISCALIZADOR</strong>
         </h4>
     </div>
     <div class="modal-body form-horizontal">

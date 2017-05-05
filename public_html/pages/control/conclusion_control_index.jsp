@@ -4,7 +4,7 @@
 <div class="panel panel-default">
     <div class="panel-heading">
         <h4 class="panel-title">
-            <strong>CONCLUSION DEL CONTROL</strong>
+            <strong>CONCLUSIÓN DEL CONTROL</strong>
         </h4>
     </div>
     <div class="modal-body form-horizontal">
@@ -33,7 +33,7 @@
                 <div class="col-sm-2">
                     <html:select property="fgerencia" styleClass="form-control required">
                         <html:option value="-">Seleccione...</html:option>
-                        <html:option value="GNF">NACIONAL DE FISCALIZACION</html:option>
+                        <html:option value="GNF">NACIONAL DE FISCALIZACIÓN</html:option>
                         <html:option value="GRL">LA PAZ</html:option>
                         <html:option value="GRC">COCHABAMBA</html:option>
                         <html:option value="GRS">SANTA CRUZ</html:option>

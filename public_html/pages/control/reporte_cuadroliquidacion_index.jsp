@@ -4,7 +4,7 @@
 <div class="panel panel-default">
     <div class="panel-heading">
         <h4 class="panel-title">
-            <strong>CUADRO RESUMEN DE LIQUIDACION</strong>
+            <strong>CUADRO RESUMEN DE LIQUIDACIÓN</strong>
         </h4>
     </div>
     <div class="modal-body form-horizontal">

@@ -66,7 +66,7 @@ public class AlcanceAction extends MappingDispatchAction {
                     }
                     //******                    
                 } else {
-                    if (res.getMensaje().equals("NO SE PUEDE REGISTRAR ALCANCE DE UNA FISCALIZACION AMPLIATORIA")) {
+                    if (res.getMensaje().equals("No se puede registrar alcance de una fiscalización ampliatoria")) {
 
                         Respuesta<Tramite[]> tramo = alcneg.ver_TramitesPadreAmp(bean);
                         request.setAttribute("tramitespadreamp", tramo.getResultado());

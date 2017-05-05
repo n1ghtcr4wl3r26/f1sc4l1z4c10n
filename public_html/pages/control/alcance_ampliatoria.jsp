@@ -24,7 +24,7 @@
             %>
             <br></br>
             <h4>
-                <strong>LISTA DEL ALCANCE DE LA FISCALIZACION PADRE</strong>
+                <strong>LISTA DEL ALCANCE DE LA FISCALIZACIÓN PADRE</strong>
             </h4>
             <table class="table table-striped table-hover" id="main-table">          
                 <thead>
@@ -79,7 +79,7 @@
             %>
             <br></br>
             <h4>
-                <strong>LISTA DEL ALCANCE DE LA FISCALIZACION AMPLIATORIA</strong>
+                <strong>LISTA DEL ALCANCE DE LA FISCALIZACIÓN AMPLIATORIA</strong>
             </h4>
             
             <table class="table table-striped table-hover" id="main-table">

@@ -44,7 +44,7 @@
                         <html:option value="-">Seleccione...</html:option>
                         <html:option value="%">TODOS</html:option>
                         <html:option value="DIFERIDO">CONTROL DIFERIDO</html:option>
-                        <html:option value="POSTERIOR">FISCALIZACION POSTERIOR</html:option>
+                        <html:option value="POSTERIOR">FISCALIZACIÓN POSTERIOR</html:option>
                     </html:select>
                 </div>
                 <div class="col-sm-4">

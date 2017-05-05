@@ -32,7 +32,7 @@
                 <div class="col-sm-2">
                     <html:select property="fgerencia" styleClass="form-control required">
                         <html:option value="-">Seleccione...</html:option>
-                        <html:option value="GNF">NACIONAL DE FISCALIZACION</html:option>
+                        <html:option value="GNF">NACIONAL DE FISCALIZACIÓN</html:option>
                         <html:option value="GRL">LA PAZ</html:option>
                         <html:option value="GRC">COCHABAMBA</html:option>
                         <html:option value="GRS">SANTA CRUZ</html:option>

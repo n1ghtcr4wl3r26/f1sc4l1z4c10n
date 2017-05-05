@@ -140,7 +140,7 @@
                         
                         
                         <div class="panel-title" >
-                            <strong>RESULTADOS DE LA BUSQUEDA DE DECLARACIONES </strong>
+                            <strong>RESULTADOS DE LA BÚSQUEDA DE DECLARACIONES </strong>
                         </div>
                         <button class="btn btn-info btn-sm newHide" 
                                 type="button" id="btnInc2"

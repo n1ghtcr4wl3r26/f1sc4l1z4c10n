@@ -95,7 +95,7 @@ try
 
 
 <tr><td colspan="6"><strong>III. ALCANCE Y PERIODO DE LA FISCALIZACIÓN</strong></td></tr>
-<tr><td colspan="6" style="height:50px; vertical-align:top;text-align:justify">Gestión(es): ${infoControl2.periodo} 
+<tr><td colspan="6" style="height:50px; vertical-align:top;text-align:justify">Trámite(s) detallados en Anexo adjunto correspondientes a la Gestión(es) ${infoControl2.periodo} 
 
 </td></tr>
 

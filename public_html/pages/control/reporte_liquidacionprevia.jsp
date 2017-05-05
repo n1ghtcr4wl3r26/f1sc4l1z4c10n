@@ -6,7 +6,7 @@
 <div class="panel panel-default">
     <div class="panel-heading">
         <h4 class="panel-title">
-            <strong>LIQUIDACION PREVIA DEL ADEUDO TRIBUTARIO VC</strong>
+            <strong>LIQUIDACIÓN PREVIA DEL ADEUDO TRIBUTARIO VC</strong>
         </h4>
     </div>
     <% 
