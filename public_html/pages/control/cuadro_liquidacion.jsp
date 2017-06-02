@@ -118,9 +118,10 @@
                         <th colspan="6" class="text-center">TRIBUTOS OMITIDOS UFV</th>
                         <th rowspan="2" class="text-center">UFV FECHA VENCIMIENTO</th>
                         <th rowspan="2" class="text-center">D&iacute;as</th>
-                          
+                        <th rowspan="2" class="text-center">UFV FECHA DE CALCULO</th>  
                         <th colspan="5" class="text-center">TRIBUTOS OMITIDOS + INTERESES</th>
                         <th rowspan="2" class="text-center">ADEUDO TOTAL UFV</th>
+                        <th rowspan="2" class="text-center">ADEUDO TOTAL BS</th>
                         <th rowspan="2" class="text-center">&nbsp;</th>
                         <th rowspan="2" class="text-center">&nbsp;</th>
                     </tr>
@@ -324,7 +325,9 @@
                             <td class="text-right">
                                 ${esc.dias}
                             </td>
-                            
+                            <td class="text-right">
+                                ${esc.ufvhoy}
+                            </td>
                             <td class="text-right">
                                 ${esc.dtufvga}
                             </td>
@@ -343,6 +346,9 @@
                            
                             <td class="text-right">
                                 ${esc.adeudo_totalufv}
+                            </td>
+                            <td class="text-right">
+                                ${esc.adeudo_totalbs}
                             </td>
                             <td class="text-right">
                                 &nbsp;

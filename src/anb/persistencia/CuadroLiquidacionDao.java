@@ -40,6 +40,10 @@ public class CuadroLiquidacionDao extends Conexion {
             DecimalFormat formato = new DecimalFormat("#,###,###.##", simbolo);
             formato.setMaximumFractionDigits(2);
             formato.setMinimumFractionDigits(2);
+            
+            DecimalFormat formatoufv = new DecimalFormat("#,###,###.#####", simbolo);
+            formatoufv.setMaximumFractionDigits(5);
+            formatoufv.setMinimumFractionDigits(5);
 
             rs = (ResultSet)call.getObject(1);
             while (rs.next()) {
@@ -83,7 +87,7 @@ public class CuadroLiquidacionDao extends Conexion {
                 ht.setDetiehd(formato.format(rs.getFloat(32)));
                 ht.setDeticd(formato.format(rs.getFloat(33)));
 
-                ht.setUfvvenc(formato.format(rs.getFloat(34)));
+                ht.setUfvvenc(formatoufv.format(rs.getFloat(34)));
 
                 ht.setToga(formato.format(rs.getFloat(35)));
                 ht.setToiva(formato.format(rs.getFloat(36)));
@@ -120,7 +124,7 @@ public class CuadroLiquidacionDao extends Conexion {
                 ht.setAdeudo_totalbs(formato.format(rs.getFloat(62)));
                 ht.setAdeudo_totalufv(formato.format(rs.getFloat(63)));
 
-
+                ht.setUfvhoy(formatoufv.format(rs.getFloat(64)));
                 /*
                 ht.setDecfobusd(rs.getString(10));
                 String fob1 = rs.getString(10);
