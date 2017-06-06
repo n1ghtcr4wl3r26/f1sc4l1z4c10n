@@ -103,6 +103,7 @@
             <div class="table-responsive">
             <table class="table table-striped table-hover" id="main-table">
                 <thead>
+                    <%--
                     <tr>
                         <th rowspan="2" class="text-center">N&uacute;mero</th>
                         <th rowspan="2" class="text-center">Item</th>
@@ -172,6 +173,77 @@
                         <th class="text-center">ICE UFV</th>
                         <th class="text-center">IEHD UFV</th>
                         <th class="text-center">ICD UFV</th>
+                        
+                    </tr>
+                    --%>
+                    <tr>
+                        <th class="text-center">N&uacute;mero</th>
+                        <th class="text-center">Item</th>
+                        <th class="text-center">Subpartida Declarada</th>
+                        <th class="text-center">Subpartida Determinada</th>
+                        <th class="text-center">Declaraci&oacute;n</th>
+                        <th class="text-center">Fecha Validaci&oacute;n</th>
+                        <th class="text-center">Fecha Vencimiento</th>
+                        <th class="text-center">Fecha de Calculo</th>
+                        
+                        
+                        
+                        <th class="text-center">FOB USD DECLARADO</th>
+                        <th class="text-center">FLETE USD DECLARADO</th>
+                        <th class="text-center">SEGURO USD DECLARADO</th>
+                        <th class="text-center">OTROS USD DECLARADO</th>
+                        <th class="text-center">VALOR CIF USD DECLARADO</th>
+                        <th class="text-center">T/C DECLARADO</th>
+                        <th class="text-center">VALOR CIF Bs DECLARADO</th>
+                        <th class="text-center">GA DECLARADO</th>
+                        <th class="text-center">IVA DECLARADO</th>
+                        <th class="text-center">ICE DECLARADO</th>
+                        <th class="text-center">IEHD DECLARADO</th>
+                        <th class="text-center">ICD DECLARADO</th>
+                        
+                           
+                        <th class="text-center">FOB USD DETERMINADO</th>
+                        <th class="text-center">FLETE USD DETERMINADO</th>
+                        <th class="text-center">SEGURO USD DETERMINADO</th>
+                        <th class="text-center">OTROS USD DETERMINADO</th>
+                        <th class="text-center">VALOR CIF USD DETERMINADO</th>
+                        <th class="text-center">T/C DETERMINADO</th>
+                        <th class="text-center">VALOR CIF Bs DETERMINADO</th>
+                        <th class="text-center">GA DETERMINADO</th>
+                        <th class="text-center">IVA DETERMINADO</th>
+                        <th class="text-center">ICE DETERMINADO</th>
+                        <th class="text-center">IEHD DETERMINADO</th>
+                        <th class="text-center">ICD DETERMINADO</th>
+                        
+                          
+                        <th class="text-center">TRIBUTO OMITIDO GA Bs</th>
+                        <th class="text-center">TRIBUTO OMITIDO IVA Bs</th>
+                        <th class="text-center">TRIBUTO OMITIDO ICE Bs</th>
+                        <th class="text-center">TRIBUTO OMITIDO IEHD Bs</th>
+                        <th class="text-center">TRIBUTO OMITIDO ICD Bs</th>
+                        <th class="text-center">TRIBUTO OMITIDO TOTAL Bs</th>
+                        
+                        <th class="text-center">TRIBUTO OMITIDO GA UFV</th>
+                        <th class="text-center">TRIBUTO OMITIDO IVA UFV</th>
+                        <th class="text-center">TRIBUTO OMITIDO ICE UFV</th>
+                        <th class="text-center">TRIBUTO OMITIDO IEHD UFV</th>
+                        <th class="text-center">TRIBUTO OMITIDO ICD UFV</th>
+                        <th class="text-center">TRIBUTO OMITIDO TOTAL UFV</th>
+                        
+                        <th class="text-center">UFV FECHA VENCIMIENTO</th>
+                        <th class="text-center">D&iacute;as</th>
+                        <th class="text-center">UFV FECHA DE CALCULO</th>  
+                        
+                        <th class="text-center">TRIBUTO OMITIDO + INTERES GA UFV</th>
+                        <th class="text-center">TRIBUTO OMITIDO + INTERES IVA UFV</th>
+                        <th class="text-center">TRIBUTO OMITIDO + INTERES ICE UFV</th>
+                        <th class="text-center">TRIBUTO OMITIDO + INTERES IEHD UFV</th>
+                        <th class="text-center">TRIBUTO OMITIDO + INTERES ICD UFV</th>
+                        
+                        
+                        <th class="text-center">SANCIÓN POR OMISION DE PAGO UFV</th>
+                        <th class="text-center">ADEUDO TOTAL UFV</th>
+                        <th class="text-center">ADEUDO TOTAL BS</th>
                         
                     </tr>
                 </thead>
@@ -345,17 +417,15 @@
                             </td>
                            
                             <td class="text-right">
+                                ${esc.toufvtotal}
+                            </td>
+                            <td class="text-right">
                                 ${esc.adeudo_totalufv}
                             </td>
                             <td class="text-right">
                                 ${esc.adeudo_totalbs}
                             </td>
-                            <td class="text-right">
-                                &nbsp;
-                            </td>
-                            <td class="text-right">
-                                &nbsp;
-                            </td>
+                            
                             
                             
                                                         

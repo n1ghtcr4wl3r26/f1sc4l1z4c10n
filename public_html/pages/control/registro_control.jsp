@@ -228,70 +228,70 @@
                                 <td>12.</td>
                                 <td>
                                     <html:text property="inn_12" styleId="inn_12" styleClass="form-control" size="50"
-                                               maxlength="100"/>
+                                               maxlength="500"/>
                                 </td>
                             </tr>
                             <tr>
                                 <td>13.</td>
                                 <td>
                                     <html:text property="inn_13" styleId="inn_13" styleClass="form-control" size="50"
-                                               maxlength="100"/>
+                                               maxlength="500"/>
                                 </td>
                             </tr>
                             <tr>
                                 <td>14.</td>
                                 <td>
                                     <html:text property="inn_14" styleId="inn_14" styleClass="form-control" size="50"
-                                               maxlength="100"/>
+                                               maxlength="500"/>
                                 </td>
                             </tr>
                             <tr>
                                 <td>15.</td>
                                 <td>
                                     <html:text property="inn_15" styleId="inn_15" styleClass="form-control" size="50"
-                                               maxlength="100"/>
+                                               maxlength="500"/>
                                 </td>
                             </tr>
                             <tr>
                                 <td>16.</td>
                                 <td>
                                     <html:text property="inn_16" styleId="inn_16" styleClass="form-control" size="50"
-                                               maxlength="100"/>
+                                               maxlength="500"/>
                                 </td>
                             </tr>
                             <tr>
                                 <td>17.</td>
                                 <td>
                                     <html:text property="inn_17" styleId="inn_17" styleClass="form-control" size="50"
-                                               maxlength="100"/>
+                                               maxlength="500"/>
                                 </td>
                             </tr>
                             <tr>
                                 <td>18.</td>
                                 <td>
                                     <html:text property="inn_18" styleId="inn_18" styleClass="form-control" size="50"
-                                               maxlength="100"/>
+                                               maxlength="500"/>
                                 </td>
                             </tr>
                             <tr>
                                 <td>19.</td>
                                 <td>
                                     <html:text property="inn_19" styleId="inn_19" styleClass="form-control" size="50"
-                                               maxlength="100"/>
+                                               maxlength="500"/>
                                 </td>
                             </tr>
                             <tr>
                                 <td>20.</td>
                                 <td>
                                     <html:text property="inn_20" styleId="inn_20" styleClass="form-control" size="50"
-                                               maxlength="100"/>
+                                               maxlength="500"/>
                                 </td>
                             </tr>
                             <tr>
                                 <td>21.</td>
                                 <td>
                                     <html:text property="inn_21" styleId="inn_21" styleClass="form-control" size="50"
-                                               maxlength="100"/>
+                                               maxlength="500"/>
                                 </td>
                             </tr>
                         </tbody>

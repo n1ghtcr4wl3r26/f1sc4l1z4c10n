@@ -464,17 +464,17 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-3 control-label">Fecha de Notificaci&oacute;n del Acta de Intervenci&oacute;n:</label>
+                            <label class="col-sm-3 control-label label-required">Fecha de Notificaci&oacute;n del Acta de Intervenci&oacute;n:</label>
                             <div class="col-sm-3">
                                 <html:text property="cai_fecha_not_ai" styleId="cai_fecha_not_ai"
-                                           styleClass="form-control datepicker date-less-than" size="30" maxlength="10" disabled="<%=ffisca%>"/>
+                                           styleClass="form-control datepicker date-less-than" size="30" maxlength="10" disabled="<%=flegal%>"/>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-3 control-label">Tipo de Notificaci&oacute;n del Acta de Intervenci&oacute;n:</label>
+                            <label class="col-sm-3 control-label label-required">Tipo de Notificaci&oacute;n del Acta de Intervenci&oacute;n:</label>
                             <div class="col-sm-3">
                                 <html:select property="cai_tipo_not_ai" styleId="cai_tipo_not_ai"
-                                             styleClass="form-control" disabled="<%=ffisca%>">
+                                             styleClass="form-control" disabled="<%=flegal%>">
                                     <html:option value="-">-- Seleccione el Tipo --</html:option>
                                     <html:option value="ELECTRONICA">ELECTRONICA</html:option>
                                     <html:option value="PERSONAL">PERSONAL</html:option>

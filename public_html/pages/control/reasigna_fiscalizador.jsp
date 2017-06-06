@@ -111,7 +111,6 @@
                     <html:select property="cargo" styleId="cargo" styleClass="form-control required">
                         <html:option value="-">Seleccione...</html:option>
                         <html:option value="FISCALIZADOR">FISCALIZADOR</html:option>
-                        <html:option value="FISCALIZADOR APOYO">FISCALIZADOR APOYO</html:option>
                         <html:option value="JEFE">JEFE</html:option>
                         <html:option value="SUPERVISOR">SUPERVISOR</html:option>
                     </html:select>
