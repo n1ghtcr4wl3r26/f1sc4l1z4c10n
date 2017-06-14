@@ -12,6 +12,8 @@ public class TributosOmitidosForm extends ActionForm {
     private String fgerencia;
     private String fnumero;
     
+    private String ffecha;
+    
     private String boton;
     private String opcion;
     private String codigo;
@@ -132,5 +134,13 @@ public class TributosOmitidosForm extends ActionForm {
 
     public String getUsuarioger() {
         return usuarioger;
+    }
+
+    public void setFfecha(String ffecha) {
+        this.ffecha = ffecha;
+    }
+
+    public String getFfecha() {
+        return ffecha;
     }
 }

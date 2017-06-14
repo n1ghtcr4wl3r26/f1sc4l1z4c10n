@@ -6,12 +6,13 @@ public class TributosOmitidosTotales {
     private String ice;
     private String iehd;
     private String icd;
-    private String total;
-    private String subtotal;
-    private String sancionufv;
-    private String sancionbs;
-    private String contrav;
+    private String total;    
+    private String sancionomision;
+    private String contravdui;
     private String contravorden;
+    private String sancioncontrabando;
+    private String sanciondefraudacion;
+    private String delito;
     private String totalfinal;
 
     public void setGa(String ga) {
@@ -62,30 +63,6 @@ public class TributosOmitidosTotales {
         return total;
     }
 
-    public void setSancionufv(String sancionufv) {
-        this.sancionufv = sancionufv;
-    }
-
-    public String getSancionufv() {
-        return sancionufv;
-    }
-
-    public void setSancionbs(String sancionbs) {
-        this.sancionbs = sancionbs;
-    }
-
-    public String getSancionbs() {
-        return sancionbs;
-    }
-
-    public void setContrav(String contrav) {
-        this.contrav = contrav;
-    }
-
-    public String getContrav() {
-        return contrav;
-    }
-
     public void setContravorden(String contravorden) {
         this.contravorden = contravorden;
     }
@@ -102,11 +79,43 @@ public class TributosOmitidosTotales {
         return totalfinal;
     }
 
-    public void setSubtotal(String subtotal) {
-        this.subtotal = subtotal;
+    public void setSancionomision(String sancionomision) {
+        this.sancionomision = sancionomision;
     }
 
-    public String getSubtotal() {
-        return subtotal;
+    public String getSancionomision() {
+        return sancionomision;
+    }
+
+    public void setContravdui(String contravdui) {
+        this.contravdui = contravdui;
+    }
+
+    public String getContravdui() {
+        return contravdui;
+    }
+
+    public void setSancioncontrabando(String sancioncontrabando) {
+        this.sancioncontrabando = sancioncontrabando;
+    }
+
+    public String getSancioncontrabando() {
+        return sancioncontrabando;
+    }
+
+    public void setSanciondefraudacion(String sanciondefraudacion) {
+        this.sanciondefraudacion = sanciondefraudacion;
+    }
+
+    public String getSanciondefraudacion() {
+        return sanciondefraudacion;
+    }
+
+    public void setDelito(String delito) {
+        this.delito = delito;
+    }
+
+    public String getDelito() {
+        return delito;
     }
 }

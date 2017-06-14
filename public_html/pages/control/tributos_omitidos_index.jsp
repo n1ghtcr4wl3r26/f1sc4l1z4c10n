@@ -4,7 +4,7 @@
 <div class="panel panel-default">
     <div class="panel-heading">
         <h4 class="panel-title">
-            <strong>ESTADO DE DEUDA POR CONTROL</strong>
+            <strong>RESUMEN DE TRIBUTOS OMITIDOS</strong>
         </h4>
     </div>
     <div class="modal-body form-horizontal">
@@ -45,6 +45,11 @@
                 <div class="col-sm-2">
                     <html:text property="fnumero" styleId="fnumero" styleClass="form-control required " size="30" maxlength="10" />
                 </div>                
+            </div>
+            <div class="form-group">
+                <div class="col-sm-2">
+                    <html:text property="ffecha" styleId="ffecha" styleClass="form-control datepicker required" size="10" maxlength="10" />
+                </div>
             </div>
             <div class="btn-container">
                 <button type="submit" id="boton" onclick="consultar()" class="btn btn-primary" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Consultar&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>            

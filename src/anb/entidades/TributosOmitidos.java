@@ -12,7 +12,8 @@ public class TributosOmitidos {
     private String total;
     private String dias;
     private String sancionufv;
-    private String sancionbs;
+    private String sancionbs;    
+    private String ttotal;
     
     
 
@@ -111,5 +112,13 @@ public class TributosOmitidos {
 
     public String getSancionbs() {
         return sancionbs;
+    }
+
+    public void setTtotal(String ttotal) {
+        this.ttotal = ttotal;
+    }
+
+    public String getTtotal() {
+        return ttotal;
     }
 }

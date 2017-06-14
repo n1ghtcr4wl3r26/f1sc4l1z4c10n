@@ -1,11 +1,7 @@
 package anb.persistencia;
 
 
-import anb.bean.GeneracionHojaForm;
-
 import anb.bean.TributosOmitidosForm;
-
-import anb.entidades.HojaTrabajoDui;
 
 import anb.entidades.TributosOmitidos;
 import anb.entidades.TributosOmitidosTotales;
@@ -35,24 +31,23 @@ public class TributosOmitidosDao extends Conexion {
         int cont = 1;
         try {
             open();
-            call = cn.prepareCall("{ ? = call pkg_reporte.devuelve_tributos3 ( ?)}");
+            call = cn.prepareCall("{ ? = call pkg_reporte.dev_tributoomitidofecha ( ?,?)}");
             call.registerOutParameter(1, OracleTypes.CURSOR);
             call.setString(2, bean.getCodigo());
+            call.setString(3, bean.getFfecha());
             call.execute();
             rs = (ResultSet)call.getObject(1);
             while (rs.next()) {
                 TributosOmitidos ht = new TributosOmitidos();
                 ht.setNumero(String.valueOf(cont++));
-                ht.setDui(rs.getString(1));
-                ht.setFechareg(rs.getString(2));
-                ht.setGa(rs.getString(4));
-                ht.setIva(rs.getString(5));
-                ht.setIce(rs.getString(6));
-                ht.setIehd(rs.getString(7));
-                ht.setIcd(rs.getString(8));
-                ht.setSancionufv(rs.getString(10));
-                ht.setSancionbs(rs.getString(11));
-                ht.setTotal(rs.getString(9));
+                ht.setDui(rs.getString(1)+"/"+rs.getString(2)+"/C-"+rs.getString(3));
+                ht.setFechareg(rs.getString(4));
+                ht.setGa(rs.getString(5));
+                ht.setIva(rs.getString(6));
+                ht.setIce(rs.getString(7));
+                ht.setIehd(rs.getString(8));
+                ht.setIcd(rs.getString(9));
+                ht.setTotal(rs.getString(10));
                 htls.add(ht);
             }
         } finally {
@@ -70,24 +65,19 @@ public class TributosOmitidosDao extends Conexion {
         int cont = 1;
         try {
             open();
-            call = cn.prepareCall("{ ? = call pkg_reporte.devuelve_tributos3tot ( ?)}");
+            call = cn.prepareCall("{ ? = call pkg_reporte.dev_tributoomitidofechatotal ( ?,?)}");
             call.registerOutParameter(1, OracleTypes.CURSOR);
             call.setString(2, bean.getCodigo());
+            call.setString(3, bean.getFfecha());
             call.execute();
             rs = (ResultSet)call.getObject(1);
             while (rs.next()) {
-                ht.setGa(rs.getString(1));
-                ht.setIva(rs.getString(2));
-                ht.setIce(rs.getString(3));
-                ht.setIehd(rs.getString(4));
-                ht.setIcd(rs.getString(5));
-                ht.setTotal(rs.getString(6));
-                ht.setSancionufv(rs.getString(7));
-                ht.setSancionbs(rs.getString(8));
-                ht.setTotalfinal(rs.getString(9));
-                ht.setContrav(rs.getString(10));
-                ht.setContravorden(rs.getString(11));   
-                ht.setSubtotal(rs.getString(12));
+                ht.setSancionomision(rs.getString(1));
+                ht.setContravdui(rs.getString(2));
+                ht.setContravorden(rs.getString(3));
+                ht.setSancioncontrabando(rs.getString(4));
+                ht.setSanciondefraudacion(rs.getString(5));
+                ht.setDelito(rs.getString(6));
             }
         } finally {
             if (cn != null) {

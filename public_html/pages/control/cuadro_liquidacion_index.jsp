@@ -4,7 +4,7 @@
 <div class="panel panel-default">
     <div class="panel-heading">
         <h4 class="panel-title">
-            <strong>ESTADO DE DEUDA POR CONTROL</strong>
+            <strong>LIQUIDACIÓN DEL ADEUDO TRIBUTARIO</strong>
         </h4>
     </div>
     <div class="modal-body form-horizontal">

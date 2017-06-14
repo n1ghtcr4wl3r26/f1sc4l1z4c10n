@@ -6,7 +6,7 @@
 <div class="panel panel-default">
     <div class="panel-heading">
         <h4 class="panel-title">
-            <strong>ESTADO DE DEUDA POR CONTROL</strong>
+            <strong>LIQUIDACIÓN DEL ADEUDO TRIBUTARIO</strong>
         </h4>
     </div>
     <% 
@@ -98,7 +98,7 @@
             <br></br>
             <br></br>
             <div class="panel-title imp">
-                <strong>ESTADO DE DEUDA POR CONTROL</strong>
+                <strong>LIQUIDACIÓN DEL ADEUDO TRIBUTARIO</strong>
             </div>
             <div class="table-responsive">
             <table class="table table-striped table-hover" id="main-table">
