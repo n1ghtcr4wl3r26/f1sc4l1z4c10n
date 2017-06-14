@@ -54,10 +54,15 @@ public class TributosOmitidosAction extends MappingDispatchAction {
                     Respuesta<TributosOmitidosTotales> bentot = neg.devuelveTributosOmitidosTotales(bean);
                     if (ben.getCodigo() == 1) {
                         bean.setCantidad("1");
-                        
-                        bentot.getResultado().setTotal("100");
-                        bentot.getResultado().setTotalfinal("500");                        
-                        
+                        long total=0;
+                        long ttotal=0;
+                        for (int i = 0; i <  ben.getResultado().length; i++) {
+                            TributosOmitidos trib = (TributosOmitidos)ben.getResultado()[i];
+                            total = total + Long.parseLong(trib.getTotal().toString());
+                        }                        
+                        bentot.getResultado().setTotal(String.valueOf(total));
+                        ttotal = ttotal + Long.parseLong(bentot.getResultado().getTotal()) + Long.parseLong(bentot.getResultado().getSancionomision()) + Long.parseLong(bentot.getResultado().getContravdui()) + Long.parseLong(bentot.getResultado().getContravorden()) + Long.parseLong(bentot.getResultado().getSancioncontrabando()) + Long.parseLong(bentot.getResultado().getSanciondefraudacion()) + Long.parseLong(bentot.getResultado().getDelito()) ;
+                        bentot.getResultado().setTotalfinal(String.valueOf(ttotal));                        
                         request.setAttribute("tributosOm", ben.getResultado());
                         request.setAttribute("tributosOmtot", bentot.getResultado());                        
                     }

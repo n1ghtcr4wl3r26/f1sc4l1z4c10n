@@ -141,7 +141,7 @@ public class HojaTrabajoDao extends Conexion {
                 ht.setProveedor(rs.getString(8));
                 ht.setMercancia(rs.getString(9));
                 
-                ht.setDecfobusd(formato.format(rs.getFloat(10)));
+                ht.setDetfobusd(formato.format(rs.getFloat(10)));
                 ht.setDetfleteusd(formato.format(rs.getFloat(11)));
                 ht.setDetsegurousd(formato.format(rs.getFloat(12)));
                 ht.setDetotrosusd(formato.format(rs.getFloat(13)));

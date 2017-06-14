@@ -52,7 +52,7 @@
                             <td class="text-center">
                                 ${esc.numero}
                             </td>
-                            <td class="text-center">
+                            <td class="text-left">
                                 ${esc.dui}
                             </td>
                             <td class="text-center">
@@ -78,72 +78,74 @@
                             </td>   
                         </tr>
                     </c:forEach>
-                    <c:forEach items="${tributosOmtot}" var="tot">
                     <tr>
-                        <td class="text-left" colspan="8">
+                        <th class="text-left" colspan="8">
                             Total Deuda Tributaria Bs.
-                        </td>
-                        <td class="text-right">
-                             ${tot.total}
-                        </td>
+                        </th>
+                        <th class="text-right">
+                             ${tributosOmtot.total}
+                        </th>
                     </tr>
                     <tr>
-                        <td class="text-left" colspan="8">
+                        <th class="text-left" colspan="8">
                             Sanción por Omisión de Pago Código 235 Bs.
-                        </td>
-                        <td class="text-right">
-                             ${tot.sancionomision}
-                        </td>
+                        </th>
+                        <th class="text-right">
+                             ${tributosOmtot.sancionomision}
+                        </th>
                     </tr>
                     <tr>
-                        <td class="text-left" colspan="8">
+                        <th class="text-left" colspan="8">
                             Contravencion Aduanera relacionada con la DUI Cod. 167 Bs.
-                        </td>
-                        <td class="text-right">
-                             ${tot.contravdui}
-                        </td>
+                        </th>
+                        <th class="text-right">
+                             ${tributosOmtot.contravdui}
+                        </th>
                     </tr>
                     <tr>
-                        <td class="text-left" colspan="8">
+                        <th class="text-left" colspan="8">
                             Contravenciones Aduaneras relacionadas con la Orden Cod. 167 Bs.
-                        </td>
-                        <td class="text-right">
-                             ${tot.contravorden}
-                        </td>
+                        </th>
+                        <th class="text-right">
+                             ${tributosOmtot.contravorden}
+                        </th>
                     </tr>
                     <tr>
-                        <td class="text-left" colspan="8">
+                        <th class="text-left" colspan="8">
                             Sanción por Contrabando Contravencional 235 Bs.
-                        </td>
-                        <td class="text-right">
-                             ${tot.sancioncontrabando}
-                        </td>
+                        </th>
+                        <th class="text-right">
+                             ${tributosOmtot.sancioncontrabando}
+                        </th>
                     </tr>
                     <tr>
-                        <td class="text-left" colspan="8">
+                        <th class="text-left" colspan="8">
                             Sanción por Defraudación Cod 169 Bs.
-                        </td>
-                        <td class="text-right">
-                             ${tot.sanciondefraudacion}
-                        </td>
+                        </th>
+                        <th class="text-right">
+                             ${tributosOmtot.sanciondefraudacion}
+                        </th>
                     </tr>
                     <tr>
-                        <td class="text-left" colspan="8">
+                        <th class="text-left" colspan="8">
                             Sanción por  Delito Cod 236 Bs.
-                        </td>
-                        <td class="text-right">
-                             ${tot.delito}
-                        </td>
+                        </th>
+                        <th class="text-right">
+                             ${tributosOmtot.delito}
+                        </th>
                     </tr>
                     <tr>
-                        <td class="text-left" colspan="8">
-                            Total Adeudo Bs.
-                        </td>
-                        <td class="text-right">
-                             ${tot.totalfinal}
-                        </td>
+                        <th class="text-left" colspan="8">
+                            <strong>
+                                Total Adeudo Bs.
+                            </strong>
+                        </th>
+                        <th class="text-right">
+                            <strong>
+                                ${tributosOmtot.totalfinal}
+                            </strong>
+                        </th>
                     </tr>                    
-                  </c:forEach>
                 </tbody>
             
             <%
