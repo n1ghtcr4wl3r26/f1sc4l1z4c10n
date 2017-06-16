@@ -54,14 +54,17 @@ public class TributosOmitidosAction extends MappingDispatchAction {
                     Respuesta<TributosOmitidosTotales> bentot = neg.devuelveTributosOmitidosTotales(bean);
                     if (ben.getCodigo() == 1) {
                         bean.setCantidad("1");
-                        long total=0;
-                        long ttotal=0;
+                        double total=0;
+                        double ttotal=0;
                         for (int i = 0; i <  ben.getResultado().length; i++) {
                             TributosOmitidos trib = (TributosOmitidos)ben.getResultado()[i];
-                            total = total + Long.parseLong(trib.getTotal().toString());
+                            total = total + Double.parseDouble(trib.getTotal().toString());
                         }                        
                         bentot.getResultado().setTotal(String.valueOf(total));
-                        ttotal = ttotal + Long.parseLong(bentot.getResultado().getTotal()) + Long.parseLong(bentot.getResultado().getSancionomision()) + Long.parseLong(bentot.getResultado().getContravdui()) + Long.parseLong(bentot.getResultado().getContravorden()) + Long.parseLong(bentot.getResultado().getSancioncontrabando()) + Long.parseLong(bentot.getResultado().getSanciondefraudacion()) + Long.parseLong(bentot.getResultado().getDelito()) ;
+                        
+                        /*ttotal = Double.parseDouble(bentot.getResultado().getContravdui());
+                        ttotal = Double.parseDouble(bentot.getResultado().getContravorden());*/
+                        ttotal = ttotal + Double.parseDouble(bentot.getResultado().getTotal()) + Double.parseDouble(bentot.getResultado().getSancionomision()) + Double.parseDouble(bentot.getResultado().getContravdui()) + Double.parseDouble(bentot.getResultado().getContravorden()) + Double.parseDouble(bentot.getResultado().getSancioncontrabando()) + Double.parseDouble(bentot.getResultado().getSanciondefraudacion()) + Double.parseDouble(bentot.getResultado().getDelito()) ;
                         bentot.getResultado().setTotalfinal(String.valueOf(ttotal));                        
                         request.setAttribute("tributosOm", ben.getResultado());
                         request.setAttribute("tributosOmtot", bentot.getResultado());                        
