@@ -15,6 +15,14 @@ public class TributosOmitidos {
     private String sancionbs;    
     private String ttotal;
     
+    private String totot;
+    private String tototact;
+    private String fecnotvc;
+    private String fecnotvc10;
+    private String fecnotrdvc;
+    private String diasnotvc;
+    private String diasnotrdvc;
+    
     
 
 
@@ -120,5 +128,61 @@ public class TributosOmitidos {
 
     public String getTtotal() {
         return ttotal;
+    }
+
+    public void setTotot(String totot) {
+        this.totot = totot;
+    }
+
+    public String getTotot() {
+        return totot;
+    }
+
+    public void setTototact(String tototact) {
+        this.tototact = tototact;
+    }
+
+    public String getTototact() {
+        return tototact;
+    }
+
+    public void setFecnotvc(String fecnotvc) {
+        this.fecnotvc = fecnotvc;
+    }
+
+    public String getFecnotvc() {
+        return fecnotvc;
+    }
+
+    public void setFecnotvc10(String fecnotvc10) {
+        this.fecnotvc10 = fecnotvc10;
+    }
+
+    public String getFecnotvc10() {
+        return fecnotvc10;
+    }
+
+    public void setFecnotrdvc(String fecnotrdvc) {
+        this.fecnotrdvc = fecnotrdvc;
+    }
+
+    public String getFecnotrdvc() {
+        return fecnotrdvc;
+    }
+
+    public void setDiasnotvc(String diasnotvc) {
+        this.diasnotvc = diasnotvc;
+    }
+
+    public String getDiasnotvc() {
+        return diasnotvc;
+    }
+
+    public void setDiasnotrdvc(String diasnotrdvc) {
+        this.diasnotrdvc = diasnotrdvc;
+    }
+
+    public String getDiasnotrdvc() {
+        return diasnotrdvc;
     }
 }

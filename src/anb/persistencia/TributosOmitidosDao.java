@@ -48,6 +48,13 @@ public class TributosOmitidosDao extends Conexion {
                 ht.setIehd(rs.getString(8));
                 ht.setIcd(rs.getString(9));
                 ht.setTotal(rs.getString(10));
+                ht.setTotot(rs.getString(11));
+                ht.setTototact(rs.getString(13));
+                ht.setFecnotvc(rs.getString(14));
+                ht.setFecnotvc10(rs.getString(15));
+                ht.setFecnotrdvc(rs.getString(16));
+                ht.setDiasnotvc(rs.getString(17));
+                ht.setDiasnotrdvc(rs.getString(18));
                 htls.add(ht);
             }
         } finally {
