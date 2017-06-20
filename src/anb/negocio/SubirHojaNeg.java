@@ -29,6 +29,7 @@ public class SubirHojaNeg {
         int cont = 0;
         int grab = 0;
         String marcador = "";
+        String fila = "";
         try {
             File excel = new File(archivo);
             FileInputStream fis = new FileInputStream(excel);
@@ -78,7 +79,8 @@ public class SubirHojaNeg {
                     dui = cell.toString();
                     if (dui.length() >= 12) {
                         sw = true;
-                        marcador = marcador + "Fila " + String.valueOf(cont) + " la DUI " + dui;
+                        //marcador = marcador + "Fila " + String.valueOf(cont) + " la DUI " + dui;
+                        fila = "Fila " + String.valueOf(cont) + " la DUI " + dui;
                         cell = row.getCell(1);
                         item = cell.getRawValue().toString();
 
@@ -205,7 +207,7 @@ public class SubirHojaNeg {
                             }
 
                             if (error.length() > 0) {
-                                marcador = marcador + " no pudo ser grabada:" + error + " <br>";
+                                marcador = marcador + " <label style=background-color:red>"+fila+ " no pudo ser grabada:" + error + "</label><br>";
                             } else {
                                 if (sw) {
                                     res =
@@ -213,22 +215,22 @@ dao.graba_resultados(dui, item, String.valueOf(dpartida), fob, flete, seguro, ot
                      observacion, usuario, codigo, contravorden, String.valueOf(idalcance));
                                     if (res.equals("CORRECTO")) {
                                         grab++;
-                                        marcador = marcador + " se grab&oacute; correctamente.<br>";
+                                        marcador = marcador + fila+ " se grab&oacute; correctamente.<br>";
                                     } else {
-                                        marcador = marcador + " no pudo ser grabada:" + res + " <br>";
+                                        marcador = marcador + " <label style=background-color:red>"+fila+ " no pudo ser grabada:" + res + "</label> <br>";
                                     }
                                 } else {
-                                    marcador = marcador + " no hay datos para actualizar el item<br>";
+                                    marcador = marcador + " <label style=background-color:red>"+fila+ " no hay datos para actualizar el item</label><br>";
                                 }
                             }
                         } else {
                             marcador =
-                                    marcador + "Fila " + String.valueOf(cont) + " error el C&oacute;digo del Tr&aacute;mite no es un n&uacute;mero v&aacute;lido.<br>";
+                                    marcador + "<label style=background-color:red>Fila " + String.valueOf(cont) + " error el C&oacute;digo del Tr&aacute;mite no es un n&uacute;mero v&aacute;lido.</label><br>";
                         }
 
                     } else {
                         marcador =
-                                marcador + "Fila " + String.valueOf(cont) + " error no tiene la longitud de una declaracion.<br>";
+                                marcador + "<label style=background-color:red>Fila " + String.valueOf(cont) + " error no tiene la longitud de una declaracion.</label><br>";
                     }
                 } catch (Exception ex) {
                     //marcador = marcador + "Fila " + String.valueOf(cont) +" error no tiene valores legibles.";
@@ -258,7 +260,7 @@ dao.graba_resultados(dui, item, String.valueOf(dpartida), fob, flete, seguro, ot
         int cont = 0;
         int grab = 0;
         String marcador = "";
-
+        String fila = "";
         try {
 
             File excel = new File(archivo);
@@ -321,7 +323,8 @@ dao.graba_resultados(dui, item, String.valueOf(dpartida), fob, flete, seguro, ot
                     cell = row.getCell(2);
                     tramite = cell.toString();
                     if (idalcance > 0) {
-                        marcador = marcador + "Fila " + String.valueOf(cont) + " el TR�?MITE " + tramite;
+                        //marcador = marcador + "Fila " + String.valueOf(cont) + " el Tr&aacute;mite " + tramite;
+                        fila = "Fila " + String.valueOf(cont) + " el Tr&aacute;mite " + tramite;
 
                         cell = row.getCell(5);
                         mercancia = cell.toString();
@@ -435,7 +438,7 @@ dao.graba_resultados(dui, item, String.valueOf(dpartida), fob, flete, seguro, ot
 
 
                         if (error.length() > 0) {
-                            marcador = marcador + " no pudo ser grabada:" + error + " <br>";
+                            marcador = marcador +  "<label style=background-color:red>"+fila+ " no pudo ser grabada:" + error + " </label><br>";
                         } else {
                             if (sw) {
                                 res =
@@ -443,18 +446,18 @@ dao.graba_resultados_tramite(codigo, String.valueOf(idalcance), mercancia, fob, 
                              cifufv, usuario, ilicito, contrav);
                                 if (res.equals("CORRECTO")) {
                                     grab++;
-                                    marcador = marcador + " se grab&oacute; correctamente.<br>";
+                                    marcador = marcador + fila+ " se grab&oacute; correctamente.<br>";
                                 } else {
-                                    marcador = marcador + " no pudo ser grabada:" + res + " <br>";
+                                    marcador = marcador + " <label style=background-color:red>"+fila+" no pudo ser grabada:" + res + " </label><br>";
                                 }
                             } else {
-                                marcador = marcador + " no hay datos para actualizar el item<br>";
+                                marcador = marcador + " <label style=background-color:red>"+fila+" no hay datos para actualizar el item</label><br>";
                             }
                         }
 
                     } else {
                         marcador =
-                                marcador + "Fila " + String.valueOf(cont) + " error el Código del Tramite no es un n&uacute;mero v&aacute;lido.<br>";
+                                marcador + "<label style=background-color:red>Fila " + String.valueOf(cont) + " error el Código del Tramite no es un n&uacute;mero v&aacute;lido.</label><br>";
                     }
                 } catch (Exception ex) {
                     //marcador = marcador + "Fila " + String.valueOf(cont) +" error no tiene valores legibles.";
