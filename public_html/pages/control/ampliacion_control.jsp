@@ -121,8 +121,7 @@
                     * Campos Obligatorios
                 </label>
             </div>
-            <br>
-            <br>
+          
             <% 
             if(!(amp.getOpcion() == null) && (amp.getOpcion().equals("CONSULTAR"))) {
                 if(amp.getCantidad_dec() == 0){
@@ -135,10 +134,8 @@
                     if(amp.getTipoBusqueda().equals("Declaracion"))
                     {
                     %>
+                       
                         <br>
-                        <br>
-                        
-                        
                         <div class="panel-title" >
                             <strong>RESULTADOS DE LA BÚSQUEDA DE DECLARACIONES </strong>
                         </div>

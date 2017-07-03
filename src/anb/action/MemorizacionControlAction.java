@@ -90,7 +90,7 @@ public class MemorizacionControlAction extends MappingDispatchAction {
                         Respuesta<Boolean> res = neg.grabaMemorizacionPosterior(bean);
                         if (res.getCodigo() == 1) {
                             request.setAttribute("OK",
-                                                 "Se memoriz&oacute; correctamente la Orden de Fiscalizacion Posterior. " + res.getMensaje());
+                                                 "Se memoriz&oacute; correctamente la Orden de Fiscalizaci&oacute;n Posterior. " + res.getMensaje());
                             bean.setCodigocontrol(res.getMensaje());
                             request.getSession().setAttribute("scodigo", bean.getCodigocontrol());
                             return mapping.findForward("ok");

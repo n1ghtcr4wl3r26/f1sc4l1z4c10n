@@ -14,14 +14,14 @@
             
             <input type="hidden" name="opcion" id="opcion"/>
             <div class="form-group">
-                <label class="col-sm-2 control-label">N&uacute;mero Control Memorizado:</label>
-                <div class="col-sm-2">
+                <label class="col-sm-3 control-label">N&uacute;mero Control Memorizado:</label>
+                <div class="col-sm-3">
                     <html:text property="codigo" styleId="codigo" maxlength="15" styleClass="form-control required numeric" size="15"/>
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-2 control-label">Tipo de Búsqueda:</label>
-                <div class="col-sm-2">
+                <label class="col-sm-3 control-label">Tipo de Búsqueda:</label>
+                <div class="col-sm-3">
                     <html:select property="tipoBusqueda" styleClass="form-control required">
                         <html:option value="-">Seleccione...</html:option>
                         <html:option value="FILTRO">FILTRO</html:option>

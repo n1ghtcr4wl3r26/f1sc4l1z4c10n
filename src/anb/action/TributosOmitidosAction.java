@@ -65,10 +65,11 @@ public class TributosOmitidosAction extends MappingDispatchAction {
                                         
                     if (ben.getCodigo() == 1) {
                         bean.setCantidad("1");
-                        double total=0;
-                        double ttotal=0;
-                        double totot=0;
-                        double sancion=0;
+                        double total = 0;
+                        double ttotal = 0;
+                        double totot = 0;
+                        double sancion = 0;
+                        double facufvact = 0;
                         int sw = 0;
                         String fecnotvc = "";
                         String fecnotvc10 = "";

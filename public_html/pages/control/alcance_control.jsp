@@ -125,8 +125,7 @@
                     * Campos Obligatorios
                 </label>
             </div>
-            <br>
-            <br>
+           
             <div class="panel-body">
             <% 
             if(!(alc.getOpcion() == null) && (alc.getOpcion().equals("CONSULTAR"))) {
@@ -140,10 +139,8 @@
                     if(alc.getTipoBusqueda().equals("Declaracion"))
                     {
                     %>
+                      
                         <br>
-                        <br>
-                        
-                        
                         <div class="panel-title imp" >
                             <strong>RESULTADOS DE LA BÚSQUEDA DE DECLARACIONES </strong>
                         </div>
