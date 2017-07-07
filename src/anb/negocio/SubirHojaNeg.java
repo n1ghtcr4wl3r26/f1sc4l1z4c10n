@@ -84,7 +84,7 @@ public class SubirHojaNeg {
                         cell = row.getCell(1);
                         item = cell.getRawValue().toString();
 
-                        cell = row.getCell(24);
+                        cell = row.getCell(21);
                         if (!(cell == null)) {
                             String prueba2 = cell.toString();
                             if (prueba2.length() > 0) {
@@ -126,6 +126,7 @@ public class SubirHojaNeg {
                                     }
                                 }
                             }
+                            /*
                             cell = row.getCell(17);
                             if (!(cell == null)) {
                                 String prueba2 = cell.toString();
@@ -162,7 +163,8 @@ public class SubirHojaNeg {
                                     }
                                 }
                             }
-                            cell = row.getCell(20);
+                            */
+                            cell = row.getCell(17);
                             if (!(cell == null)) {
                                 String prueba2 = cell.toString();
                                 if (prueba2.length() > 0) {
@@ -175,7 +177,7 @@ public class SubirHojaNeg {
                                     }
                                 }
                             }
-                            cell = row.getCell(21);
+                            cell = row.getCell(18);
                             if (!(cell == null)) {
                                 String prueba2 = cell.toString();
                                 if (prueba2.length() > 0) {
@@ -188,7 +190,7 @@ public class SubirHojaNeg {
                                     }
                                 }
                             }
-                            cell = row.getCell(22);
+                            cell = row.getCell(19);
                             if (!(cell == null)) {
                                 String prueba2 = cell.toString();
                                 if (prueba2.length() > 0) {
@@ -197,7 +199,7 @@ public class SubirHojaNeg {
                                 }
                             }
 
-                            cell = row.getCell(23);
+                            cell = row.getCell(20);
                             if (!(cell == null)) {
                                 String prueba2 = cell.toString();
                                 if (prueba2.length() > 0) {

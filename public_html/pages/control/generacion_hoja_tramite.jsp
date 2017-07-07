@@ -126,7 +126,7 @@
                         <th class="text-center">(M) CIF USD</th>
                         <th class="text-center">(M) CIF Bs.</th>
                         <th class="text-center">(M) CIF UFV's</th> 
-                        <th class="text-center">(M) Ilícito Determinado</th>
+                        <th class="text-center"><a href="javascript:Popilicito()"><img src="./img/iconoinfo.png" height="25px" width="21px"/></a><br/><br/>(M) Ilícito Determinado</th>
                         <th class="text-center">(M) Contravenci&oacute;n Aduanera Relacionada con la Orden UFV</th>   
                         <th class="text-center">Codigo</th> 
                         <th class="text-center">&nbsp;&nbsp;&nbsp;&nbsp;</th>                         
@@ -219,5 +219,10 @@
 
       function consultar() {
           $("#opcion").val('ASIGNA');
+      }
+      
+      function Popilicito() {
+          var rnd = Math.floor((Math.random() * 100) + 1);
+          window.open('pages/control/infoilicito.jsp?'+rnd, 'Informaci\363n Il\355cito', 'width=400,height=400,menubar=no,scrollbars=yes,toolbar=no,location=no,directories=no,resizable=no,top=0,left=0');
       }
 </script>

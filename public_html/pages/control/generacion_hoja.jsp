@@ -121,11 +121,11 @@
                         <th rowspan="2" class="text-center">Fecha Validaci&oacute;n</th>
                         <th rowspan="2" class="text-center">Fecha Vencimiento</th>
                         <th colspan="9" class="text-center">VALORES DECLARADOS</th>
-                        <th colspan="4" class="text-center">VALORES ENCONTRADOS</th>
+                        <th colspan="1" class="text-center">VALORES ENCONTRADOS</th>
                         <th rowspan="2" class="text-center">(M) Contravenci&oacute;n Aduanera Relacionada con la Declaraci&oacute;n UFV</th>
                         <th rowspan="2" class="text-center">(M) Contravenci&oacute;n Aduanera Relacionada con la Orden UFV</th>
-                        <th rowspan="2" class="text-center">(M) Ilícito Determinado</th>
-                        <th rowspan="2" class="text-center">(M) Observaci&oacute;n</th>
+                        <th rowspan="2" class="text-center"><a href="javascript:Popilicito()"><img src="./img/iconoinfo.png" height="25px" width="21px"/></a><br/><br/><br/><br/>(M) Ilícito Determinado</th>
+                        <th rowspan="2" class="text-center"><a href="javascript:Popobs()"><img src="./img/iconoinfo.png" height="25px" width="21px"/></a><br/><br/><br/><br/>(M) Observaci&oacute;n</th>
                         <th rowspan="2" class="text-center">Codigo</th> 
                         <th rowspan="2" class="text-center">&nbsp;&nbsp;&nbsp;&nbsp;</th>  
                     </tr>
@@ -140,9 +140,13 @@
                         <th class="text-center">GA</th>
                         <th class="text-center">IVA Bs.</th>
                         <th class="text-center">(M) FOB USD</th>
+                        <% 
+                        /*
                         <th class="text-center">(M) FLETE USD</th>
                         <th class="text-center">(M) SEGURO USD</th>
                         <th class="text-center">(M) OTROS USD</th>
+                        */
+                        %>
                     </tr>
                 </thead>
                  
@@ -200,6 +204,8 @@
                             <td class="text-right">
                                 ${esc.detfobusd}
                             </td>
+                            <% 
+                            /*
                             <td class="text-right">
                                 ${esc.detfleteusd}
                             </td>
@@ -209,6 +215,8 @@
                             <td class="text-right">
                                 ${esc.detotrosusd}
                             </td>
+                            */
+                            %>
                             <td class="text-right">
                                 ${esc.contravencion}
                             </td>
@@ -260,4 +268,13 @@
       function consultar() {
           $("#opcion").val('ASIGNA');
       }
+      
+      function Popilicito() {
+                var rnd = Math.floor((Math.random() * 100) + 1);
+                window.open('pages/control/infoilicito.jsp?'+rnd, 'Informaci\363n Il\355cito', 'width=400,height=400,menubar=no,scrollbars=yes,toolbar=no,location=no,directories=no,resizable=no,top=0,left=0');
+            }
+      function Popobs() {
+                var rnd = Math.floor((Math.random() * 100) + 1);
+                window.open('pages/control/infoobs.jsp?'+rnd, 'Informaci\363n Observaci\363n Il\355cito', 'width=400,height=400,menubar=no,scrollbars=yes,toolbar=no,location=no,directories=no,resizable=no,top=0,left=0');
+            }
 </script>
