@@ -8,7 +8,7 @@
         </h4>
     </div>
     <div class="modal-body form-horizontal">
-        <html:form styleId="form-tributos" action="tributosidx.do">
+        <html:form styleId="form-tributos" action="tributosidx.do" target="_blank">
             <html:hidden property="codigo" styleId="codigo"/>
             <input type="hidden" name="opcion" id="opcion"/>
             <div class="form-group">

@@ -137,7 +137,7 @@ public class TributosOmitidosAction extends MappingDispatchAction {
                         request.setAttribute("tributosOm", ben.getResultado());
                         request.setAttribute("tributosOmtot", bentot.getResultado());                        
                     }
-                    link = "ok";
+                    link = "okimp";
                 } 
                 else {
                     if (res.getCodigo() == 0) {
@@ -181,7 +181,7 @@ public class TributosOmitidosAction extends MappingDispatchAction {
                     if (ben.getCodigo() == 1) {
                         request.setAttribute("hojaTrabajoDui", ben.getResultado());
                     }
-                    link = "ok";
+                    link = "okimp";
                 } 
                 else {
                     if (res.getCodigo() == 0) {
