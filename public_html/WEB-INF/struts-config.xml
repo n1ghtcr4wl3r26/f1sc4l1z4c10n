@@ -340,13 +340,21 @@
         <action path="/tributosidx" type="anb.action.TributosOmitidosAction" name="TributosOmitidosForm" parameter="tributosidx" scope="request">
             <forward name="index" path="tributos.omitidos.index" redirect="true" />
             <forward name="ok" path="tributos.omitidos" redirect="true" />
+<<<<<<< HEAD
             <forward name="okimp" path="/pages/control/reporte_resumen_tributos.jsp" redirect="true" />            
+=======
+            <forward name="okimp" path="/pages/control/reporte_resumen_tributos.jsp" redirect="true" />
+>>>>>>> origin/master
             <forward name="nook" path="/input.jsp"/>
         </action>
         <action path="/tributos" type="anb.action.TributosOmitidosAction" name="TributosOmitidosForm" parameter="tributos" scope="request">
             <forward name="index" path="tributos.omitidos.index" redirect="true" />
             <forward name="ok" path="tributos.omitidos" redirect="true" />
+<<<<<<< HEAD
             <forward name="okimp" path="/pages/control/reporte_resumen_tributos.jsp" redirect="true" /> 
+=======
+            <forward name="okimp" path="/pages/control/reporte_resumen_tributos.jsp" redirect="true" />
+>>>>>>> origin/master
             <forward name="nook" path="/input.jsp"/>
         </action>
         
