@@ -85,6 +85,7 @@ public class TributosOmitidosDao extends Conexion {
                 ht.setSancioncontrabando(rs.getString(4));
                 ht.setSanciondefraudacion(rs.getString(5));
                 ht.setDelito(rs.getString(6));
+                ht.setFechahoy(rs.getString(7));
             }
         } finally {
             if (cn != null) {

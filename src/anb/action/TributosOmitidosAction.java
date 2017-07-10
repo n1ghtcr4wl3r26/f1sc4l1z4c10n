@@ -134,10 +134,13 @@ public class TributosOmitidosAction extends MappingDispatchAction {
                         bentot.getResultado().setDelito(formato.format(Double.parseDouble(bentot.getResultado().getDelito())));
                         
                         bentot.getResultado().setTotalfinal(formato.format(Double.parseDouble(bentot.getResultado().getTotalfinal())));
-                        request.setAttribute("tributosOm", ben.getResultado());
-                        request.setAttribute("tributosOmtot", bentot.getResultado());                        
+                        
+                        bean.setFechahoy(bentot.getResultado().getFechahoy());
+                        request.getSession().setAttribute("tributosOm", ben.getResultado());
+                        request.getSession().setAttribute("tributosOmtot", bentot.getResultado());
+                        request.getSession().setAttribute("infoControl", inf.getResultado());
                     }
-                    link = "ok";
+                    link = "okimp";
                 } 
                 else {
                     if (res.getCodigo() == 0) {
@@ -152,6 +155,7 @@ public class TributosOmitidosAction extends MappingDispatchAction {
                 bean.setFcontrol((String)request.getSession().getAttribute("scontrol"));
                 bean.setFnumero((String)request.getSession().getAttribute("snumero"));                
             }
+            request.getSession().setAttribute("TributosOmitidosForm", bean);
             return mapping.findForward(link);
         }
     }
@@ -181,7 +185,7 @@ public class TributosOmitidosAction extends MappingDispatchAction {
                     if (ben.getCodigo() == 1) {
                         request.setAttribute("hojaTrabajoDui", ben.getResultado());
                     }
-                    link = "ok";
+                    link = "okimp";
                 } 
                 else {
                     if (res.getCodigo() == 0) {
@@ -191,6 +195,7 @@ public class TributosOmitidosAction extends MappingDispatchAction {
                     }
                 }
             }
+            request.getSession().setAttribute("TributosOmitidosForm", bean);
             return mapping.findForward(link);
         }
     }

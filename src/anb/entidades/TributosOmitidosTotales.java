@@ -14,6 +14,7 @@ public class TributosOmitidosTotales {
     private String sanciondefraudacion;
     private String delito;
     private String totalfinal;
+    private String fechahoy;
 
     public void setGa(String ga) {
         this.ga = ga;
@@ -117,5 +118,13 @@ public class TributosOmitidosTotales {
 
     public String getDelito() {
         return delito;
+    }
+
+    public void setFechahoy(String fechahoy) {
+        this.fechahoy = fechahoy;
+    }
+
+    public String getFechahoy() {
+        return fechahoy;
     }
 }

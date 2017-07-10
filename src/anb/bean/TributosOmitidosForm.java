@@ -13,6 +13,7 @@ public class TributosOmitidosForm extends ActionForm {
     private String fnumero;
     
     private String ffecha;
+    private String fechahoy;
     
     private String boton;
     private String opcion;
@@ -142,5 +143,13 @@ public class TributosOmitidosForm extends ActionForm {
 
     public String getFfecha() {
         return ffecha;
+    }
+
+    public void setFechahoy(String fechahoy) {
+        this.fechahoy = fechahoy;
+    }
+
+    public String getFechahoy() {
+        return fechahoy;
     }
 }
