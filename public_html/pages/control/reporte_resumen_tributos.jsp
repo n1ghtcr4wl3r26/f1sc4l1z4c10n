@@ -29,32 +29,17 @@
     </style>
 <div id="formulario" style="line-height:16pt">
     <%
-<<<<<<< HEAD
         TributosOmitidosForm gen = (TributosOmitidosForm)request.getSession().getAttribute("TributosOmitidosForm");
         String control = "";
         if(gen.getFcontrol().equals("DIFERIDO")){
-=======
-        ReporteForm bean = new ReporteForm();
-        bean = (ReporteForm)request.getSession().getAttribute("ReporteForm");
-        String control = "";
-        if(bean.getFcontrol().equals("DIFERIDO")){
->>>>>>> origin/master
             control = "CD";
         }else{
             control = "FAP";
         }
-        
-<<<<<<< HEAD
-        
+  
 try
 {
     if(!(gen.getCodigo()== null))
-=======
-        TributosOmitidosForm gen = (TributosOmitidosForm)request.getAttribute("TributosOmitidosForm");
-try
-{
-    if(!(bean.getCodigo()== null))
->>>>>>> origin/master
     {
        
         %>
@@ -168,11 +153,7 @@ try
                         </td>
                         <td colspan="2">
                             <label style="font-size:13px;text-align:right">
-<<<<<<< HEAD
-                               ${TributosOmitidosForm.fechahoy}                 
-=======
-                                ${TributosOmitidosForm.ffecha}                  
->>>>>>> origin/master
+                               ${TributosOmitidosForm.fechahoy}                
                             </label>
                         </td>
                     </tr>
@@ -184,7 +165,6 @@ try
                 <% 
                 if(!(gen.getOpcion() == null) && (gen.getOpcion().equals("CONSULTAR"))) {
                 %>
-<<<<<<< HEAD
                 <table style="line-height:16pt" width="100%" border="0" cellspacing="0">
                     <thead>
                         <tr>
@@ -197,20 +177,6 @@ try
                             <td style="font-size:12px;text-align:center">IEHD Bs.</td>
                             <td style="font-size:12px;text-align:center">ICD Bs.</td>
                             <td style="font-size:12px;text-align:center">Total a Pagar Bs.</td>
-=======
-                <table style="line-height:16pt">
-                    <thead>
-                        <tr>
-                            <th style="font-size:12px;text-align:center">N&uacute;mero</th>
-                            <th style="font-size:12px;text-align:center">DUI</th>
-                            <th style="font-size:12px;text-align:center">Fecha Validación</th>
-                            <th style="font-size:12px;text-align:center">GA Bs.</th>
-                            <th style="font-size:12px;text-align:center">IVA Bs.</th>
-                            <th style="font-size:12px;text-align:center">ICE Bs.</th>
-                            <th style="font-size:12px;text-align:center">IEHD Bs.</th>
-                            <th style="font-size:12px;text-align:center">ICD Bs.</th>
-                            <th style="font-size:12px;text-align:center">Total a Pagar Bs.</th>
->>>>>>> origin/master
                         </tr>
                     </thead>
                      
@@ -247,7 +213,6 @@ try
                             </tr>
                         </c:forEach>
                         <tr>
-<<<<<<< HEAD
                             <td style="font-size:12px;text-align:left" colspan="8">
                                 Total Deuda Tributaria Bs.
                             </td>
@@ -314,74 +279,6 @@ try
                                     ${tributosOmtot.totalfinal}
                                 </strong>
                             </td>
-=======
-                            <th style="font-size:12px;text-align:left" colspan="8">
-                                Total Deuda Tributaria Bs.
-                            </th>
-                            <th style="font-size:11px;text-align:right">
-                                 ${tributosOmtot.total}
-                            </th>
-                        </tr>
-                        <tr>
-                            <th style="font-size:12px;text-align:left" colspan="8">
-                                Sanción por Omisión de Pago Código 235 Bs.
-                            </th>
-                            <th style="font-size:11px;text-align:right">
-                                 ${tributosOmtot.sancionomision}
-                            </th>
-                        </tr>
-                        <tr>
-                            <th style="font-size:12px;text-align:left" colspan="8">
-                                Contravencion Aduanera relacionada con la DUI Cod. 167 Bs.
-                            </th>
-                            <th style="font-size:11px;text-align:right">
-                                 ${tributosOmtot.contravdui}
-                            </th>
-                        </tr>
-                        <tr>
-                            <th style="font-size:12px;text-align:left" colspan="8">
-                                Contravenciones Aduaneras relacionadas con la Orden Cod. 167 Bs.
-                            </th>
-                            <th style="font-size:11px;text-align:right">
-                                 ${tributosOmtot.contravorden}
-                            </th>
-                        </tr>
-                        <tr>
-                            <th style="font-size:12px;text-align:left" colspan="8">
-                                Sanción por Contrabando Contravencional 235 Bs.
-                            </th>
-                            <th style="font-size:11px;text-align:right">
-                                 ${tributosOmtot.sancioncontrabando}
-                            </th>
-                        </tr>
-                        <tr>
-                            <th style="font-size:12px;text-align:left" colspan="8">
-                                Sanción por Defraudación Cod 169 Bs.
-                            </th>
-                            <th style="font-size:11px;text-align:right">
-                                 ${tributosOmtot.sanciondefraudacion}
-                            </th>
-                        </tr>
-                        <tr>
-                            <th style="font-size:12px;text-align:left" colspan="8">
-                                Sanción por  Delito Cod 236 Bs.
-                            </th>
-                            <th style="font-size:11px;text-align:right">
-                                 ${tributosOmtot.delito}
-                            </th>
-                        </tr>
-                        <tr>
-                            <th style="font-size:12px;text-align:left" colspan="8">
-                                <strong>
-                                    Total Adeudo Bs.
-                                </strong>
-                            </th>
-                            <th style="font-size:12px;text-align:right">
-                                <strong>
-                                    ${tributosOmtot.totalfinal}
-                                </strong>
-                            </th>
->>>>>>> origin/master
                         </tr>                    
                     </tbody>
                 </table>                
