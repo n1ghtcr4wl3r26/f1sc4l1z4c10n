@@ -3,6 +3,8 @@ package anb.action;
 
 import anb.bean.AnulacionForm;
 
+import anb.bean.RegistroRecibosForm;
+
 import anb.entidades.InfoControl;
 import anb.entidades.Tramite;
 

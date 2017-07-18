@@ -754,6 +754,25 @@ public class AmpliacionDao extends Conexion {
         return res;
     }
     
+    public String borra_tramite_todo(AmpliacionForm bean) throws SQLException, ClassNotFoundException,
+                                                                  NamingException {
+        String res;
+        try {
+            open();
+            call = cn.prepareCall("{ ? = call pkg_memorizacion.borra_tramite_todo_amp ( ?,?)}");
+            call.registerOutParameter(1, OracleTypes.VARCHAR);
+            call.setString(2, bean.getBorrarid());
+            call.setString(3, bean.getUsuario());
+            call.execute();
+            res = (String)call.getObject(1);
+        } finally {
+            if (cn != null) {
+                cn.close();
+            }
+        }
+        return res;
+    }
+    
     public String borra_tramite_selecamp(AmpliacionForm bean) throws SQLException, ClassNotFoundException,
                                                                   NamingException {
         String res;

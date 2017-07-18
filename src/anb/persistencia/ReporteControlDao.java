@@ -65,6 +65,10 @@ public class ReporteControlDao  extends Conexion {
                                                                                       NamingException {
             List<RepCantidades> htls = new ArrayList<RepCantidades>();
             int cont = 1;
+            int posasig = 0;
+            int poscon = 0;
+            int difasig = 0;
+            int difcon = 0;
             try {
                 open();
                 call = cn.prepareCall("{ ? = call pkg_reporte.resumen_controles ( ?,?,?,?)}");
@@ -78,12 +82,69 @@ public class ReporteControlDao  extends Conexion {
                 while (rs.next()) {
                     RepCantidades ht = new RepCantidades();
                     ht.setFuncionario(rs.getString(1));
+                    ht.setGerencia(rs.getString(2));
+                    ht.setCantAsigFAP(rs.getString(3));
+                    ht.setCantConFAP(rs.getString(4));
+                    ht.setCantAsigCD(rs.getString(5));
+                    ht.setCantConCD(rs.getString(6));
+                    posasig = posasig + Integer.parseInt(ht.getCantAsigFAP());
+                    poscon = poscon + Integer.parseInt(ht.getCantConFAP());
+                    difasig = difasig + Integer.parseInt(ht.getCantAsigCD());
+                    difcon = difcon + Integer.parseInt(ht.getCantConCD());
+                    htls.add(ht);
+                }
+                RepCantidades rep = new RepCantidades();
+                rep.setFuncionario("<strong>TOTAL</strong>");
+                rep.setCantAsigFAP("<strong>"+posasig+"</strong>");
+                rep.setCantConFAP("<strong>"+poscon+"</strong>");
+                rep.setCantAsigCD("<strong>"+difasig+"</strong>");
+                rep.setCantConCD("<strong>"+difcon+"</strong>");
+                htls.add(rep);
+            } finally {
+                if (cn != null) {
+                    cn.close();
+                }
+            }
+            return htls;
+        }
+        
+        public List<RepCantidades> reporteControlGen(ReporteControlForm bean) throws SQLException, ClassNotFoundException,
+                                                                                      NamingException {
+            List<RepCantidades> htls = new ArrayList<RepCantidades>();
+            int cont = 1;
+            int posasig = 0;
+            int poscon = 0;
+            int difasig = 0;
+            int difcon = 0;
+            try {
+                open();
+                call = cn.prepareCall("{ ? = call pkg_reporte.resumen_controles_gen ( ?,?,?)}");
+                call.registerOutParameter(1, OracleTypes.CURSOR);
+                call.setString(2, bean.getFfecini());
+                call.setString(3, bean.getFfecfin());
+                call.setString(4, bean.getFgerencia());
+                call.execute();
+                rs = (ResultSet)call.getObject(1);
+                while (rs.next()) {
+                    RepCantidades ht = new RepCantidades();
+                    ht.setGerencia(rs.getString(1));
                     ht.setCantAsigFAP(rs.getString(2));
                     ht.setCantConFAP(rs.getString(3));
                     ht.setCantAsigCD(rs.getString(4));
                     ht.setCantConCD(rs.getString(5));
+                    posasig = posasig + Integer.parseInt(ht.getCantAsigFAP());
+                    poscon = poscon + Integer.parseInt(ht.getCantConFAP());
+                    difasig = difasig + Integer.parseInt(ht.getCantAsigCD());
+                    difcon = difcon + Integer.parseInt(ht.getCantConCD());
                     htls.add(ht);
                 }
+                RepCantidades rep = new RepCantidades();
+                rep.setGerencia("<strong>TOTAL</strong>");
+                rep.setCantAsigFAP("<strong>"+posasig+"</strong>");
+                rep.setCantConFAP("<strong>"+poscon+"</strong>");
+                rep.setCantAsigCD("<strong>"+difasig+"</strong>");
+                rep.setCantConCD("<strong>"+difcon+"</strong>");
+                htls.add(rep);
             } finally {
                 if (cn != null) {
                     cn.close();
@@ -144,10 +205,11 @@ public class ReporteControlDao  extends Conexion {
                     ht.setFuncionario(rs.getString(1));
                     ht.setTipoControl(rs.getString(2));
                     ht.setNumeroControl(rs.getString(3));
-                    ht.setFechaAsignacion(rs.getString(4));
-                    ht.setCantTramites(rs.getString(5));
-                    ht.setFechaNotificacion(rs.getString(6));
-                    ht.setEstado(rs.getString(7));
+                    ht.setOperador(rs.getString(4));
+                    ht.setFechaAsignacion(rs.getString(5));
+                    ht.setCantTramites(rs.getString(6));
+                    ht.setFechaNotificacion(rs.getString(7));
+                    ht.setEstado(rs.getString(8));
                     htls.add(ht);
                 }
             } finally {

@@ -273,6 +273,23 @@ public class AmpliacionAction extends MappingDispatchAction {
                 request.setAttribute("tramites", tramo.getResultado());
                 bean.setCantidad_amp(tramo.getCantidad());
             }
+            if (bean.getOpcion().equals("BORRAALL")) {
+                request.setAttribute("declaraciones", null);
+                Respuesta<Boolean> res = ampneg.borra_tramite_todo(bean);
+                if (res.getCodigo() == 1) {
+                    request.setAttribute("OK", res.getMensaje());
+                } else {
+                    if (res.getCodigo() == 0) {
+                        request.setAttribute("WARNING", res.getMensaje());
+                    } else {
+                        request.setAttribute("ERROR", res.getMensaje());
+                    }
+                }
+                //Respuesta<Tramite[]> tramo = alcneg.ver_TramitesControl(bean);
+                Respuesta<Tramite[]> tramo = ampneg.ver_TramitesControlrep(bean);                
+                request.setAttribute("tramites", tramo.getResultado());
+                bean.setCantidad_alc(tramo.getCantidad());
+            }
             return mapping.findForward("ok");
         }
     }
@@ -390,6 +407,23 @@ public class AmpliacionAction extends MappingDispatchAction {
                 }
                 //Respuesta<Tramite[]> tramo = alcneg.ver_TramitesControl(bean);
                 Respuesta<Tramite[]> tramo = ampneg.ver_TramitesControlrep(bean);
+                request.setAttribute("tramites", tramo.getResultado());
+                bean.setCantidad_alc(tramo.getCantidad());
+            }
+            if (!(bean.getOpcion() == null) && bean.getOpcion().equals("BORRAALL")) {
+                request.setAttribute("declaraciones", null);
+                Respuesta<Boolean> res = ampneg.borra_tramite_todo(bean);
+                if (res.getCodigo() == 1) {
+                    request.setAttribute("OK", res.getMensaje());
+                } else {
+                    if (res.getCodigo() == 0) {
+                        request.setAttribute("WARNING", res.getMensaje());
+                    } else {
+                        request.setAttribute("ERROR", res.getMensaje());
+                    }
+                }
+                //Respuesta<Tramite[]> tramo = alcneg.ver_TramitesControl(bean);
+                Respuesta<Tramite[]> tramo = ampneg.ver_TramitesControlrep(bean);                
                 request.setAttribute("tramites", tramo.getResultado());
                 bean.setCantidad_alc(tramo.getCantidad());
             }

@@ -64,7 +64,7 @@ public class AsignaFiscalizadorAction extends MappingDispatchAction {
                             request.setAttribute("tramites", tram.getResultado());
                             Respuesta<Fiscalizador[]> asig = gen.devuelveFisAsignados(bean.getCodigo());
                             request.setAttribute("asignados", asig.getResultado());
-                            Respuesta<List<Fiscalizador>> fis = gen.obtenerFiscalizadores(bean.getCodger());
+                            Respuesta<List<Fiscalizador>> fis = gen.obtenerFuncionarios(bean.getCodger());
                             if (fis.getCodigo() == 1) {
                                 request.setAttribute("fiscalizadores", fis.getResultado());
                             } else {
@@ -113,7 +113,7 @@ public class AsignaFiscalizadorAction extends MappingDispatchAction {
                 request.setAttribute("infoControl", inf.getResultado());
                 Respuesta<Tramite[]> tram = gen.ver_TramitesControl(bean.getCodigo());
                 request.setAttribute("tramites", tram.getResultado());
-                Respuesta<List<Fiscalizador>> fis = gen.obtenerFiscalizadores(bean.getCodger());
+                Respuesta<List<Fiscalizador>> fis = gen.obtenerFuncionarios(bean.getCodger());
                 request.setAttribute("fiscalizadores", fis.getResultado());
                 Respuesta<Boolean> res = neg.graba_asignacion(bean);
                 if (res.getCodigo() == 1) {
@@ -137,7 +137,7 @@ public class AsignaFiscalizadorAction extends MappingDispatchAction {
                 request.setAttribute("infoControl", inf.getResultado());
                 Respuesta<Tramite[]> tram = gen.ver_TramitesControl(bean.getCodigo());
                 request.setAttribute("tramites", tram.getResultado());
-                Respuesta<List<Fiscalizador>> fis = gen.obtenerFiscalizadores(bean.getCodger());
+                Respuesta<List<Fiscalizador>> fis = gen.obtenerFuncionarios(bean.getCodger());
                 request.setAttribute("fiscalizadores", fis.getResultado());
                 Respuesta<Boolean> res = neg.borra_asignacion(bean);
                 if (res.getCodigo() == 1) {
@@ -204,7 +204,7 @@ public class AsignaFiscalizadorAction extends MappingDispatchAction {
                                 request.setAttribute("tramites", tram.getResultado());
                                 Respuesta<Fiscalizador[]> asig = gen.devuelveFisAccesos(bean.getCodigo());
                                 request.setAttribute("asignados", asig.getResultado());
-                                Respuesta<List<Fiscalizador>> fis = gen.obtenerFiscalizadores(bean.getCodger());
+                                Respuesta<List<Fiscalizador>> fis = gen.obtenerFuncionarios(bean.getCodger());
                                 if (fis.getCodigo() == 1) {
                                     request.setAttribute("fiscalizadores", fis.getResultado());
                                 } else {
@@ -264,7 +264,7 @@ public class AsignaFiscalizadorAction extends MappingDispatchAction {
                 request.setAttribute("infoControl", inf.getResultado());
                 Respuesta<Tramite[]> tram = gen.ver_TramitesControl(bean.getCodigo());
                 request.setAttribute("tramites", tram.getResultado());
-                Respuesta<List<Fiscalizador>> fis = gen.obtenerFiscalizadores(bean.getCodger());
+                Respuesta<List<Fiscalizador>> fis = gen.obtenerFuncionarios(bean.getCodger());
                 request.setAttribute("fiscalizadores", fis.getResultado());
                 Respuesta<Boolean> res = neg.graba_acceso(bean);
                 if (res.getCodigo() == 1) {
@@ -288,7 +288,7 @@ public class AsignaFiscalizadorAction extends MappingDispatchAction {
                 request.setAttribute("infoControl", inf.getResultado());
                 Respuesta<Tramite[]> tram = gen.ver_TramitesControl(bean.getCodigo());
                 request.setAttribute("tramites", tram.getResultado());
-                Respuesta<List<Fiscalizador>> fis = gen.obtenerFiscalizadores(bean.getCodger());
+                Respuesta<List<Fiscalizador>> fis = gen.obtenerFuncionarios(bean.getCodger());
                 request.setAttribute("fiscalizadores", fis.getResultado());
                 Respuesta<Boolean> res = neg.borra_acceso(bean);
                 if (res.getCodigo() == 1) {

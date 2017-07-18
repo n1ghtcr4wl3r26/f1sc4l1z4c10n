@@ -6,7 +6,7 @@
 <div class="panel panel-default">
     <div class="panel-heading">
         <h4 class="panel-title">
-            <strong>DETALLE Y ESTADO CONTROLES ASIGNADOS FISCALIZADOR</strong>
+            <strong>DETALLE Y ESTADO CONTROLES ASIGNADOS POR FISCALIZADOR</strong>
         </h4>
     </div>
     <% 

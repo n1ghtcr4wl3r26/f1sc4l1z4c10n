@@ -119,6 +119,13 @@
         <put name="content" value="/pages/control/anulacion_control.jsp"/>
     </definition>
     
+    <definition name="registro.recibos.index" extends="aud.home">
+        <put name="content" value="/pages/control/registro_recibos_index.jsp"/>
+    </definition>
+    <definition name="registro.recibos" extends="aud.home">
+        <put name="content" value="/pages/control/registro_recibos.jsp"/>
+    </definition>
+    
     <!-- ADMIN -->
     <definition name="admin.account" extends="aud.home">
         <put name="content" value="/pages/control/admin_account.jsp"/>
@@ -169,6 +176,12 @@
     <definition name="reporte.control.asig" extends="aud.home">
         <put name="content" value="/pages/control/reporte_controlasig.jsp"/>
     </definition>   
+    <definition name="reporte.control.gen.index" extends="aud.home">
+        <put name="content" value="/pages/control/reporte_controlgen_index.jsp"/>
+    </definition>
+    <definition name="reporte.control.gen" extends="aud.home">
+        <put name="content" value="/pages/control/reporte_controlgen.jsp"/>
+    </definition>
     <definition name="reporte.detalle.control.sup.index" extends="aud.home">
         <put name="content" value="/pages/control/reporte_detallecontrolsup_index.jsp"/>
     </definition>

@@ -9,6 +9,7 @@ public class RepEstadoControl {
     private String cantTramites;
     private String fechaNotificacion;
     private String estado;
+    private String operador;
 
 
     public void setFuncionario(String funcionario) {
@@ -65,5 +66,13 @@ public class RepEstadoControl {
 
     public String getEstado() {
         return estado;
+    }
+
+    public void setOperador(String operador) {
+        this.operador = operador;
+    }
+
+    public String getOperador() {
+        return operador;
     }
 }

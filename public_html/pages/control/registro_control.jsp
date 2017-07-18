@@ -306,7 +306,7 @@
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-3 control-label">Plazo de conclusi&oacute;n de la Fiscalizaci&oacute;n (meses):</label>
+                <label class="col-sm-3 control-label">Plazo de conclusi&oacute;n de la Fiscalizaci&oacute;n (d&iacute;as):</label>
                 <div class="col-sm-3">
                     <html:text property="inn_plazo_conclusion" styleId="inn_plazo_conclusion"
                                styleClass="form-control numeric required" size="50" maxlength="5"/>

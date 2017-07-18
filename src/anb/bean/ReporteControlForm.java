@@ -11,6 +11,7 @@ public class ReporteControlForm extends ActionForm {
     private String fgestion;
     private String fcontrol;
     private String fgerencia;
+    private String fgerencianombre;
     private String fnumero;
     private String ffecini;
     private String ffecfin;
@@ -204,5 +205,13 @@ public class ReporteControlForm extends ActionForm {
 
     public String getFtipotramitenombre() {
         return ftipotramitenombre;
+    }
+
+    public void setFgerencianombre(String fgerencianombre) {
+        this.fgerencianombre = fgerencianombre;
+    }
+
+    public String getFgerencianombre() {
+        return fgerencianombre;
     }
 }

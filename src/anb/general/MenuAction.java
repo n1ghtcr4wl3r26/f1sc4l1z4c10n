@@ -95,6 +95,9 @@ public class MenuAction extends Action {
         case 51:
             return mapping.findForward("repcontrolasig");
                 
+        case 511:
+            return mapping.findForward("repcontrolgen");
+        
         case 52:
             return mapping.findForward("repdetallecontrolsup");
         
@@ -118,6 +121,9 @@ public class MenuAction extends Action {
         
         case 99:
             return mapping.findForward("password");
+        
+        case 182:
+            return mapping.findForward("registrorecibos");
         
         default:
             request.getSession().removeAttribute("user.data");

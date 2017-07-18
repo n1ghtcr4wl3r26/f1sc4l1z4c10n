@@ -5,7 +5,7 @@
 <div class="panel panel-default">
     <div class="panel-heading">
         <h4 class="panel-title">
-            <strong>DETALLE Y ESTADO CONTROLES ASIGNADOS SUPERVISOR</strong>
+            <strong>DETALLE Y ESTADO DE CONTROLES ASIGNADOS POR FISCALIZADOR</strong>
         </h4>
     </div>
     <div class="modal-body form-horizontal">
@@ -13,7 +13,7 @@
             <html:hidden property="codigo" styleId="codigo"/>
             <input type="hidden" name="opcion" id="opcion"/>
             <div class="form-group">
-                <label class="col-sm-4 control-label label-required">Usuario Supervisor:</label>
+                <label class="col-sm-4 control-label label-required">Usuario Fiscalizador:</label>
                 <label class="col-sm-2 control-label label-required">Fecha Desde:</label>
                 <label class="col-sm-2 control-label label-required">Fecha Hasta:</label>
             </div>
@@ -21,7 +21,6 @@
                 <div class="col-sm-4">
                     <html:select property="funcionario" styleId="funcionario" styleClass="form-control required">
                         <html:option value="-">Seleccione...</html:option>
-                        <html:option value="%">TODOS</html:option>
                         <c:forEach items="${fiscalizadores}" var="fis">
                             <html:option value="${fis.codigo}">${fis.nombre}</html:option>
                         </c:forEach>
@@ -54,6 +53,8 @@
                         <html:option value="ASIGNADO">ASIGNADO</html:option>
                         <html:option value="NOTIFICADO">NOTIFICADO</html:option>
                         <html:option value="CONCLUIDO">CONCLUIDO</html:option>
+                        <html:option value="REMITIDO">REMITIDO A JUR&Iacute;DICA</html:option>
+                        
                     </html:select>
                 </div>
             </div>

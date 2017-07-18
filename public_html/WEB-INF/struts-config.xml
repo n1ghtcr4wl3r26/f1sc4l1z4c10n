@@ -26,6 +26,8 @@
         <form-bean name="ReporteControlForm" type="anb.bean.ReporteControlForm"/>   
         <form-bean name="AnulacionForm" type="anb.bean.AnulacionForm"/>
         <form-bean name="AdminForm" type="anb.bean.AdminForm"/>
+        <form-bean name="AlcanceItemForm" type="anb.bean.AlcanceItemForm"/>
+        <form-bean name="RegistroRecibosForm" type="anb.bean.RegistroRecibosForm"/>        
     </form-beans>
     <global-forwards>
         
@@ -56,12 +58,14 @@
             <forward name="anulacion" path="/anulacionidx.do" redirect="true" />
             <forward name="reasigna" path="/reasignaidx.do" redirect="true" />            
             <forward name="repcontrolasig" path="/reportecontrolasigidx.do" redirect="true" />
+            <forward name="repcontrolgen" path="/reportecontrolgenidx.do" redirect="true" />
             <forward name="repdetallecontrolsup" path="/reportedetallecontrolsupidx.do" redirect="true" />
             <forward name="repdetallecontrolfis" path="/reportedetallecontrolfisidx.do" redirect="true" />
             <forward name="repcuadroliquidacion" path="/reportecuadroliquidacionidx.do" redirect="true" />
             <forward name="repliquidacionprevia" path="/reporteliquidacionpreviaidx.do" redirect="true" />
             <forward name="account" path="/account.do" redirect="true" />
             <forward name="password" path="/passwordidx.do" redirect="true" />
+            <forward name="registrorecibos" path="/registrorecibosidx.do" redirect="true" />
         </action>
         
         <action path="/logout" type="anb.general.LogoutAction" scope="request">
@@ -175,8 +179,14 @@
         <action path="/alcanceampliatoria" type="anb.action.AlcanceAction" name="AlcanceForm" parameter="alcanceampliatoria" scope="request">
             <forward name="ok" path="alcance.ampliatoria" redirect="true" />
             <forward name="nook" path="/input.jsp"/>
-        </action>        
-        
+        </action>      
+        <action path="/alcanceEdit" type="anb.action.AlcanceAction" name="AlcanceForm" parameter="alcanceEdit" scope="request">
+            <forward name="alcance.edit" path="/pages/control/alcanceEdit.jsp"/>
+        </action>
+        <action path="/alcanceGuardar" type="anb.action.AlcanceAction" name="AlcanceForm" parameter="alcanceGuardar" scope="request">
+            <forward name="ok" path="alcance.control"/>
+            <forward name="oktram" path="alcance.tramite"/>
+        </action>
         <!-- REGISTRO CONTROL -->
         <action path="/registroidx" type="anb.action.RegistroControlAction" name="RegistroControlForm" parameter="registroidx" scope="request">
             <forward name="index" path="registro.control.index" redirect="true" />
@@ -393,6 +403,11 @@
             <forward name="ok" path="reporte.control.asig" redirect="true" />
             <forward name="nook" path="/input.jsp"/>
         </action>
+        <action path="/reportecontrolgenidx" type="anb.action.ReporteControlAction" name="ReporteControlForm" parameter="reportecontrolgenidx" scope="request">
+            <forward name="index" path="reporte.control.gen.index" redirect="true" />
+            <forward name="ok" path="reporte.control.gen" redirect="true" />
+            <forward name="nook" path="/input.jsp"/>
+        </action>
         <action path="/reportedetallecontrolsupidx" type="anb.action.ReporteControlAction" name="ReporteControlForm" parameter="reportedetallecontrolsupidx" scope="request">
             <forward name="index" path="reporte.detalle.control.sup.index" redirect="true" />
             <forward name="ok" path="reporte.detalle.control.sup" redirect="true" />
@@ -423,6 +438,18 @@
         <action path="/anulacion" type="anb.action.AnulacionAction" name="AnulacionForm" parameter="anulacion" scope="request">
             <forward name="index" path="anulacion.control.index" redirect="true" />
             <forward name="ok" path="anulacion.control" redirect="true" />
+            <forward name="nook" path="/input.jsp"/>
+        </action>
+        
+        <!--REGISTRO RECIBOS -->
+        <action path="/registrorecibosidx" type="anb.action.RegistroRecibosAction" name="RegistroRecibosForm" parameter="registrorecibosidx" scope="request">
+            <forward name="index" path="registro.recibos.index" redirect="true" />
+            <forward name="ok" path="registro.recibos" redirect="true" />
+            <forward name="nook" path="/input.jsp"/>
+        </action>
+        <action path="/registrorecibos" type="anb.action.RegistroRecibosAction" name="RegistroRecibosForm" parameter="registrorecibos" scope="request">
+            <forward name="index" path="registro.recibos.index" redirect="true" />
+            <forward name="ok" path="registro.recibos" redirect="true" />
             <forward name="nook" path="/input.jsp"/>
         </action>
 

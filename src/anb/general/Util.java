@@ -1,6 +1,8 @@
 package anb.general;
 
 
+import anb.entidades.Gerencia;
+
 import anb.persistencia.GeneralDao;
 
 import java.io.IOException;
@@ -81,6 +83,18 @@ public class Util {
         }
         catch(Exception ex){
             res = false;
+        }
+        return res;
+    }
+    
+    public static String nombrecompleto(String codigo) {
+        String res;
+        GeneralDao dao = new GeneralDao();
+        try{
+            res = dao.nombrecompleto(codigo);
+        }
+        catch(Exception ex){
+            res = "";
         }
         return res;
     }
@@ -183,15 +197,28 @@ public class Util {
             res = "GRT";    
         if(gerencia.equals("24"))
             res = "GRP";  
-        /*
-          15  GERENCIA NACIONAL DE FISCALIZACION
-          19  GERENCIA REGIONAL LA PAZ    
-          20  GERENCIA REGIONAL ORURO     
-          21  GERENCIA REGIONAL COCHABAMBA
-          22  GERENCIA REGIONAL SANTA CRUZ
-          23  GERENCIA REGIONAL TARIJA    
-          24  GERENCIA REGIONAL POTOSI  
-        */                
+             
+        return res;
+    }
+        
+    public static String NombreGerencia(String gerencia) {
+        String res = "";
+        
+        if(gerencia.equals("15"))
+            res = "GERENCIA NACIONAL DE FISCALIZACION";
+        if(gerencia.equals("19"))
+            res = "GERENCIA REGIONAL LA PAZ";    
+        if(gerencia.equals("20"))
+            res = "GERENCIA REGIONAL ORURO";    
+        if(gerencia.equals("21"))
+            res = "GERENCIA REGIONAL COCHABAMBA";    
+        if(gerencia.equals("22"))
+            res = "GERENCIA REGIONAL SANTA CRUZ";    
+        if(gerencia.equals("23"))
+            res = "GERENCIA REGIONAL TARIJA";    
+        if(gerencia.equals("24"))
+            res = "GERENCIA REGIONAL POTOSI";  
+           
         return res;
     }
     

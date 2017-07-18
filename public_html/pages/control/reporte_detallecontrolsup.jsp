@@ -6,7 +6,7 @@
 <div class="panel panel-default">
     <div class="panel-heading">
         <h4 class="panel-title">
-            <strong>DETALLE Y ESTADO CONTROLES ASIGNADOS SUPERVISOR</strong>
+            <strong>DETALLE Y ESTADO DE CONTROLES ASIGNADOS POR FISCALIZADOR</strong>
         </h4>
     </div>
     <% 
@@ -25,7 +25,7 @@
             <% 
             if(!(gen.getOpcion() == null) && (gen.getOpcion().equals("CONSULTAR"))) {
             %>
-            <strong>Usuario Supervisor:</strong>  ${ReporteControlForm.funcionarionombre}  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <strong>Usuario Fiscalizador:</strong>  ${ReporteControlForm.funcionarionombre}  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <strong>Fecha desde:</strong>   ${ReporteControlForm.ffecini}  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <strong>Fecha hasta:</strong>   ${ReporteControlForm.ffecfin}  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <strong>Tipo de Trámite:</strong>  ${ReporteControlForm.ftipotramitenombre}  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -38,6 +38,7 @@
                         <th class="text-center">Usuario Fiscalizador</th>
                         <th class="text-center">Tipo de Control</th>
                         <th class="text-center">Nro. de Orden</th>
+                        <th class="text-center">Operador</th>
                         <th class="text-center">Fecha de Asignación</th>
                         <th class="text-center">Cantidad de<br/>DUI's, DUE's<br/>u<br/>Otros Documentos</th>
                         <th class="text-center">Fecha de Notificación</th>
@@ -48,7 +49,7 @@
                 <tbody>
                     <c:forEach items="${detalleControles}" var="esc">
                         <tr>
-                            <td class="text-center">
+                            <td class="text-left">
                                 ${esc.funcionario}
                             </td>
                             <td class="text-center">
@@ -56,6 +57,9 @@
                             </td>
                             <td class="text-center">
                                 ${esc.numeroControl}
+                            </td>
+                            <td class="text-left">
+                                ${esc.operador}
                             </td>
                             <td class="text-center">
                                 ${esc.fechaAsignacion}
@@ -73,66 +77,9 @@
                     </c:forEach>
                 </tbody>
             </table>
-            <br/>
-            <table class="table table-striped table-hover" id="main-table" style="width:70%">
-                <thead>
-                    <tr>
-                        <th class="text-center">Usuario - Supervisor</th>
-                        <th class="text-center">Cantidad de FAP asignadas</th>
-                        <th class="text-center">Cantidad de FAP concluidas</th>
-                        <th class="text-center">Cantidad CD asignados</th>
-                        <th class="text-center">Cantidad CD concluidas</th>
-                    </tr>
-                </thead>
-                 
-                <tbody>
-                    <c:forEach items="${cantidadControles}" var="esc">
-                        <tr>
-                            <td class="text-center">
-                                ${esc.funcionario}
-                            </td>
-                            <td class="text-center">
-                                ${esc.cantAsigFAP}
-                            </td>
-                            <td class="text-center">
-                                ${esc.cantConFAP}
-                            </td>
-                            <td class="text-center">
-                                ${esc.cantAsigCD}
-                            </td>
-                            <td class="text-center">
-                                ${esc.cantConCD}
-                            </td>                            
-                        </tr>
-                    </c:forEach>
-                    <c:forEach items="${totalControles}" var="esc2">
-                        <tr>
-                            <td class="text-center">
-                                <strong>TOTAL</strong>
-                            </td>
-                            <td class="text-center">
-                                <strong>${esc2.cantAsigFAP}</strong>
-                            </td>
-                            <td class="text-center">
-                                <strong>${esc2.cantConFAP}</strong>
-                            </td>
-                            <td class="text-center">
-                                <strong>${esc2.cantAsigCD}</strong>
-                            </td>
-                            <td class="text-center">
-                                <strong>${esc2.cantConCD}</strong>
-                            </td>                            
-                        </tr>
-                    </c:forEach>
-                </tbody>
-            </table>
-            
             <%
-              
             }
             %>
-            
-            
         </html:form>
     </div>
 </div>
@@ -148,22 +95,17 @@
               Anb.loading.show()
               form.submit();
           }
-      });
-      
+      });      
       var DT = new Anb.datatable({
             filter: true,
             "iDisplayLength": -1,
             oLanguage: {"sSearch": '<i class="glyphicon glyphicon-search"></i> Buscar: '}
-            
       });
       DT.$('.deletebtn').on('click', function() {           
             var id = this.getAttribute('data-item');
             $("#mostrarid").val(id);
             $("#opcion").val('MOSTRAR'); 
             $("#form-liquidacion").submit();
-      });
-      
+      });      
   });
-
-  
 </script>

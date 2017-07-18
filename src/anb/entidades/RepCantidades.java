@@ -2,6 +2,7 @@ package anb.entidades;
 
 public class RepCantidades {
     private String funcionario;
+    private String gerencia;
     private String cantAsigFAP;
     private String cantConFAP;
     private String cantAsigCD;
@@ -46,5 +47,13 @@ public class RepCantidades {
 
     public String getCantConCD() {
         return cantConCD;
+    }
+
+    public void setGerencia(String gerencia) {
+        this.gerencia = gerencia;
+    }
+
+    public String getGerencia() {
+        return gerencia;
     }
 }

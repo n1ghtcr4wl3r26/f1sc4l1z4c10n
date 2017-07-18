@@ -112,7 +112,7 @@ public class ConclusionControlAction extends MappingDispatchAction {
                 request.setAttribute("infoControl", inf.getResultado());
                 Respuesta<Tramite[]> tram = gen.ver_TramitesControl(bean.getCodigo());
                 request.setAttribute("tramites", tram.getResultado());
-                Respuesta<List<Fiscalizador>> fis = gen.obtenerFiscalizadores(bean.getCodger());
+                Respuesta<List<Fiscalizador>> fis = gen.obtenerFuncionarios(bean.getCodger());
                 request.setAttribute("fiscalizadores", fis.getResultado());
                 Respuesta<Fiscalizador[]> asig = gen.devuelveFisAsignados(bean.getCodigo());
                 request.setAttribute("asignados", asig.getResultado());
@@ -137,7 +137,7 @@ public class ConclusionControlAction extends MappingDispatchAction {
                 request.setAttribute("infoControl", inf.getResultado());
                 Respuesta<Tramite[]> tram = gen.ver_TramitesControl(bean.getCodigo());
                 request.setAttribute("tramites", tram.getResultado());
-                Respuesta<List<Fiscalizador>> fis = gen.obtenerFiscalizadores(bean.getCodger());
+                Respuesta<List<Fiscalizador>> fis = gen.obtenerFuncionarios(bean.getCodger());
                 request.setAttribute("fiscalizadores", fis.getResultado());
                 Respuesta<Fiscalizador[]> asig = gen.devuelveFisAsignados(bean.getCodigo());
                 request.setAttribute("asignados", asig.getResultado());
@@ -183,7 +183,7 @@ public class ConclusionControlAction extends MappingDispatchAction {
                 request.setAttribute("infoControl", inf.getResultado());
                 Respuesta<Tramite[]> tram = gen.ver_TramitesControl(bean.getCodigo());
                 request.setAttribute("tramites", tram.getResultado());
-                Respuesta<List<Fiscalizador>> fis = gen.obtenerFiscalizadores(bean.getCodger());
+                Respuesta<List<Fiscalizador>> fis = gen.obtenerFuncionarios(bean.getCodger());
                 request.setAttribute("fiscalizadores", fis.getResultado());
                 Respuesta<Fiscalizador[]> asig = gen.devuelveFisAsignados(bean.getCodigo());
                 request.setAttribute("asignados", asig.getResultado());
@@ -229,7 +229,7 @@ public class ConclusionControlAction extends MappingDispatchAction {
                 request.setAttribute("infoControl", inf.getResultado());
                 Respuesta<Tramite[]> tram = gen.ver_TramitesControl(bean.getCodigo());
                 request.setAttribute("tramites", tram.getResultado());
-                Respuesta<List<Fiscalizador>> fis = gen.obtenerFiscalizadores(bean.getCodger());
+                Respuesta<List<Fiscalizador>> fis = gen.obtenerFuncionarios(bean.getCodger());
                 request.setAttribute("fiscalizadores", fis.getResultado());
                 Respuesta<Fiscalizador[]> asig = gen.devuelveFisAsignados(bean.getCodigo());
                 request.setAttribute("asignados", asig.getResultado());
@@ -275,7 +275,7 @@ public class ConclusionControlAction extends MappingDispatchAction {
                 request.setAttribute("infoControl", inf.getResultado());
                 Respuesta<Tramite[]> tram = gen.ver_TramitesControl(bean.getCodigo());
                 request.setAttribute("tramites", tram.getResultado());
-                Respuesta<List<Fiscalizador>> fis = gen.obtenerFiscalizadores(bean.getCodger());
+                Respuesta<List<Fiscalizador>> fis = gen.obtenerFuncionarios(bean.getCodger());
                 request.setAttribute("fiscalizadores", fis.getResultado());
                 Respuesta<Fiscalizador[]> asig = gen.devuelveFisAsignados(bean.getCodigo());
                 request.setAttribute("asignados", asig.getResultado());
@@ -321,7 +321,7 @@ public class ConclusionControlAction extends MappingDispatchAction {
                 request.setAttribute("infoControl", inf.getResultado());
                 Respuesta<Tramite[]> tram = gen.ver_TramitesControl(bean.getCodigo());
                 request.setAttribute("tramites", tram.getResultado());
-                Respuesta<List<Fiscalizador>> fis = gen.obtenerFiscalizadores(bean.getCodger());
+                Respuesta<List<Fiscalizador>> fis = gen.obtenerFuncionarios(bean.getCodger());
                 request.setAttribute("fiscalizadores", fis.getResultado());
                 Respuesta<Fiscalizador[]> asig = gen.devuelveFisAsignados(bean.getCodigo());
                 request.setAttribute("asignados", asig.getResultado());
@@ -367,7 +367,7 @@ public class ConclusionControlAction extends MappingDispatchAction {
                 request.setAttribute("infoControl", inf.getResultado());
                 Respuesta<Tramite[]> tram = gen.ver_TramitesControl(bean.getCodigo());
                 request.setAttribute("tramites", tram.getResultado());
-                Respuesta<List<Fiscalizador>> fis = gen.obtenerFiscalizadores(bean.getCodger());
+                Respuesta<List<Fiscalizador>> fis = gen.obtenerFuncionarios(bean.getCodger());
                 request.setAttribute("fiscalizadores", fis.getResultado());
                 Respuesta<Fiscalizador[]> asig = gen.devuelveFisAsignados(bean.getCodigo());
                 request.setAttribute("asignados", asig.getResultado());

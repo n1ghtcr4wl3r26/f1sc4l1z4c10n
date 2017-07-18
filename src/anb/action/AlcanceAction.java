@@ -3,6 +3,8 @@ package anb.action;
 
 import anb.bean.AlcanceForm;
 
+import anb.bean.AlcanceItemForm;
+
 import anb.entidades.Aduana;
 import anb.entidades.Declaracion;
 import anb.entidades.DeclaracionItem;
@@ -10,6 +12,7 @@ import anb.entidades.InfoControl;
 import anb.entidades.Paises;
 import anb.entidades.Tramite;
 
+import anb.general.Json;
 import anb.general.Respuesta;
 import anb.general.Util;
 
@@ -47,7 +50,7 @@ public class AlcanceAction extends MappingDispatchAction {
             if (!(bean.getOpcion() == null) && bean.getOpcion().equals("CONSULTACTL")) {
                 Respuesta<Boolean> res = alcneg.verifica_alcance_control(bean);
                 if (res.getCodigo() == 1) {
-                    //verifica si el usuario esta habilitado para el control ******
+                    //verifica si el usuario esta habilitado para el control ******                
                     Respuesta<Boolean> ver = neg.verificaAccesoUsuario(bean.getCodigo(), bean.getUsuario(), "ALCANCE", bean.getUsuarioger());
                     if (ver.getCodigo() == 1) {
                         request.setAttribute("OK", res.getMensaje());
@@ -72,8 +75,29 @@ public class AlcanceAction extends MappingDispatchAction {
                         request.setAttribute("tramitespadreamp", tramo.getResultado());
                         Respuesta<Tramite[]> tramamp = alcneg.ver_TramitesAmp(bean);
                         request.setAttribute("tramitesamp", tramamp.getResultado());
+                        /*se desmarcan las declaraciones que no pertenecen al declarante o importador de la orden ampliatoria*/
+                        Respuesta<InfoControl> inf = neg.devuelveControl(bean.getCodigo());
+                        request.setAttribute("infoControl", inf.getResultado());
+                        int i;
+                        String ope;
+                        for(i=0;i<=tramo.getResultado().length-1;i++){
+                            if(inf.getResultado().getTipoOperador().equals("DECLARANTE")){
+                                if(tramo.getResultado()[i].getTipoTramite().equals("DUI")){
+                                    if(!(inf.getResultado().getDocIdentificacion().equals( tramo.getResultado()[i].getDeclarante()))){
+                                        tramo.getResultado()[i].setEstado("0");    
+                                    }   
+                                }
+                            }
+                            if(inf.getResultado().getTipoOperador().equals("IMPORTADOR/EXPORTADOR")){
+                                if(tramo.getResultado()[i].getTipoTramite().equals("DUI")){
+                                    if(!(inf.getResultado().getDocIdentificacion().equals( tramo.getResultado()[i].getImportador()))){
+                                        tramo.getResultado()[i].setEstado("0");    
+                                    }   
+                                } 
+                            }
+                        }
+                        /* ****** */
                         bean.setCantidad_alc(tramo.getCantidad());
-
                         request.setAttribute("AlcanceForm", bean);
                         link = "okamp";
                     } else {
@@ -274,6 +298,23 @@ public class AlcanceAction extends MappingDispatchAction {
                 request.setAttribute("tramites", tramo.getResultado());
                 bean.setCantidad_alc(tramo.getCantidad());
             }
+            if (bean.getOpcion().equals("BORRAALL")) {
+                request.setAttribute("declaraciones", null);
+                Respuesta<Boolean> res = alcneg.borra_tramite_todo(bean);
+                if (res.getCodigo() == 1) {
+                    request.setAttribute("OK", res.getMensaje());
+                } else {
+                    if (res.getCodigo() == 0) {
+                        request.setAttribute("WARNING", res.getMensaje());
+                    } else {
+                        request.setAttribute("ERROR", res.getMensaje());
+                    }
+                }
+                //Respuesta<Tramite[]> tramo = alcneg.ver_TramitesControl(bean);
+                Respuesta<Tramite[]> tramo = alcneg.ver_TramitesControlrep(bean);                
+                request.setAttribute("tramites", tramo.getResultado());
+                bean.setCantidad_alc(tramo.getCantidad());
+            }
             return mapping.findForward("ok");
         }
     }
@@ -400,6 +441,23 @@ public class AlcanceAction extends MappingDispatchAction {
                 request.setAttribute("tramites", tramo.getResultado());
                 bean.setCantidad_alc(tramo.getCantidad());
             }
+            if (!(bean.getOpcion() == null) && bean.getOpcion().equals("BORRAALL")) {
+                request.setAttribute("declaraciones", null);
+                Respuesta<Boolean> res = alcneg.borra_tramite_todo(bean);
+                if (res.getCodigo() == 1) {
+                    request.setAttribute("OK", res.getMensaje());
+                } else {
+                    if (res.getCodigo() == 0) {
+                        request.setAttribute("WARNING", res.getMensaje());
+                    } else {
+                        request.setAttribute("ERROR", res.getMensaje());
+                    }
+                }
+                //Respuesta<Tramite[]> tramo = alcneg.ver_TramitesControl(bean);
+                Respuesta<Tramite[]> tramo = alcneg.ver_TramitesControlrep(bean);                
+                request.setAttribute("tramites", tramo.getResultado());
+                bean.setCantidad_alc(tramo.getCantidad());
+            }
             
             //Respuesta<Tramite[]> tramo = alcneg.ver_TramitesControl(bean);
             Respuesta<Tramite[]> tramo = alcneg.ver_TramitesControlrep(bean);
@@ -480,8 +538,26 @@ public class AlcanceAction extends MappingDispatchAction {
                 Respuesta<Tramite[]> tramamp = alcneg.ver_TramitesAmp(bean);
                 request.setAttribute("tramitesamp", tramamp.getResultado());
                 bean.setCantidad_alc(tramo.getCantidad());
-
-
+                /*se desmarcan las declaraciones que no pertenecen al declarante o importador de la orden ampliatoria*/
+                int i;
+                String ope;
+                for(i=0;i<=tramo.getResultado().length-1;i++){
+                    if(inf.getResultado().getTipoOperador().equals("DECLARANTE")){
+                        if(tramo.getResultado()[i].getTipoTramite().equals("DUI")){
+                            if(!(inf.getResultado().getDocIdentificacion().equals( tramo.getResultado()[i].getDeclarante()))){
+                                tramo.getResultado()[i].setEstado("0");    
+                            }   
+                        }
+                    }
+                    if(inf.getResultado().getTipoOperador().equals("IMPORTADOR/EXPORTADOR")){
+                        if(tramo.getResultado()[i].getTipoTramite().equals("DUI")){
+                            if(!(inf.getResultado().getDocIdentificacion().equals( tramo.getResultado()[i].getImportador()))){
+                                tramo.getResultado()[i].setEstado("0");    
+                            }   
+                        } 
+                    }
+                }
+                /* ****** */
             }
             if (bean.getOpcion().equals("BORRAR")) {
                 request.setAttribute("declaraciones", null);
@@ -500,9 +576,128 @@ public class AlcanceAction extends MappingDispatchAction {
                 Respuesta<Tramite[]> tramamp = alcneg.ver_TramitesAmp(bean);
                 request.setAttribute("tramitesamp", tramamp.getResultado());
                 bean.setCantidad_alc(tramo.getCantidad());
+                /*se desmarcan las declaraciones que no pertenecen al declarante o importador de la orden ampliatoria*/
+                int i;
+                String ope;
+                for(i=0;i<=tramo.getResultado().length-1;i++){
+                    if(inf.getResultado().getTipoOperador().equals("DECLARANTE")){
+                        if(tramo.getResultado()[i].getTipoTramite().equals("DUI")){
+                            if(!(inf.getResultado().getDocIdentificacion().equals( tramo.getResultado()[i].getDeclarante()))){
+                                tramo.getResultado()[i].setEstado("0");    
+                            }   
+                        }
+                    }
+                    if(inf.getResultado().getTipoOperador().equals("IMPORTADOR/EXPORTADOR")){
+                        if(tramo.getResultado()[i].getTipoTramite().equals("DUI")){
+                            if(!(inf.getResultado().getDocIdentificacion().equals( tramo.getResultado()[i].getImportador()))){
+                                tramo.getResultado()[i].setEstado("0");    
+                            }   
+                        } 
+                    }
+                }
+                /* ****** */
+            }
+            if (bean.getOpcion().equals("BORRAALL")) {
+                request.setAttribute("declaraciones", null);
+                Respuesta<Boolean> res = alcneg.borra_tramite_todo(bean);
+                if (res.getCodigo() == 1) {
+                    request.setAttribute("OK", res.getMensaje());
+                } else {
+                    if (res.getCodigo() == 0) {
+                        request.setAttribute("WARNING", res.getMensaje());
+                    } else {
+                        request.setAttribute("ERROR", res.getMensaje());
+                    }
+                }
+                //Respuesta<Tramite[]> tramo = alcneg.ver_TramitesControl(bean);
+                Respuesta<Tramite[]> tramo = alcneg.ver_TramitesControlrep(bean);                
+                request.setAttribute("tramites", tramo.getResultado());
+                bean.setCantidad_alc(tramo.getCantidad());
             }
             return mapping.findForward("ok");
         }
     }
+    
+    public ActionForward alcanceEdit(ActionMapping mapping, ActionForm form, HttpServletRequest request,
+                                 HttpServletResponse response) throws Exception {
 
+        Util.isAjax(request, response);
+        Util.noCache(response);
+        AlcanceForm alc = (AlcanceForm)form;
+        
+        alc.setIdalcanceitem(request.getParameter("idalcance"));
+        alc.setEitem(request.getParameter("item"));
+        alc.setEpagina(request.getParameter("pag"));
+        Respuesta<Tramite[]> res=null;
+        res = alcneg.ver_Alcance(alc);
+        if(res.getCodigo() == 1) {          
+            request.setAttribute("alcance", res.getResultado()[0]);
+            alc.setIdalcanceitem(res.getResultado()[0].getCodigoItem());
+            alc.setEtipo(res.getResultado()[0].getTipoTramite());
+            alc.setEdocumento(res.getResultado()[0].getTramite());
+            alc.setEitem(res.getResultado()[0].getItem());
+            if (!(res.getResultado()[0].getValor() == null) && res.getResultado()[0].getValor().equals("X"))
+                alc.setEchvalor("on");            
+            if (!(res.getResultado()[0].getOrigen() == null) && res.getResultado()[0].getOrigen().equals("X"))
+                alc.setEchorigen("on");
+            if (!(res.getResultado()[0].getPartida() == null) && res.getResultado()[0].getPartida().equals("X"))
+                alc.setEchpartida("on");
+            if (!(res.getResultado()[0].getOtro() == null) && res.getResultado()[0].getOtro().equals("X"))
+                alc.setEchotro("on");
+            alc.setCodigo(res.getResultado()[0].getCodigo());
+            request.setAttribute("AlcanceItemForm", alc);
+        } else {
+            if (res.getCodigo() == 0) {
+                Json.warning(response, res.getMensaje());   
+            } else {
+                Json.error(response, res.getMensaje());    
+            }
+        }
+        return mapping.findForward("alcance.edit");
+    }
+    
+    public ActionForward alcanceGuardar(ActionMapping mapping, ActionForm form, HttpServletRequest request,
+                                 HttpServletResponse response) throws Exception {
+        AlcanceForm alc = (AlcanceForm)form;
+        String link = "ok";
+        String usuario = (String)request.getSession().getAttribute("user");
+        alc.setUsuario(usuario);
+        Respuesta<Boolean> res = alcneg.actualiza_alcance_tramite(alc);
+        if (res.getCodigo() == 1) {
+            request.setAttribute("OK", res.getMensaje());
+        } else {
+            if (res.getCodigo() == 0) {
+                request.setAttribute("WARNING", res.getMensaje());
+            } else {
+                request.setAttribute("ERROR", res.getMensaje());
+            }
+        }
+        Respuesta<List<Paises>> pai = neg.obtenerPaises();
+        request.setAttribute("paises", pai.getResultado());
+        Respuesta<List<Aduana>> adu = neg.obtenerAduanas((String)request.getSession().getAttribute("gerencia"));
+        request.setAttribute("aduanas", adu.getResultado());
+        Respuesta<InfoControl> inf = neg.devuelveControl(alc.getCodigo());
+        request.setAttribute("infoControl", inf.getResultado());
+        Respuesta<Tramite[]> tram = alcneg.ver_TramitesControlrep(alc);
+        request.setAttribute("tramites", tram.getResultado());
+        alc.setCantidad_alc(tram.getCantidad());
+        if (inf.getResultado().getTipoOperador().equals("IMPORTADOR/EXPORTADOR")) {
+            alc.setOperador(inf.getResultado().getDocIdentificacion());
+            alc.setNumeroOperador(inf.getResultado().getDocIdentificacion());
+            alc.setTipoOperador(inf.getResultado().getTipoOperador());
+            request.setAttribute("AlcanceForm", alc);
+        }
+        if (inf.getResultado().getTipoOperador().equals("DECLARANTE")) {
+            alc.setDeclarante(inf.getResultado().getDocIdentificacion());
+            alc.setNumeroOperador(inf.getResultado().getDocIdentificacion());
+            alc.setTipoOperador(inf.getResultado().getTipoOperador());
+            request.setAttribute("AlcanceForm", alc);
+        }
+        if(alc.getEpagina().equals("filtro"))
+            link= "ok";
+        if(alc.getEpagina().equals("tramite"))
+            link= "oktram";
+    
+        return mapping.findForward(link);
+    }
 }

@@ -215,6 +215,40 @@ public class AlcanceDao extends Conexion {
         return decls;
     }
     
+    public List<Tramite> tramite_iditem(AlcanceForm bean) throws SQLException, ClassNotFoundException,
+                                                                  NamingException {
+        List<Tramite> decls = new ArrayList<Tramite>();
+        int cont = 1;
+        try {
+            open();
+            call = cn.prepareCall("{ ? = call pkg_memorizacion.devuelve_tramite_iditem ( ?,?,?)}");
+            call.registerOutParameter(1, OracleTypes.VARCHAR);
+            call.setString(2, bean.getIdalcanceitem());
+            call.setString(3, bean.getEitem());
+            call.registerOutParameter(4, OracleTypes.CURSOR);
+            call.execute();
+            rs = (ResultSet)call.getObject(4);
+            while (rs.next()) {
+                Tramite dec = new Tramite();
+                dec.setCodigoItem(rs.getString(1));
+                dec.setTipoTramite(rs.getString(2));
+                dec.setTramite(rs.getString(3));
+                dec.setItem(rs.getString(6));
+                dec.setValor(rs.getString(7));
+                dec.setOrigen(rs.getString(8));
+                dec.setPartida(rs.getString(9));
+                dec.setOtro(rs.getString(10));
+                dec.setCodigo(rs.getString(13));
+                decls.add(dec);
+            }
+        } finally {
+            if (cn != null) {
+                cn.close();
+            }
+        }
+        return decls;
+    }
+    
     public List<Tramite> tramitespadreamp(AlcanceForm bean) throws SQLException, ClassNotFoundException,
                                                                   NamingException {
         List<Tramite> decls = new ArrayList<Tramite>();
@@ -240,6 +274,8 @@ public class AlcanceDao extends Conexion {
                 }
                 dec.setNumero(String.valueOf(cont++));
                 dec.setEstado(rs.getString(7));
+                dec.setImportador(rs.getString(8));
+                dec.setDeclarante(rs.getString(9));                
                 decls.add(dec);
             }
         } finally {
@@ -602,6 +638,30 @@ public class AlcanceDao extends Conexion {
             }
         }
         return res;
+    }    
+    
+    public String actualiza_alcance_tramite(AlcanceForm bean) throws SQLException, ClassNotFoundException,
+                                                                  NamingException {
+        String res;
+        try {
+            open();
+            call = cn.prepareCall("{ ? = call pkg_memorizacion.actualiza_alcance_tramite ( ?,?,?,?,? ,?,?)}");
+            call.registerOutParameter(1, OracleTypes.VARCHAR);
+            call.setString(2, bean.getIdalcanceitem());
+            call.setString(3, bean.getEitem());
+            call.setString(4, bean.getEchvalor());
+            call.setString(5, bean.getEchorigen());
+            call.setString(6, bean.getEchpartida());
+            call.setString(7, bean.getEchotro());
+            call.setString(8, bean.getUsuario()); 
+            call.execute();
+            res = (String)call.getObject(1);
+        } finally {
+            if (cn != null) {
+                cn.close();
+            }
+        }
+        return res;
     }
     
     public String graba_tramites_selec_item(AlcanceForm bean) throws SQLException, ClassNotFoundException,
@@ -859,6 +919,25 @@ public class AlcanceDao extends Conexion {
             call = cn.prepareCall("{ ? = call pkg_memorizacion.borra_tramite_selecitem ( ?,?)}");
             call.registerOutParameter(1, OracleTypes.VARCHAR);
             call.setString(2, bean.getBorrarid());
+            call.setString(3, bean.getUsuario());
+            call.execute();
+            res = (String)call.getObject(1);
+        } finally {
+            if (cn != null) {
+                cn.close();
+            }
+        }
+        return res;
+    }
+    
+    public String borra_tramite_todo(AlcanceForm bean) throws SQLException, ClassNotFoundException,
+                                                                  NamingException {
+        String res;
+        try {
+            open();
+            call = cn.prepareCall("{ ? = call pkg_memorizacion.borra_tramite_todo ( ?,?)}");
+            call.registerOutParameter(1, OracleTypes.VARCHAR);
+            call.setString(2, bean.getCodigo());
             call.setString(3, bean.getUsuario());
             call.execute();
             res = (String)call.getObject(1);

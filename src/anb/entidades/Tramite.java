@@ -16,6 +16,8 @@ public class Tramite {
     private String otro;
     private String fecha;
     private String tipoEtapa;
+    private String importador;
+    private String declarante;
 
     public void setTipoTramite(String tipoTramite) {
         this.tipoTramite = tipoTramite;
@@ -135,5 +137,21 @@ public class Tramite {
 
     public String getTipoEtapa() {
         return tipoEtapa;
+    }
+
+    public void setImportador(String importador) {
+        this.importador = importador;
+    }
+
+    public String getImportador() {
+        return importador;
+    }
+
+    public void setDeclarante(String declarante) {
+        this.declarante = declarante;
+    }
+
+    public String getDeclarante() {
+        return declarante;
     }
 }

@@ -288,7 +288,8 @@
                             <th width="100px">Origen</th>
                             <th width="100px">Clasificación Arancelaria</th>
                             <th width="100px">Otro</th>
-                            <th class="noExport">Acciones</th>
+                            <th class="noExport">Borrar</th>
+                            <th class="noExport">Editar</th>
                         </tr>
                     </thead>
                     <tbody>                    
@@ -322,23 +323,51 @@
                                         <i class="fa fa-close"></i> Borrar
                                     </button>
                                 </td>
-
+                                <td>
+                                    <button class="editbtn btn btn-info btn-sm " 
+                                            type="button"
+                                            title="Editar Alcance"
+                                            data-item="${tra.item}" 
+                                            data-id="${tra.codigoItem}">
+                                        <i class="fa fa-edit"></i> 
+                                        Editar
+                                    </button>   
+                                </td>
                             </tr>
                         </c:forEach>
                     </tbody>
-                </table>    
+                </table>
             <%
             }
             %> 
             
             </html:form>
-        
+            <html:form styleId="form-alcance-borrar" action="alcconsultar.do">
+                <input type="hidden" name="opcion" id="opcionb"/>
+                <html:hidden property="codigo" styleId="codigob"/>
+                
+                <button class="btn btn-info btn-sm newHide" 
+                        type="button" id="btnInc"
+                        title="Eliminar todo el alcance"
+                        onfocus="borrar_alcance()">
+                        <i class="fa fa-percent"></i> Eliminar todo el alcance
+                </button> 
+            </html:form>
     </div>
 </div>
 <script>
     $(window).load(function() {
           $(".buttons-excel").hide();
     });
+    
+    function borrar_alcance(){
+          Anb.confirm('¿Está seguro que desea eliminar todos los trámites del alcance?', function () {
+              $("#opcionb").val('BORRAALL'); 
+              $("#codigob").val($("#codigo").val());
+              $("#form-alcance-borrar").submit();
+          });
+    }
+      
   $(document).ready(function () {
       Anb.form.submit('#form-tramitedec', function (form) {
           Anb.form.cleanErrors(form);
@@ -376,7 +405,9 @@
           }
       });
       
-      var DT = new Anb.datatable({
+      
+      
+        var DT = new Anb.datatable({
             filter: true,
             "iDisplayLength": -1,
             oLanguage: {"sSearch": '<i class="glyphicon glyphicon-search"></i> Buscar: '}
@@ -391,7 +422,11 @@
                     $("#form-alcance").submit();
             });
             
+        });  
+        
+        DT.$('.editbtn').on('click', function() {           
+            Anb.modal.show('alcanceEdit.do?idalcance=' + this.getAttribute('data-id') + '&item=' + this.getAttribute('data-item')+ '&pag=tramite', 'lg');
         });
-
+  
   });
 </script>

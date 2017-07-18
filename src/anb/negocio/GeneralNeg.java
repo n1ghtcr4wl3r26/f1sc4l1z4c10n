@@ -3,6 +3,7 @@ package anb.negocio;
 
 import anb.entidades.Aduana;
 import anb.entidades.Fiscalizador;
+import anb.entidades.Gerencia;
 import anb.entidades.InfoControl;
 import anb.entidades.Paises;
 import anb.entidades.Tramite;
@@ -307,6 +308,151 @@ public class GeneralNeg {
                 if (res == null && res.size() == 0) {
                     respuesta.setCodigo(0);
                     respuesta.setMensaje("No existen fiscalizadores registrados");
+                } else {
+                    respuesta.setCodigo(1);
+                    respuesta.setMensaje("OK");
+                    respuesta.setResultado(res);
+                }
+            } catch (SQLException e) {
+                respuesta.setMensaje("Error no identificado - " + e.getMessage());
+                e.printStackTrace();
+            } catch (ClassNotFoundException e) {
+                respuesta.setMensaje("Error no identificado - " + e.getMessage());
+            } catch (NamingException e) {
+                respuesta.setMensaje("Error no identificado - " + e.getMessage());
+            }
+        } else {
+            respuesta.setMensaje("Error. No se puede conectar a la base de datos.");
+        }
+
+        return respuesta;
+    }
+    
+    public Respuesta<List<Fiscalizador>> obtenerFiscalizadoresT(String Gerencia) {
+        Respuesta<List<Fiscalizador>> respuesta = new Respuesta<List<Fiscalizador>>();
+        respuesta.setCodigo(-1);
+        if (estaConectadoBd()) {
+            try {
+                List<Fiscalizador> res = dao.obtenerFiscalizadoresT(Gerencia);
+                if (res == null && res.size() == 0) {
+                    respuesta.setCodigo(0);
+                    respuesta.setMensaje("No existen fiscalizadores registrados");
+                } else {
+                    respuesta.setCodigo(1);
+                    respuesta.setMensaje("OK");
+                    respuesta.setResultado(res);
+                }
+            } catch (SQLException e) {
+                respuesta.setMensaje("Error no identificado - " + e.getMessage());
+                e.printStackTrace();
+            } catch (ClassNotFoundException e) {
+                respuesta.setMensaje("Error no identificado - " + e.getMessage());
+            } catch (NamingException e) {
+                respuesta.setMensaje("Error no identificado - " + e.getMessage());
+            }
+        } else {
+            respuesta.setMensaje("Error. No se puede conectar a la base de datos.");
+        }
+
+        return respuesta;
+    }
+    
+    public Respuesta<List<Fiscalizador>> obtenerSupervisores(String Gerencia) {
+        Respuesta<List<Fiscalizador>> respuesta = new Respuesta<List<Fiscalizador>>();
+        respuesta.setCodigo(-1);
+        if (estaConectadoBd()) {
+            try {
+                List<Fiscalizador> res = dao.obtenerSupervisores(Gerencia);
+                if (res == null && res.size() == 0) {
+                    respuesta.setCodigo(0);
+                    respuesta.setMensaje("No existen supervisores registrados");
+                } else {
+                    respuesta.setCodigo(1);
+                    respuesta.setMensaje("OK");
+                    respuesta.setResultado(res);
+                }
+            } catch (SQLException e) {
+                respuesta.setMensaje("Error no identificado - " + e.getMessage());
+                e.printStackTrace();
+            } catch (ClassNotFoundException e) {
+                respuesta.setMensaje("Error no identificado - " + e.getMessage());
+            } catch (NamingException e) {
+                respuesta.setMensaje("Error no identificado - " + e.getMessage());
+            }
+        } else {
+            respuesta.setMensaje("Error. No se puede conectar a la base de datos.");
+        }
+
+        return respuesta;
+    }
+    
+    public Respuesta<List<Fiscalizador>> obtenerSupervisoresT(String Gerencia) {
+        Respuesta<List<Fiscalizador>> respuesta = new Respuesta<List<Fiscalizador>>();
+        respuesta.setCodigo(-1);
+        if (estaConectadoBd()) {
+            try {
+                List<Fiscalizador> res = dao.obtenerSupervisoresT(Gerencia);
+                if (res == null && res.size() == 0) {
+                    respuesta.setCodigo(0);
+                    respuesta.setMensaje("No existen supervisores registrados");
+                } else {
+                    respuesta.setCodigo(1);
+                    respuesta.setMensaje("OK");
+                    respuesta.setResultado(res);
+                }
+            } catch (SQLException e) {
+                respuesta.setMensaje("Error no identificado - " + e.getMessage());
+                e.printStackTrace();
+            } catch (ClassNotFoundException e) {
+                respuesta.setMensaje("Error no identificado - " + e.getMessage());
+            } catch (NamingException e) {
+                respuesta.setMensaje("Error no identificado - " + e.getMessage());
+            }
+        } else {
+            respuesta.setMensaje("Error. No se puede conectar a la base de datos.");
+        }
+
+        return respuesta;
+    }
+    
+    public Respuesta<List<Fiscalizador>> obtenerFuncionarios(String Gerencia) {
+        Respuesta<List<Fiscalizador>> respuesta = new Respuesta<List<Fiscalizador>>();
+        respuesta.setCodigo(-1);
+        if (estaConectadoBd()) {
+            try {
+                List<Fiscalizador> res = dao.obtenerFuncionarios(Gerencia);
+                if (res == null && res.size() == 0) {
+                    respuesta.setCodigo(0);
+                    respuesta.setMensaje("No existen funcionarios registrados");
+                } else {
+                    respuesta.setCodigo(1);
+                    respuesta.setMensaje("OK");
+                    respuesta.setResultado(res);
+                }
+            } catch (SQLException e) {
+                respuesta.setMensaje("Error no identificado - " + e.getMessage());
+                e.printStackTrace();
+            } catch (ClassNotFoundException e) {
+                respuesta.setMensaje("Error no identificado - " + e.getMessage());
+            } catch (NamingException e) {
+                respuesta.setMensaje("Error no identificado - " + e.getMessage());
+            }
+        } else {
+            respuesta.setMensaje("Error. No se puede conectar a la base de datos.");
+        }
+
+        return respuesta;
+    }
+    
+    public Respuesta<List<Gerencia>> obtenerGerencias(String Gerencia) {
+        Respuesta<List<Gerencia>> respuesta = new Respuesta<List<Gerencia>>();
+        respuesta.setCodigo(-1);
+        if (estaConectadoBd()) {
+            try {
+                List<Gerencia> res = dao.obtenerGerencias(Gerencia);
+                if (res == null && res.size() == 0) {
+                    respuesta.setCodigo(0);
+                    respuesta.setMensaje("No existen gerencias registrados");
                 } else {
                     respuesta.setCodigo(1);
                     respuesta.setMensaje("OK");

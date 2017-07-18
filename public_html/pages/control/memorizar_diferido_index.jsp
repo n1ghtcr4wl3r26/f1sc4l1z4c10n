@@ -257,7 +257,7 @@
 
       Anb.form.submit('#form-alcance', function (form) {
           Anb.form.cleanErrors(form);
-          debugger;
+          
           if (Anb.validate.run(form)) {
               console.log('Enviado!');
               Anb.loading.show()
@@ -268,7 +268,7 @@
 
       Anb.form.submit('#form-alcance3', function (form) {
           Anb.form.cleanErrors(form);
-          debugger;
+          
           if (Anb.validate.run(form)) {
               console.log('Enviado!');
               Anb.loading.show()

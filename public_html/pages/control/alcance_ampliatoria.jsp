@@ -19,6 +19,28 @@
             <html:hidden property="borrarid" styleId="borrarid"/>
             <html:hidden property="codigo" styleId="codigo"/>
             <html:hidden property="codigoconcatval" styleId="codigoconcatval"/>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Código:</label>
+                <div class="col-sm-2">
+                    ${infoControl.codigo}
+                </div>
+                <label class="col-sm-2 control-label">Tipo Control:</label>
+                <div class="col-sm-2">
+                    ${infoControl.tipoControl}
+                </div>
+            </div>
+
+	    <div class="form-group">
+                <label class="col-sm-2 control-label">Operador:</label>
+                <div class="col-sm-6">
+                    ${infoControl.tipoDocIdentificacion}
+                &nbsp;
+                    ${infoControl.docIdentificacion}
+                :
+                    ${infoControl.nomIdentificacion}
+                </div>
+            </div>
+            <br>
             <%
             if(alc.getCantidad_alc() > 0) {
             %>
@@ -38,6 +60,8 @@
                         <th>Tipo</th>
                         <th>Documento</th>
                         <th>Observaci&oacute;n</th>
+                        <th>Importador</th>
+                        <th>Declarante</th>
                     </tr>
                 </thead>
                  
@@ -61,6 +85,12 @@
                             </td>
                             <td class="text-left">
                                 ${tra.observacion}
+                            </td>
+                            <td class="text-right">
+                                ${tra.importador}
+                            </td>
+                            <td class="text-right">
+                                ${tra.declarante}
                             </td>
                         </tr>
                     </c:forEach>
@@ -92,7 +122,6 @@
                         <th class="noExport">Acciones</th>
                     </tr>
                 </thead>
-                 
                 <tbody>
                     <c:forEach items="${tramitesamp}" var="tra">
                         <tr>
@@ -109,8 +138,11 @@
                                 ${tra.observacion}
                             </td>
                             <td>
-                                <button class="deletebtn btn btn-info btn-sm " type="button" title="Borrar Alcance"
-                                        data-item="${tra.codigo}" data-id="${tra.codigo}">
+                                <button class="deletebtn btn btn-info btn-sm " 
+                                        type="button" 
+                                        title="Borrar Alcance"
+                                        data-item="${tra.codigo}" 
+                                        data-id="${tra.codigo}">
                                     <i class="fa fa-close"></i>
                                     Borrar
                                 </button>
@@ -133,11 +165,8 @@
           }
 
       });
-
-      $('.deletebtn').on('click', function () {
-         
-          var id = this.getAttribute('data-item');
-      
+      $('.deletebtn').on('click', function () {         
+          var id = this.getAttribute('data-item');      
           Anb.confirm('¿Está seguro que desea eliminar el trámite del alcance?', function () {
               $("#borrarid").val(id);
               $("#opcion").val('BORRAR');
@@ -153,11 +182,6 @@
               $('.check_groupval:checkbox').prop('checked', false).removeAttr('checked');
           }
       });
-
-     
-
-      
-
   });
   
   function concat_idsitem() {

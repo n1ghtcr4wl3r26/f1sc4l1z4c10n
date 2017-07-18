@@ -10,9 +10,6 @@
             <strong>ALCANCE CONTROL</strong>
         </h4>
     </div>
-            
-    
-    
     <% 
         AlcanceForm alc = (AlcanceForm)request.getAttribute("AlcanceForm");
     %>
@@ -433,7 +430,8 @@
                             <th width="100px">Origen</th>
                             <th width="100px">Clasificación Arancelaria</th>
                             <th width="100px">Otro</th>
-                            <th class="noExport">Acciones</th>
+                            <th class="noExport">Borrar</th>
+                            <th class="noExport">Editar</th>
                         </tr>
                     </thead>
                     <tbody>                    
@@ -467,16 +465,48 @@
                                         <i class="fa fa-close"></i> Borrar
                                     </button>
                                 </td>
-
+                                <td>
+                                    <button class="editbtn btn btn-info btn-sm " 
+                                            type="button"
+                                            title="Editar Alcance"
+                                            data-item="${tra.item}" 
+                                            data-id="${tra.codigoItem}">
+                                        <i class="fa fa-edit"></i> 
+                                        Editar
+                                    </button>   
+                                </td>
                             </tr>
                         </c:forEach>
                     </tbody>
-                </table>  
+                </table>                  
                 </div>
             <%
             }
             %>   
-        </html:form>      
+        </html:form>    
+        <html:form styleId="form-alcance-borrar" action="alcconsultar.do">
+            <input type="hidden" name="opcion" id="opcionb"/>
+            <html:hidden property="codigo" styleId="codigob"/>
+            <html:hidden property="numeroOperador" styleId="numeroOperadorb"/>
+            <html:hidden property="tipoOperador" styleId="tipoOperadorb"/>
+            <html:hidden property="operador" styleId="operadorb"/>
+            <html:hidden property="declarante" styleId="declaranteb"/>         
+            <html:hidden property="tipoTramite" styleId="tipoTramiteb"/>         
+            <html:hidden property="fecIni" styleId="fecInib"/>         
+            <html:hidden property="fecFin" styleId="fecFinb"/>         
+            <html:hidden property="aduana" styleId="aduanab"/>         
+            <html:hidden property="origen" styleId="origenb"/>         
+            <html:hidden property="tipoBusqueda" styleId="tipoBusquedab"/>
+         
+            <button class="btn btn-info btn-sm newHide" 
+                    type="button" id="btnInc"
+                    title="Eliminar todo el alcance"
+                    onfocus="borrar_alcance()">
+                    <i class="fa fa-percent"></i> Eliminar todo el alcance
+            </button> 
+        </html:form>
+        
+        
     </div>
 </div>
 <script>
@@ -531,8 +561,12 @@
             
         });
         
+        DT.$('.editbtn').on('click', function() {           
+            Anb.modal.show('alcanceEdit.do?idalcance=' + this.getAttribute('data-id') + '&item=' + this.getAttribute('data-item')+ '&pag=filtro', 'lg');
+        });
+        
         Anb.form.submit('#form-alcance', function (form) {
-            Anb.form.cleanErrors(form);debugger;
+            Anb.form.cleanErrors(form);
             if ($("#opcion").val() =='BORRAR')
                 form.submit();
             else
@@ -718,6 +752,14 @@
 	}else{
             Anb.alert('Debe seleccionar por lo menos un item de las declaraciones para realizar esta acción.');
         }
+    }
+    
+    function borrar_alcance(){
+        Anb.confirm('¿Está seguro que desea eliminar todos los trámites del alcance?', function () {
+            $("#opcionb").val('BORRAALL'); 
+            $("#codigob").val($("#codigo").val());
+            $("#form-alcance-borrar").submit();
+        });
     }
     
     function consultar(){

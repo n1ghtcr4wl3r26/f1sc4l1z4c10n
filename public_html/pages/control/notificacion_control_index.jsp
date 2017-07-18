@@ -62,7 +62,7 @@
 </div>
 <script>
         $(document).ready(function () {
-          debugger;
+       
           Anb.form.submit('#form-notificacioncontrol', function (form) {
               Anb.form.cleanErrors(form);
               if (Anb.validate.run(form)) {
@@ -76,7 +76,7 @@
 
       });
   function consultar() {
-      debugger;
+  
                   $("#opcion").val('CONSULTAR');
            
   }

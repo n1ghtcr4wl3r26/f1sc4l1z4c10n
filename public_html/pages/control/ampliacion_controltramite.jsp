@@ -333,6 +333,17 @@
             %> 
             
             </html:form>
+            <html:form styleId="form-alcance-borrar" action="ampliaciontramite.do">
+                <input type="hidden" name="opcion" id="opcionb"/>
+                <html:hidden property="codigo" styleId="codigob"/>
+                
+                <button class="btn btn-info btn-sm newHide" 
+                        type="button" id="btnInc"
+                        title="Eliminar todo el alcance"
+                        onfocus="borrar_alcance()">
+                        <i class="fa fa-percent"></i> Eliminar todo el alcance
+                </button> 
+            </html:form>
         
     </div>
 </div>
@@ -340,6 +351,13 @@
 $(window).load(function() {
           $(".buttons-excel").hide();
     });
+    function borrar_alcance(){
+          Anb.confirm('¿Está seguro que desea eliminar todos los trámites ampliados del alcance?', function () {
+              $("#opcionb").val('BORRAALL'); 
+              $("#codigob").val($("#codigo").val());
+              $("#form-alcance-borrar").submit();
+          });
+      }
   $(document).ready(function () {
       Anb.form.submit('#form-tramitedec', function (form) {
           Anb.form.cleanErrors(form);
@@ -376,6 +394,8 @@ $(window).load(function() {
               form.submit();
           }
       });
+      
+      
       
       var DT = new Anb.datatable({
             filter: true,

@@ -21,6 +21,7 @@
             <% 
             if(!(gen.getOpcion() == null) && (gen.getOpcion().equals("CONSULTAR"))) {
             %>
+            <strong>Gerencia:</strong>  ${ReporteControlForm.fgerencianombre}  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <strong>Usuario Supervisor:</strong>  ${ReporteControlForm.funcionarionombre}  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <strong>Fecha desde:</strong>   ${ReporteControlForm.ffecini}  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <strong>Fecha hasta:</strong>   ${ReporteControlForm.ffecfin}  
@@ -30,6 +31,7 @@
                 <thead>
                     <tr>
                         <th class="text-center">Usuario - Supervisor</th>
+                        <th class="text-center">Gerencia</th>
                         <th class="text-center">Cantidad de FAP asignadas</th>
                         <th class="text-center">Cantidad de FAP concluidas</th>
                         <th class="text-center">Cantidad CD asignados</th>
@@ -40,8 +42,11 @@
                 <tbody>
                     <c:forEach items="${reporteControlAsig}" var="esc">
                         <tr>
-                            <td class="text-center">
+                            <td class="text-left">
                                 ${esc.funcionario}
+                            </td>
+                            <td class="text-left">
+                                ${esc.gerencia}
                             </td>
                             <td class="text-center">
                                 ${esc.cantAsigFAP}
@@ -58,47 +63,8 @@
                         </tr>
                     </c:forEach>
                 </tbody>
-            </table>
-            <br/>
-            <table class="table table-striped table-hover" id="main-table">
-                <thead>
-                    <tr>
-                        <th class="text-center">&nbsp;</th>
-                        <th class="text-center">Total asignadas</th>
-                        <th class="text-center">Total concluidas</th>
-                    </tr>
-                </thead>
-                 
-                <tbody>
-                    <c:forEach items="${reporteControlAsigTot}" var="tot">
-                        <tr>
-                            <th class="text-center">
-                                Total FAP
-                            </th>
-                            <td class="text-center">
-                                ${tot.cantAsigFAP}
-                            </td>
-                            <td class="text-center">
-                                ${tot.cantConFAP}
-                            </td>                                        
-                        </tr>
-                        <tr>
-                            <th class="text-center">
-                                Total CD
-                            </th>
-                            <td class="text-center">
-                                ${tot.cantAsigCD}
-                            </td>
-                            <td class="text-center">
-                                ${tot.cantConCD}
-                            </td>                                        
-                        </tr>
-                    </c:forEach>
-                </tbody>
-            </table>
-            
+            </table>           
             <%
-              
             }
             %>
             

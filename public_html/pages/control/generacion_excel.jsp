@@ -356,7 +356,7 @@
 <script>
   $(document).ready(function () {
   
-        debugger;
+        
          var DT = new Anb.datatable({
             filter: false,
             columnDefs: [{

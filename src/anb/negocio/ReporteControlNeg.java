@@ -83,6 +83,34 @@ public class ReporteControlNeg {
         return respuesta;
     } 
     
+    public Respuesta<RepCantidades[]> reporteControlGen(ReporteControlForm bean) {
+        Respuesta<RepCantidades[]> respuesta = new Respuesta<RepCantidades[]>();
+        respuesta.setCodigo(-1);
+        if (estaConectadoBd()) {
+            try {
+                List<RepCantidades> result = dao.reporteControlGen(bean);
+                if (result == null || result.size() == 0) {
+                    respuesta.setMensaje("No existen registros");
+                    respuesta.setCodigo(0);
+                } else {
+                    respuesta.setCantidad(result.size());
+                    respuesta.setCodigo(1);
+                    respuesta.setMensaje("OK");
+                    respuesta.setResultado(result.toArray(new RepCantidades[result.size()]));
+                }
+            } catch (SQLException e) {
+                respuesta.setMensaje("Error no identificado -  " + e.getMessage());
+            } catch (ClassNotFoundException e) {
+                respuesta.setMensaje("Error no identificado -  " + e.getMessage());
+            } catch (NamingException e) {
+                respuesta.setMensaje("Error no identificado -  " + e.getMessage());
+            }
+        } else {
+            respuesta.setMensaje("Error. No se puede conectar a la base de datos.");
+        }
+        return respuesta;
+    } 
+    
     public Respuesta<RepCantidades[]> reporteControlAsigTot(ReporteControlForm bean) {
         Respuesta<RepCantidades[]> respuesta = new Respuesta<RepCantidades[]>();
         respuesta.setCodigo(-1);
