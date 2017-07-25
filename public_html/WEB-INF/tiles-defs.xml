@@ -213,6 +213,45 @@
     <definition name="demo.log" extends="aud.home">
         <put name="content" value="/pages/general/log.jsp"/>
     </definition>
+    
+    <!-- REPORTES 3RA PARTE -->
+    <definition name="reporte.seguimiento.orden.index" extends="aud.home">
+        <put name="content" value="/pages/control/reporte_seguimiento_orden_index.jsp"/>
+    </definition>
+    <definition name="reporte.seguimiento.orden" extends="aud.home">
+        <put name="content" value="/pages/control/reporte_seguimiento_orden.jsp"/>
+    </definition>   
+    <definition name="reporte.seguimiento.dui.index" extends="aud.home">
+        <put name="content" value="/pages/control/reporte_seguimiento_dui_index.jsp"/>
+    </definition>
+    <definition name="reporte.seguimiento.dui" extends="aud.home">
+        <put name="content" value="/pages/control/reporte_seguimiento_dui.jsp"/>
+    </definition> 
+    <definition name="reporte.seguimiento.item.index" extends="aud.home">
+        <put name="content" value="/pages/control/reporte_seguimiento_item_index.jsp"/>
+    </definition>
+    <definition name="reporte.seguimiento.item" extends="aud.home">
+        <put name="content" value="/pages/control/reporte_seguimiento_item.jsp"/>
+    </definition> 
+    <definition name="reporte.liquidacion.dui.index" extends="aud.home">
+        <put name="content" value="/pages/control/reporte_liquidacion_dui_index.jsp"/>
+    </definition>
+    <definition name="reporte.liquidacion.dui" extends="aud.home">
+        <put name="content" value="/pages/control/reporte_liquidacion_dui.jsp"/>
+    </definition> 
+    <definition name="reporte.liquidacion.item.index" extends="aud.home">
+        <put name="content" value="/pages/control/reporte_liquidacion_item_index.jsp"/>
+    </definition>
+    <definition name="reporte.liquidacion.item" extends="aud.home">
+        <put name="content" value="/pages/control/reporte_liquidacion_item.jsp"/>
+    </definition> 
+    <definition name="reporte.recuperacion.dui.index" extends="aud.home">
+        <put name="content" value="/pages/control/reporte_recuperacion_dui_index.jsp"/>
+    </definition>
+    <definition name="reporte.recuperacion.dui" extends="aud.home">
+        <put name="content" value="/pages/control/reporte_recuperacion_dui.jsp"/>
+    </definition> 
+    
 </tiles-definitions>
 
 

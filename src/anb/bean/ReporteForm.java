@@ -8,6 +8,12 @@ public class ReporteForm extends ActionForm {
     private String fcontrol;
     private String fgerencia;
     private String fnumero;
+    private String fgerencianombre;
+    private String fnit;
+    private String fnitnombre;
+
+    private String ffecini;
+    private String ffecfin;
     
     private String boton;
     private String opcion;
@@ -21,6 +27,11 @@ public class ReporteForm extends ActionForm {
     private String numero;
     
     private String usuarioger; 
+    
+    private String ftipotramite;
+    private String ftipotramitenombre;
+    private String fcontrolnombre;
+    private String festadonombre;
     
     public void setFmemorizado(String fmemorizado) {
         this.fmemorizado = fmemorizado;
@@ -140,5 +151,77 @@ public class ReporteForm extends ActionForm {
 
     public String getUsuarioger() {
         return usuarioger;
+    }
+
+    public void setFfecini(String ffecini) {
+        this.ffecini = ffecini;
+    }
+
+    public String getFfecini() {
+        return ffecini;
+    }
+
+    public void setFfecfin(String ffecfin) {
+        this.ffecfin = ffecfin;
+    }
+
+    public String getFfecfin() {
+        return ffecfin;
+    }
+
+    public void setFnit(String fnit) {
+        this.fnit = fnit;
+    }
+
+    public String getFnit() {
+        return fnit;
+    }
+
+    public void setFgerencianombre(String fgerencianombre) {
+        this.fgerencianombre = fgerencianombre;
+    }
+
+    public String getFgerencianombre() {
+        return fgerencianombre;
+    }
+
+    public void setFtipotramite(String ftipotramite) {
+        this.ftipotramite = ftipotramite;
+    }
+
+    public String getFtipotramite() {
+        return ftipotramite;
+    }
+
+    public void setFtipotramitenombre(String ftipotramitenombre) {
+        this.ftipotramitenombre = ftipotramitenombre;
+    }
+
+    public String getFtipotramitenombre() {
+        return ftipotramitenombre;
+    }
+
+    public void setFcontrolnombre(String fcontrolnombre) {
+        this.fcontrolnombre = fcontrolnombre;
+    }
+
+    public String getFcontrolnombre() {
+        return fcontrolnombre;
+    }
+
+    public void setFestadonombre(String festadonombre) {
+        this.festadonombre = festadonombre;
+    }
+
+    public String getFestadonombre() {
+        return festadonombre;
+    }
+
+    public void setFnitnombre(String fnitnombre) {
+        this.fnitnombre = fnitnombre;
+    }
+
+    public String getFnitnombre() {
+        return fnitnombre;
     }
 }

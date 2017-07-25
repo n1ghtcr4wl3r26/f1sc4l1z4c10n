@@ -65,7 +65,13 @@
             <forward name="repliquidacionprevia" path="/reporteliquidacionpreviaidx.do" redirect="true" />
             <forward name="account" path="/account.do" redirect="true" />
             <forward name="password" path="/passwordidx.do" redirect="true" />
-            <forward name="registrorecibos" path="/registrorecibosidx.do" redirect="true" />
+            <forward name="registrorecibos" path="/registrorecibosidx.do" redirect="true" />            
+            <forward name="seguimiento.orden" path="/reporte_seguimiento_ordenidx.do" redirect="true" />
+            <forward name="seguimiento.dui" path="/reporte_seguimiento_duiidx.do" redirect="true" />
+            <forward name="seguimiento.item" path="/reporte_seguimiento_itemidx.do" redirect="true" />
+            <forward name="liquidacion.dui" path="/reporte_liquidacion_duiidx.do" redirect="true" />
+            <forward name="liquidacion.item" path="/reporte_liquidacion_itemidx.do" redirect="true" />
+            <forward name="recuperacion.dui" path="/reporte_recuperacion_duiidx.do" redirect="true" />            
         </action>
         
         <action path="/logout" type="anb.general.LogoutAction" scope="request">
@@ -452,6 +458,38 @@
             <forward name="ok" path="registro.recibos" redirect="true" />
             <forward name="nook" path="/input.jsp"/>
         </action>
+        
+        <!-- REPORTES 3RA PARTE -->
+        <action path="/reporte_seguimiento_ordenidx" type="anb.action.ReporteAction" name="ReporteForm" parameter="reporte_seguimiento_ordenidx" scope="request">
+            <forward name="index" path="reporte.seguimiento.orden.index" redirect="true" />
+            <forward name="ok" path="reporte.seguimiento.orden" redirect="true" />
+            <forward name="nook" path="/input.jsp"/>
+        </action>
+        <action path="/reporte_seguimiento_duiidx" type="anb.action.ReporteAction" name="ReporteForm" parameter="reporte_seguimiento_duiidx" scope="request">
+            <forward name="index" path="reporte.seguimiento.dui.index" redirect="true" />
+            <forward name="ok" path="reporte.seguimiento.dui" redirect="true" />
+            <forward name="nook" path="/input.jsp"/>
+        </action>
+        <action path="/reporte_seguimiento_itemidx" type="anb.action.ReporteAction" name="ReporteForm" parameter="reporte_seguimiento_itemidx" scope="request">
+            <forward name="index" path="reporte.seguimiento.item.index" redirect="true" />
+            <forward name="ok" path="reporte.seguimiento.item" redirect="true" />
+            <forward name="nook" path="/input.jsp"/>
+        </action>
+        <action path="/reporte_liquidacion_duiidx" type="anb.action.ReporteAction" name="ReporteForm" parameter="reporte_liquidacion_duiidx" scope="request">
+            <forward name="index" path="reporte.liquidacion.dui.index" redirect="true" />
+            <forward name="ok" path="reporte.liquidacion.dui" redirect="true" />
+            <forward name="nook" path="/input.jsp"/>
+        </action>
+        <action path="/reporte_liquidacion_itemidx" type="anb.action.ReporteAction" name="ReporteForm" parameter="reporte_liquidacion_itemidx" scope="request">
+            <forward name="index" path="reporte.liquidacion.item.index" redirect="true" />
+            <forward name="ok" path="reporte.liquidacion.item" redirect="true" />
+            <forward name="nook" path="/input.jsp"/>
+        </action>
+        <action path="/reporte_recuperacion_duiidx" type="anb.action.ReporteAction" name="ReporteForm" parameter="reporte_recuperacion_duiidx" scope="request">
+            <forward name="index" path="reporte.recuperacion.dui.index" redirect="true" />
+            <forward name="ok" path="reporte.recuperacion.dui" redirect="true" />
+            <forward name="nook" path="/input.jsp"/>
+        </action>        
 
     </action-mappings>
     <controller nocache="true" processorClass="anb.general.AnbRequestProcessor" />

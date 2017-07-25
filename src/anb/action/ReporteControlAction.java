@@ -10,13 +10,11 @@ import anb.entidades.RepControl;
 import anb.entidades.RepEstadoControl;
 
 import anb.general.Respuesta;
-
 import anb.general.Util;
 
 import anb.negocio.GeneralNeg;
 import anb.negocio.ReporteControlNeg;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -377,5 +375,7 @@ public class ReporteControlAction extends MappingDispatchAction {
             return mapping.findForward(link);
         }
     }
+    
+   
 }
 

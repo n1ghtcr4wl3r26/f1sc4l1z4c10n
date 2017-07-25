@@ -102,80 +102,7 @@
             </div>
             <div class="table-responsive">
             <table class="table table-striped table-hover" id="main-table">
-                <thead>
-                    <%--
-                    <tr>
-                        <th rowspan="2" class="text-center">N&uacute;mero</th>
-                        <th rowspan="2" class="text-center">Item</th>
-                        <th rowspan="2" class="text-center">Subpartida Declarada</th>
-                        <th rowspan="2" class="text-center">Subpartida Determinada</th>
-                        <th rowspan="2" class="text-center">Declaraci&oacute;n</th>
-                        <th rowspan="2" class="text-center">Fecha Validaci&oacute;n</th>
-                        <th rowspan="2" class="text-center">Fecha Vencimiento</th>
-                        <th rowspan="2" class="text-center">Fecha de Calculo</th>
-                        <th colspan="12" class="text-center">VALORES DECLARADOS</th>
-                        <th colspan="12" class="text-center">VALORES ENCONTRADOS</th>    
-                        <th colspan="6" class="text-center">TRIBUTOS OMITIDOS</th>   
-                        <th colspan="6" class="text-center">TRIBUTOS OMITIDOS UFV</th>
-                        <th rowspan="2" class="text-center">UFV FECHA VENCIMIENTO</th>
-                        <th rowspan="2" class="text-center">D&iacute;as</th>
-                        <th rowspan="2" class="text-center">UFV FECHA DE CALCULO</th>  
-                        <th colspan="5" class="text-center">TRIBUTOS OMITIDOS + INTERESES</th>
-                        <th rowspan="2" class="text-center">ADEUDO TOTAL UFV</th>
-                        <th rowspan="2" class="text-center">ADEUDO TOTAL BS</th>
-                        <th rowspan="2" class="text-center">&nbsp;</th>
-                        <th rowspan="2" class="text-center">&nbsp;</th>
-                    </tr>
-                    <tr>
-                        <th class="text-center">FOB USD</th>
-                        <th class="text-center">FLETE USD</th>
-                        <th class="text-center">SEGURO USD</th>
-                        <th class="text-center">OTROS USD</th>
-                        <th class="text-center">VALOR CIF USD</th>
-                        <th class="text-center">T/C</th>
-                        <th class="text-center">VALOR CIF Bs</th>
-                        <th class="text-center">GA</th>
-                        <th class="text-center">IVA</th>
-                        <th class="text-center">ICE</th>
-                        <th class="text-center">IEHD</th>
-                        <th class="text-center">ICD</th>
-                        
-                        <th class="text-center">FOB USD</th>
-                        <th class="text-center">FLETE USD</th>
-                        <th class="text-center">SEGURO USD</th>
-                        <th class="text-center">OTROS USD</th>
-                        <th class="text-center">VALOR CIF USD</th>
-                        <th class="text-center">T/C</th>
-                        <th class="text-center">VALOR CIF Bs</th>
-                        <th class="text-center">GA</th>
-                        <th class="text-center">IVA</th>
-                        <th class="text-center">ICE</th>
-                        <th class="text-center">IEHD</th>
-                        <th class="text-center">ICD</th>
-                        
-                        <th class="text-center">GA Bs</th>
-                        <th class="text-center">IVA Bs</th>
-                        <th class="text-center">ICE Bs</th>
-                        <th class="text-center">IEHD Bs</th>
-                        <th class="text-center">ICD Bs</th>
-                        <th class="text-center">TOTAL Bs</th>
-                        
-                        <th class="text-center">GA UFV</th>
-                        <th class="text-center">IVA UFV</th>
-                        <th class="text-center">ICE UFV</th>
-                        <th class="text-center">IEHD UFV</th>
-                        <th class="text-center">ICD UFV</th>
-                        <th class="text-center">TOTAL UFV</th>
-                                                
-                        
-                        <th class="text-center">GA UFV</th>
-                        <th class="text-center">IVA UFV</th>
-                        <th class="text-center">ICE UFV</th>
-                        <th class="text-center">IEHD UFV</th>
-                        <th class="text-center">ICD UFV</th>
-                        
-                    </tr>
-                    --%>
+                <thead>                   
                     <tr>
                         <th class="text-center">N&uacute;mero</th>
                         <th class="text-center">Item</th>
@@ -185,8 +112,6 @@
                         <th class="text-center">Fecha Validaci&oacute;n</th>
                         <th class="text-center">Fecha Vencimiento</th>
                         <th class="text-center">Fecha de Calculo</th>
-                        
-                        
                         
                         <th class="text-center">FOB USD DECLARADO</th>
                         <th class="text-center">FLETE USD DECLARADO</th>
