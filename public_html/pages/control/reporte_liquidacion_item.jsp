@@ -143,6 +143,15 @@
                                     ${rep.dui_fecha}
                                 </td>
                                 <td class="text-center">
+                                    ${rep.dui_item}
+                                </td>
+                                <td class="text-center">
+                                    ${rep.dui_partida}
+                                </td>
+                                <td class="text-center">
+                                    ${rep.dui_descripcion}
+                                </td>                                
+                                <td class="text-center">
                                     ${rep.dui_patron}
                                 </td>
                                 <td class="text-center">
