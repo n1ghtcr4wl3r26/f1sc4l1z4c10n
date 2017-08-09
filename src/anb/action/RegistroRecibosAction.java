@@ -10,9 +10,7 @@ import anb.entidades.Tramite;
 
 import anb.general.Respuesta;
 
-import anb.negocio.RegistroRecibosNeg;
 import anb.negocio.GeneralNeg;
-
 import anb.negocio.RegistroRecibosNeg;
 
 import java.util.List;
@@ -136,6 +134,7 @@ public class RegistroRecibosAction extends MappingDispatchAction {
                 bean.setFcontrol((String)request.getSession().getAttribute("scontrol"));
                 bean.setFnumero((String)request.getSession().getAttribute("snumero"));
             }
+            bean.setOpcion("");
             return mapping.findForward(link);
         }
     }
@@ -188,6 +187,7 @@ public class RegistroRecibosAction extends MappingDispatchAction {
                 
             }
             Respuesta<Recibo[]> daco = neg.recibos(bean);
+            bean.setOpcion("");
             request.setAttribute("recibos", daco.getResultado());
             return mapping.findForward(link);
         }

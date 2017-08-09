@@ -366,6 +366,20 @@ public class ReporteAction extends MappingDispatchAction {
                     request.setAttribute("reporte_seguimiento_orden", ben.getResultado());
                     link = "ok";
                 } else {
+                    String geren = (String)request.getSession().getAttribute("user.codger");
+                    bean.setUsuarioger(geren);
+                    if (geren.equals("15")) {
+                        if (bean.getFgerencia() == null) {
+                            Respuesta<List<Gerencia>> ger = gen.obtenerGerencias("Todo");
+                            request.setAttribute("gerencias", ger.getResultado());
+                        } else {
+                            Respuesta<List<Gerencia>> ger = gen.obtenerGerencias("Todo");
+                            request.setAttribute("gerencias", ger.getResultado());
+                        }
+                    } else {
+                        Respuesta<List<Gerencia>> ger = gen.obtenerGerencias(geren);
+                        request.setAttribute("gerencias", ger.getResultado());
+                    }
                     if (ben.getCodigo() == 0) {
                         request.setAttribute("WARNING", ben.getMensaje());
                     } else {
@@ -428,6 +442,20 @@ public class ReporteAction extends MappingDispatchAction {
                     request.setAttribute("reporte_seguimiento_dui", ben.getResultado());
                     link = "ok";
                 } else {
+                    String geren = (String)request.getSession().getAttribute("user.codger");
+                    bean.setUsuarioger(geren);
+                    if (geren.equals("15")) {
+                        if (bean.getFgerencia() == null) {
+                            Respuesta<List<Gerencia>> ger = gen.obtenerGerencias("Todo");
+                            request.setAttribute("gerencias", ger.getResultado());
+                        } else {
+                            Respuesta<List<Gerencia>> ger = gen.obtenerGerencias("Todo");
+                            request.setAttribute("gerencias", ger.getResultado());
+                        }
+                    } else {
+                        Respuesta<List<Gerencia>> ger = gen.obtenerGerencias(geren);
+                        request.setAttribute("gerencias", ger.getResultado());
+                    }
                     if (ben.getCodigo() == 0) {
                         request.setAttribute("WARNING", ben.getMensaje());
                     } else {
@@ -491,6 +519,20 @@ public class ReporteAction extends MappingDispatchAction {
                     request.setAttribute("reporte_seguimiento_item", ben.getResultado());
                     link = "ok";
                 } else {
+                    String geren = (String)request.getSession().getAttribute("user.codger");
+                    bean.setUsuarioger(geren);
+                    if (geren.equals("15")) {
+                        if (bean.getFgerencia() == null) {
+                            Respuesta<List<Gerencia>> ger = gen.obtenerGerencias("Todo");
+                            request.setAttribute("gerencias", ger.getResultado());
+                        } else {
+                            Respuesta<List<Gerencia>> ger = gen.obtenerGerencias("Todo");
+                            request.setAttribute("gerencias", ger.getResultado());
+                        }
+                    } else {
+                        Respuesta<List<Gerencia>> ger = gen.obtenerGerencias(geren);
+                        request.setAttribute("gerencias", ger.getResultado());
+                    }
                     if (ben.getCodigo() == 0) {
                         request.setAttribute("WARNING", ben.getMensaje());
                     } else {
@@ -553,6 +595,20 @@ public class ReporteAction extends MappingDispatchAction {
                     request.setAttribute("reporte_liquidacion_dui", ben.getResultado());
                     link = "ok";
                 } else {
+                    String geren = (String)request.getSession().getAttribute("user.codger");
+                    bean.setUsuarioger(geren);
+                    if (geren.equals("15")) {
+                        if (bean.getFgerencia() == null) {
+                            Respuesta<List<Gerencia>> ger = gen.obtenerGerencias("Todo");
+                            request.setAttribute("gerencias", ger.getResultado());
+                        } else {
+                            Respuesta<List<Gerencia>> ger = gen.obtenerGerencias("Todo");
+                            request.setAttribute("gerencias", ger.getResultado());
+                        }
+                    } else {
+                        Respuesta<List<Gerencia>> ger = gen.obtenerGerencias(geren);
+                        request.setAttribute("gerencias", ger.getResultado());
+                    }
                     if (ben.getCodigo() == 0) {
                         request.setAttribute("WARNING", ben.getMensaje());
                     } else {
@@ -616,6 +672,20 @@ public class ReporteAction extends MappingDispatchAction {
                     request.setAttribute("reporte_liquidacion_item", ben.getResultado());
                     link = "ok";
                 } else {
+                    String geren = (String)request.getSession().getAttribute("user.codger");
+                    bean.setUsuarioger(geren);
+                    if (geren.equals("15")) {
+                        if (bean.getFgerencia() == null) {
+                            Respuesta<List<Gerencia>> ger = gen.obtenerGerencias("Todo");
+                            request.setAttribute("gerencias", ger.getResultado());
+                        } else {
+                            Respuesta<List<Gerencia>> ger = gen.obtenerGerencias("Todo");
+                            request.setAttribute("gerencias", ger.getResultado());
+                        }
+                    } else {
+                        Respuesta<List<Gerencia>> ger = gen.obtenerGerencias(geren);
+                        request.setAttribute("gerencias", ger.getResultado());
+                    }
                     if (ben.getCodigo() == 0) {
                         request.setAttribute("WARNING", ben.getMensaje());
                     } else {
@@ -679,6 +749,20 @@ public class ReporteAction extends MappingDispatchAction {
                     request.setAttribute("reporte_recuperacion_dui", ben.getResultado());
                     link = "ok";
                 } else {
+                    String geren = (String)request.getSession().getAttribute("user.codger");
+                    bean.setUsuarioger(geren);
+                    if (geren.equals("15")) {
+                        if (bean.getFgerencia() == null) {
+                            Respuesta<List<Gerencia>> ger = gen.obtenerGerencias("Todo");
+                            request.setAttribute("gerencias", ger.getResultado());
+                        } else {
+                            Respuesta<List<Gerencia>> ger = gen.obtenerGerencias("Todo");
+                            request.setAttribute("gerencias", ger.getResultado());
+                        }
+                    } else {
+                        Respuesta<List<Gerencia>> ger = gen.obtenerGerencias(geren);
+                        request.setAttribute("gerencias", ger.getResultado());
+                    }
                     if (ben.getCodigo() == 0) {
                         request.setAttribute("WARNING", ben.getMensaje());
                     } else {

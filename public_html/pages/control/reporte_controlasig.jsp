@@ -48,16 +48,16 @@
                             <td class="text-left">
                                 ${esc.gerencia}
                             </td>
-                            <td class="text-center">
+                            <td class="text-right">
                                 ${esc.cantAsigFAP}
                             </td>
-                            <td class="text-center">
+                            <td class="text-right">
                                 ${esc.cantConFAP}
                             </td>
-                            <td class="text-center">
+                            <td class="text-right">
                                 ${esc.cantAsigCD}
                             </td>
-                            <td class="text-center">
+                            <td class="text-right">
                                 ${esc.cantConCD}
                             </td>                            
                         </tr>

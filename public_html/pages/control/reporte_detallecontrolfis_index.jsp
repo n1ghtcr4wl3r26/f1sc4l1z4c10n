@@ -41,9 +41,10 @@
                     <html:select property="festado" styleClass="form-control required">
                         <html:option value="-">Seleccione...</html:option>
                         <html:option value="%">TODOS</html:option>
-                        <html:option value="ASIGNADO">ASIGNADO</html:option>
-                        <html:option value="NOTIFICADO">NOTIFICADO</html:option>
+                        <html:option value="ASIGNACION">ASIGNACION</html:option>
+                        <html:option value="NOTIFICACION">NOTIFICACION</html:option>
                         <html:option value="CONCLUIDO">CONCLUIDO</html:option>
+                        <html:option value="REMITIDO">REMITIDO A JUR&Iacute;DICA</html:option>
                     </html:select>
                 </div>
             </div>

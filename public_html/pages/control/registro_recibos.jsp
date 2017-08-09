@@ -69,17 +69,13 @@
                 <div class="col-sm-3">
                     <html:select property="ruptipo" styleId="ruptipo" styleClass="form-control required">
                         <html:option value="-">Seleccione...</html:option>
-                        <html:option value="SANCION POR OMISION DE PAGO">Sanci&oacute;n por Omisi&oacute;n de Pago</html:option>
-                        <html:option value="MULTA POR CONTRABANDO CONTRAVENCIONAL">Multa por Contrabando Contravencional</html:option>
-                        <html:option value="MULTA POR CONTRAVENCION ADUANERA RELACIONADA A LA DECLARACION">Multa por
+                        <html:option value="OP">Sanci&oacute;n por Omisi&oacute;n de Pago</html:option>
+                        <html:option value="CA DUI">Multa por
                                                                                                            Contravenci&oacute;n
                                                                                                            Aduanera
                                                                                                            relacionada a
                                                                                                            la Declaraci&oacute;n</html:option>
-                        <html:option value="MULTA POR CONTRAVENCION ADUANERA RELACIONADA A LA ORDEN DE CONTROL POSTERIOR">Multa
-                                                                                                                          por
-                                                                                                                          Contravenci&oacute;n
-                                                                                                                          Aduanera
+                        <html:option value="CAO">Multa por Contravenci&oacute;n Aduanera
                                                                                                                           relacionada
                                                                                                                           a
                                                                                                                           la
@@ -87,10 +83,11 @@
                                                                                                                           de
                                                                                                                           Control
                                                                                                                           Posterior</html:option>
-                        <html:option value="MULTA POR CONTRABANDO DELITO">Multa por Contrabando Delito</html:option>
-                        <html:option value="MULTA POR DEFRAUDACION">Multa por Defraudaci&oacute;n</html:option>
-                        <html:option value="CUOTA INICIAL - FACILIDADES DE PAGO">Cuota Inicial - Facilidades de Pago</html:option>
-                        <html:option value="GARANTÍA EN EFECTIVO - FACILIDADES DE PAGO">Garant&iacute;a en efectivo -
+                        <html:option value="CC">Multa por Contrabando Contravencional</html:option>
+                        <html:option value="CD">Multa por Contrabando Delito</html:option>
+                        <html:option value="DF">Multa por Defraudaci&oacute;n</html:option>
+                        <html:option value="CI FP">Cuota Inicial - Facilidades de Pago</html:option>
+                        <html:option value="GE FP">Garant&iacute;a en efectivo -
                                                                                         Facilidades de Pago</html:option>
                     </html:select>
                 </div>
@@ -117,9 +114,9 @@
             </div>
             <br/>
             <br/>
-            <h4>
-                <strong>LISTA DEL RECIBOS REGISTRADOS</strong>
-            </h4>
+            <div class="panel-title imp">
+                <strong>LISTA DE RECIBOS REGISTRADOS</strong>
+            </div>
             <table class="table table-striped table-hover" id="main-table">
                 <thead>
                     <tr>

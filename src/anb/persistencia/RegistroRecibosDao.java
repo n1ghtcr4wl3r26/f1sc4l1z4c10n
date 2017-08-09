@@ -1,12 +1,10 @@
 package anb.persistencia;
 
-import anb.bean.AlcanceForm;
+
 import anb.bean.RegistroRecibosForm;
 
 import anb.entidades.Aduana;
-
 import anb.entidades.Recibo;
-import anb.entidades.Tramite;
 
 import anb.general.Conexion;
 
@@ -19,6 +17,7 @@ import java.util.List;
 import javax.naming.NamingException;
 
 import oracle.jdbc.OracleTypes;
+
 
 public class RegistroRecibosDao extends Conexion {
     public RegistroRecibosDao() {
@@ -103,7 +102,7 @@ public class RegistroRecibosDao extends Conexion {
             open();
             call = cn.prepareCall("{ ? = call pkg_memorizacion.borra_recibo ( ?,?)}");
             call.registerOutParameter(1, OracleTypes.VARCHAR);
-            call.setString(2, bean.getCodigo());
+            call.setString(2, bean.getBorrarid());
             call.setString(3, bean.getUsuario());          
             call.execute();
             res = (String)call.getObject(1);

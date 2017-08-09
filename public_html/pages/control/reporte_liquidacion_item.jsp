@@ -91,6 +91,7 @@
                             <th class="text-center">TRIBUTO OMITIDO IVA BS</th>
                             <th class="text-center">TRIBUTO OMITIDO ICE BS</th>
                             <th class="text-center">TRIBUTO OMITIDO IEHD BS</th>
+                            <th class="text-center">TRIBUTO OMITIDO ICD BS</th>
                             <th class="text-center">TRIBUTOS OMITIDO TOTAL BS</th>
                             <th class="text-center">TOTAL ADEUDO DETERMINADO - DEUDA TRIBUTARIA</th>
                             <th class="text-center">TOTAL ADEUDO DETERMINADO - SANCI&Oacute;N OMISI&Oacute;N BS</th>
@@ -253,6 +254,9 @@
                                     ${rep.to_iehd}
                                 </td>
                                 <td class="text-right">
+                                    ${rep.to_icd}
+                                </td>
+                                <td class="text-right">
                                     ${rep.to_total}
                                 </td>
                                 <td class="text-right">
@@ -262,16 +266,16 @@
                                     ${rep.adeudo_det_sancion}
                                 </td>
                                 <td class="text-right">
-                                    ${rep.adeudo_det_multa_contrav_dui}
+                                    ${rep.adeudo_det_multa_contrav_dui} 
                                 </td>
                                 <td class="text-right">
-                                    ${rep.adeudo_det_multa_contrav_orden}
+                                    ${rep.adeudo_det_multa_contrav_orden} 
                                 </td>
                                 <td class="text-right">
-                                    ${rep.adeudo_det_multa_contrab_contrav}
+                                    ${rep.adeudo_det_multa_contrab_contrav} 
                                 </td>
                                 <td class="text-right">
-                                    ${rep.adeudo_det_multa_contrab_delito}
+                                    ${rep.adeudo_det_multa_contrab_delito} 
                                 </td>
                                 <td class="text-right">
                                     ${rep.adeudo_det_multa_otros}

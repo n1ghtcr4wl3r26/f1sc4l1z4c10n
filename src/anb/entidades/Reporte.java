@@ -82,6 +82,7 @@ public class Reporte {
     private String  to_iva;
     private String  to_ice;
     private String  to_iehd;
+    private String  to_icd;
     private String  to_total;
     private String  adeudo_det_trib_total;
     private String  adeudo_det_sancion;
@@ -109,8 +110,10 @@ public class Reporte {
     private String  recuperado_trib_total;
     private String  recuperado_sancion;
     private String  recuperado_multa_contrav;
+    private String  recuperado_multa_contravorden;
     private String  recuperado_multa_contrab;
     private String  recuperado_multa_contrab_delito;
+    private String  recuperado_multa_defraudacion;
     private String  recuperado_total_recuperado;
     private String  facilidades_cuota_inicial;
     private String  facilidades_garantia;
@@ -1027,5 +1030,37 @@ public class Reporte {
 
     public String getSecuencia() {
         return secuencia;
+    }
+
+    public void setSequencia(String sequencia) {
+        this.sequencia = sequencia;
+    }
+
+    public String getSequencia() {
+        return sequencia;
+    }
+
+    public void setTo_icd(String to_icd) {
+        this.to_icd = to_icd;
+    }
+
+    public String getTo_icd() {
+        return to_icd;
+    }
+
+    public void setRecuperado_multa_contravorden(String recuperado_multa_contravorden) {
+        this.recuperado_multa_contravorden = recuperado_multa_contravorden;
+    }
+
+    public String getRecuperado_multa_contravorden() {
+        return recuperado_multa_contravorden;
+    }
+
+    public void setRecuperado_multa_defraudacion(String recuperado_multa_defraudacion) {
+        this.recuperado_multa_defraudacion = recuperado_multa_defraudacion;
+    }
+
+    public String getRecuperado_multa_defraudacion() {
+        return recuperado_multa_defraudacion;
     }
 }

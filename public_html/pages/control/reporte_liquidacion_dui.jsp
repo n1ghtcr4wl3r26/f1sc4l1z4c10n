@@ -88,6 +88,7 @@
                             <th class="text-center">TRIBUTO OMITIDO IVA BS</th>
                             <th class="text-center">TRIBUTO OMITIDO ICE BS</th>
                             <th class="text-center">TRIBUTO OMITIDO IEHD BS</th>
+                            <th class="text-center">TRIBUTO OMITIDO ICD BS</th>
                             <th class="text-center">TRIBUTOS OMITIDO TOTAL BS</th>
                             <th class="text-center">TOTAL ADEUDO DETERMINADO - DEUDA TRIBUTARIA</th>
                             <th class="text-center">TOTAL ADEUDO DETERMINADO - SANCI&Oacute;N OMISI&Oacute;N BS</th>
@@ -128,52 +129,7 @@
                                 </td>
                                 <td class="text-center">
                                     ${rep.orden_fecha}
-                                </td>
-                                <td class="text-center">
-                                    ${rep.orden_origen}
-                                </td>
-                                <td class="text-center">
-                                    ${rep.operador_numero_doc}
-                                </td>
-                                <td class="text-center">
-                                    ${rep.operador_nombre}
-                                </td>
-                                <td class="text-center">
-                                    ${rep.fiscalizador_asignado}
-                                </td>
-                                <td class="text-center">
-                                    ${rep.fiscalizador_nuevo}
-                                </td>
-                                <td class="text-center">
-                                    ${rep.supervisor_asignado}
-                                </td>
-                                <td class="text-center">
-                                    ${rep.supervisor_nuevo}
-                                </td>
-                                <td class="text-center">
-                                    ${rep.orden_ampliatoria_codigo}
-                                </td>
-                                <td class="text-center">
-                                    ${rep.orden_ampliatoria_fecha}
-                                </td>
-                                <td class="text-center">
-                                    ${rep.orden_ampliatoria_ope_num}
-                                </td>
-                                <td class="text-center">
-                                    ${rep.orden_ampliatoria_ope_nom}
-                                </td>
-                                <td class="text-center">
-                                    ${rep.notificacion_fecha}
-                                </td>
-                                <td class="text-center">
-                                    ${rep.notificacion_observacion}
-                                </td>
-                                <td class="text-center">
-                                    ${rep.notificacion_tipo}
-                                </td>
-                                <td class="text-center">
-                                    ${rep.notificacion_usuario}
-                                </td>
+                                </td>                               
                                 <td class="text-center">
                                     ${rep.dui_aduana}
                                 </td>
@@ -293,6 +249,9 @@
                                 </td>
                                 <td class="text-right">
                                     ${rep.to_iehd}
+                                </td>
+                                <td class="text-right">
+                                    ${rep.to_icd}
                                 </td>
                                 <td class="text-right">
                                     ${rep.to_total}

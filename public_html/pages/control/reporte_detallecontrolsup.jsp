@@ -64,7 +64,7 @@
                             <td class="text-center">
                                 ${esc.fechaAsignacion}
                             </td>
-                            <td class="text-center">
+                            <td class="text-right">
                                 ${esc.cantTramites}
                             </td>    
                             <td class="text-center">

@@ -41,54 +41,65 @@
                 <table class="table table-striped table-hover" id="main-table">
                     <thead>
                         <tr>
-                            <th class="text-center">N&Uacute;MERO</th>
+                           <th class="text-center">N&Uacute;MERO</th>
                             <th class="text-center">GESTI&Oacute;N</th>
                             <th class="text-center">TIPO DE CONTROL</th>
                             <th class="text-center">GERENCIA</th>
                             <th class="text-center">NUMERO CORRELATIVO POR GESTI&Oacute;N</th>
                             <th class="text-center">N&Uacute;MERO DE CONTROL POSTERIOR</th>
                             <th class="text-center">FECHA DE LA ORDEN DE CONTROL</th>
-                            <th class="text-center">DECLARACI&Oacute;N C&Oacute;DIGO DE ADUANA</th>
-                            <th class="text-center">DECLARACI&Oacute;N N&Uacute;MERO DECLARACI&Oacute;N</th>
-                            <th class="text-center">DECLARACI&Oacute;N FECHA DE REGISTRO</th>
-                            <th class="text-center">DECLARACI&Oacute;N PATR&Oacute;N</th>
-                            <th class="text-center">DECLARACI&Oacute;N CANAL</th>
-                            <th class="text-center">DECLARACI&Oacute;N FECHA DEL PASE SALIDA</th>
-                            <th class="text-center">DECLARACI&Oacute;N NIT IMPORTADOR</th>
-                            <th class="text-center">DECLARACI&Oacute;N NOMBRE IMPORTADOR</th>
-                            <th class="text-center">DECLARACI&Oacute;N NIT DECLARANTE</th>
-                            <th class="text-center">DECLARACI&Oacute;N NOMBRE DECLARANTE</th>
-                            <th class="text-center">DECLARACI&Oacute;N DIRECCI&Oacute;N PROVEEDOR</th>
-                            <th class="text-center">DECLARACI&Oacute;N NOMBRE PROVEEDOR</th>
-                            <th class="text-center">DECLARACI&Oacute;N LOCALIZACI&Oacute;N MERCANC&Iacute;A</th>
-                            <th class="text-center">DECLARACI&Oacute;N PA&Iacute;S DE ORIGEN</th>
-                            <th class="text-center">DECLARACI&Oacute;N PA&Iacute;S ULTIMA PROCEDENCIA</th>
-                            <th class="text-center">DECLARACI&Oacute;N PUERTO PA&Iacute;S DE EMBARQUE</th>
-                            <th class="text-center">DECLARACI&Oacute;N TOTAL PESO BRUTO</th>
-                            <th class="text-center">DECLARACI&Oacute;N TOTAL PESO NETO</th>
-                            <th class="text-center">DECLARACI&Oacute;N TOTAL VALOR FOB DECLARADO SUS</th>
-                            <th class="text-center">DECLARACI&Oacute;N FLETE DECLARADO SUS</th>
-                            <th class="text-center">DECLARACI&Oacute;N SEGURO DECLARADO SUS</th>
-                            <th class="text-center">DECLARACI&Oacute;N OTROS GASTOS DECLARADOS SUS</th>
-                            <th class="text-center">DECLARACI&Oacute;N VALOR CIF DECLARADO SUS</th>
-                            <th class="text-center">DECLARACI&Oacute;N VALOR CIF DECLARADO EN BS</th>
-                            <th class="text-center">DECLARACI&Oacute;N TOTAL GA DECLARADO BS</th>
-                            <th class="text-center">DECLARACI&Oacute;N TOTAL IVA DECLARADO BS</th>
-                            <th class="text-center">DECLARACI&Oacute;N TOTAL ICE DECLARADO BS</th>
-                            <th class="text-center">DECLARACI&Oacute;N TOTAL IEHD DECLARADO BS</th>
-                            <th class="text-center">DECLARACI&Oacute;N TOTAL ICD DECLARADO BS</th>
-                            <th class="text-center">DECLARACI&Oacute;N TOTAL TRIBUTOS DECLARADOS BS</th>
+                            <th class="text-center">ORIGEN DEL CONTROL POSTERIOR</th>
+                            <th class="text-center">N&ordm; DE NIT / CI IMPORTADOR</th>
+                            <th class="text-center">NOMBRE IMPORTADOR</th>
+                            <th class="text-center">FISCALIZADOR</th>
+                            <th class="text-center">NUEVO FISCALIZADOR</th>
+                            <th class="text-center">SUPERVISOR</th>
+                            <th class="text-center">NUEVO SUPERVISOR</th>
+                            <th class="text-center">FECHA DE NOTIFICACI&Oacute;N ORDEN DE CONTROL</th>
+                            <th class="text-center">OBSERVACI&Oacute;N DE LA NOTIFICACI&Oacute;N</th>
+                            <th class="text-center">TIPO NOTIFICACI&Oacute;N</th>
+                            <th class="text-center">USUARIO QUE REALIZO LA NOTIFICACI&Oacute;N</th>
+                            <th class="text-center">RESULTADOS DEL CONTROL - N&Uacute;MERO DE INFORME T&Eacute;CNICO</th>
+                            <th class="text-center">RESULTADOS DEL CONTROL - FECHA DE INFORME T&Eacute;CNICO</th>
+                            <th class="text-center">RESULTADOS DEL CONTROL - GERENCIA - UNIDAD LEGAL</th>
+                            <th class="text-center">RESULTADOS DEL CONTROL - TIPO DE DOCUMENTO DE CONCLUSI&Oacute;N</th>
+                            <th class="text-center">RESULTADOS DEL CONTROL - N&Uacute;MERO DE DOCUMENTO DE CONCLUSI&Oacute;N</th>
+                            <th class="text-center">RESULTADOS DEL CONTROL - FECHA DE DOCUMENTO DE CONCLUSI&Oacute;N</th>
+                            <th class="text-center">RESULTADOS DEL CONTROL - USUARIO QUE REGISTRO LOS RESULTADOS</th>
+                            <th class="text-center">RESULTADOS DEL CONTROL - FECHA DE NOTIFICACI&Oacute;N</th>
+                            <th class="text-center">RESULTADOS DEL CONTROL - TIPO DE NOTIFICACI&Oacute;N</th>
+                            <th class="text-center">RESULTADOS DEL CONTROL - USUARIO QUE REGISTRO LA NOTIFICACI&Oacute;N</th>
+                            <th class="text-center">RESULTADOS DEL CONTROL - FECHA COMUNICACI&Oacute;N INTERNA DE
+                                                    REMISI&Oacute;N</th>
+                            <th class="text-center">RESULTADOS DEL CONTROL - N&Uacute;MERO DE COMUNICACI&Oacute;N
+                                                    INTERNA DE REMISI&Oacute;N</th>
+                            <th class="text-center">FINALIZACI&Oacute;N DEL CONTROL - USUARIO QUE REALIZO LA
+                                                    REMISI&Oacute;N A LA UNIDAD LEGAL</th>
+                            <th class="text-center">FINALIZACI&Oacute;N DEL CONTROL - FECHA DE FINALIZACI&Oacute;N DEL
+                                                    CONTROL</th>
+                            <th class="text-center">FINALIZACI&Oacute;N DEL CONTROL - USUARIO QUE REGISTRO LA
+                                                    FINALIZACI&Oacute;N</th>
                             <th class="text-center">ESTADO DEL CONTROL</th>
+                            <th class="text-center">TIPO DE IL&Iacute;CITO - OMISI&Oacute;N DE PAGO</th>
+                            <th class="text-center">TIPO DE IL&Iacute;CITO - CONTRAVENCI&Oacute;N ADUANERA</th>
+                            <th class="text-center">TIPO DE IL&Iacute;CITO - CONTRABANDO CONTRAVENCIONAL</th>
+                            <th class="text-center">TIPO DE IL&Iacute;CITO - CONTRABANDO DELITO</th>
+                            <th class="text-center">TIPO DE IL&Iacute;CITO - DEFRAUDACI&Oacute;N ADUANERA</th>
+                            <th class="text-center">TIPO DE IL&Iacute;CITO - OTROS</th>
+                            <th class="text-center">FECHA CONCLUSI&Oacute;N ESTIMADA</th>
                             <th class="text-center">TOTAL RECUPERADO - TRIBUTO PAGADO GA BS</th>
                             <th class="text-center">TOTAL RECUPERADO - TRIBUTO PAGADO IVA BS</th>
                             <th class="text-center">TOTAL RECUPERADO - TRIBUTO PAGADO ICE BS</th>
                             <th class="text-center">TOTAL RECUPERADO - TRIBUTO PAGADO IEHD BS</th>
                             <th class="text-center">TOTAL RECUPERADO - ICD PAGADO BS</th>
                             <th class="text-center">TOTAL RECUPERADO - TOTAL TRIBUTO PAGADO BS</th>
+                            
                             <th class="text-center">TOTAL RECUPERADO - SANCI&Oacute;N OMISI&Oacute;N BS</th>
-                            <th class="text-center">TOTAL RECUPERADO - MULTA CONTRAVENCI&Oacute;N ADUANERA BS</th>
+                            <th class="text-center">TOTAL RECUPERADO - MULTA POR CONTRAVENCI&OACUTE;N ADUANERA RELACIONADA A LA DECLARACI&OACUTE;N BS</th>
+                            <th class="text-center">TOTAL RECUPERADO - MULTA POR CONTRAVENCI&OACUTE;N ADUANERA RELACIONADA A LA ORDEN DE CONTROL POSTERIOR BS</th>
                             <th class="text-center">TOTAL RECUPERADO - MULTA CONTRABANDO CONTRAVENCIONAL</th>
                             <th class="text-center">TOTAL RECUPERADO - MULTA CONTRABANDO DELITO</th>
+                            <th class="text-center">TOTAL RECUPERADO - MULTA POR DEFRAUDACI&OACUTE;N</th>
                             <th class="text-center">TOTAL RECUPERADO - TOTAL RECUPERADO</th>
                             <th class="text-center">FACILIDADES DE PAGO - CUOTA INICIAL BS</th>
                             <th class="text-center">FACILIDADES DE PAGO - GARANT&Iacute;A EN EFECTIVO BS</th>
@@ -123,97 +134,106 @@
                                     ${rep.orden_fecha}
                                 </td>
                                 <td class="text-center">
-                                    ${rep.dui_aduana}
+                                    ${rep.orden_origen}
                                 </td>
                                 <td class="text-center">
-                                    ${rep.dui_codigo}
+                                    ${rep.operador_numero_doc}
                                 </td>
                                 <td class="text-center">
-                                    ${rep.dui_fecha}
+                                    ${rep.operador_nombre}
                                 </td>
                                 <td class="text-center">
-                                    ${rep.dui_patron}
+                                    ${rep.fiscalizador_asignado}
                                 </td>
                                 <td class="text-center">
-                                    ${rep.dui_canal}
+                                    ${rep.fiscalizador_nuevo}
                                 </td>
                                 <td class="text-center">
-                                    ${rep.dui_fecha_pase}
+                                    ${rep.supervisor_asignado}
                                 </td>
                                 <td class="text-center">
-                                    ${rep.dui_importador_numero}
+                                    ${rep.supervisor_nuevo}
                                 </td>
                                 <td class="text-center">
-                                    ${rep.dui_importador_nombre}
+                                    ${rep.notificacion_fecha}
                                 </td>
                                 <td class="text-center">
-                                    ${rep.dui_declarante_numero}
+                                    ${rep.notificacion_observacion}
                                 </td>
                                 <td class="text-center">
-                                    ${rep.dui_declarante_nombre}
+                                    ${rep.notificacion_tipo}
                                 </td>
                                 <td class="text-center">
-                                    ${rep.dui_proveedor_direccion}
+                                    ${rep.notificacion_usuario}
                                 </td>
                                 <td class="text-center">
-                                    ${rep.dui_proveedor_nombre}
+                                    ${rep.res_informe_numero}
                                 </td>
                                 <td class="text-center">
-                                    ${rep.dui_localizacion}
+                                    ${rep.res_informe_fecha}
                                 </td>
                                 <td class="text-center">
-                                    ${rep.dui_origen}
+                                    ${rep.res_gerencia_ulegal}
                                 </td>
                                 <td class="text-center">
-                                    ${rep.dui_procedencia_pais}
+                                    ${rep.res_documento_tipo}
                                 </td>
                                 <td class="text-center">
-                                    ${rep.dui_embarque_pais}
+                                    ${rep.res_documento_numero}
                                 </td>
-                                <td class="text-right">
-                                    ${rep.dui_peso_bruto}
+                                <td class="text-center">
+                                    ${rep.res_documento_fecha}
                                 </td>
-                                <td class="text-right">
-                                    ${rep.dui_peso_neto}
+                                <td class="text-center">
+                                    ${rep.res_documento_usuario}
                                 </td>
-                                <td class="text-right">
-                                    ${rep.dui_declarado_fob}
+                                <td class="text-center">
+                                    ${rep.res_notificacion_fecha}
                                 </td>
-                                <td class="text-right">
-                                    ${rep.dui_declarado_flete}
+                                <td class="text-center">
+                                    ${rep.res_notificacion_tipo}
                                 </td>
-                                <td class="text-right">
-                                    ${rep.dui_declarado_seguro}
+                                <td class="text-center">
+                                    ${rep.res_notificacion_usuario}
                                 </td>
-                                <td class="text-right">
-                                    ${rep.dui_declarado_otros}
+                                <td class="text-center">
+                                    ${rep.res_ci_remision_fecha}
                                 </td>
-                                <td class="text-right">
-                                    ${rep.dui_declarado_cif_sus}
+                                <td class="text-center">
+                                    ${rep.res_ci_remision_numero}
                                 </td>
-                                <td class="text-right">
-                                    ${rep.dui_declarado_cif_bs}
+                                <td class="text-center">
+                                    ${rep.res_ci_remision_usuario}
                                 </td>
-                                <td class="text-right">
-                                    ${rep.dui_declarado_ga_bs}
+                                <td class="text-center">
+                                    ${rep.res_finalizacion_fecha}
                                 </td>
-                                <td class="text-right">
-                                    ${rep.dui_declarado_iva_bs}
-                                </td>
-                                <td class="text-right">
-                                    ${rep.dui_declarado_ice_bs}
-                                </td>
-                                <td class="text-right">
-                                    ${rep.dui_declarado_iehd_bs}
-                                </td>
-                                <td class="text-right">
-                                    ${rep.dui_declarado_icd_bs}
-                                </td>
-                                <td class="text-right">
-                                    ${rep.dui_declarado_tributos_bs}
+                                <td class="text-center">
+                                    ${rep.res_finalizacion_usuario}
                                 </td>
                                 <td class="text-center">
                                     ${rep.orden_estado}
+                                </td>
+                                <td class="text-center">
+                                    ${rep.ilicito_omision_pago}
+                                </td>
+                                <td class="text-center">
+                                    ${rep.ilicito_contravencion_aduanera}
+                                </td>
+                                <td class="text-center">
+                                    ${rep.ilicito_contrabando_contrav}
+                                </td>
+                                <td class="text-center">
+                                    ${rep.ilicito_contrabando_delito}
+                                </td>
+                                <td class="text-center">
+                                    ${rep.ilicito_defraudacion}
+                                </td>
+                                <td class="text-center">
+                                    ${rep.ilicito_otros}
+                                </td>
+                                <td class="text-center">
+                                    ${rep.orden_conclusion_fecha_est}
                                 </td>
                                 <td class="text-right">
                                     ${rep.recuperado_trib_ga}
@@ -240,10 +260,16 @@
                                     ${rep.recuperado_multa_contrav}
                                 </td>
                                 <td class="text-right">
+                                    ${rep.recuperado_multa_contravorden}
+                                </td>
+                                <td class="text-right">
                                     ${rep.recuperado_multa_contrab}
                                 </td>
                                 <td class="text-right">
                                     ${rep.recuperado_multa_contrab_delito}
+                                </td>
+                                <td class="text-right">
+                                    ${rep.recuperado_multa_defraudacion}
                                 </td>
                                 <td class="text-right">
                                     ${rep.recuperado_total_recuperado}
