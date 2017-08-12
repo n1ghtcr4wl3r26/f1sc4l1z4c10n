@@ -343,7 +343,6 @@ public class ReporteAction extends MappingDispatchAction {
             return mapping.findForward("nook");
         } else {
             bean.setUsuario(usuario);
-
             if (!(bean.getOpcion() == null) && bean.getOpcion().equals("CONSULTAR")) {
                 if (bean.getFnit().equals("")) {
                     bean.setFnitnombre("TODOS");
@@ -360,7 +359,46 @@ public class ReporteAction extends MappingDispatchAction {
                 } else {
                     bean.setFgerencianombre(Util.NombreGerencia(bean.getFgerencia()));
                 }
-
+                if (!Util.esFecha(bean.getFfecini())) {
+                    request.setAttribute("WARNING", "La Fecha de Inicio no es una fecha v&aacute;lida");
+                    link = "index";
+                    String geren = (String)request.getSession().getAttribute("user.codger");
+                    bean.setUsuarioger(geren);
+                    request.setAttribute("ReporteForm", bean);
+                    if (geren.equals("15")) {
+                        if (bean.getFgerencia() == null) {
+                            Respuesta<List<Gerencia>> ger = gen.obtenerGerencias("Todo");
+                            request.setAttribute("gerencias", ger.getResultado());
+                        } else {
+                            Respuesta<List<Gerencia>> ger = gen.obtenerGerencias("Todo");
+                            request.setAttribute("gerencias", ger.getResultado());
+                        }
+                    } else {
+                        Respuesta<List<Gerencia>> ger = gen.obtenerGerencias(geren);
+                        request.setAttribute("gerencias", ger.getResultado());
+                    }
+                    return mapping.findForward(link);
+                }
+                if (!Util.esFecha(bean.getFfecfin())) {
+                    request.setAttribute("WARNING", "La Fecha de Inicio no es una fecha v&aacute;lida");
+                    link = "index";
+                    String geren = (String)request.getSession().getAttribute("user.codger");
+                    bean.setUsuarioger(geren);
+                    request.setAttribute("ReporteForm", bean);
+                    if (geren.equals("15")) {
+                        if (bean.getFgerencia() == null) {
+                            Respuesta<List<Gerencia>> ger = gen.obtenerGerencias("Todo");
+                            request.setAttribute("gerencias", ger.getResultado());
+                        } else {
+                            Respuesta<List<Gerencia>> ger = gen.obtenerGerencias("Todo");
+                            request.setAttribute("gerencias", ger.getResultado());
+                        }
+                    } else {
+                        Respuesta<List<Gerencia>> ger = gen.obtenerGerencias(geren);
+                        request.setAttribute("gerencias", ger.getResultado());
+                    }
+                    return mapping.findForward(link);
+                }
                 Respuesta<Reporte[]> ben = repneg.reporte_seguimiento_orden(bean);
                 if (ben.getCodigo() == 1) {
                     request.setAttribute("reporte_seguimiento_orden", ben.getResultado());
@@ -436,7 +474,46 @@ public class ReporteAction extends MappingDispatchAction {
                 } else {
                     bean.setFgerencianombre(Util.NombreGerencia(bean.getFgerencia()));
                 }
-
+                if (!Util.esFecha(bean.getFfecini())) {
+                    request.setAttribute("WARNING", "La Fecha de Inicio no es una fecha v&aacute;lida");
+                    link = "index";
+                    String geren = (String)request.getSession().getAttribute("user.codger");
+                    bean.setUsuarioger(geren);
+                    request.setAttribute("ReporteForm", bean);
+                    if (geren.equals("15")) {
+                        if (bean.getFgerencia() == null) {
+                            Respuesta<List<Gerencia>> ger = gen.obtenerGerencias("Todo");
+                            request.setAttribute("gerencias", ger.getResultado());
+                        } else {
+                            Respuesta<List<Gerencia>> ger = gen.obtenerGerencias("Todo");
+                            request.setAttribute("gerencias", ger.getResultado());
+                        }
+                    } else {
+                        Respuesta<List<Gerencia>> ger = gen.obtenerGerencias(geren);
+                        request.setAttribute("gerencias", ger.getResultado());
+                    }
+                    return mapping.findForward(link);
+                }
+                if (!Util.esFecha(bean.getFfecfin())) {
+                    request.setAttribute("WARNING", "La Fecha de Inicio no es una fecha v&aacute;lida");
+                    link = "index";
+                    String geren = (String)request.getSession().getAttribute("user.codger");
+                    bean.setUsuarioger(geren);
+                    request.setAttribute("ReporteForm", bean);
+                    if (geren.equals("15")) {
+                        if (bean.getFgerencia() == null) {
+                            Respuesta<List<Gerencia>> ger = gen.obtenerGerencias("Todo");
+                            request.setAttribute("gerencias", ger.getResultado());
+                        } else {
+                            Respuesta<List<Gerencia>> ger = gen.obtenerGerencias("Todo");
+                            request.setAttribute("gerencias", ger.getResultado());
+                        }
+                    } else {
+                        Respuesta<List<Gerencia>> ger = gen.obtenerGerencias(geren);
+                        request.setAttribute("gerencias", ger.getResultado());
+                    }
+                    return mapping.findForward(link);
+                }
                 Respuesta<Reporte[]> ben = repneg.reporte_seguimiento_dui(bean);
                 if (ben.getCodigo() == 1) {
                     request.setAttribute("reporte_seguimiento_dui", ben.getResultado());
@@ -513,7 +590,46 @@ public class ReporteAction extends MappingDispatchAction {
                 } else {
                     bean.setFgerencianombre(Util.NombreGerencia(bean.getFgerencia()));
                 }
-
+                if (!Util.esFecha(bean.getFfecini())) {
+                    request.setAttribute("WARNING", "La Fecha de Inicio no es una fecha v&aacute;lida");
+                    link = "index";
+                    String geren = (String)request.getSession().getAttribute("user.codger");
+                    bean.setUsuarioger(geren);
+                    request.setAttribute("ReporteForm", bean);
+                    if (geren.equals("15")) {
+                        if (bean.getFgerencia() == null) {
+                            Respuesta<List<Gerencia>> ger = gen.obtenerGerencias("Todo");
+                            request.setAttribute("gerencias", ger.getResultado());
+                        } else {
+                            Respuesta<List<Gerencia>> ger = gen.obtenerGerencias("Todo");
+                            request.setAttribute("gerencias", ger.getResultado());
+                        }
+                    } else {
+                        Respuesta<List<Gerencia>> ger = gen.obtenerGerencias(geren);
+                        request.setAttribute("gerencias", ger.getResultado());
+                    }
+                    return mapping.findForward(link);
+                }
+                if (!Util.esFecha(bean.getFfecfin())) {
+                    request.setAttribute("WARNING", "La Fecha de Inicio no es una fecha v&aacute;lida");
+                    link = "index";
+                    String geren = (String)request.getSession().getAttribute("user.codger");
+                    bean.setUsuarioger(geren);
+                    request.setAttribute("ReporteForm", bean);
+                    if (geren.equals("15")) {
+                        if (bean.getFgerencia() == null) {
+                            Respuesta<List<Gerencia>> ger = gen.obtenerGerencias("Todo");
+                            request.setAttribute("gerencias", ger.getResultado());
+                        } else {
+                            Respuesta<List<Gerencia>> ger = gen.obtenerGerencias("Todo");
+                            request.setAttribute("gerencias", ger.getResultado());
+                        }
+                    } else {
+                        Respuesta<List<Gerencia>> ger = gen.obtenerGerencias(geren);
+                        request.setAttribute("gerencias", ger.getResultado());
+                    }
+                    return mapping.findForward(link);
+                }
                 Respuesta<Reporte[]> ben = repneg.reporte_seguimiento_item(bean);
                 if (ben.getCodigo() == 1) {
                     request.setAttribute("reporte_seguimiento_item", ben.getResultado());
@@ -589,7 +705,46 @@ public class ReporteAction extends MappingDispatchAction {
                 } else {
                     bean.setFgerencianombre(Util.NombreGerencia(bean.getFgerencia()));
                 }
-
+                if (!Util.esFecha(bean.getFfecini())) {
+                    request.setAttribute("WARNING", "La Fecha de Inicio no es una fecha v&aacute;lida");
+                    link = "index";
+                    String geren = (String)request.getSession().getAttribute("user.codger");
+                    bean.setUsuarioger(geren);
+                    request.setAttribute("ReporteForm", bean);
+                    if (geren.equals("15")) {
+                        if (bean.getFgerencia() == null) {
+                            Respuesta<List<Gerencia>> ger = gen.obtenerGerencias("Todo");
+                            request.setAttribute("gerencias", ger.getResultado());
+                        } else {
+                            Respuesta<List<Gerencia>> ger = gen.obtenerGerencias("Todo");
+                            request.setAttribute("gerencias", ger.getResultado());
+                        }
+                    } else {
+                        Respuesta<List<Gerencia>> ger = gen.obtenerGerencias(geren);
+                        request.setAttribute("gerencias", ger.getResultado());
+                    }
+                    return mapping.findForward(link);
+                }
+                if (!Util.esFecha(bean.getFfecfin())) {
+                    request.setAttribute("WARNING", "La Fecha de Inicio no es una fecha v&aacute;lida");
+                    link = "index";
+                    String geren = (String)request.getSession().getAttribute("user.codger");
+                    bean.setUsuarioger(geren);
+                    request.setAttribute("ReporteForm", bean);
+                    if (geren.equals("15")) {
+                        if (bean.getFgerencia() == null) {
+                            Respuesta<List<Gerencia>> ger = gen.obtenerGerencias("Todo");
+                            request.setAttribute("gerencias", ger.getResultado());
+                        } else {
+                            Respuesta<List<Gerencia>> ger = gen.obtenerGerencias("Todo");
+                            request.setAttribute("gerencias", ger.getResultado());
+                        }
+                    } else {
+                        Respuesta<List<Gerencia>> ger = gen.obtenerGerencias(geren);
+                        request.setAttribute("gerencias", ger.getResultado());
+                    }
+                    return mapping.findForward(link);
+                }
                 Respuesta<Reporte[]> ben = repneg.reporte_liquidacion_dui(bean);
                 if (ben.getCodigo() == 1) {
                     request.setAttribute("reporte_liquidacion_dui", ben.getResultado());
@@ -666,7 +821,46 @@ public class ReporteAction extends MappingDispatchAction {
                 } else {
                     bean.setFgerencianombre(Util.NombreGerencia(bean.getFgerencia()));
                 }
-
+                if (!Util.esFecha(bean.getFfecini())) {
+                    request.setAttribute("WARNING", "La Fecha de Inicio no es una fecha v&aacute;lida");
+                    link = "index";
+                    String geren = (String)request.getSession().getAttribute("user.codger");
+                    bean.setUsuarioger(geren);
+                    request.setAttribute("ReporteForm", bean);
+                    if (geren.equals("15")) {
+                        if (bean.getFgerencia() == null) {
+                            Respuesta<List<Gerencia>> ger = gen.obtenerGerencias("Todo");
+                            request.setAttribute("gerencias", ger.getResultado());
+                        } else {
+                            Respuesta<List<Gerencia>> ger = gen.obtenerGerencias("Todo");
+                            request.setAttribute("gerencias", ger.getResultado());
+                        }
+                    } else {
+                        Respuesta<List<Gerencia>> ger = gen.obtenerGerencias(geren);
+                        request.setAttribute("gerencias", ger.getResultado());
+                    }
+                    return mapping.findForward(link);
+                }
+                if (!Util.esFecha(bean.getFfecfin())) {
+                    request.setAttribute("WARNING", "La Fecha de Inicio no es una fecha v&aacute;lida");
+                    link = "index";
+                    String geren = (String)request.getSession().getAttribute("user.codger");
+                    bean.setUsuarioger(geren);
+                    request.setAttribute("ReporteForm", bean);
+                    if (geren.equals("15")) {
+                        if (bean.getFgerencia() == null) {
+                            Respuesta<List<Gerencia>> ger = gen.obtenerGerencias("Todo");
+                            request.setAttribute("gerencias", ger.getResultado());
+                        } else {
+                            Respuesta<List<Gerencia>> ger = gen.obtenerGerencias("Todo");
+                            request.setAttribute("gerencias", ger.getResultado());
+                        }
+                    } else {
+                        Respuesta<List<Gerencia>> ger = gen.obtenerGerencias(geren);
+                        request.setAttribute("gerencias", ger.getResultado());
+                    }
+                    return mapping.findForward(link);
+                }
                 Respuesta<Reporte[]> ben = repneg.reporte_liquidacion_item(bean);
                 if (ben.getCodigo() == 1) {
                     request.setAttribute("reporte_liquidacion_item", ben.getResultado());
@@ -743,7 +937,46 @@ public class ReporteAction extends MappingDispatchAction {
                 } else {
                     bean.setFgerencianombre(Util.NombreGerencia(bean.getFgerencia()));
                 }
-
+                if (!Util.esFecha(bean.getFfecini())) {
+                    request.setAttribute("WARNING", "La Fecha de Inicio no es una fecha v&aacute;lida");
+                    link = "index";
+                    String geren = (String)request.getSession().getAttribute("user.codger");
+                    bean.setUsuarioger(geren);
+                    request.setAttribute("ReporteForm", bean);
+                    if (geren.equals("15")) {
+                        if (bean.getFgerencia() == null) {
+                            Respuesta<List<Gerencia>> ger = gen.obtenerGerencias("Todo");
+                            request.setAttribute("gerencias", ger.getResultado());
+                        } else {
+                            Respuesta<List<Gerencia>> ger = gen.obtenerGerencias("Todo");
+                            request.setAttribute("gerencias", ger.getResultado());
+                        }
+                    } else {
+                        Respuesta<List<Gerencia>> ger = gen.obtenerGerencias(geren);
+                        request.setAttribute("gerencias", ger.getResultado());
+                    }
+                    return mapping.findForward(link);
+                }
+                if (!Util.esFecha(bean.getFfecfin())) {
+                    request.setAttribute("WARNING", "La Fecha de Inicio no es una fecha v&aacute;lida");
+                    link = "index";
+                    String geren = (String)request.getSession().getAttribute("user.codger");
+                    bean.setUsuarioger(geren);
+                    request.setAttribute("ReporteForm", bean);
+                    if (geren.equals("15")) {
+                        if (bean.getFgerencia() == null) {
+                            Respuesta<List<Gerencia>> ger = gen.obtenerGerencias("Todo");
+                            request.setAttribute("gerencias", ger.getResultado());
+                        } else {
+                            Respuesta<List<Gerencia>> ger = gen.obtenerGerencias("Todo");
+                            request.setAttribute("gerencias", ger.getResultado());
+                        }
+                    } else {
+                        Respuesta<List<Gerencia>> ger = gen.obtenerGerencias(geren);
+                        request.setAttribute("gerencias", ger.getResultado());
+                    }
+                    return mapping.findForward(link);
+                }
                 Respuesta<Reporte[]> ben = repneg.reporte_recuperacion_dui(bean);
                 if (ben.getCodigo() == 1) {
                     request.setAttribute("reporte_recuperacion_dui", ben.getResultado());

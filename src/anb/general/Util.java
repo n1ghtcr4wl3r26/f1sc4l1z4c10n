@@ -1,8 +1,6 @@
 package anb.general;
 
 
-import anb.entidades.Gerencia;
-
 import anb.persistencia.GeneralDao;
 
 import java.io.IOException;
@@ -56,6 +54,18 @@ public class Util {
         GeneralDao dao = new GeneralDao();
         try{
             res = dao.esFechaMenorIgualAHoy(fecha);
+        }
+        catch(Exception ex){
+            res = false;
+        }
+        return res;
+    }
+    
+    public static Boolean esFecha(String fecha) {
+        Boolean res;
+        GeneralDao dao = new GeneralDao();
+        try{
+            res = dao.esFecha(fecha);
         }
         catch(Exception ex){
             res = false;

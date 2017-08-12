@@ -46,7 +46,7 @@
                             <th class="text-center">TIPO DE CONTROL</th>
                             <th class="text-center">GERENCIA</th>
                             <th class="text-center">NUMERO CORRELATIVO POR GESTI&Oacute;N</th>
-                            <th class="text-center">N&Uacute;MERO DE CONTROL POSTERIOR</th>
+                            <th class="text-center">N&Uacute;MERO DE ORDEN</th>
                             <th class="text-center">FECHA DE LA ORDEN DE CONTROL</th>
                             <th class="text-center">DECLARACI&Oacute;N C&Oacute;DIGO DE ADUANA</th>
                             <th class="text-center">DECLARACI&Oacute;N N&Uacute;MERO DECLARACI&Oacute;N</th>

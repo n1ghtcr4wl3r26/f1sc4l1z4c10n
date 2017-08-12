@@ -46,9 +46,9 @@
                             <th class="text-center">TIPO DE CONTROL</th>
                             <th class="text-center">GERENCIA</th>
                             <th class="text-center">NUMERO CORRELATIVO POR GESTI&Oacute;N</th>
-                            <th class="text-center">N&Uacute;MERO DE CONTROL POSTERIOR</th>
-                            <th class="text-center">FECHA DE LA ORDEN DE CONTROL</th>
-                            <th class="text-center">ORIGEN DEL CONTROL POSTERIOR</th>
+                            <th class="text-center">N&Uacute;MERO DE ORDEN</th>
+                            <th class="text-center">FECHA DE LA ORDEN</th>
+                            <th class="text-center">ORIGEN DEL ORDEN</th>
                             <th class="text-center">N&ordm; DE NIT / CI IMPORTADOR</th>
                             <th class="text-center">NOMBRE IMPORTADOR</th>
                             <th class="text-center">FISCALIZADOR</th>
@@ -58,26 +58,26 @@
                             <th class="text-center">FECHA DE NOTIFICACI&Oacute;N ORDEN DE CONTROL</th>
                             <th class="text-center">OBSERVACI&Oacute;N DE LA NOTIFICACI&Oacute;N</th>
                             <th class="text-center">TIPO NOTIFICACI&Oacute;N</th>
-                            <th class="text-center">USUARIO QUE REALIZO LA NOTIFICACI&Oacute;N</th>
+                            <th class="text-center">USUARIO QUE REALIZ&Oacute; LA NOTIFICACI&Oacute;N</th>
                             <th class="text-center">RESULTADOS DEL CONTROL - N&Uacute;MERO DE INFORME T&Eacute;CNICO</th>
                             <th class="text-center">RESULTADOS DEL CONTROL - FECHA DE INFORME T&Eacute;CNICO</th>
                             <th class="text-center">RESULTADOS DEL CONTROL - GERENCIA - UNIDAD LEGAL</th>
                             <th class="text-center">RESULTADOS DEL CONTROL - TIPO DE DOCUMENTO DE CONCLUSI&Oacute;N</th>
                             <th class="text-center">RESULTADOS DEL CONTROL - N&Uacute;MERO DE DOCUMENTO DE CONCLUSI&Oacute;N</th>
                             <th class="text-center">RESULTADOS DEL CONTROL - FECHA DE DOCUMENTO DE CONCLUSI&Oacute;N</th>
-                            <th class="text-center">RESULTADOS DEL CONTROL - USUARIO QUE REGISTRO LOS RESULTADOS</th>
+                            <th class="text-center">RESULTADOS DEL CONTROL - USUARIO QUE REGISTR&Oacute; LOS RESULTADOS</th>
                             <th class="text-center">RESULTADOS DEL CONTROL - FECHA DE NOTIFICACI&Oacute;N</th>
                             <th class="text-center">RESULTADOS DEL CONTROL - TIPO DE NOTIFICACI&Oacute;N</th>
-                            <th class="text-center">RESULTADOS DEL CONTROL - USUARIO QUE REGISTRO LA NOTIFICACI&Oacute;N</th>
+                            <th class="text-center">RESULTADOS DEL CONTROL - USUARIO QUE REGISTR&Oacute; LA NOTIFICACI&Oacute;N</th>
                             <th class="text-center">RESULTADOS DEL CONTROL - FECHA COMUNICACI&Oacute;N INTERNA DE
                                                     REMISI&Oacute;N</th>
                             <th class="text-center">RESULTADOS DEL CONTROL - N&Uacute;MERO DE COMUNICACI&Oacute;N
                                                     INTERNA DE REMISI&Oacute;N</th>
-                            <th class="text-center">FINALIZACI&Oacute;N DEL CONTROL - USUARIO QUE REALIZO LA
+                            <th class="text-center">FINALIZACI&Oacute;N DEL CONTROL - USUARIO QUE REALIZ&Oacute; LA
                                                     REMISI&Oacute;N A LA UNIDAD LEGAL</th>
                             <th class="text-center">FINALIZACI&Oacute;N DEL CONTROL - FECHA DE FINALIZACI&Oacute;N DEL
                                                     CONTROL</th>
-                            <th class="text-center">FINALIZACI&Oacute;N DEL CONTROL - USUARIO QUE REGISTRO LA
+                            <th class="text-center">FINALIZACI&Oacute;N DEL CONTROL - USUARIO QUE REGISTR&Oacute; LA
                                                     FINALIZACI&Oacute;N</th>
                             <th class="text-center">ESTADO DEL CONTROL</th>
                             <th class="text-center">TIPO DE IL&Iacute;CITO - OMISI&Oacute;N DE PAGO</th>

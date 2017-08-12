@@ -46,9 +46,9 @@
                             <th class="text-center">TIPO DE CONTROL</th>
                             <th class="text-center">GERENCIA</th>
                             <th class="text-center">NUMERO CORRELATIVO POR GESTI&Oacute;N</th>
-                            <th class="text-center">N&Uacute;MERO DE CONTROL POSTERIOR</th>
-                            <th class="text-center">FECHA DE LA ORDEN DE CONTROL</th>
-                            <th class="text-center">ORIGEN DEL CONTROL POSTERIOR</th>
+                            <th class="text-center">N&Uacute;MERO DE ORDEN</th>
+                            <th class="text-center">FECHA DE LA ORDEN</th>
+                            <th class="text-center">ORIGEN DE LA ORDEN</th>
                             <th class="text-center">N&ordm; DE NIT / CI IMPORTADOR</th>
                             <th class="text-center">NOMBRE IMPORTADOR</th>
                             <th class="text-center">FISCALIZADOR</th>
@@ -58,26 +58,26 @@
                             <th class="text-center">FECHA DE NOTIFICACI&Oacute;N ORDEN DE CONTROL</th>
                             <th class="text-center">OBSERVACI&Oacute;N DE LA NOTIFICACI&Oacute;N</th>
                             <th class="text-center">TIPO NOTIFICACI&Oacute;N</th>
-                            <th class="text-center">USUARIO QUE REALIZO LA NOTIFICACI&Oacute;N</th>
+                            <th class="text-center">USUARIO QUE REALIZ&Oacute; LA NOTIFICACI&Oacute;N</th>
                             <th class="text-center">RESULTADOS DEL CONTROL - N&Uacute;MERO DE INFORME T&Eacute;CNICO</th>
                             <th class="text-center">RESULTADOS DEL CONTROL - FECHA DE INFORME T&Eacute;CNICO</th>
                             <th class="text-center">RESULTADOS DEL CONTROL - GERENCIA - UNIDAD LEGAL</th>
                             <th class="text-center">RESULTADOS DEL CONTROL - TIPO DE DOCUMENTO DE CONCLUSI&Oacute;N</th>
                             <th class="text-center">RESULTADOS DEL CONTROL - N&Uacute;MERO DE DOCUMENTO DE CONCLUSI&Oacute;N</th>
                             <th class="text-center">RESULTADOS DEL CONTROL - FECHA DE DOCUMENTO DE CONCLUSI&Oacute;N</th>
-                            <th class="text-center">RESULTADOS DEL CONTROL - USUARIO QUE REGISTRO LOS RESULTADOS</th>
+                            <th class="text-center">RESULTADOS DEL CONTROL - USUARIO QUE REGISTR&Oacute; LOS RESULTADOS</th>
                             <th class="text-center">RESULTADOS DEL CONTROL - FECHA DE NOTIFICACI&Oacute;N</th>
                             <th class="text-center">RESULTADOS DEL CONTROL - TIPO DE NOTIFICACI&Oacute;N</th>
-                            <th class="text-center">RESULTADOS DEL CONTROL - USUARIO QUE REGISTRO LA NOTIFICACI&Oacute;N</th>
+                            <th class="text-center">RESULTADOS DEL CONTROL - USUARIO QUE REGISTR&Oacute; LA NOTIFICACI&Oacute;N</th>
                             <th class="text-center">RESULTADOS DEL CONTROL - FECHA COMUNICACI&Oacute;N INTERNA DE
                                                     REMISI&Oacute;N</th>
                             <th class="text-center">RESULTADOS DEL CONTROL - N&Uacute;MERO DE COMUNICACI&Oacute;N
                                                     INTERNA DE REMISI&Oacute;N</th>
-                            <th class="text-center">FINALIZACI&Oacute;N DEL CONTROL - USUARIO QUE REALIZO LA
+                            <th class="text-center">FINALIZACI&Oacute;N DEL CONTROL - USUARIO QUE REALIZ&Oacute; LA
                                                     REMISI&Oacute;N A LA UNIDAD LEGAL</th>
                             <th class="text-center">FINALIZACI&Oacute;N DEL CONTROL - FECHA DE FINALIZACI&Oacute;N DEL
                                                     CONTROL</th>
-                            <th class="text-center">FINALIZACI&Oacute;N DEL CONTROL - USUARIO QUE REGISTRO LA
+                            <th class="text-center">FINALIZACI&Oacute;N DEL CONTROL - USUARIO QUE REGISTR&Oacute; LA
                                                     FINALIZACI&Oacute;N</th>
                             <th class="text-center">ESTADO DEL CONTROL</th>
                             <th class="text-center">TIPO DE IL&Iacute;CITO - OMISI&Oacute;N DE PAGO</th>
@@ -95,17 +95,17 @@
                             <th class="text-center">TOTAL RECUPERADO - TOTAL TRIBUTO PAGADO BS</th>
                             
                             <th class="text-center">TOTAL RECUPERADO - SANCI&Oacute;N OMISI&Oacute;N BS</th>
-                            <th class="text-center">TOTAL RECUPERADO - MULTA POR CONTRAVENCI&OACUTE;N ADUANERA RELACIONADA A LA DECLARACI&OACUTE;N BS</th>
-                            <th class="text-center">TOTAL RECUPERADO - MULTA POR CONTRAVENCI&OACUTE;N ADUANERA RELACIONADA A LA ORDEN DE CONTROL POSTERIOR BS</th>
+                            <th class="text-center">TOTAL RECUPERADO - MULTA POR CONTRAVENCI&Oacute;N ADUANERA RELACIONADA A LA DECLARACI&Oacute;N BS</th>
+                            <th class="text-center">TOTAL RECUPERADO - MULTA POR CONTRAVENCI&Oacute;N ADUANERA RELACIONADA A LA ORDEN BS</th>
                             <th class="text-center">TOTAL RECUPERADO - MULTA CONTRABANDO CONTRAVENCIONAL</th>
                             <th class="text-center">TOTAL RECUPERADO - MULTA CONTRABANDO DELITO</th>
-                            <th class="text-center">TOTAL RECUPERADO - MULTA POR DEFRAUDACI&OACUTE;N</th>
+                            <th class="text-center">TOTAL RECUPERADO - MULTA POR DEFRAUDACI&Oacute;N</th>
                             <th class="text-center">TOTAL RECUPERADO - TOTAL RECUPERADO</th>
                             <th class="text-center">FACILIDADES DE PAGO - CUOTA INICIAL BS</th>
                             <th class="text-center">FACILIDADES DE PAGO - GARANT&Iacute;A EN EFECTIVO BS</th>
                             <th class="text-center" width="180px">FACILIDADES DE PAGO - SALDO POR COBRAR SUJETO A FACILIDADES DE PAGO
                                                     EN BS</th>
-                            <th class="text-center">FACILIDADES DE PAGO - USUARIO QUE REGISTRO LOS PAGOS</th>
+                            <th class="text-center">FACILIDADES DE PAGO - USUARIO QUE REGISTR&Oacute; LOS PAGOS</th>
                         </tr>
                     </thead>
                      
