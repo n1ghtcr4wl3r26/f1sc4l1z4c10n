@@ -246,7 +246,7 @@
                                         </a>
                                     </td>
                                     <td class="text-center">
-                                        <a onclick=window.open('http://deslogic01:7011/mira/reportes/Dili1.jsp?dma=${esc.ficha}&tec=${AlcanceForm.usuario}','_blank','width=550,height=580,menubar=0,scrollbars=yes,toolbar=0,location=0,directories=0,resizable=0,top=0,left=0') href='javascript:void(0)' >
+                                        <a onclick=window.open('http://anbsw07.aduana.gob.bo:7601/mira/reportes/Dili1.jsp?dma=${esc.ficha}&tec=${AlcanceForm.usuario}','_blank','width=550,height=580,menubar=0,scrollbars=yes,toolbar=0,location=0,directories=0,resizable=0,top=0,left=0') href='javascript:void(0)' >
                                             Ficha Informativa
                                         </a>
                                     </td>
@@ -387,7 +387,7 @@
                                         </a>
                                     </td>
                                     <td class="text-center">
-                                        <a onclick=window.open('http://deslogic01:7011/mira/reportes/Dili1.jsp?dma=${esc.ficha}&tec=${AlcanceForm.usuario}','_blank','width=550,height=580,menubar=0,scrollbars=yes,toolbar=0,location=0,directories=0,resizable=0,top=0,left=0') href='javascript:void(0)' >
+                                        <a onclick=window.open('http://anbsw07.aduana.gob.bo:7601/mira/reportes/Dili1.jsp?dma=${esc.ficha}&tec=${AlcanceForm.usuario}','_blank','width=550,height=580,menubar=0,scrollbars=yes,toolbar=0,location=0,directories=0,resizable=0,top=0,left=0') href='javascript:void(0)' >
                                             Ficha Informativa
                                         </a>
                                     </td>
