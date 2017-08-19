@@ -761,7 +761,7 @@ public class AmpliacionDao extends Conexion {
             open();
             call = cn.prepareCall("{ ? = call pkg_memorizacion.borra_tramite_todo_amp ( ?,?)}");
             call.registerOutParameter(1, OracleTypes.VARCHAR);
-            call.setString(2, bean.getBorrarid());
+            call.setString(2, bean.getCodigo());
             call.setString(3, bean.getUsuario());
             call.execute();
             res = (String)call.getObject(1);
