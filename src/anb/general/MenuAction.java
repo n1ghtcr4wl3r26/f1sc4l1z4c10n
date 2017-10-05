@@ -29,10 +29,19 @@ public class MenuAction extends Action {
         request.getSession().setAttribute("opcion", bMenu.getOpcion());
 
         switch (bMenu.getOpcion()) {
-        case 101:
+        case 103:
+            return mapping.findForward("bandejajefe");
+        
+        case 104:
+            return mapping.findForward("bandejafiscalizador");
+        
+        case 105:
+            return mapping.findForward("bandejalegal");
+        
+        case 108:
             return mapping.findForward("memorizaciondiferido");
 
-        case 10:
+        case 107:
             return mapping.findForward("memorizacion");
 
         case 11:

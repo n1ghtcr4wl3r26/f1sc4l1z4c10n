@@ -4,6 +4,7 @@ package anb.persistencia;
 import anb.bean.MemorizacionControlForm;
 
 import anb.entidades.Aduana;
+import anb.entidades.Bandeja;
 import anb.entidades.Declaracion;
 import anb.entidades.Nit;
 
@@ -23,6 +24,121 @@ import oracle.jdbc.OracleTypes;
 public class MemorizacionControlDao extends Conexion {
     public MemorizacionControlDao() {
         super();
+    }
+    
+    public List<Bandeja> devuelveBandejaJefe(String gerencia) throws SQLException, ClassNotFoundException, NamingException {
+        List<Bandeja> params = new ArrayList<Bandeja>();
+        try {
+            open();
+            call = cn.prepareCall("{ ? = call pkg_memorizacion.bandeja_jefe ( ?,? )}");
+            call.registerOutParameter(1, OracleTypes.VARCHAR);
+            call.setString(2, gerencia);
+            call.registerOutParameter(3, OracleTypes.CURSOR);
+            call.execute();
+
+            rs = (ResultSet)call.getObject(3);
+
+            while (rs.next()) {
+                Bandeja f = new Bandeja();
+                f.setCodigo(rs.getString(1));
+                f.setNumeroControl(rs.getString(2));
+                f.setTipoControl(rs.getString(3));
+                f.setFechaRegistro(rs.getString(4));
+                f.setDeclaracion(rs.getString(5));
+                f.setCantidadDUIs(rs.getString(6));
+                f.setPatron(rs.getString(7));
+                f.setItems(rs.getString(8));
+                f.setImportadorNIT(rs.getString(9));
+                f.setImportadorNombre(rs.getString(10));
+                f.setFechaLevante(rs.getString(11));
+                params.add(f);
+            }
+        } finally {
+            if (cn != null) {
+                cn.close();
+            }
+        }
+        return params;
+    }
+    
+    public List<Bandeja> devuelveBandejaFiscalizador(String fiscalizador) throws SQLException, ClassNotFoundException, NamingException {
+        List<Bandeja> params = new ArrayList<Bandeja>();
+        try {
+            open();
+            call = cn.prepareCall("{ ? = call pkg_memorizacion.bandeja_fiscalizador ( ?,? )}");
+            call.registerOutParameter(1, OracleTypes.VARCHAR);
+            call.setString(2, fiscalizador);
+            call.registerOutParameter(3, OracleTypes.CURSOR);
+            call.execute();
+
+            rs = (ResultSet)call.getObject(3);
+
+
+            while (rs.next()) {
+                Bandeja f = new Bandeja();
+                f.setCodigo(rs.getString(1));
+                f.setNumeroControl(rs.getString(2));
+                f.setTipoControl(rs.getString(3));
+                f.setFechaRegistro(rs.getString(4));
+                f.setDeclaracion(rs.getString(5));
+                f.setCantidadDUIs(rs.getString(6));
+                f.setPatron(rs.getString(7));
+                f.setItems(rs.getString(8));
+                f.setImportadorNIT(rs.getString(9));
+                f.setImportadorNombre(rs.getString(10));
+                f.setFechaLevante(rs.getString(11));
+                f.setEstado(rs.getString(12));
+                f.setFechaAsignacion(rs.getString(13));
+                f.setOrigen(rs.getString(14));
+                f.setPlazoDias(rs.getString(15));                
+                params.add(f);
+            }
+        } finally {
+            if (cn != null) {
+                cn.close();
+            }
+        }
+        return params;
+    }
+
+    public List<Bandeja> devuelveBandejaLegal(String gerencia) throws SQLException, ClassNotFoundException, NamingException {
+        List<Bandeja> params = new ArrayList<Bandeja>();
+        try {
+            open();
+            call = cn.prepareCall("{ ? = call pkg_memorizacion.bandeja_legal ( ?,? )}");
+            call.registerOutParameter(1, OracleTypes.VARCHAR);
+            call.setString(2, gerencia);
+            call.registerOutParameter(3, OracleTypes.CURSOR);
+            call.execute();
+
+            rs = (ResultSet)call.getObject(3);
+
+
+            while (rs.next()) {
+                Bandeja f = new Bandeja();
+                f.setCodigo(rs.getString(1));
+                f.setNumeroControl(rs.getString(2));
+                f.setTipoControl(rs.getString(3));
+                f.setFechaRegistro(rs.getString(4));
+                f.setDeclaracion(rs.getString(5));
+                f.setCantidadDUIs(rs.getString(6));
+                f.setPatron(rs.getString(7));
+                f.setItems(rs.getString(8));
+                f.setImportadorNIT(rs.getString(9));
+                f.setImportadorNombre(rs.getString(10));
+                f.setFechaLevante(rs.getString(11));
+                f.setEstado(rs.getString(12));
+                f.setFechaAsignacion(rs.getString(13));
+                f.setOrigen(rs.getString(14));
+                f.setPlazoDias(rs.getString(15));        
+                params.add(f);
+            }
+        } finally {
+            if (cn != null) {
+                cn.close();
+            }
+        }
+        return params;
     }
 
     public List<Nit> devuelveNit(String nit) throws SQLException, ClassNotFoundException, NamingException {

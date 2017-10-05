@@ -20,6 +20,17 @@
         <put name="footer" value="/pages/layout/Footer.jsp"/>
     </definition>
     
+    <!-- BANDEJAS -->
+    <definition name="bandeja.jefe" extends="aud.home">
+        <put name="content" value="/pages/control/bandeja_jefe.jsp"/>
+    </definition>
+    <definition name="bandeja.fiscalizador" extends="aud.home">
+        <put name="content" value="/pages/control/bandeja_fiscalizador.jsp"/>
+    </definition>
+    <definition name="bandeja.legal" extends="aud.home">
+        <put name="content" value="/pages/control/bandeja_legal.jsp"/>
+    </definition>
+        
     <!-- CONTROL -->
     <definition name="memorizacion.control" extends="aud.home">
         <put name="content" value="/pages/control/memorizar_control.jsp"/>

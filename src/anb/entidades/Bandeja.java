@@ -1,6 +1,7 @@
 package anb.entidades;
 
 public class Bandeja {
+    private String codigo;
     private String numeroControl;
     private String tipoControl;
     private String fechaRegistro;
@@ -126,5 +127,13 @@ public class Bandeja {
 
     public String getPlazoDias() {
         return plazoDias;
+    }
+
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
+    }
+
+    public String getCodigo() {
+        return codigo;
     }
 }

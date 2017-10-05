@@ -31,7 +31,7 @@
             </thead>
              
             <tbody>
-                <c:forEach items="${reporteBandejalEGAL}" var="esc">
+                <c:forEach items="${reporteBandejaLegal}" var="esc">
                     <tr>
                         <td class="text-left">
                             ${esc.numeroControl}

@@ -9,6 +9,11 @@
             <strong>BANDEJA JEFE Y SUPERVISOR</strong>
         </h4>
     </div>
+    <%
+    String res;
+    res = "pruebas";
+    
+    %>
     <div class="modal-body form-horizontal">
         <br/>
         <table class="table table-striped table-hover" id="main-table" style="width:90%">

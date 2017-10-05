@@ -5,6 +5,7 @@ import anb.bean.AlcanceForm;
 import anb.bean.MemorizacionControlForm;
 
 import anb.entidades.Aduana;
+import anb.entidades.Bandeja;
 import anb.entidades.Declaracion;
 import anb.entidades.Nit;
 
@@ -39,6 +40,57 @@ public class MemorizacionControlAction extends MappingDispatchAction {
         MemorizacionControlForm bean = new MemorizacionControlForm();
         bean = (MemorizacionControlForm)request.getAttribute("MemorizacionControlForm");
         return mapping.findForward("ok");
+    }
+
+    public ActionForward bandejajefe(ActionMapping mapping, ActionForm form, HttpServletRequest request,
+                                      HttpServletResponse response) throws Exception {
+
+        String usuario = (String)request.getSession().getAttribute("user");
+        String gerencia;
+        if (usuario == null) {
+            return mapping.findForward("nook");
+        } else {
+            gerencia = (String)request.getSession().getAttribute("sgerencia");
+            Respuesta<Bandeja[]> res = neg.devuelveBandejaJefe(gerencia);
+            if (res.getCodigo() == 1) {
+                request.setAttribute("reporteBandejaJefe", res.getResultado());
+            }
+            return mapping.findForward("ok");
+        }
+    }
+    
+    public ActionForward bandejafiscalizador(ActionMapping mapping, ActionForm form, HttpServletRequest request,
+                                      HttpServletResponse response) throws Exception {
+
+        String usuario = (String)request.getSession().getAttribute("user");
+        String gerencia;
+        if (usuario == null) {
+            return mapping.findForward("nook");
+        } else {
+            gerencia = (String)request.getSession().getAttribute("sgerencia");
+            Respuesta<Bandeja[]> res = neg.devuelveBandejaFiscalizador(usuario);
+            if (res.getCodigo() == 1) {
+                request.setAttribute("reporteBandejaFiscalizador", res.getResultado());
+            }
+            return mapping.findForward("ok");
+        }
+    }
+    
+    public ActionForward bandejalegal(ActionMapping mapping, ActionForm form, HttpServletRequest request,
+                                      HttpServletResponse response) throws Exception {
+
+        String usuario = (String)request.getSession().getAttribute("user");
+        String gerencia;
+        if (usuario == null) {
+            return mapping.findForward("nook");
+        } else {
+            gerencia = (String)request.getSession().getAttribute("sgerencia");
+            Respuesta<Bandeja[]> res = neg.devuelveBandejaLegal(gerencia);
+            if (res.getCodigo() == 1) {
+                request.setAttribute("reporteBandejaLegal", res.getResultado());
+            }
+            return mapping.findForward("ok");
+        }
     }
 
     public ActionForward memorizardif(ActionMapping mapping, ActionForm form, HttpServletRequest request,

@@ -36,6 +36,9 @@
         <action path="/MenuAction" type="anb.general.MenuAction" name="beanMenu" scope="request">
             <forward name="log" path="/log.do" redirect="true" />
             <forward name="usuario" path="demo.user.mod" />
+            <forward name="bandejajefe" path="/bandejajefe.do" redirect="true" />
+            <forward name="bandejafiscalizador" path="/bandejafiscalizador.do" redirect="true" />
+            <forward name="bandejalegal" path="/bandejalegal.do" redirect="true" />            
             <forward name="memorizacion" path="/memorizacion.do" redirect="true" />
             <forward name="memorizaciondiferido" path="/memorizaciondiferidoidx.do" redirect="true" />
             <forward name="alcance" path="/alcindex.do" redirect="true" />
@@ -108,6 +111,20 @@
         </action>
         
         <!-- CONTROL -->
+        <!-- BANDEJAS -->
+        <action path="/bandejajefe" type="anb.action.MemorizacionControlAction" name="MemorizacionControlForm" parameter="bandejajefe" scope="request">
+            <forward name="ok" path="bandeja.jefe" redirect="true" />
+            <forward name="nook" path="/input.jsp"/>
+        </action>
+        <action path="/bandejafiscalizador" type="anb.action.MemorizacionControlAction" name="MemorizacionControlForm" parameter="bandejafiscalizador" scope="request">
+            <forward name="ok" path="bandeja.fiscalizador" redirect="true" />
+            <forward name="nook" path="/input.jsp"/>
+        </action>
+        <action path="/bandejalegal" type="anb.action.MemorizacionControlAction" name="MemorizacionControlForm" parameter="bandejalegal" scope="request">
+            <forward name="ok" path="bandeja.legal" redirect="true" />
+            <forward name="nook" path="/input.jsp"/>
+        </action>
+        
         <!-- MEMORIZACION CONTROL-->
         <action path="/memorizacion" type="anb.action.MemorizacionControlAction" name="MemorizacionControlForm" parameter="index" scope="request">
             <forward name="ok" path="memorizacion.control" redirect="true" />
