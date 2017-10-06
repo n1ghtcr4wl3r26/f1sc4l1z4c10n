@@ -57,6 +57,12 @@ public class RegistroControlForm extends ActionForm {
     private String riesgoContrab;
     
     private String usuarioger; 
+    
+    private String cargojefe;
+    private String usuariojefe;
+    private String usuariofis;
+    private String codger;
+    private String tieneAsignacion;
 
     public void setCodigo(String codigo) {
         this.codigo = codigo;
@@ -408,5 +414,45 @@ public class RegistroControlForm extends ActionForm {
 
     public String getUsuarioger() {
         return usuarioger;
+    }
+
+    public void setCargojefe(String cargojefe) {
+        this.cargojefe = cargojefe;
+    }
+
+    public String getCargojefe() {
+        return cargojefe;
+    }
+
+    public void setUsuariojefe(String usuariojefe) {
+        this.usuariojefe = usuariojefe;
+    }
+
+    public String getUsuariojefe() {
+        return usuariojefe;
+    }
+
+    public void setUsuariofis(String usuariofis) {
+        this.usuariofis = usuariofis;
+    }
+
+    public String getUsuariofis() {
+        return usuariofis;
+    }
+
+    public void setCodger(String codger) {
+        this.codger = codger;
+    }
+
+    public String getCodger() {
+        return codger;
+    }
+
+    public void setTieneAsignacion(String tieneAsignacion) {
+        this.tieneAsignacion = tieneAsignacion;
+    }
+
+    public String getTieneAsignacion() {
+        return tieneAsignacion;
     }
 }

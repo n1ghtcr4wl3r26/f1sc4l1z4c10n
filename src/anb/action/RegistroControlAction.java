@@ -1,15 +1,20 @@
 package anb.action;
 
 
+import anb.bean.AsignaFiscalizadorForm;
 import anb.bean.RegistroControlForm;
 
+import anb.entidades.Fiscalizador;
 import anb.entidades.InfoControl;
 import anb.entidades.Tramite;
 
 import anb.general.Respuesta;
 
+import anb.negocio.AsignacionNeg;
 import anb.negocio.GeneralNeg;
 import anb.negocio.RegistroControlNeg;
+
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -23,6 +28,7 @@ import org.apache.struts.actions.MappingDispatchAction;
 public class RegistroControlAction extends MappingDispatchAction {
 
     private final RegistroControlNeg neg = new RegistroControlNeg();
+    private final AsignacionNeg aneg = new AsignacionNeg();
     private final GeneralNeg gen = new GeneralNeg();
 
     public ActionForward registroidx(ActionMapping mapping, ActionForm form, HttpServletRequest request,
@@ -38,6 +44,7 @@ public class RegistroControlAction extends MappingDispatchAction {
         if (usuario == null) {
             return mapping.findForward("nook");
         } else {
+            bean.setCodger((String)request.getSession().getAttribute("user.codger"));
             bean.setGerencia((String)request.getSession().getAttribute("gerencia"));
             bean.setUsuarioger((String)request.getSession().getAttribute("gerencia"));
             bean.setUsuario(usuario);
@@ -51,6 +58,13 @@ public class RegistroControlAction extends MappingDispatchAction {
                     if (ver.getCodigo() == 1) {
                         request.setAttribute("OK", res.getMensaje());
                         Respuesta<InfoControl> inf = gen.devuelveControl(bean.getCodigo());
+                        Respuesta<List<Fiscalizador>> fis = gen.obtenerFuncionarios(bean.getCodger());
+                        if (fis.getCodigo() == 1) {
+                            request.setAttribute("fiscalizadores", fis.getResultado());
+                        } else {
+                            request.setAttribute("fiscalizadores", null);
+                        }
+                        
                         if (inf.getResultado().getGa().equals("SI")) {
                             bean.setGa("on");
                         }
@@ -117,37 +131,100 @@ public class RegistroControlAction extends MappingDispatchAction {
 
         RegistroControlForm bean = new RegistroControlForm();
         String link = "ok";
-        bean = (RegistroControlForm)request.getAttribute("RegistroControlForm");
+        String sw = "0";
         bean = (RegistroControlForm)request.getAttribute("RegistroControlForm");
         String usuario = (String)request.getSession().getAttribute("user");
         if (usuario == null) {
             return mapping.findForward("nook");
         } else {
             bean.setGerencia((String)request.getSession().getAttribute("gerencia"));
+            bean.setCodger((String)request.getSession().getAttribute("user.codger"));
             bean.setUsuario(usuario);
             Respuesta<InfoControl> inf = gen.devuelveControl(bean.getCodigo());
             request.setAttribute("infoControl", inf.getResultado());
+            bean.setTieneAsignacion(inf.getResultado().getTieneAsignacion());
             Respuesta<Tramite[]> tram = gen.ver_TramitesControl(bean.getCodigo());
             request.setAttribute("tramites", tram.getResultado());
             if (!(bean.getOpcion() == null) && bean.getOpcion().equals("REGISTRA")) {
-                Respuesta<Boolean> res = neg.registra_control(bean);
-                if (res.getCodigo() == 1) {
-                    request.setAttribute("OK", res.getMensaje());
-                    /*String[] fisca = res.getMensaje().split("-");
-                    request.getSession().setAttribute("sgestion", fisca[0].substring(37));
-                    request.getSession().setAttribute("sgerencia", fisca[2]);
-                    request.getSession().setAttribute("scontrol", fisca[1]);
-                    request.getSession().setAttribute("snumero", fisca[3]);*/
-                    link = "index";
-                } else {
-                    if (res.getCodigo() == 0) {
-                        request.setAttribute("WARNING", res.getMensaje());
+                if(inf.getResultado().getTipoControl().equals("CONTROL DIFERIDO") && inf.getResultado().getTieneAsignacion().equals("NO")){
+                    Respuesta<List<Fiscalizador>> fis = gen.obtenerFuncionarios(bean.getCodger());
+                    if (fis.getCodigo() == 1) {
+                        request.setAttribute("fiscalizadores", fis.getResultado());
                     } else {
-                        request.setAttribute("ERROR", res.getMensaje());
+                        request.setAttribute("fiscalizadores", null);
+                    }
+                    if(bean.getUsuariofis().equals(bean.getUsuariojefe())){
+                        request.setAttribute("ERROR", "El Jefe/Supervisor y el Fiscalizador, no pueden ser la misma persona");
+                    } else {
+                        //GRABA ASIGNACION FISCALIZADOR
+                        AsignaFiscalizadorForm asig = new AsignaFiscalizadorForm();
+                        asig.setCodigo(bean.getCodigo());
+                        asig.setFuncionario(bean.getUsuariofis());
+                        asig.setCargo("FISCALIZADOR");
+                        asig.setUsuario(bean.getUsuario());
+                        Respuesta<Boolean> resasig = aneg.graba_asignacion(asig);
+                        if (resasig.getCodigo() == 1) {
+                            //GRABA ASIGNACION JEFE
+                            asig.setCodigo(bean.getCodigo());
+                            asig.setFuncionario(bean.getUsuariojefe());
+                            asig.setCargo(bean.getCargojefe());
+                            asig.setUsuario(bean.getUsuario());
+                            Respuesta<Boolean> resasigj = aneg.graba_asignacion(asig);
+                            if (resasigj.getCodigo() == 1) {
+                                //REGISTRA CONTROL
+                                Respuesta<Boolean> res = neg.registra_control(bean);
+                                if (res.getCodigo() == 1) {
+                                    request.setAttribute("OK", res.getMensaje());
+                                    /*String[] fisca = res.getMensaje().split("-");
+                                    request.getSession().setAttribute("sgestion", fisca[0].substring(37));
+                                    request.getSession().setAttribute("sgerencia", fisca[2]);
+                                    request.getSession().setAttribute("scontrol", fisca[1]);
+                                    request.getSession().setAttribute("snumero", fisca[3]);*/
+                                    link = "index";
+                                } else {
+                                    if (res.getCodigo() == 0) {
+                                        request.setAttribute("WARNING", res.getMensaje());
+                                    } else {
+                                        request.setAttribute("ERROR", res.getMensaje());
+                                    }
+                                }
+                            } else {
+                                if (resasig.getCodigo() == 0) {
+                                    request.setAttribute("WARNING", resasig.getMensaje());
+                                } else {
+                                    request.setAttribute("ERROR", resasig.getMensaje());
+                                    link = "index";
+                                }
+                            }
+                        } else {
+                            if (resasig.getCodigo() == 0) {
+                                request.setAttribute("WARNING", resasig.getMensaje());
+                            } else {
+                                request.setAttribute("ERROR", resasig.getMensaje());
+                                link = "index";
+                            }
+                        }
+                    }
+                } else {
+                    Respuesta<Boolean> res = neg.registra_control(bean);
+                    if (res.getCodigo() == 1) {
+                        request.setAttribute("OK", res.getMensaje());
+                        /*String[] fisca = res.getMensaje().split("-");
+                        request.getSession().setAttribute("sgestion", fisca[0].substring(37));
+                        request.getSession().setAttribute("sgerencia", fisca[2]);
+                        request.getSession().setAttribute("scontrol", fisca[1]);
+                        request.getSession().setAttribute("snumero", fisca[3]);*/
+                        link = "index";
+                    } else {
+                        if (res.getCodigo() == 0) {
+                            request.setAttribute("WARNING", res.getMensaje());
+                        } else {
+                            request.setAttribute("ERROR", res.getMensaje());
+                        }
                     }
                 }
             }
-            return mapping.findForward(link);
+            return mapping.findForward(link);            
         }
     }
 }

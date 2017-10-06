@@ -74,7 +74,7 @@ public class RegistroControlDao extends Conexion {
         String res;
         try {
             open();
-            call = cn.prepareCall("{ ? = call pkg_memorizacion.registra_control ( ?,?,?,?,?,  ?,?,?,?,?,  ?,?,?,?,?,  ?,?,?,?,?,  ?,?,?,?,?, ?,?,?,?,?, ?,  ?,?,?,?,?,?,?)}");
+            call = cn.prepareCall("{ ? = call pkg_memorizacion.registra_control ( ?,?,?,?,?,  ?,?,?,?,?,  ?,?,?,?,?,  ?,?,?,?,?,  ?,?,?,?,?, ?,?,?,?,?, ?, ?,?,?,?,?,?,? )}");
             call.registerOutParameter(1, OracleTypes.VARCHAR);
             call.setString(2, bean.getCodigo());
             call.setString(3, bean.getGerencia());
@@ -115,7 +115,6 @@ public class RegistroControlDao extends Conexion {
             call.setString(37, bean.getRiesgoSubval());
             call.setString(38, bean.getRiesgoClas());
             call.setString(39, bean.getRiesgoContrab());
-            
             call.execute();
             res = (String)call.getObject(1);
         } finally {

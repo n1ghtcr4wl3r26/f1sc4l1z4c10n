@@ -13,9 +13,12 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.StringReader;
 
+import java.text.Normalizer;
+
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Properties;
+import java.util.regex.Pattern;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -77,6 +80,15 @@ public class InputAction extends Action {
         request.getSession().setAttribute("InputForm", ini);
         ActionMessages errors = new ActionMessages();
 
+        /*--*/
+            // Descomposición canónica
+            String normalized = Normalizer.normalize(ini.getUsuario(), Normalizer.Form.NFD);
+            // Nos quedamos únicamente con los caracteres ASCII
+            Pattern pattern = Pattern.compile("\\p{ASCII}+");
+            String resultado = pattern.matcher(normalized).replaceAll("");
+            
+            String prueba = Normalizer.normalize(ini.getUsuario(), Normalizer.Form.NFD).replaceAll("[^\\p{ASCII}]", "").replaceAll("/", "-").replaceAll("\"", "-");
+        
         ServiciosUsuario serviciosUsuario = new ServiciosUsuario();
         ClaseEnvio claseEnvio = serviciosUsuario.getServiciosUsuario();
 

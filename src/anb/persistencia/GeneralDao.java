@@ -318,7 +318,8 @@ public class GeneralDao extends Conexion{
                inf.setRiesgoSubval(rs.getString(64));
                inf.setRiesgoClas(rs.getString(65));
                inf.setRiesgoContrab(rs.getString(66));
-
+               
+               inf.setTieneAsignacion(rs.getString(67));
             }
        } finally {
            if (cn != null) {

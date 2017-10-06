@@ -100,7 +100,7 @@ public class ConclusionDao extends Conexion {
         String res;
         try {
             open();
-            call = cn.prepareCall("{ ? = call pkg_conclusion.graba_con_viscargo ( ?,?,?,?,? ,?,?,?,?,? ,?,?,?  ,?,?,?,?,?,?,?)}");
+            call = cn.prepareCall("{ ? = call pkg_conclusion.graba_con_viscargo ( ?,?,?,?,? ,?,?,?,?,? ,?,?,?  ,?,?,?,?,?,?,?,  ?,?)}");
             call.registerOutParameter(1, OracleTypes.VARCHAR);
             call.setString(2, bean.getCodigo());
             call.setString(3, bean.getCvc_tipo_notificacion());
@@ -122,6 +122,8 @@ public class ConclusionDao extends Conexion {
             call.setString(19, bean.getCvc_tipo_rd()); 
             call.setString(20, bean.getCvc_gerencia_legal()); 
             call.setString(21, bean.getTipo_grabado());
+            call.setString(22, bean.getCvc_archivo());
+            call.setString(23, bean.getCvc_ubicacion());
             call.execute();
             res = (String)call.getObject(1);
         } finally {
@@ -159,6 +161,8 @@ public class ConclusionDao extends Conexion {
                bean.setCvc_fecha_vc(rs.getString(20));
                bean.setCvc_tipo_rd(rs.getString(21));
                bean.setCvc_gerencia_legal(rs.getString(22));
+               bean.setCvc_archivo(rs.getString(23));
+               bean.setCvc_ubicacion(rs.getString(24));
            }
        } finally {
            if (cn != null) {

@@ -1,6 +1,7 @@
 package anb.bean;
 
 import org.apache.struts.action.ActionForm;
+import org.apache.struts.upload.FormFile;
 
 public class ConclusionControlForm extends ActionForm {
     private String cargo;
@@ -43,6 +44,10 @@ public class ConclusionControlForm extends ActionForm {
     private String cvc_fecha_ci_remision;
     private String cvc_numero_rd;
     private String cvc_fecha_rd;
+    
+    private FormFile cvc_archivo_adjunto;
+    private String cvc_archivo;
+    private String cvc_ubicacion;
 
     private String cvc_tipo_rd;
     private String cvc_gerencia_legal;
@@ -806,5 +811,30 @@ public class ConclusionControlForm extends ActionForm {
 
     public String getUsuarioger() {
         return usuarioger;
+    }
+
+
+    public void setCvc_archivo_adjunto(FormFile cvc_archivo_adjunto) {
+        this.cvc_archivo_adjunto = cvc_archivo_adjunto;
+    }
+
+    public FormFile getCvc_archivo_adjunto() {
+        return cvc_archivo_adjunto;
+    }
+
+    public void setCvc_archivo(String cvc_archivo) {
+        this.cvc_archivo = cvc_archivo;
+    }
+
+    public String getCvc_archivo() {
+        return cvc_archivo;
+    }
+
+    public void setCvc_ubicacion(String cvc_ubicacion) {
+        this.cvc_ubicacion = cvc_ubicacion;
+    }
+
+    public String getCvc_ubicacion() {
+        return cvc_ubicacion;
     }
 }

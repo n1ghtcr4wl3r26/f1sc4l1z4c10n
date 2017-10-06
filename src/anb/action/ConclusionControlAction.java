@@ -10,6 +10,7 @@ import anb.entidades.PanelConclusion;
 import anb.entidades.Tramite;
 
 import anb.general.Respuesta;
+import anb.general.Util;
 
 import anb.negocio.ConclusionNeg;
 import anb.negocio.GeneralNeg;
@@ -57,7 +58,7 @@ public class ConclusionControlAction extends MappingDispatchAction {
                     Respuesta<Boolean> ver =
                         gen.verificaAccesoUsuario(bean.getCodigo(), bean.getUsuario(), "CONCLUSION",
                                                   bean.getUsuarioger());
-                    if (ver.getCodigo() == 1) {                        
+                    if (ver.getCodigo() == 1) {
                         Respuesta<InfoControl> inf = gen.devuelveControl(bean.getCodigo());
                         inf.getResultado().setUsuario(usuario);
                         request.setAttribute("infoControl", inf.getResultado());
@@ -97,6 +98,7 @@ public class ConclusionControlAction extends MappingDispatchAction {
         ConclusionControlForm bean = new ConclusionControlForm();
         bean = (ConclusionControlForm)request.getAttribute("ConclusionControlForm");
         String usuario = (String)request.getSession().getAttribute("user");
+        int sw = 0;
         if (usuario == null) {
             return mapping.findForward("nook");
         } else {
@@ -141,10 +143,50 @@ public class ConclusionControlAction extends MappingDispatchAction {
                 request.setAttribute("fiscalizadores", fis.getResultado());
                 Respuesta<Fiscalizador[]> asig = gen.devuelveFisAsignados(bean.getCodigo());
                 request.setAttribute("asignados", asig.getResultado());
+                if (!(bean.getCvc_archivo_adjunto().getFileName().equals(""))) {
+                    if (!(bean.getCvc_numero_vc().equals(""))) {
 
-                if (!(bean.getOpcion2() == null) && bean.getOpcion2().equals("concluir")) {
-                    if (!(bean.getCvc_numero_vc().equals("")) && !(bean.getCvc_fecha_vc().equals(""))) {
-                        bean.setTipo_grabado("CONCLUIR");
+                        String nombreArchivo =
+                            inf.getResultado().getCodigoControl() + "-" + bean.getCvc_numero_vc().replaceAll("/", "") +
+                            "-" + Util.devuelve_marca() + ".pdf";
+                        String ubicacion = inf.getResultado().getCodigoControl().substring(0, 9);
+                        String resul = Util.subePDF(bean.getCvc_archivo_adjunto(), nombreArchivo, ubicacion);
+                        if (resul.equals("CORRECTO")) {
+                            bean.setCvc_archivo(nombreArchivo);
+                            bean.setCvc_ubicacion(ubicacion);
+                            sw = 1;
+                        } else {
+                            request.setAttribute("ERROR", resul);
+                        }
+                    } else {
+                        request.setAttribute("WARNING",
+                                             "Para adjuntar el documento digitalizado, debe registrar el n&uacute;mero de Vista de Cargo");
+                    }
+                } else {
+                    sw = 1;
+                }
+                if (sw == 1) {
+                    if (!(bean.getOpcion2() == null) && bean.getOpcion2().equals("concluir")) {
+                        if (!(bean.getCvc_numero_vc().equals("")) && !(bean.getCvc_fecha_vc().equals(""))) {
+                            bean.setTipo_grabado("CONCLUIR");
+                            Respuesta<Boolean> res = neg.graba_con_viscargo(bean);
+                            if (res.getCodigo() == 1) {
+                                request.setAttribute("OK", res.getMensaje());
+                                link = "ok";
+                            } else {
+                                if (res.getCodigo() == 0) {
+                                    request.setAttribute("WARNING", res.getMensaje());
+                                } else {
+                                    request.setAttribute("ERROR", res.getMensaje());
+                                    link = "index";
+                                }
+                            }
+                        } else {
+                            request.setAttribute("ERROR",
+                                                 "Para concluir la fiscalización con VISTA DE CARGO, debe registrar los campos Número de Vista de Cargo y Fecha de Vista de Cargo obligatoriamente.");
+                        }
+                    } else {
+                        bean.setTipo_grabado("GRABAR");
                         Respuesta<Boolean> res = neg.graba_con_viscargo(bean);
                         if (res.getCodigo() == 1) {
                             request.setAttribute("OK", res.getMensaje());
@@ -156,23 +198,6 @@ public class ConclusionControlAction extends MappingDispatchAction {
                                 request.setAttribute("ERROR", res.getMensaje());
                                 link = "index";
                             }
-                        }
-                    } else {
-                        request.setAttribute("ERROR",
-                                             "Para concluir la fiscalización con VISTA DE CARGO, debe registrar los campos Número de Vista de Cargo y Fecha de Vista de Cargo obligatoriamente.");
-                    }
-                } else {
-                    bean.setTipo_grabado("GRABAR");
-                    Respuesta<Boolean> res = neg.graba_con_viscargo(bean);
-                    if (res.getCodigo() == 1) {
-                        request.setAttribute("OK", res.getMensaje());
-                        link = "ok";
-                    } else {
-                        if (res.getCodigo() == 0) {
-                            request.setAttribute("WARNING", res.getMensaje());
-                        } else {
-                            request.setAttribute("ERROR", res.getMensaje());
-                            link = "index";
                         }
                     }
                 }

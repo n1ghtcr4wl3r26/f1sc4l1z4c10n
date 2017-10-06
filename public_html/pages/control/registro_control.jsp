@@ -125,7 +125,7 @@
                 <strong>INFORMACIÓN COMPLEMENTARIA DE LA NOTIFICACIÓN DE LA ORDEN DE FISCALIZACIÓN</strong>
             </h4>
             <div class="form-group">
-                <div class="col-sm-6">
+                <div class="col-sm-12">
                     <table class="table table-striped table-hover" id="main-table">
                         <thead>
                             <tr>
@@ -299,36 +299,36 @@
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-3 control-label">Gesti&oacute;n(es) de la informaci&oacute;n a solicitar:</label>
-                <div class="col-sm-3">
+                <label class="col-sm-4 control-label">Gesti&oacute;n(es) de la informaci&oacute;n a solicitar:</label>
+                <div class="col-sm-6">
                     <html:text property="periodosolicitar" styleId="periodosolicitar"
                                styleClass="form-control required" size="50" maxlength="30"/>
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-3 control-label">Plazo de conclusi&oacute;n de la Fiscalizaci&oacute;n (d&iacute;as):</label>
-                <div class="col-sm-3">
+                <label class="col-sm-4 control-label">Plazo de conclusi&oacute;n de la Fiscalizaci&oacute;n (d&iacute;as):</label>
+                <div class="col-sm-6">
                     <html:text property="inn_plazo_conclusion" styleId="inn_plazo_conclusion"
                                styleClass="form-control numeric required" size="50" maxlength="5"/>
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-3 control-label">Nro. de Documento:</label>
-                <div class="col-sm-3">
+                <label class="col-sm-4 control-label">Nro. de Documento:</label>
+                <div class="col-sm-6">
                     <html:text property="nroDocumento" styleId="nroDocumento"
                                styleClass="form-control required" size="30" maxlength="30" />
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-3 control-label">Fecha de Documento:</label>
-                <div class="col-sm-3">
+                <label class="col-sm-4 control-label">Fecha de Documento:</label>
+                <div class="col-sm-6">
                     <html:text property="fecDocumento" styleId="fecDocumento"
                                styleClass="form-control datepicker required date-less-than" size="30" maxlength="10"/>
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-3 control-label">Riesgo Identificado:</label>
-                <div class="col-sm-3">
+                <label class="col-sm-4 control-label">Riesgo Identificado:</label>
+                <div class="col-sm-6">
                     <html:checkbox property="riesgoDelito" style="width:13px;height:13px" styleId="riesgoDelito"  styleClass="form-control ">&nbsp;&nbsp;Delito</html:checkbox><br>
                     <html:checkbox property="riesgoSubval" style="width:13px;height:13px" styleId="riesgoSubval"  styleClass="form-control ">&nbsp;&nbsp;Subvaluación</html:checkbox><br>
                     <html:checkbox property="riesgoClas" style="width:13px;height:13px" styleId="riesgoClas"  styleClass="form-control ">&nbsp;&nbsp;Clasificación</html:checkbox><br>
@@ -336,8 +336,8 @@
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-3 control-label">Tributos a Fiscalizar:</label>
-                <div class="col-sm-3">
+                <label class="col-sm-4 control-label">Tributos a Fiscalizar:</label>
+                <div class="col-sm-6">
                     <html:checkbox property="ga" style="width:13px;height:13px" styleId="ga"  styleClass="form-control ">&nbsp;&nbsp;GA</html:checkbox><br>
                     <html:checkbox property="iva" style="width:13px;height:13px" styleId="iva"  styleClass="form-control ">&nbsp;&nbsp;IVA</html:checkbox><br>
                     <html:checkbox property="ice" style="width:13px;height:13px" styleId="ice"  styleClass="form-control ">&nbsp;&nbsp;ICE</html:checkbox><br>
@@ -346,6 +346,42 @@
                     <html:checkbox property="noaplica" style="width:13px;height:13px" styleId="noaplica"  styleClass="form-control ">&nbsp;&nbsp;NO APLICA</html:checkbox>
                 </div>
             </div>
+            <c:if test="${infoControl.tipoControl == 'CONTROL DIFERIDO' }">
+                <c:if test="${infoControl.tieneAsignacion == 'NO' }">
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">Funcionario Responsable:</label>
+                        <div class="col-sm-6">
+                            <html:select property="usuariojefe" styleId="usuariojefe" styleClass="form-control required">
+                                <html:option value="-">Seleccione...</html:option>
+                                <c:forEach items="${fiscalizadores}" var="fis">
+                                    <html:option value="${fis.codigo}">${fis.nombre}</html:option>
+                                </c:forEach>
+                            </html:select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                         <label class="col-sm-4 control-label">Cargo Responsable:</label>
+                         <div class="col-sm-6">
+                            <html:select property="cargojefe" styleId="cargojefe" styleClass="form-control required">
+                                <html:option value="-">Seleccione...</html:option>
+                                <html:option value="JEFE">JEFE</html:option>
+                                <html:option value="SUPERVISOR">SUPERVISOR</html:option>
+                            </html:select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">Funcionario Fiscalizador:</label>
+                        <div class="col-sm-6">
+                            <html:select property="usuariofis" styleId="usuariofis" styleClass="form-control required">
+                                <html:option value="-">Seleccione...</html:option>
+                                <c:forEach items="${fiscalizadores}" var="fis">
+                                    <html:option value="${fis.codigo}">${fis.nombre}</html:option>
+                                </c:forEach>
+                            </html:select>
+                        </div>
+                    </div>
+                </c:if>
+            </c:if>
             <br/>
             <div class="btn-container">
                 <button type="submit" id="boton" onclick="consultar()" class="btn btn-primary">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GENERAR ORDEN&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>

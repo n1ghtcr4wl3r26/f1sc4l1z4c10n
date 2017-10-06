@@ -186,10 +186,12 @@
             </div>
             <div id="con_viscargo" <%=panel1%>>
                 <div class="modal-body">
-                    <html:form styleId="form-conclusion" action="conclusion.do">
+                    <html:form styleId="form-conclusion" action="conclusion.do" enctype="multipart/form-data">
                         <html:hidden property="codigo" styleId="codigo"/>
                         <input type="hidden" name="opcion" id="opcion" class="opcion"/>
                         <input type="hidden" name="opcion2" id="opcion2" class="opcion2"/>
+                        <html:hidden property="cvc_archivo" styleId="cvc_archivo"/>
+                        <html:hidden property="cvc_ubicacion" styleId="cvc_ubicacion"/>                        
                         <div class="form-group">
                             <label class="col-sm-3 control-label">N&uacute;mero de informe Técnico:</label>
                             <div class="col-sm-3">
@@ -220,7 +222,7 @@
                         </div>
                         <div class="form-group">
                             <label class="col-sm-3 control-label">Notificaci&oacute;n Vista de Cargo:</label>
-                            <div class="col-sm-3">
+                            <div class="col-sm-9">
                                 <html:select property="cvc_tipo_notificacion" styleId="cvc_tipo_notificacion"
                                              styleClass="form-control" disabled="<%=ffisca%>">
                                     <html:option value="-">-- Seleccione el Tipo --</html:option>
@@ -277,7 +279,7 @@
                         </div>
                         <div class="form-group">
                             <label class="col-sm-3 control-label">Gerencia - Unidad Legal:</label>
-                            <div class="col-sm-3">
+                            <div class="col-sm-9">
                                 <html:select property="cvc_gerencia_legal" styleClass="form-control" styleId="cvc_gerencia_legal" disabled="<%=ffisca%>">
                                     <html:option value="-">Seleccione...</html:option>
                                     <html:option value="GRL">LA PAZ</html:option>
@@ -289,7 +291,16 @@
                                 </html:select>
                             </div>
                         </div>
-                        
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Documento Digitalizado:</label>
+                            <div class="col-sm-9">
+                                <html:file property="cvc_archivo_adjunto" styleId="cvc_archivo_adjunto"
+                                           styleClass="form-control " size="30" style="height:50px" maxlength="50"/>
+                                <br/>
+                                <a href="${ConclusionControlForm.cvc_ubicacion}/${ConclusionControlForm.cvc_archivo}" target="_blank">
+                                ${ConclusionControlForm.cvc_archivo}</a>
+                            </div>
+                        </div>
                         <div class="form-group">
                             <label class="col-sm-3 control-label label-required">Tipo de RD:</label>
                             <div class="col-sm-3">
