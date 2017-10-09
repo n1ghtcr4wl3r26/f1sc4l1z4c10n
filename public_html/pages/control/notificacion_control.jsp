@@ -5,19 +5,20 @@
 <div class="panel panel-default">
     <div class="panel-heading">
         <h4 class="panel-title">
-            <strong>NOTIFICACIÓN CONTROL</strong>
+            <strong>NOTIFICACI&Oacute;N CONTROL</strong>
         </h4>
     </div>
     <div class="modal-body form-horizontal">
         <html:form styleId="form-notificacioncontrol" action="notificacioncontrol.do">
             <html:hidden property="codigo" styleId="codigo"/>
+            <html:hidden property="esapoderado" styleId="esapoderado"/>
             <input type="hidden" name="opcion" id="opcion"/>
             <div class="form-group">
-                <label class="col-sm-2 control-label">Código:</label>
+                <label class="col-sm-2 control-label">C&oacute;digo:</label>
                 <div class="col-sm-2">
                     ${infoControl.codigo}
                 </div>
-                <label class="col-sm-2 control-label">Código Control:</label>
+                <label class="col-sm-2 control-label">C&oacute;digo Control:</label>
                 <div class="col-sm-2">
                     ${infoControl.codigoControl}
                 </div>
@@ -63,7 +64,7 @@
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-2 control-label">N&uacute;mero de Identificación:</label>
+                <label class="col-sm-2 control-label">N&uacute;mero de Identificaci&oacute;n:</label>
                 <div class="col-sm-2">
                     ${infoControl.docIdentificacion}
                 </div>
@@ -90,7 +91,7 @@
             </div>
             <div class="panel-heading">
                 <h4 class="panel-title">
-                    <strong>REGISTRAR NOTIFICACIÓN DEL CONTROL</strong>
+                    <strong>REGISTRAR NOTIFICACI&Oacute;N DEL CONTROL</strong>
                 </h4>
             </div>
             <div class="form-group">
@@ -103,7 +104,8 @@
             <div class="form-group">
                 <label class="col-sm-3 control-label">Tipo de Notificaci&oacute;n:</label>
                 <div class="col-sm-3">
-                    <html:select property="tipoNotificacion" styleId="tipoNotificacion" styleClass="form-control required">
+                    <html:select property="tipoNotificacion" styleId="tipoNotificacion"
+                                 styleClass="form-control required">
                         <html:option value="-">-- Seleccione el Tipo --</html:option>
                         <html:option value="ELECTRONICA">ELECTRONICA</html:option>
                         <html:option value="PERSONAL">PERSONAL</html:option>
@@ -116,9 +118,66 @@
             <div class="form-group">
                 <label class="col-sm-3 control-label">Observaci&oacute;n:</label>
                 <div class="col-sm-3">
-                    <textarea name="observacion" id="observacion" class="form-control required" data-maxlength="100" onkeyup="Textarea_Sin_Enter(event.keyCode, event.which, 'observacion');" >${NotificacionControlForm.observacion}</textarea>
+                    <textarea name="observacion" id="observacion" class="form-control required" data-maxlength="100"
+                              onkeyup="Textarea_Sin_Enter(event.keyCode, event.which, 'observacion');">${NotificacionControlForm.observacion}</textarea>
                 </div>
             </div>
+            <br/>
+            <div id="personal-panel" style="display:none">
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Es apoderado:</label>
+                    <div class="col-sm-3">
+                        <input type="checkbox" style="width:13px;height:13px" name="chkesapoderado" id="chkesapoderado"  class="chkesapoderado"  />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label person ">CI:</label>
+                    <div class="col-sm-3">
+                        <html:text property="nroCIPersona" styleId="nroCIPersona" styleClass="form-control "
+                                   readonly="true" size="30" maxlength="10"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label person ">CI Expedición:</label>
+                    <div class="col-sm-3">
+                        <html:select property="expCIPersona" styleId="expCIPersona" styleClass="form-control "
+                                     disabled="true">
+                            <html:option value="-">Seleccione...</html:option>
+                            <html:option value="LP">La Paz</html:option>
+                            <html:option value="CB">Cochabamba</html:option>
+                            <html:option value="SC">Santa Cruz</html:option>
+                            <html:option value="PN">Pando</html:option>
+                            <html:option value="PT">Potosi</html:option>
+                            <html:option value="TR">Tarija</html:option>
+                            <html:option value="CH">Chuquisaca</html:option>
+                            <html:option value="BN">Beni</html:option>
+                            <html:option value="OR">Oruro</html:option>
+                        </html:select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label person ">Nombres:</label>
+                    <div class="col-sm-5">
+                        <html:text property="nombrePersona" styleId="nombrePersona" styleClass="form-control "
+                                   readonly="true" size="30" maxlength="30"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label person ">Apellido Paterno:</label>
+                    <div class="col-sm-5">
+                        <html:text property="apPatPersona" styleId="apPatPersona" styleClass="form-control "
+                                   readonly="true" size="30" maxlength="30"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label person ">Apellido Materno:</label>
+                    <div class="col-sm-5">
+                        <html:text property="apMatPersona" styleId="apMatPersona" styleClass="form-control "
+                                   readonly="true" size="30" maxlength="30"/>
+                    </div>
+                </div>
+            </div>
+            
             <div class="btn-container">
                 <button type="submit" id="boton" onclick="consultar()" class="btn btn-primary">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Grabar&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
             </div>
@@ -126,13 +185,77 @@
     </div>
 </div>
 <script>
-  $(document).ready(function () {
+  $(document).ready(function () {       
       Anb.form.submit('#form-notificacioncontrol', function (form) {
           Anb.form.cleanErrors(form);
           if (Anb.validate.run(form)) {
               console.log('Enviado!');
               Anb.loading.show()
               form.submit();
+          }
+      });
+      $('#tipoNotificacion').change(function () {
+          if ($('#tipoNotificacion').val() == "PERSONAL") {
+              $('#personal-panel').show();
+          }
+          else {
+              $('#personal-panel').hide();
+              $('#nroCIPersona').attr('readonly', 'true');
+              $('#expCIPersona').attr('disabled', 'true');
+              $('#expCIPersona').val('-');
+              $('#nombrePersona').attr('readonly', 'true');
+              $('#apPatPersona').attr('readonly', 'true');
+              $('#apMatPersona').attr('readonly', 'true');
+              $('#nroCIPersona').removeClass('required');
+              $('#expCIPersona').removeClass('required');
+              $('#nombrePersona').removeClass('required');
+              $('#apPatPersona').removeClass('required');
+              $('#apMatPersona').removeClass('required');
+              $('.person').removeClass('label-required'); 
+              $('#nroCIPersona').val('');
+              $('#expCIPersona').val('');
+              $('#nombrePersona').val('');
+              $('#apPatPersona').val('');
+              $('#apMatPersona').val('');
+          }
+      });
+      $("#esapoderado").click(function (event) {
+          if ($(this).is(":checked")) {
+              $('#nroCIPersona').removeAttr("readonly");
+              $('#expCIPersona').removeAttr("disabled");
+              $('#nombrePersona').removeAttr("readonly");
+              $('#apPatPersona').removeAttr("readonly");
+              $('#apMatPersona').removeAttr("readonly");
+              $('#nroCIPersona').addClass('required');
+              $('#expCIPersona').addClass('required');
+              $('#nombrePersona').addClass('required');
+              $('#apPatPersona').addClass('required');
+              $('#apMatPersona').addClass('required');
+              $('.person').addClass('label-required');              
+              $('#posNroCIPersona').val('');
+              $('#expCIPersona').val('');
+              $('#nombrePersona').val('');
+              $('#apPatPersona').val('');
+              $('#apMatPersona').val('');
+          }
+          else {              
+              $('#nroCIPersona').attr('readonly', 'true');
+              $('#expCIPersona').attr('disabled', 'true');
+              $('#expCIPersona').val('-');
+              $('#nombrePersona').attr('readonly', 'true');
+              $('#apPatPersona').attr('readonly', 'true');
+              $('#apMatPersona').attr('readonly', 'true');
+              $('#nroCIPersona').removeClass('required');
+              $('#expCIPersona').removeClass('required');
+              $('#nombrePersona').removeClass('required');
+              $('#apPatPersona').removeClass('required');
+              $('#apMatPersona').removeClass('required');
+              $('.person').removeClass('label-required'); 
+              $('#nroCIPersona').val('');
+              $('#expCIPersona').val('');
+              $('#nombrePersona').val('');
+              $('#apPatPersona').val('');
+              $('#apMatPersona').val('');
           }
       });
   });

@@ -15,6 +15,7 @@
         <form-bean name="AsignaFiscalizadorForm" type="anb.bean.AsignaFiscalizadorForm"/>
         <form-bean name="AmpliacionForm" type="anb.bean.AmpliacionForm"/>
         <form-bean name="NotificacionControlForm" type="anb.bean.NotificacionControlForm"/>
+        <form-bean name="PresentacionDocumentacionForm" type="anb.bean.PresentacionDocumentacionForm"/>
         <form-bean name="GeneracionHojaForm" type="anb.bean.GeneracionHojaForm"/>
         <form-bean name="SubirHojaForm" type="anb.bean.SubirHojaForm"/>
         <form-bean name="GeneracionExcelForm" type="anb.bean.GeneracionExcelForm"/>
@@ -46,6 +47,7 @@
             <forward name="asigna" path="/asignaidx.do" redirect="true" />
             <forward name="ampliacion" path="/ampindex.do" redirect="true" />
             <forward name="notificacioncontrol" path="/notificacioncontrolidx.do" redirect="true" />
+            <forward name="presentaciondocumentacion" path="/presentaciondocumentacionidx.do" redirect="true" />
             <forward name="generacionhoja" path="/generacionhojaidx.do" redirect="true" />
             <forward name="subir" path="/subiridx.do" redirect="true" />
             <forward name="generacionxls" path="/generacionxlsidx.do" redirect="true" />
@@ -287,6 +289,18 @@
         <action path="/notificacioncontrol" type="anb.action.NotificacionControlAction" name="NotificacionControlForm" parameter="notificacion" scope="request">
             <forward name="index" path="notificacion.control.index" redirect="true" />
             <forward name="ok" path="notificacion.control" redirect="true" />
+            <forward name="nook" path="/input.jsp"/>
+        </action>
+        
+        <!-- PRESENTACION DOCUMENTACION -->
+        <action path="/presentaciondocumentacionidx" type="anb.action.PresentacionDocumentacionAction" name="PresentacionDocumentacionForm" parameter="presentaciondocumentacionidx" scope="request">
+            <forward name="index" path="presentacion.documentacion.index" redirect="true" />
+            <forward name="ok" path="presentacion.documentacion" redirect="true" />
+            <forward name="nook" path="/input.jsp"/>
+        </action>
+        <action path="/presentaciondocumentacion" type="anb.action.PresentacionDocumentacionAction" name="PresentacionDocumentacionForm" parameter="presentaciondocumentacion" scope="request">
+            <forward name="index" path="presentacion.documentacion.index" redirect="true" />
+            <forward name="ok" path="presentacion.documentacion" redirect="true" />
             <forward name="nook" path="/input.jsp"/>
         </action>
         

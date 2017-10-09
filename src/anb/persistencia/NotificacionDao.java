@@ -23,13 +23,19 @@ public class NotificacionDao extends Conexion {
         String res;
         try {
             open();
-            call = cn.prepareCall("{ ? = call pkg_seguimiento.graba_notificacion ( ?,?,?,?,?)}");
+            call = cn.prepareCall("{ ? = call pkg_seguimiento.graba_notificacion ( ?,?,?,?,?, ?,?,?,?,?,?)}");
             call.registerOutParameter(1, OracleTypes.VARCHAR);
             call.setString(2, bean.getCodigo());
             call.setString(3, bean.getUsuario());
             call.setString(4, bean.getFechaNotificacion());
             call.setString(5, bean.getTipoNotificacion());
             call.setString(6, bean.getObservacion());
+            call.setString(7, bean.getEsapoderado());
+            call.setString(8, bean.getNroCIPersona());
+            call.setString(9, bean.getExpCIPersona());
+            call.setString(10, bean.getNombrePersona());
+            call.setString(11, bean.getApPatPersona());
+            call.setString(12, bean.getApMatPersona());
             call.execute();
             res = (String)call.getObject(1);
         } finally {
@@ -52,7 +58,13 @@ public class NotificacionDao extends Conexion {
                bean.setCodigo(rs.getString(1));
                bean.setFechaNotificacion(rs.getString(2));
                bean.setTipoNotificacion(rs.getString(3));
-               bean.setObservacion(rs.getString(4));           
+               bean.setObservacion(rs.getString(4)); 
+               bean.setEsapoderado(rs.getString(5));
+               bean.setNroCIPersona(rs.getString(6));
+               bean.setExpCIPersona(rs.getString(7));
+               bean.setNombrePersona(rs.getString(8));
+               bean.setApPatPersona(rs.getString(9));
+               bean.setApMatPersona(rs.getString(10));
            }
        } finally {
            if (cn != null) {

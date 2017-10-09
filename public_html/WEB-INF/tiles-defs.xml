@@ -89,6 +89,12 @@
     <definition name="notificacion.control" extends="aud.home">
         <put name="content" value="/pages/control/notificacion_control.jsp"/>
     </definition>
+    <definition name="presentacion.documentacion.index" extends="aud.home">
+        <put name="content" value="/pages/control/presentacion_documentacion_index.jsp"/>
+    </definition>
+    <definition name="presentacion.documentacion" extends="aud.home">
+        <put name="content" value="/pages/control/presentacion_documentacion.jsp"/>
+    </definition>
     <definition name="generacion.hoja.index" extends="aud.home">
         <put name="content" value="/pages/control/generacion_hoja_index.jsp"/>
     </definition>

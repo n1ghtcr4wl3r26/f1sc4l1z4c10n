@@ -2,7 +2,7 @@ package anb.bean;
 
 import org.apache.struts.action.ActionForm;
 
-public class NotificacionControlForm extends ActionForm {
+public class PresentacionDocumentacionForm extends ActionForm {
     private String cargo;
     private String funcionario;
     
@@ -25,7 +25,6 @@ public class NotificacionControlForm extends ActionForm {
     private String usuarioger; 
     
     private String esapoderado;
-    private String chkesapoderado;
     private String nroCIPersona;
     private String expCIPersona;
     private String nombrePersona;

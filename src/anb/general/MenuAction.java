@@ -58,7 +58,10 @@ public class MenuAction extends Action {
 
         case 15:
             return mapping.findForward("notificacioncontrol");
-
+        
+        case 151:
+            return mapping.findForward("presentaciondocumentacion");
+    
         case 16:
             return mapping.findForward("generacionhoja");
 
