@@ -59,12 +59,12 @@ public class NotificacionDao extends Conexion {
                bean.setFechaNotificacion(rs.getString(2));
                bean.setTipoNotificacion(rs.getString(3));
                bean.setObservacion(rs.getString(4)); 
-               bean.setEsapoderado(rs.getString(5));
-               bean.setNroCIPersona(rs.getString(6));
-               bean.setExpCIPersona(rs.getString(7));
-               bean.setNombrePersona(rs.getString(8));
-               bean.setApPatPersona(rs.getString(9));
-               bean.setApMatPersona(rs.getString(10));
+               bean.setEsapoderado(rs.getString(9));
+               bean.setNroCIPersona(rs.getString(10));
+               bean.setExpCIPersona(rs.getString(11));
+               bean.setNombrePersona(rs.getString(12));
+               bean.setApPatPersona(rs.getString(13));
+               bean.setApMatPersona(rs.getString(14));
            }
        } finally {
            if (cn != null) {

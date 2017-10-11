@@ -127,7 +127,8 @@
                 <div class="form-group">
                     <label class="col-sm-3 control-label">Es apoderado:</label>
                     <div class="col-sm-3">
-                        <input type="checkbox" style="width:13px;height:13px" name="chkesapoderado" id="chkesapoderado"  class="chkesapoderado"  />
+                        <input type="checkbox" style="width:13px;height:13px" name="chkesapoderado" id="chkesapoderado"
+                               class="chkesapoderado"/>
                     </div>
                 </div>
                 <div class="form-group">
@@ -138,7 +139,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label person ">CI Expedición:</label>
+                    <label class="col-sm-3 control-label person ">CI Expedici&oacute;n:</label>
                     <div class="col-sm-3">
                         <html:select property="expCIPersona" styleId="expCIPersona" styleClass="form-control "
                                      disabled="true">
@@ -177,7 +178,6 @@
                     </div>
                 </div>
             </div>
-            
             <div class="btn-container">
                 <button type="submit" id="boton" onclick="consultar()" class="btn btn-primary">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Grabar&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
             </div>
@@ -185,7 +185,40 @@
     </div>
 </div>
 <script>
-  $(document).ready(function () {       
+  $(document).ready(function () {
+      if ($('#tipoNotificacion').val() == "PERSONAL") {
+          $('#personal-panel').show();
+          if ($('#esapoderado').val() == "SI") {
+              $('#chkesapoderado').prop('checked', true).attr('checked', 'checked');
+              $('#nroCIPersona').removeAttr("readonly");
+              $('#expCIPersona').removeAttr("disabled");
+              $('#nombrePersona').removeAttr("readonly");
+              $('#apPatPersona').removeAttr("readonly");
+              $('#apMatPersona').removeAttr("readonly");
+              $('#nroCIPersona').addClass('required');
+              $('#expCIPersona').addClass('required');
+              $('#nombrePersona').addClass('required');
+              $('#apPatPersona').addClass('required');
+              $('#apMatPersona').addClass('required');
+              $('.person').addClass('label-required');
+          }
+          else {
+              $('#chkesapoderado').prop('checked', false).removeAttr('checked');
+              $('#nroCIPersona').attr('readonly', 'true');
+              $('#expCIPersona').attr('disabled', 'true');
+              $('#expCIPersona').val('-');
+              $('#nombrePersona').attr('readonly', 'true');
+              $('#apPatPersona').attr('readonly', 'true');
+              $('#apMatPersona').attr('readonly', 'true');
+              $('#nroCIPersona').removeClass('required');
+              $('#expCIPersona').removeClass('required');
+              $('#nombrePersona').removeClass('required');
+              $('#apPatPersona').removeClass('required');
+              $('#apMatPersona').removeClass('required');
+              $('.person').removeClass('label-required');
+          }
+      }
+
       Anb.form.submit('#form-notificacioncontrol', function (form) {
           Anb.form.cleanErrors(form);
           if (Anb.validate.run(form)) {
@@ -197,12 +230,9 @@
       $('#tipoNotificacion').change(function () {
           if ($('#tipoNotificacion').val() == "PERSONAL") {
               $('#personal-panel').show();
-          }
-          else {
-              $('#personal-panel').hide();
+              $('#esapoderado').val('NO');
               $('#nroCIPersona').attr('readonly', 'true');
               $('#expCIPersona').attr('disabled', 'true');
-              $('#expCIPersona').val('-');
               $('#nombrePersona').attr('readonly', 'true');
               $('#apPatPersona').attr('readonly', 'true');
               $('#apMatPersona').attr('readonly', 'true');
@@ -211,18 +241,39 @@
               $('#nombrePersona').removeClass('required');
               $('#apPatPersona').removeClass('required');
               $('#apMatPersona').removeClass('required');
-              $('.person').removeClass('label-required'); 
+              $('.person').removeClass('label-required');
               $('#nroCIPersona').val('');
-              $('#expCIPersona').val('');
+              $('#expCIPersona').val('-');
+              $('#nombrePersona').val('');
+              $('#apPatPersona').val('');
+              $('#apMatPersona').val('');
+          }
+          else {
+              $('#esapoderado').val('NO');
+              $('#personal-panel').hide();
+              $('#nroCIPersona').attr('readonly', 'true');
+              $('#expCIPersona').attr('disabled', 'true');
+              $('#nombrePersona').attr('readonly', 'true');
+              $('#apPatPersona').attr('readonly', 'true');
+              $('#apMatPersona').attr('readonly', 'true');
+              $('#nroCIPersona').removeClass('required');
+              $('#expCIPersona').removeClass('required');
+              $('#nombrePersona').removeClass('required');
+              $('#apPatPersona').removeClass('required');
+              $('#apMatPersona').removeClass('required');
+              $('.person').removeClass('label-required');
+              $('#nroCIPersona').val('');
+              $('#expCIPersona').val('-');
               $('#nombrePersona').val('');
               $('#apPatPersona').val('');
               $('#apMatPersona').val('');
           }
       });
-      $("#esapoderado").click(function (event) {
+      $("#chkesapoderado").click(function (event) {
           if ($(this).is(":checked")) {
+              $('#esapoderado').val('SI');
               $('#nroCIPersona').removeAttr("readonly");
-              $('#expCIPersona').removeAttr("disabled");
+              $('#expCIPersona').removeAttr("disabled");              
               $('#nombrePersona').removeAttr("readonly");
               $('#apPatPersona').removeAttr("readonly");
               $('#apMatPersona').removeAttr("readonly");
@@ -231,17 +282,17 @@
               $('#nombrePersona').addClass('required');
               $('#apPatPersona').addClass('required');
               $('#apMatPersona').addClass('required');
-              $('.person').addClass('label-required');              
-              $('#posNroCIPersona').val('');
-              $('#expCIPersona').val('');
+              $('.person').addClass('label-required');
+              $('#NroCIPersona').val('');
+              $('#expCIPersona').val('-');
               $('#nombrePersona').val('');
               $('#apPatPersona').val('');
               $('#apMatPersona').val('');
           }
-          else {              
+          else {
+              $('#esapoderado').val('NO');
               $('#nroCIPersona').attr('readonly', 'true');
-              $('#expCIPersona').attr('disabled', 'true');
-              $('#expCIPersona').val('-');
+              $('#expCIPersona').attr('disabled', 'true');              
               $('#nombrePersona').attr('readonly', 'true');
               $('#apPatPersona').attr('readonly', 'true');
               $('#apMatPersona').attr('readonly', 'true');
@@ -250,9 +301,9 @@
               $('#nombrePersona').removeClass('required');
               $('#apPatPersona').removeClass('required');
               $('#apMatPersona').removeClass('required');
-              $('.person').removeClass('label-required'); 
+              $('.person').removeClass('label-required');
               $('#nroCIPersona').val('');
-              $('#expCIPersona').val('');
+              $('#expCIPersona').val('-');
               $('#nombrePersona').val('');
               $('#apPatPersona').val('');
               $('#apMatPersona').val('');

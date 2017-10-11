@@ -109,6 +109,10 @@ public class NotificacionControlAction extends MappingDispatchAction {
                 if (res.getCodigo() == 1) {
                     request.setAttribute("OK", res.getMensaje());
                     link = "ok";
+                    Respuesta<NotificacionControlForm> ben = neg.devuelveNotificacion(bean);
+                    if (ben.getCodigo() == 1) {
+                        bean = ben.getResultado();
+                    }
                 } else {
                     if (res.getCodigo() == 0) {
                         request.setAttribute("WARNING", res.getMensaje());

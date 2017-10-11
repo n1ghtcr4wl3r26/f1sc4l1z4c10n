@@ -49,13 +49,13 @@
                         <td class="text-center">
                             ${esc.cantidadDUIs}
                         </td>
-                        <td class="text-right">
+                        <td class="text-center">
                             ${esc.patron}
                         </td>
                         <td class="text-center">
                             ${esc.items}
                         </td>
-                        <td class="text-center">
+                        <td class="text-left">
                             ${esc.importadorNIT}:${esc.importadorNombre}
                         </td>
                         <td class="text-center">
