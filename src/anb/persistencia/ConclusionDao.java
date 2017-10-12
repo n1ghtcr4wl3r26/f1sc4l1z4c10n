@@ -177,7 +177,7 @@ public class ConclusionDao extends Conexion {
         String res;
         try {
             open();
-            call = cn.prepareCall("{ ? = call pkg_conclusion.graba_con_resdeter ( ?,?,?,? ,?,?,?)}");
+            call = cn.prepareCall("{ ? = call pkg_conclusion.graba_con_resdeter ( ?,?,?,? ,?,?,?  ,?,?)}");
             call.registerOutParameter(1, OracleTypes.VARCHAR);
             call.setString(2, bean.getCodigo());
             call.setString(3, bean.getCrd_rd_final());
@@ -186,6 +186,8 @@ public class ConclusionDao extends Conexion {
             call.setString(6, bean.getCrd_numero_informe());
             call.setString(7, bean.getCrd_fecha_informe());
             call.setString(8, bean.getTipo_grabado());
+            call.setString(9, bean.getCrd_archivo());
+            call.setString(10, bean.getCrd_ubicacion());
             call.execute();
             res = (String)call.getObject(1);
         } finally {
@@ -210,7 +212,8 @@ public class ConclusionDao extends Conexion {
                bean.setCrd_fecha_not_rd_final(rs.getString(3));  
                bean.setCrd_numero_informe(rs.getString(8));
                bean.setCrd_fecha_informe(rs.getString(9));
-               
+               bean.setCrd_archivo(rs.getString(10));
+               bean.setCrd_ubicacion(rs.getString(11));
            }
        } finally {
            if (cn != null) {
@@ -225,7 +228,7 @@ public class ConclusionDao extends Conexion {
         String res;
         try {
             open();
-            call = cn.prepareCall("{ ? = call pkg_conclusion.graba_con_actainter ( ?,?,?,?,? ,?,?,?,?,? ,?,?,?,? ,?,?,? ,?,? ,?,?,?)}");
+            call = cn.prepareCall("{ ? = call pkg_conclusion.graba_con_actainter ( ?,?,?,?,? ,?,?,?,?,? ,?,?,?,? ,?,?,? ,?,? ,?,?,?  ,?,?)}");
             call.registerOutParameter(1, OracleTypes.VARCHAR);
             call.setString(2, bean.getCodigo());
             call.setString(3, bean.getCai_acta_interv());
@@ -249,6 +252,8 @@ public class ConclusionDao extends Conexion {
             call.setString(21, bean.getCai_resultado_des());
             call.setString(22, bean.getCai_tipo_resolucion());
             call.setString(23, bean.getTipo_grabado());
+            call.setString(24, bean.getCai_archivo());
+            call.setString(25, bean.getCai_ubicacion());
             call.execute();
             res = (String)call.getObject(1);
         } finally {
@@ -288,6 +293,8 @@ public class ConclusionDao extends Conexion {
                bean.setCai_tipo_not_ai(rs.getString(22));                   
                bean.setCai_resultado_des(rs.getString(23));
                bean.setCai_tipo_resolucion(rs.getString(24));
+               bean.setCai_archivo(rs.getString(25));
+               bean.setCai_ubicacion(rs.getString(26));
            }
        } finally {
            if (cn != null) {
@@ -302,7 +309,7 @@ public class ConclusionDao extends Conexion {
         String res;
         try {
             open();
-            call = cn.prepareCall("{ ? = call pkg_conclusion.graba_con_resadmin ( ?,?,?,?,? ,?,?,?,?  ,?,?  ,?,?,?,?,?)}");
+            call = cn.prepareCall("{ ? = call pkg_conclusion.graba_con_resadmin ( ?,?,?,?,? ,?,?,?,?  ,?,?  ,?,?,?,?,? ,?,?)}");
             call.registerOutParameter(1, OracleTypes.VARCHAR);
             call.setString(2, bean.getCodigo());
             call.setString(3, bean.getCra_fecha_pago_cuini());
@@ -320,6 +327,8 @@ public class ConclusionDao extends Conexion {
             call.setString(15, bean.getCra_rup_numero());
             call.setString(16, bean.getCra_gerencia_legal());
             call.setString(17, bean.getTipo_grabado());
+            call.setString(18, bean.getCra_archivo());
+            call.setString(19, bean.getCra_ubicacion());
             call.execute();
             res = (String)call.getObject(1);
         } finally {
@@ -373,6 +382,8 @@ public class ConclusionDao extends Conexion {
                bean.setCra_rup_aduana(rs.getString(16));
                bean.setCra_rup_numero(rs.getString(17));
                bean.setCra_gerencia_legal(rs.getString(18));
+               bean.setCra_archivo(rs.getString(19));
+               bean.setCra_ubicacion(rs.getString(20));
            }
        } finally {
            if (cn != null) {
@@ -387,7 +398,7 @@ public class ConclusionDao extends Conexion {
         String res;
         try {
             open();
-            call = cn.prepareCall("{ ? = call pkg_conclusion.graba_con_autoinicial ( ?,?,?,?,? ,?,?,?,?,? ,?,?,?  ,?,?,?,?)}");
+            call = cn.prepareCall("{ ? = call pkg_conclusion.graba_con_autoinicial ( ?,?,?,?,? ,?,?,?,?,? ,?,?,?  ,?,?,?,? ,?,?)}");
             call.registerOutParameter(1, OracleTypes.VARCHAR);
             call.setString(2, bean.getCodigo());
             call.setString(3, bean.getCas_numero_aisc());
@@ -406,7 +417,8 @@ public class ConclusionDao extends Conexion {
             call.setString(16, bean.getCas_fecha_informe());
             call.setString(17, bean.getCas_gerencia_legal());
             call.setString(18, bean.getTipo_grabado());
-            
+            call.setString(19, bean.getCas_archivo());
+            call.setString(20, bean.getCas_ubicacion());
             call.execute();
             res = (String)call.getObject(1);
         } finally {
@@ -441,7 +453,8 @@ public class ConclusionDao extends Conexion {
                bean.setCas_numero_informe(rs.getString(17)); 
                bean.setCas_fecha_informe(rs.getString(18)); 
                bean.setCas_gerencia_legal(rs.getString(19)); 
-               
+               bean.setCas_archivo(rs.getString(20));
+               bean.setCas_ubicacion(rs.getString(21));
            }
        } finally {
            if (cn != null) {

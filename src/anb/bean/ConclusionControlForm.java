@@ -57,6 +57,10 @@ public class ConclusionControlForm extends ActionForm {
 
     private String crd_rd_final;
     private String crd_fecha_not_rd_final;
+    
+    private FormFile crd_archivo_adjunto;
+    private String crd_archivo;
+    private String crd_ubicacion;
 
 
     private String cai_numero_informe;
@@ -82,6 +86,10 @@ public class ConclusionControlForm extends ActionForm {
     private String cai_resultado_des;
     private String cai_tipo_resolucion;
     
+    private FormFile cai_archivo_adjunto;
+    private String cai_archivo;
+    private String cai_ubicacion;
+    
     private String cra_numero_informe;
     private String cra_fecha_informe;
     
@@ -97,6 +105,10 @@ public class ConclusionControlForm extends ActionForm {
     private String cra_rup_aduana;
     private String cra_rup_numero;
     private String cra_gerencia_legal;
+    
+    private FormFile cra_archivo_adjunto;
+    private String cra_archivo;
+    private String cra_ubicacion;
 
     private String cas_numero_informe;
     private String cas_fecha_informe;
@@ -114,6 +126,10 @@ public class ConclusionControlForm extends ActionForm {
     private String cas_fecha_rs;   
     
     private String cas_gerencia_legal;
+    
+    private FormFile cas_archivo_adjunto;
+    private String cas_archivo;
+    private String cas_ubicacion;
     
     private String tipo_grabado;
     
@@ -836,5 +852,101 @@ public class ConclusionControlForm extends ActionForm {
 
     public String getCvc_ubicacion() {
         return cvc_ubicacion;
+    }
+
+    public void setCrd_archivo_adjunto(FormFile crd_archivo_adjunto) {
+        this.crd_archivo_adjunto = crd_archivo_adjunto;
+    }
+
+    public FormFile getCrd_archivo_adjunto() {
+        return crd_archivo_adjunto;
+    }
+
+    public void setCrd_archivo(String crd_archivo) {
+        this.crd_archivo = crd_archivo;
+    }
+
+    public String getCrd_archivo() {
+        return crd_archivo;
+    }
+
+    public void setCrd_ubicacion(String crd_ubicacion) {
+        this.crd_ubicacion = crd_ubicacion;
+    }
+
+    public String getCrd_ubicacion() {
+        return crd_ubicacion;
+    }
+
+    public void setCai_archivo_adjunto(FormFile cai_archivo_adjunto) {
+        this.cai_archivo_adjunto = cai_archivo_adjunto;
+    }
+
+    public FormFile getCai_archivo_adjunto() {
+        return cai_archivo_adjunto;
+    }
+
+    public void setCai_archivo(String cai_archivo) {
+        this.cai_archivo = cai_archivo;
+    }
+
+    public String getCai_archivo() {
+        return cai_archivo;
+    }
+
+    public void setCai_ubicacion(String cai_ubicacion) {
+        this.cai_ubicacion = cai_ubicacion;
+    }
+
+    public String getCai_ubicacion() {
+        return cai_ubicacion;
+    }
+
+    public void setCra_archivo_adjunto(FormFile cra_archivo_adjunto) {
+        this.cra_archivo_adjunto = cra_archivo_adjunto;
+    }
+
+    public FormFile getCra_archivo_adjunto() {
+        return cra_archivo_adjunto;
+    }
+
+    public void setCra_archivo(String cra_archivo) {
+        this.cra_archivo = cra_archivo;
+    }
+
+    public String getCra_archivo() {
+        return cra_archivo;
+    }
+
+    public void setCra_ubicacion(String cra_ubicacion) {
+        this.cra_ubicacion = cra_ubicacion;
+    }
+
+    public String getCra_ubicacion() {
+        return cra_ubicacion;
+    }
+
+    public void setCas_archivo_adjunto(FormFile cas_archivo_adjunto) {
+        this.cas_archivo_adjunto = cas_archivo_adjunto;
+    }
+
+    public FormFile getCas_archivo_adjunto() {
+        return cas_archivo_adjunto;
+    }
+
+    public void setCas_archivo(String cas_archivo) {
+        this.cas_archivo = cas_archivo;
+    }
+
+    public String getCas_archivo() {
+        return cas_archivo;
+    }
+
+    public void setCas_ubicacion(String cas_ubicacion) {
+        this.cas_ubicacion = cas_ubicacion;
+    }
+
+    public String getCas_ubicacion() {
+        return cas_ubicacion;
     }
 }

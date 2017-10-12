@@ -145,9 +145,8 @@ public class ConclusionControlAction extends MappingDispatchAction {
                 request.setAttribute("asignados", asig.getResultado());
                 if (!(bean.getCvc_archivo_adjunto().getFileName().equals(""))) {
                     if (!(bean.getCvc_numero_vc().equals(""))) {
-
                         String nombreArchivo =
-                            inf.getResultado().getCodigoControl() + "-" + bean.getCvc_numero_vc().replaceAll("/", "") +
+                            inf.getResultado().getCodigoControl() + "-VC" + //bean.getCvc_numero_vc().replaceAll("/", "") +
                             "-" + Util.devuelve_marca() + ".pdf";
                         String ubicacion = inf.getResultado().getCodigoControl().substring(0, 9);
                         String resul = Util.subePDF(bean.getCvc_archivo_adjunto(), nombreArchivo, ubicacion);
@@ -212,10 +211,50 @@ public class ConclusionControlAction extends MappingDispatchAction {
                 request.setAttribute("fiscalizadores", fis.getResultado());
                 Respuesta<Fiscalizador[]> asig = gen.devuelveFisAsignados(bean.getCodigo());
                 request.setAttribute("asignados", asig.getResultado());
+                if (!(bean.getCrd_archivo_adjunto().getFileName().equals(""))) {
+                    if (!(bean.getCrd_rd_final().equals(""))) {
 
-                if (!(bean.getOpcion2() == null) && bean.getOpcion2().equals("concluir")) {
-                    if (!(bean.getCrd_rd_final().equals("")) && !(bean.getCrd_fecha_not_rd_final().equals(""))) {
-                        bean.setTipo_grabado("CONCLUIR");
+                        String nombreArchivo =
+                            inf.getResultado().getCodigoControl() + "-RD" + //bean.getCrd_rd_final().replaceAll("/", "") +
+                            "-" + Util.devuelve_marca() + ".pdf";
+                        String ubicacion = inf.getResultado().getCodigoControl().substring(0, 9);
+                        String resul = Util.subePDF(bean.getCrd_archivo_adjunto(), nombreArchivo, ubicacion);
+                        if (resul.equals("CORRECTO")) {
+                            bean.setCrd_archivo(nombreArchivo);
+                            bean.setCrd_ubicacion(ubicacion);
+                            sw = 1;
+                        } else {
+                            request.setAttribute("ERROR", resul);
+                        }
+                    } else {
+                        request.setAttribute("WARNING",
+                                             "Para adjuntar el documento digitalizado, debe registrar el n&uacute;mero de Vista de Cargo");
+                    }
+                } else {
+                    sw = 1;
+                }
+                if (sw == 1) {
+                    if (!(bean.getOpcion2() == null) && bean.getOpcion2().equals("concluir")) {
+                        if (!(bean.getCrd_rd_final().equals("")) && !(bean.getCrd_fecha_not_rd_final().equals(""))) {
+                            bean.setTipo_grabado("CONCLUIR");
+                            Respuesta<Boolean> res = neg.graba_con_resdeter(bean);
+                            if (res.getCodigo() == 1) {
+                                request.setAttribute("OK", res.getMensaje());
+                                link = "ok";
+                            } else {
+                                if (res.getCodigo() == 0) {
+                                    request.setAttribute("WARNING", res.getMensaje());
+                                } else {
+                                    request.setAttribute("ERROR", res.getMensaje());
+                                    link = "index";
+                                }
+                            }
+                        } else {
+                            request.setAttribute("ERROR",
+                                                 "Para concluir la fiscalización con RESOLUCIÓN DETERMINATIVA FINAL SIN VISTA DE CARGO , debe registrar los campos Número RD final y Fecha de notificación de la RD final obligatoriamente.");
+                        }
+                    } else {
+                        bean.setTipo_grabado("GRABAR");
                         Respuesta<Boolean> res = neg.graba_con_resdeter(bean);
                         if (res.getCodigo() == 1) {
                             request.setAttribute("OK", res.getMensaje());
@@ -227,23 +266,6 @@ public class ConclusionControlAction extends MappingDispatchAction {
                                 request.setAttribute("ERROR", res.getMensaje());
                                 link = "index";
                             }
-                        }
-                    } else {
-                        request.setAttribute("ERROR",
-                                             "Para concluir la fiscalización con RESOLUCIÓN DETERMINATIVA FINAL SIN VISTA DE CARGO , debe registrar los campos Número RD final y Fecha de notificación de la RD final obligatoriamente.");
-                    }
-                } else {
-                    bean.setTipo_grabado("GRABAR");
-                    Respuesta<Boolean> res = neg.graba_con_resdeter(bean);
-                    if (res.getCodigo() == 1) {
-                        request.setAttribute("OK", res.getMensaje());
-                        link = "ok";
-                    } else {
-                        if (res.getCodigo() == 0) {
-                            request.setAttribute("WARNING", res.getMensaje());
-                        } else {
-                            request.setAttribute("ERROR", res.getMensaje());
-                            link = "index";
                         }
                     }
                 }
@@ -258,10 +280,50 @@ public class ConclusionControlAction extends MappingDispatchAction {
                 request.setAttribute("fiscalizadores", fis.getResultado());
                 Respuesta<Fiscalizador[]> asig = gen.devuelveFisAsignados(bean.getCodigo());
                 request.setAttribute("asignados", asig.getResultado());
+                if (!(bean.getCai_archivo_adjunto().getFileName().equals(""))) {
+                    if (!(bean.getCai_acta_interv().equals(""))) {
 
-                if (!(bean.getOpcion2() == null) && bean.getOpcion2().equals("concluir")) {
-                    if (!(bean.getCai_acta_interv().equals("")) && !(bean.getCai_fecha_acta_interv().equals(""))) {
-                        bean.setTipo_grabado("CONCLUIR");
+                        String nombreArchivo =
+                            inf.getResultado().getCodigoControl() + "-AI" + //bean.getCai_acta_interv().replaceAll("/","") +
+                            "-" + Util.devuelve_marca() + ".pdf";
+                        String ubicacion = inf.getResultado().getCodigoControl().substring(0, 9);
+                        String resul = Util.subePDF(bean.getCai_archivo_adjunto(), nombreArchivo, ubicacion);
+                        if (resul.equals("CORRECTO")) {
+                            bean.setCai_archivo(nombreArchivo);
+                            bean.setCai_ubicacion(ubicacion);
+                            sw = 1;
+                        } else {
+                            request.setAttribute("ERROR", resul);
+                        }
+                    } else {
+                        request.setAttribute("WARNING",
+                                             "Para adjuntar el documento digitalizado, debe registrar el n&uacute;mero de Vista de Cargo");
+                    }
+                } else {
+                    sw = 1;
+                }
+                if (sw == 1) {
+                    if (!(bean.getOpcion2() == null) && bean.getOpcion2().equals("concluir")) {
+                        if (!(bean.getCai_acta_interv().equals("")) && !(bean.getCai_fecha_acta_interv().equals(""))) {
+                            bean.setTipo_grabado("CONCLUIR");
+                            Respuesta<Boolean> res = neg.graba_con_actainter(bean);
+                            if (res.getCodigo() == 1) {
+                                request.setAttribute("OK", res.getMensaje());
+                                link = "ok";
+                            } else {
+                                if (res.getCodigo() == 0) {
+                                    request.setAttribute("WARNING", res.getMensaje());
+                                } else {
+                                    request.setAttribute("ERROR", res.getMensaje());
+                                    link = "index";
+                                }
+                            }
+                        } else {
+                            request.setAttribute("ERROR",
+                                                 "Para concluir la fiscalización con ACTA DE INTERVENCIÓN , debe registrar los campos Número Acta de Intervención y Fecha de la Acta de Intervención obligatoriamente.");
+                        }
+                    } else {
+                        bean.setTipo_grabado("GRABAR");
                         Respuesta<Boolean> res = neg.graba_con_actainter(bean);
                         if (res.getCodigo() == 1) {
                             request.setAttribute("OK", res.getMensaje());
@@ -273,23 +335,6 @@ public class ConclusionControlAction extends MappingDispatchAction {
                                 request.setAttribute("ERROR", res.getMensaje());
                                 link = "index";
                             }
-                        }
-                    } else {
-                        request.setAttribute("ERROR",
-                                             "Para concluir la fiscalización con ACTA DE INTERVENCIÓN , debe registrar los campos Número Acta de Intervención y Fecha de la Acta de Intervención obligatoriamente.");
-                    }
-                } else {
-                    bean.setTipo_grabado("GRABAR");
-                    Respuesta<Boolean> res = neg.graba_con_actainter(bean);
-                    if (res.getCodigo() == 1) {
-                        request.setAttribute("OK", res.getMensaje());
-                        link = "ok";
-                    } else {
-                        if (res.getCodigo() == 0) {
-                            request.setAttribute("WARNING", res.getMensaje());
-                        } else {
-                            request.setAttribute("ERROR", res.getMensaje());
-                            link = "index";
                         }
                     }
                 }
@@ -304,10 +349,50 @@ public class ConclusionControlAction extends MappingDispatchAction {
                 request.setAttribute("fiscalizadores", fis.getResultado());
                 Respuesta<Fiscalizador[]> asig = gen.devuelveFisAsignados(bean.getCodigo());
                 request.setAttribute("asignados", asig.getResultado());
+                if (!(bean.getCra_archivo_adjunto().getFileName().equals(""))) {
+                    if (!(bean.getCra_numero_ra().equals(""))) {
 
-                if (!(bean.getOpcion2() == null) && bean.getOpcion2().equals("concluir")) {
-                    if (!(bean.getCra_numero_ra().equals("")) && !(bean.getCra_fecha_ra().equals(""))) {
-                        bean.setTipo_grabado("CONCLUIR");
+                        String nombreArchivo =
+                            inf.getResultado().getCodigoControl() + "-RA" + //bean.getCra_numero_ra().replaceAll("/", "") +
+                            "-" + Util.devuelve_marca() + ".pdf";
+                        String ubicacion = inf.getResultado().getCodigoControl().substring(0, 9);
+                        String resul = Util.subePDF(bean.getCra_archivo_adjunto(), nombreArchivo, ubicacion);
+                        if (resul.equals("CORRECTO")) {
+                            bean.setCra_archivo(nombreArchivo);
+                            bean.setCra_ubicacion(ubicacion);
+                            sw = 1;
+                        } else {
+                            request.setAttribute("ERROR", resul);
+                        }
+                    } else {
+                        request.setAttribute("WARNING",
+                                             "Para adjuntar el documento digitalizado, debe registrar el n&uacute;mero de Vista de Cargo");
+                    }
+                } else {
+                    sw = 1;
+                }
+                if (sw == 1) {
+                    if (!(bean.getOpcion2() == null) && bean.getOpcion2().equals("concluir")) {
+                        if (!(bean.getCra_numero_ra().equals("")) && !(bean.getCra_fecha_ra().equals(""))) {
+                            bean.setTipo_grabado("CONCLUIR");
+                            Respuesta<Boolean> res = neg.graba_con_resadmin(bean);
+                            if (res.getCodigo() == 1) {
+                                request.setAttribute("OK", res.getMensaje());
+                                link = "ok";
+                            } else {
+                                if (res.getCodigo() == 0) {
+                                    request.setAttribute("WARNING", res.getMensaje());
+                                } else {
+                                    request.setAttribute("ERROR", res.getMensaje());
+                                    link = "index";
+                                }
+                            }
+                        } else {
+                            request.setAttribute("ERROR",
+                                                 "Para concluir la fiscalización con RESOLUCIÓN ADMINISTRATIVA Y DETERMINATIVA DE FACILIDADES DE PAGO, debe registrar los campos Número de la Resolución Administrativa y Fecha de notificación de la Resolución Administrativa obligatoriamente.");
+                        }
+                    } else {
+                        bean.setTipo_grabado("GRABAR");
                         Respuesta<Boolean> res = neg.graba_con_resadmin(bean);
                         if (res.getCodigo() == 1) {
                             request.setAttribute("OK", res.getMensaje());
@@ -319,23 +404,6 @@ public class ConclusionControlAction extends MappingDispatchAction {
                                 request.setAttribute("ERROR", res.getMensaje());
                                 link = "index";
                             }
-                        }
-                    } else {
-                        request.setAttribute("ERROR",
-                                             "Para concluir la fiscalización con RESOLUCIÓN ADMINISTRATIVA Y DETERMINATIVA DE FACILIDADES DE PAGO, debe registrar los campos Número de la Resolución Administrativa y Fecha de notificación de la Resolución Administrativa obligatoriamente.");
-                    }
-                } else {
-                    bean.setTipo_grabado("GRABAR");
-                    Respuesta<Boolean> res = neg.graba_con_resadmin(bean);
-                    if (res.getCodigo() == 1) {
-                        request.setAttribute("OK", res.getMensaje());
-                        link = "ok";
-                    } else {
-                        if (res.getCodigo() == 0) {
-                            request.setAttribute("WARNING", res.getMensaje());
-                        } else {
-                            request.setAttribute("ERROR", res.getMensaje());
-                            link = "index";
                         }
                     }
                 }
@@ -350,10 +418,51 @@ public class ConclusionControlAction extends MappingDispatchAction {
                 request.setAttribute("fiscalizadores", fis.getResultado());
                 Respuesta<Fiscalizador[]> asig = gen.devuelveFisAsignados(bean.getCodigo());
                 request.setAttribute("asignados", asig.getResultado());
+                if (!(bean.getCas_archivo_adjunto().getFileName().equals(""))) {
+                    if (!(bean.getCas_numero_aisc().equals(""))) {
 
-                if (!(bean.getOpcion2() == null) && bean.getOpcion2().equals("concluir")) {
-                    if (!(bean.getCas_numero_aisc().equals("")) && !(bean.getCas_fecha_notificacion().equals(""))) {
-                        bean.setTipo_grabado("CONCLUIR");
+                        String nombreArchivo =
+                            inf.getResultado().getCodigoControl() + "-AISC" + //bean.getCas_numero_aisc().replaceAll("/","") +
+                            "-" + Util.devuelve_marca() + ".pdf";
+                        String ubicacion = inf.getResultado().getCodigoControl().substring(0, 9);
+                        String resul = Util.subePDF(bean.getCas_archivo_adjunto(), nombreArchivo, ubicacion);
+                        if (resul.equals("CORRECTO")) {
+                            bean.setCas_archivo(nombreArchivo);
+                            bean.setCas_ubicacion(ubicacion);
+                            sw = 1;
+                        } else {
+                            request.setAttribute("ERROR", resul);
+                        }
+                    } else {
+                        request.setAttribute("WARNING",
+                                             "Para adjuntar el documento digitalizado, debe registrar el n&uacute;mero de Vista de Cargo");
+                    }
+                } else {
+                    sw = 1;
+                }
+                if (sw == 1) {
+                    if (!(bean.getOpcion2() == null) && bean.getOpcion2().equals("concluir")) {
+                        if (!(bean.getCas_numero_aisc().equals("")) &&
+                            !(bean.getCas_fecha_notificacion().equals(""))) {
+                            bean.setTipo_grabado("CONCLUIR");
+                            Respuesta<Boolean> res = neg.graba_con_autoinicial(bean);
+                            if (res.getCodigo() == 1) {
+                                request.setAttribute("OK", res.getMensaje());
+                                link = "ok";
+                            } else {
+                                if (res.getCodigo() == 0) {
+                                    request.setAttribute("WARNING", res.getMensaje());
+                                } else {
+                                    request.setAttribute("ERROR", res.getMensaje());
+                                    link = "index";
+                                }
+                            }
+                        } else {
+                            request.setAttribute("ERROR",
+                                                 "Para concluir la fiscalización con AUTO INICIAL DE SUMARIO CONTRAVENCIONAL, debe registrar los campos Número AISC y Fecha de Notificación obligatoriamente.");
+                        }
+                    } else {
+                        bean.setTipo_grabado("GRABAR");
                         Respuesta<Boolean> res = neg.graba_con_autoinicial(bean);
                         if (res.getCodigo() == 1) {
                             request.setAttribute("OK", res.getMensaje());
@@ -365,23 +474,6 @@ public class ConclusionControlAction extends MappingDispatchAction {
                                 request.setAttribute("ERROR", res.getMensaje());
                                 link = "index";
                             }
-                        }
-                    } else {
-                        request.setAttribute("ERROR",
-                                             "Para concluir la fiscalización con AUTO INICIAL DE SUMARIO CONTRAVENCIONAL, debe registrar los campos Número AISC y Fecha de Notificación obligatoriamente.");
-                    }
-                } else {
-                    bean.setTipo_grabado("GRABAR");
-                    Respuesta<Boolean> res = neg.graba_con_autoinicial(bean);
-                    if (res.getCodigo() == 1) {
-                        request.setAttribute("OK", res.getMensaje());
-                        link = "ok";
-                    } else {
-                        if (res.getCodigo() == 0) {
-                            request.setAttribute("WARNING", res.getMensaje());
-                        } else {
-                            request.setAttribute("ERROR", res.getMensaje());
-                            link = "index";
                         }
                     }
                 }

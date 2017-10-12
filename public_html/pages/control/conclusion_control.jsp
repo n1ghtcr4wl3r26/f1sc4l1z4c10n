@@ -355,6 +355,8 @@
                         <html:hidden property="codigo" styleId="codigo"/>
                         <input type="hidden" name="opcion" id="opcion" class="opcion"/>
                         <input type="hidden" name="opcion2" id="opcion2" class="opcion2"/>
+                        <html:hidden property="crd_archivo" styleId="crd_archivo"/>
+                        <html:hidden property="crd_ubicacion" styleId="crd_ubicacion"/> 
                         <div class="form-group">
                             <label class="col-sm-3 control-label">N&uacute;mero de informe Técnico:</label>
                             <div class="col-sm-3">
@@ -383,6 +385,16 @@
                                            styleClass="form-control datepicker date-less-than" size="30" maxlength="10" disabled="<%=ffisca%>" />
                             </div>
                         </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Documento Digitalizado:</label>
+                            <div class="col-sm-9">
+                                <html:file property="crd_archivo_adjunto" styleId="crd_archivo_adjunto"
+                                           styleClass="form-control " size="30" style="height:50px" maxlength="50"/>
+                                <br/>
+                                <a href="${ConclusionControlForm.crd_ubicacion}/${ConclusionControlForm.crd_archivo}" target="_blank">
+                                ${ConclusionControlForm.crd_archivo}</a>
+                            </div>
+                        </div>
                         <div class="btn-container">
                             <button type="submit" id="boton_resdeter" onclick="con_resdeter()" class="btn btn-primary">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Grabar&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -406,6 +418,8 @@
                         <html:hidden property="codigo" styleId="codigo"/>
                         <input type="hidden" name="opcion" id="opcion" class="opcion"/>
                         <input type="hidden" name="opcion2" id="opcion2" class="opcion2"/>
+                        <html:hidden property="cai_archivo" styleId="cai_archivo"/>
+                        <html:hidden property="cai_ubicacion" styleId="cai_ubicacion"/> 
                         <div class="form-group">
                             <label class="col-sm-3 control-label">N&uacute;mero de informe Técnico:</label>
                             <div class="col-sm-3">
@@ -472,6 +486,16 @@
                                     <html:option value="GRT">TARIJA</html:option>
                                     <html:option value="GRP">POTOSI</html:option>
                                 </html:select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Documento Digitalizado:</label>
+                            <div class="col-sm-9">
+                                <html:file property="cai_archivo_adjunto" styleId="cai_archivo_adjunto"
+                                           styleClass="form-control " size="30" style="height:50px" maxlength="50"/>
+                                <br/>
+                                <a href="${ConclusionControlForm.cai_ubicacion}/${ConclusionControlForm.cai_archivo}" target="_blank">
+                                ${ConclusionControlForm.cai_archivo}</a>
                             </div>
                         </div>
                         <div class="form-group">
@@ -583,6 +607,8 @@
                         <html:hidden property="codigo" styleId="codigo"/>
                         <input type="hidden" name="opcion" id="opcion" class="opcion"/>
                         <input type="hidden" name="opcion2" id="opcion2" class="opcion2"/>
+                        <html:hidden property="cra_archivo" styleId="cra_archivo"/>
+                        <html:hidden property="cra_ubicacion" styleId="cra_ubicacion"/> 
                         <div class="form-group">
                             <label class="col-sm-3 control-label">N&uacute;mero de informe T&eacute;cnico:</label>
                             <div class="col-sm-3">
@@ -695,6 +721,16 @@
                                            styleClass="form-control numeric" size="30" maxlength="30" disabled="<%=ffisca%>" />
                             </div>
                         </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Documento Digitalizado:</label>
+                            <div class="col-sm-9">
+                                <html:file property="cra_archivo_adjunto" styleId="cra_archivo_adjunto"
+                                           styleClass="form-control " size="30" style="height:50px" maxlength="50"/>
+                                <br/>
+                                <a href="${ConclusionControlForm.cra_ubicacion}/${ConclusionControlForm.cra_archivo}" target="_blank">
+                                ${ConclusionControlForm.cra_archivo}</a>
+                            </div>
+                        </div>
                         <div class="btn-container">
                             <button type="submit" id="boton_resadmin" onclick="con_resadmin()" class="btn btn-primary">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Grabar&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -718,6 +754,8 @@
                         <html:hidden property="codigo" styleId="codigo"/>
                         <input type="hidden" name="opcion" id="opcion" class="opcion"/>
                         <input type="hidden" name="opcion2" id="opcion2" class="opcion2"/>
+                        <html:hidden property="cas_archivo" styleId="cas_archivo"/>
+                        <html:hidden property="cas_ubicacion" styleId="cas_ubicacion"/> 
                         <div class="form-group">
                             <label class="col-sm-3 control-label">N&uacute;mero de informe Técnico:</label>
                             <div class="col-sm-3">
@@ -808,6 +846,16 @@
                                     <html:option value="GRT">TARIJA</html:option>
                                     <html:option value="GRP">POTOSI</html:option>
                                 </html:select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Documento Digitalizado:</label>
+                            <div class="col-sm-9">
+                                <html:file property="cas_archivo_adjunto" styleId="cas_archivo_adjunto"
+                                           styleClass="form-control " size="30" style="height:50px" maxlength="50"/>
+                                <br/>
+                                <a href="${ConclusionControlForm.cas_ubicacion}/${ConclusionControlForm.cas_archivo}" target="_blank">
+                                ${ConclusionControlForm.cas_archivo}</a>
                             </div>
                         </div>
                         <div class="form-group">
