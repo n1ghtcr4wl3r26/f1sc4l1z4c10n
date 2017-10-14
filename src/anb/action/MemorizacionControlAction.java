@@ -383,6 +383,7 @@ public class MemorizacionControlAction extends MappingDispatchAction {
             if (!(bean == null)) {
                 if (!(bean.getBoton() == null)) {
                     if (bean.getBoton().equals("diferido")) {
+                        //deberia estar el proceso que verifique que el control es con o sin mercancia 
                         Respuesta<Boolean> res = neg.grabaMemorizacionDiferido(bean);
                         if (res.getCodigo() == 1) {
                             AlcanceForm balc = new AlcanceForm();  

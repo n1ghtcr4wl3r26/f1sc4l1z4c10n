@@ -351,7 +351,7 @@
             </div>
             <div id="con_resdeter" <%=panel2%>>
                 <div class="modal-body">
-                    <html:form styleId="form-conclusion" action="conclusion.do">
+                    <html:form styleId="form-conclusion" action="conclusion.do" enctype="multipart/form-data">
                         <html:hidden property="codigo" styleId="codigo"/>
                         <input type="hidden" name="opcion" id="opcion" class="opcion"/>
                         <input type="hidden" name="opcion2" id="opcion2" class="opcion2"/>
@@ -414,7 +414,7 @@
             </div>
             <div id="con_actainter" <%=panel3%>>
                 <div class="modal-body">
-                    <html:form styleId="form-conclusion" action="conclusion.do">
+                    <html:form styleId="form-conclusion" action="conclusion.do" enctype="multipart/form-data">
                         <html:hidden property="codigo" styleId="codigo"/>
                         <input type="hidden" name="opcion" id="opcion" class="opcion"/>
                         <input type="hidden" name="opcion2" id="opcion2" class="opcion2"/>
@@ -603,7 +603,7 @@
             </div>
             <div id="con_resadmin" <%=panel4%>>
                 <div class="modal-body">
-                    <html:form styleId="form-conclusion" action="conclusion.do">
+                    <html:form styleId="form-conclusion" action="conclusion.do" enctype="multipart/form-data">
                         <html:hidden property="codigo" styleId="codigo"/>
                         <input type="hidden" name="opcion" id="opcion" class="opcion"/>
                         <input type="hidden" name="opcion2" id="opcion2" class="opcion2"/>
@@ -750,7 +750,7 @@
             </div>
             <div id="con_autoinicial" <%=panel5%>>
                 <div class="modal-body">
-                    <html:form styleId="form-conclusion" action="conclusion.do">
+                    <html:form styleId="form-conclusion" action="conclusion.do" enctype="multipart/form-data">
                         <html:hidden property="codigo" styleId="codigo"/>
                         <input type="hidden" name="opcion" id="opcion" class="opcion"/>
                         <input type="hidden" name="opcion2" id="opcion2" class="opcion2"/>

@@ -132,7 +132,8 @@ public class ConclusionControlForm extends ActionForm {
     private String cas_ubicacion;
     
     private String tipo_grabado;
-    
+
+
     public void setCargo(String cargo) {
         this.cargo = cargo;
     }
@@ -147,6 +148,46 @@ public class ConclusionControlForm extends ActionForm {
 
     public String getFuncionario() {
         return funcionario;
+    }
+
+    public void setNumeroInforme(String numeroInforme) {
+        this.numeroInforme = numeroInforme;
+    }
+
+    public String getNumeroInforme() {
+        return numeroInforme;
+    }
+
+    public void setFechaInforme(String fechaInforme) {
+        this.fechaInforme = fechaInforme;
+    }
+
+    public String getFechaInforme() {
+        return fechaInforme;
+    }
+
+    public void setTipoDocCon(String tipoDocCon) {
+        this.tipoDocCon = tipoDocCon;
+    }
+
+    public String getTipoDocCon() {
+        return tipoDocCon;
+    }
+
+    public void setNumDocCon(String numDocCon) {
+        this.numDocCon = numDocCon;
+    }
+
+    public String getNumDocCon() {
+        return numDocCon;
+    }
+
+    public void setFechaDocCon(String fechaDocCon) {
+        this.fechaDocCon = fechaDocCon;
+    }
+
+    public String getFechaDocCon() {
+        return fechaDocCon;
     }
 
     public void setFmemorizado(String fmemorizado) {
@@ -189,6 +230,14 @@ public class ConclusionControlForm extends ActionForm {
         return fnumero;
     }
 
+    public void setUsuarioger(String usuarioger) {
+        this.usuarioger = usuarioger;
+    }
+
+    public String getUsuarioger() {
+        return usuarioger;
+    }
+
     public void setBoton(String boton) {
         this.boton = boton;
     }
@@ -203,6 +252,14 @@ public class ConclusionControlForm extends ActionForm {
 
     public String getOpcion() {
         return opcion;
+    }
+
+    public void setOpcion2(String opcion2) {
+        this.opcion2 = opcion2;
+    }
+
+    public String getOpcion2() {
+        return opcion2;
     }
 
     public void setCodigo(String codigo) {
@@ -229,44 +286,36 @@ public class ConclusionControlForm extends ActionForm {
         return usuario;
     }
 
-    public void setNumeroInforme(String numeroInforme) {
-        this.numeroInforme = numeroInforme;
+    public void setCvc_numero_informe(String cvc_numero_informe) {
+        this.cvc_numero_informe = cvc_numero_informe;
     }
 
-    public String getNumeroInforme() {
-        return numeroInforme;
+    public String getCvc_numero_informe() {
+        return cvc_numero_informe;
     }
 
-    public void setFechaInforme(String fechaInforme) {
-        this.fechaInforme = fechaInforme;
+    public void setCvc_fecha_informe(String cvc_fecha_informe) {
+        this.cvc_fecha_informe = cvc_fecha_informe;
     }
 
-    public String getFechaInforme() {
-        return fechaInforme;
+    public String getCvc_fecha_informe() {
+        return cvc_fecha_informe;
     }
 
-    public void setTipoDocCon(String tipoDocCon) {
-        this.tipoDocCon = tipoDocCon;
+    public void setCvc_numero_vc(String cvc_numero_vc) {
+        this.cvc_numero_vc = cvc_numero_vc;
     }
 
-    public String getTipoDocCon() {
-        return tipoDocCon;
+    public String getCvc_numero_vc() {
+        return cvc_numero_vc;
     }
 
-    public void setNumDocCon(String numDocCon) {
-        this.numDocCon = numDocCon;
+    public void setCvc_fecha_vc(String cvc_fecha_vc) {
+        this.cvc_fecha_vc = cvc_fecha_vc;
     }
 
-    public String getNumDocCon() {
-        return numDocCon;
-    }
-
-    public void setFechaDocCon(String fechaDocCon) {
-        this.fechaDocCon = fechaDocCon;
-    }
-
-    public String getFechaDocCon() {
-        return fechaDocCon;
+    public String getCvc_fecha_vc() {
+        return cvc_fecha_vc;
     }
 
     public void setCvc_tipo_notificacion(String cvc_tipo_notificacion) {
@@ -357,6 +406,62 @@ public class ConclusionControlForm extends ActionForm {
         return cvc_fecha_rd;
     }
 
+    public void setCvc_archivo_adjunto(FormFile cvc_archivo_adjunto) {
+        this.cvc_archivo_adjunto = cvc_archivo_adjunto;
+    }
+
+    public FormFile getCvc_archivo_adjunto() {
+        return cvc_archivo_adjunto;
+    }
+
+    public void setCvc_archivo(String cvc_archivo) {
+        this.cvc_archivo = cvc_archivo;
+    }
+
+    public String getCvc_archivo() {
+        return cvc_archivo;
+    }
+
+    public void setCvc_ubicacion(String cvc_ubicacion) {
+        this.cvc_ubicacion = cvc_ubicacion;
+    }
+
+    public String getCvc_ubicacion() {
+        return cvc_ubicacion;
+    }
+
+    public void setCvc_tipo_rd(String cvc_tipo_rd) {
+        this.cvc_tipo_rd = cvc_tipo_rd;
+    }
+
+    public String getCvc_tipo_rd() {
+        return cvc_tipo_rd;
+    }
+
+    public void setCvc_gerencia_legal(String cvc_gerencia_legal) {
+        this.cvc_gerencia_legal = cvc_gerencia_legal;
+    }
+
+    public String getCvc_gerencia_legal() {
+        return cvc_gerencia_legal;
+    }
+
+    public void setCrd_numero_informe(String crd_numero_informe) {
+        this.crd_numero_informe = crd_numero_informe;
+    }
+
+    public String getCrd_numero_informe() {
+        return crd_numero_informe;
+    }
+
+    public void setCrd_fecha_informe(String crd_fecha_informe) {
+        this.crd_fecha_informe = crd_fecha_informe;
+    }
+
+    public String getCrd_fecha_informe() {
+        return crd_fecha_informe;
+    }
+
     public void setCrd_rd_final(String crd_rd_final) {
         this.crd_rd_final = crd_rd_final;
     }
@@ -371,6 +476,46 @@ public class ConclusionControlForm extends ActionForm {
 
     public String getCrd_fecha_not_rd_final() {
         return crd_fecha_not_rd_final;
+    }
+
+    public void setCrd_archivo_adjunto(FormFile crd_archivo_adjunto) {
+        this.crd_archivo_adjunto = crd_archivo_adjunto;
+    }
+
+    public FormFile getCrd_archivo_adjunto() {
+        return crd_archivo_adjunto;
+    }
+
+    public void setCrd_archivo(String crd_archivo) {
+        this.crd_archivo = crd_archivo;
+    }
+
+    public String getCrd_archivo() {
+        return crd_archivo;
+    }
+
+    public void setCrd_ubicacion(String crd_ubicacion) {
+        this.crd_ubicacion = crd_ubicacion;
+    }
+
+    public String getCrd_ubicacion() {
+        return crd_ubicacion;
+    }
+
+    public void setCai_numero_informe(String cai_numero_informe) {
+        this.cai_numero_informe = cai_numero_informe;
+    }
+
+    public String getCai_numero_informe() {
+        return cai_numero_informe;
+    }
+
+    public void setCai_fecha_informe(String cai_fecha_informe) {
+        this.cai_fecha_informe = cai_fecha_informe;
+    }
+
+    public String getCai_fecha_informe() {
+        return cai_fecha_informe;
     }
 
     public void setCai_acta_interv(String cai_acta_interv) {
@@ -469,6 +614,86 @@ public class ConclusionControlForm extends ActionForm {
         return cai_fecha_rs;
     }
 
+    public void setCai_gerencia_legal(String cai_gerencia_legal) {
+        this.cai_gerencia_legal = cai_gerencia_legal;
+    }
+
+    public String getCai_gerencia_legal() {
+        return cai_gerencia_legal;
+    }
+
+    public void setCai_fecha_not_ai(String cai_fecha_not_ai) {
+        this.cai_fecha_not_ai = cai_fecha_not_ai;
+    }
+
+    public String getCai_fecha_not_ai() {
+        return cai_fecha_not_ai;
+    }
+
+    public void setCai_tipo_not_ai(String cai_tipo_not_ai) {
+        this.cai_tipo_not_ai = cai_tipo_not_ai;
+    }
+
+    public String getCai_tipo_not_ai() {
+        return cai_tipo_not_ai;
+    }
+
+    public void setCai_resultado_des(String cai_resultado_des) {
+        this.cai_resultado_des = cai_resultado_des;
+    }
+
+    public String getCai_resultado_des() {
+        return cai_resultado_des;
+    }
+
+    public void setCai_tipo_resolucion(String cai_tipo_resolucion) {
+        this.cai_tipo_resolucion = cai_tipo_resolucion;
+    }
+
+    public String getCai_tipo_resolucion() {
+        return cai_tipo_resolucion;
+    }
+
+    public void setCai_archivo_adjunto(FormFile cai_archivo_adjunto) {
+        this.cai_archivo_adjunto = cai_archivo_adjunto;
+    }
+
+    public FormFile getCai_archivo_adjunto() {
+        return cai_archivo_adjunto;
+    }
+
+    public void setCai_archivo(String cai_archivo) {
+        this.cai_archivo = cai_archivo;
+    }
+
+    public String getCai_archivo() {
+        return cai_archivo;
+    }
+
+    public void setCai_ubicacion(String cai_ubicacion) {
+        this.cai_ubicacion = cai_ubicacion;
+    }
+
+    public String getCai_ubicacion() {
+        return cai_ubicacion;
+    }
+
+    public void setCra_numero_informe(String cra_numero_informe) {
+        this.cra_numero_informe = cra_numero_informe;
+    }
+
+    public String getCra_numero_informe() {
+        return cra_numero_informe;
+    }
+
+    public void setCra_fecha_informe(String cra_fecha_informe) {
+        this.cra_fecha_informe = cra_fecha_informe;
+    }
+
+    public String getCra_fecha_informe() {
+        return cra_fecha_informe;
+    }
+
     public void setCra_fecha_pago_cuini(String cra_fecha_pago_cuini) {
         this.cra_fecha_pago_cuini = cra_fecha_pago_cuini;
     }
@@ -523,6 +748,78 @@ public class ConclusionControlForm extends ActionForm {
 
     public String getCra_saldo_por_cobrar() {
         return cra_saldo_por_cobrar;
+    }
+
+    public void setCra_rup_gestion(String cra_rup_gestion) {
+        this.cra_rup_gestion = cra_rup_gestion;
+    }
+
+    public String getCra_rup_gestion() {
+        return cra_rup_gestion;
+    }
+
+    public void setCra_rup_aduana(String cra_rup_aduana) {
+        this.cra_rup_aduana = cra_rup_aduana;
+    }
+
+    public String getCra_rup_aduana() {
+        return cra_rup_aduana;
+    }
+
+    public void setCra_rup_numero(String cra_rup_numero) {
+        this.cra_rup_numero = cra_rup_numero;
+    }
+
+    public String getCra_rup_numero() {
+        return cra_rup_numero;
+    }
+
+    public void setCra_gerencia_legal(String cra_gerencia_legal) {
+        this.cra_gerencia_legal = cra_gerencia_legal;
+    }
+
+    public String getCra_gerencia_legal() {
+        return cra_gerencia_legal;
+    }
+
+    public void setCra_archivo_adjunto(FormFile cra_archivo_adjunto) {
+        this.cra_archivo_adjunto = cra_archivo_adjunto;
+    }
+
+    public FormFile getCra_archivo_adjunto() {
+        return cra_archivo_adjunto;
+    }
+
+    public void setCra_archivo(String cra_archivo) {
+        this.cra_archivo = cra_archivo;
+    }
+
+    public String getCra_archivo() {
+        return cra_archivo;
+    }
+
+    public void setCra_ubicacion(String cra_ubicacion) {
+        this.cra_ubicacion = cra_ubicacion;
+    }
+
+    public String getCra_ubicacion() {
+        return cra_ubicacion;
+    }
+
+    public void setCas_numero_informe(String cas_numero_informe) {
+        this.cas_numero_informe = cas_numero_informe;
+    }
+
+    public String getCas_numero_informe() {
+        return cas_numero_informe;
+    }
+
+    public void setCas_fecha_informe(String cas_fecha_informe) {
+        this.cas_fecha_informe = cas_fecha_informe;
+    }
+
+    public String getCas_fecha_informe() {
+        return cas_fecha_informe;
     }
 
     public void setCas_numero_aisc(String cas_numero_aisc) {
@@ -613,317 +910,12 @@ public class ConclusionControlForm extends ActionForm {
         return cas_fecha_rs;
     }
 
-    public void setCvc_numero_informe(String cvc_numero_informe) {
-        this.cvc_numero_informe = cvc_numero_informe;
-    }
-
-    public String getCvc_numero_informe() {
-        return cvc_numero_informe;
-    }
-
-    public void setCvc_fecha_informe(String cvc_fecha_informe) {
-        this.cvc_fecha_informe = cvc_fecha_informe;
-    }
-
-    public String getCvc_fecha_informe() {
-        return cvc_fecha_informe;
-    }
-
-    public void setCvc_numero_vc(String cvc_numero_vc) {
-        this.cvc_numero_vc = cvc_numero_vc;
-    }
-
-    public String getCvc_numero_vc() {
-        return cvc_numero_vc;
-    }
-
-    public void setCvc_fecha_vc(String cvc_fecha_vc) {
-        this.cvc_fecha_vc = cvc_fecha_vc;
-    }
-
-    public String getCvc_fecha_vc() {
-        return cvc_fecha_vc;
-    }
-
-    public void setCrd_numero_informe(String crd_numero_informe) {
-        this.crd_numero_informe = crd_numero_informe;
-    }
-
-    public String getCrd_numero_informe() {
-        return crd_numero_informe;
-    }
-
-    public void setCrd_fecha_informe(String crd_fecha_informe) {
-        this.crd_fecha_informe = crd_fecha_informe;
-    }
-
-    public String getCrd_fecha_informe() {
-        return crd_fecha_informe;
-    }
-
-    public void setCai_numero_informe(String cai_numero_informe) {
-        this.cai_numero_informe = cai_numero_informe;
-    }
-
-    public String getCai_numero_informe() {
-        return cai_numero_informe;
-    }
-
-    public void setCai_fecha_informe(String cai_fecha_informe) {
-        this.cai_fecha_informe = cai_fecha_informe;
-    }
-
-    public String getCai_fecha_informe() {
-        return cai_fecha_informe;
-    }
-
-    public void setCra_numero_informe(String cra_numero_informe) {
-        this.cra_numero_informe = cra_numero_informe;
-    }
-
-    public String getCra_numero_informe() {
-        return cra_numero_informe;
-    }
-
-    public void setCra_fecha_informe(String cra_fecha_informe) {
-        this.cra_fecha_informe = cra_fecha_informe;
-    }
-
-    public String getCra_fecha_informe() {
-        return cra_fecha_informe;
-    }
-
-    public void setCas_numero_informe(String cas_numero_informe) {
-        this.cas_numero_informe = cas_numero_informe;
-    }
-
-    public String getCas_numero_informe() {
-        return cas_numero_informe;
-    }
-
-    public void setCas_fecha_informe(String cas_fecha_informe) {
-        this.cas_fecha_informe = cas_fecha_informe;
-    }
-
-    public String getCas_fecha_informe() {
-        return cas_fecha_informe;
-    }
-
-    public void setCvc_tipo_rd(String cvc_tipo_rd) {
-        this.cvc_tipo_rd = cvc_tipo_rd;
-    }
-
-    public String getCvc_tipo_rd() {
-        return cvc_tipo_rd;
-    }
-
-    public void setCvc_gerencia_legal(String cvc_gerencia_legal) {
-        this.cvc_gerencia_legal = cvc_gerencia_legal;
-    }
-
-    public String getCvc_gerencia_legal() {
-        return cvc_gerencia_legal;
-    }
-
-    public void setCai_gerencia_legal(String cai_gerencia_legal) {
-        this.cai_gerencia_legal = cai_gerencia_legal;
-    }
-
-    public String getCai_gerencia_legal() {
-        return cai_gerencia_legal;
-    }
-
-    public void setCai_fecha_not_ai(String cai_fecha_not_ai) {
-        this.cai_fecha_not_ai = cai_fecha_not_ai;
-    }
-
-    public String getCai_fecha_not_ai() {
-        return cai_fecha_not_ai;
-    }
-
-    public void setCai_tipo_not_ai(String cai_tipo_not_ai) {
-        this.cai_tipo_not_ai = cai_tipo_not_ai;
-    }
-
-    public String getCai_tipo_not_ai() {
-        return cai_tipo_not_ai;
-    }
-
-    public void setCai_resultado_des(String cai_resultado_des) {
-        this.cai_resultado_des = cai_resultado_des;
-    }
-
-    public String getCai_resultado_des() {
-        return cai_resultado_des;
-    }
-
-    public void setCai_tipo_resolucion(String cai_tipo_resolucion) {
-        this.cai_tipo_resolucion = cai_tipo_resolucion;
-    }
-
-    public String getCai_tipo_resolucion() {
-        return cai_tipo_resolucion;
-    }
-
-    public void setCra_rup_gestion(String cra_rup_gestion) {
-        this.cra_rup_gestion = cra_rup_gestion;
-    }
-
-    public String getCra_rup_gestion() {
-        return cra_rup_gestion;
-    }
-
-    public void setCra_rup_aduana(String cra_rup_aduana) {
-        this.cra_rup_aduana = cra_rup_aduana;
-    }
-
-    public String getCra_rup_aduana() {
-        return cra_rup_aduana;
-    }
-
-    public void setCra_rup_numero(String cra_rup_numero) {
-        this.cra_rup_numero = cra_rup_numero;
-    }
-
-    public String getCra_rup_numero() {
-        return cra_rup_numero;
-    }
-
-    public void setCra_gerencia_legal(String cra_gerencia_legal) {
-        this.cra_gerencia_legal = cra_gerencia_legal;
-    }
-
-    public String getCra_gerencia_legal() {
-        return cra_gerencia_legal;
-    }
-
     public void setCas_gerencia_legal(String cas_gerencia_legal) {
         this.cas_gerencia_legal = cas_gerencia_legal;
     }
 
     public String getCas_gerencia_legal() {
         return cas_gerencia_legal;
-    }
-
-    public void setOpcion2(String opcion2) {
-        this.opcion2 = opcion2;
-    }
-
-    public String getOpcion2() {
-        return opcion2;
-    }
-
-    public void setTipo_grabado(String tipo_grabado) {
-        this.tipo_grabado = tipo_grabado;
-    }
-
-    public String getTipo_grabado() {
-        return tipo_grabado;
-    }
-
-    public void setUsuarioger(String usuarioger) {
-        this.usuarioger = usuarioger;
-    }
-
-    public String getUsuarioger() {
-        return usuarioger;
-    }
-
-
-    public void setCvc_archivo_adjunto(FormFile cvc_archivo_adjunto) {
-        this.cvc_archivo_adjunto = cvc_archivo_adjunto;
-    }
-
-    public FormFile getCvc_archivo_adjunto() {
-        return cvc_archivo_adjunto;
-    }
-
-    public void setCvc_archivo(String cvc_archivo) {
-        this.cvc_archivo = cvc_archivo;
-    }
-
-    public String getCvc_archivo() {
-        return cvc_archivo;
-    }
-
-    public void setCvc_ubicacion(String cvc_ubicacion) {
-        this.cvc_ubicacion = cvc_ubicacion;
-    }
-
-    public String getCvc_ubicacion() {
-        return cvc_ubicacion;
-    }
-
-    public void setCrd_archivo_adjunto(FormFile crd_archivo_adjunto) {
-        this.crd_archivo_adjunto = crd_archivo_adjunto;
-    }
-
-    public FormFile getCrd_archivo_adjunto() {
-        return crd_archivo_adjunto;
-    }
-
-    public void setCrd_archivo(String crd_archivo) {
-        this.crd_archivo = crd_archivo;
-    }
-
-    public String getCrd_archivo() {
-        return crd_archivo;
-    }
-
-    public void setCrd_ubicacion(String crd_ubicacion) {
-        this.crd_ubicacion = crd_ubicacion;
-    }
-
-    public String getCrd_ubicacion() {
-        return crd_ubicacion;
-    }
-
-    public void setCai_archivo_adjunto(FormFile cai_archivo_adjunto) {
-        this.cai_archivo_adjunto = cai_archivo_adjunto;
-    }
-
-    public FormFile getCai_archivo_adjunto() {
-        return cai_archivo_adjunto;
-    }
-
-    public void setCai_archivo(String cai_archivo) {
-        this.cai_archivo = cai_archivo;
-    }
-
-    public String getCai_archivo() {
-        return cai_archivo;
-    }
-
-    public void setCai_ubicacion(String cai_ubicacion) {
-        this.cai_ubicacion = cai_ubicacion;
-    }
-
-    public String getCai_ubicacion() {
-        return cai_ubicacion;
-    }
-
-    public void setCra_archivo_adjunto(FormFile cra_archivo_adjunto) {
-        this.cra_archivo_adjunto = cra_archivo_adjunto;
-    }
-
-    public FormFile getCra_archivo_adjunto() {
-        return cra_archivo_adjunto;
-    }
-
-    public void setCra_archivo(String cra_archivo) {
-        this.cra_archivo = cra_archivo;
-    }
-
-    public String getCra_archivo() {
-        return cra_archivo;
-    }
-
-    public void setCra_ubicacion(String cra_ubicacion) {
-        this.cra_ubicacion = cra_ubicacion;
-    }
-
-    public String getCra_ubicacion() {
-        return cra_ubicacion;
     }
 
     public void setCas_archivo_adjunto(FormFile cas_archivo_adjunto) {
@@ -948,5 +940,13 @@ public class ConclusionControlForm extends ActionForm {
 
     public String getCas_ubicacion() {
         return cas_ubicacion;
+    }
+
+    public void setTipo_grabado(String tipo_grabado) {
+        this.tipo_grabado = tipo_grabado;
+    }
+
+    public String getTipo_grabado() {
+        return tipo_grabado;
     }
 }
