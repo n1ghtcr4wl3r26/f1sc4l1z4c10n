@@ -407,7 +407,15 @@ public class MemorizacionControlAction extends MappingDispatchAction {
                                                      "Se memoriz&oacute; correctamente el Control Diferido. " + res.getMensaje());
                                 bean.setCodigocontrol(res.getMensaje());
                                 request.getSession().setAttribute("scodigo", bean.getCodigocontrol());
-                                return mapping.findForward("ok");
+                                /* colocar lo del index de control diferido*/
+                                Respuesta<List<Aduana>> adu = gen.obtenerAduanas2();
+                                if (adu.getCodigo() == 1) {
+                                    request.setAttribute("aduanas", adu.getResultado());
+                                } else {
+                                    request.setAttribute("aduanas", null);
+                                }
+                                
+                                return mapping.findForward("index");
                             } else {
                                 if (res.getCodigo() == 0) {
                                     request.setAttribute("WARNING", res.getMensaje());

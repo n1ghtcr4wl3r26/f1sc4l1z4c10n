@@ -172,6 +172,7 @@
         </action>
         <action path="/memorizaciondiferido" type="anb.action.MemorizacionControlAction" name="MemorizacionControlForm" parameter="memorizardiferido" scope="request">
             <forward name="ok" path="memorizacion.diferido" redirect="true" />
+            <forward name="index" path="memorizacion.diferido.index" redirect="true" />
             <forward name="nook" path="/input.jsp"/>
         </action>
         
