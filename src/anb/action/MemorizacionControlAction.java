@@ -359,9 +359,37 @@ public class MemorizacionControlAction extends MappingDispatchAction {
                         request.setAttribute("MemorizacionControlForm", bean);
                         return mapping.findForward("success");
                     }
-                    if (bean.getOpcion().equals("DESESTIMAR")) {
-                        request.getSession().setAttribute("MemorizacionDiferido", bean);
-                        return mapping.findForward("success");
+                    if (bean.getFropcion().equals("DESESTIMAR")) {
+                        Respuesta<Declaracion[]> dui = neg.devuelveDatosDUI(bean.getFrcodigo());
+                        if(dui.getCodigo()==1){
+                            Declaracion dec = dui.getResultado()[0];
+                            Respuesta<Nit[]>res=neg.devuelveNit(dec.getSad_consignee());
+                            if(res.getCodigo()==1){
+                                Nit imp = res.getResultado()[0];
+                                bean.setDifTipoDocumento("DECLARACION");
+                                bean.setDifNroDocumento(dec.getSad_reg_year()+"/"+dec.getKey_cuo()+"/C-"+dec.getSad_reg_nber());
+                                bean.setMgestion(dec.getSad_reg_year());
+                                bean.setMaduana(dec.getKey_cuo());
+                                bean.setMnumero(dec.getSad_reg_nber());
+                                bean.setDifFecDocumento(dec.getSad_reg_date());
+                                bean.setDifRiesgoSubval("on");
+                                bean.setDifTipoOperador("IMPORTADOR/EXPORTADOR");
+                                bean.setDifTipoDocPersona(imp.getTipodoc());
+                                bean.setDifNitEmpresa(imp.getNit());
+                                bean.setDifNomEmpresa(imp.getRazon());
+                                bean.setDifDireccion(imp.getDireccion());
+                                bean.setDifActividad(imp.getActividad());
+                                bean.setDifTribNoaplica("on");
+                                bean.setDifPeriodo(dec.getSad_reg_year());
+                                bean.setDifNroCIPersona(imp.getNit());
+                                bean.setDifApPatPersona(imp.getPaterno());
+                                bean.setDifApMatPersona(imp.getMaterno());
+                                bean.setDifNombrePersona(imp.getNombre());
+                                bean.setDifExpCIPersona(imp.getEmision());
+                            }
+                        }
+                        request.setAttribute("MemorizacionControlForm", bean);
+                        return mapping.findForward("successd");
                     }
                 }
             }
@@ -406,6 +434,76 @@ public class MemorizacionControlAction extends MappingDispatchAction {
                                 request.setAttribute("OK",
                                                      "Se memoriz&oacute; correctamente el Control Diferido. " + res.getMensaje());
                                 bean.setCodigocontrol(res.getMensaje());
+                                request.getSession().setAttribute("scodigo", bean.getCodigocontrol());
+                                /* colocar lo del index de control diferido*/
+                                Respuesta<List<Aduana>> adu = gen.obtenerAduanas2();
+                                if (adu.getCodigo() == 1) {
+                                    request.setAttribute("aduanas", adu.getResultado());
+                                } else {
+                                    request.setAttribute("aduanas", null);
+                                }
+                                
+                                return mapping.findForward("index");
+                            } else {
+                                if (res.getCodigo() == 0) {
+                                    request.setAttribute("WARNING", res.getMensaje());
+                                } else {
+                                    request.setAttribute("ERROR", res.getMensaje());
+                                }
+                            }                            
+                        } else {
+                            request.setAttribute("ERROR", res.getMensaje());
+                            return mapping.findForward("ok");
+                        }
+                    }
+                }
+            }
+            return mapping.findForward("ok");
+        }
+    }
+    
+    public ActionForward memorizardiferidodesestimar(ActionMapping mapping, ActionForm form, HttpServletRequest request,
+                                      HttpServletResponse response) throws Exception {
+
+        MemorizacionControlForm bean = new MemorizacionControlForm();
+        bean = (MemorizacionControlForm)request.getAttribute("MemorizacionControlForm");
+        String usuario = (String)request.getSession().getAttribute("user");
+        if (usuario == null) {
+            return mapping.findForward("nook");
+        } else {
+            bean.setUsuario(usuario);            
+            bean.setGerencia((String)request.getSession().getAttribute("gerencia"));
+            //bean.setCodger((String)request.getSession().getAttribute("user.codger"));
+            bean.setGerencia((String)request.getSession().getAttribute("gerencia"));
+            bean.setUsuarioger((String)request.getSession().getAttribute("gerencia"));
+            if (!(bean == null)) {
+                if (!(bean.getBoton() == null)) {
+                    if (bean.getBoton().equals("diferido")) {
+                        //deberia estar el proceso que verifique que el control es con o sin mercancia 
+                        Respuesta<Boolean> res = neg.grabaMemorizacionDiferido(bean);
+                        if (res.getCodigo() == 1) {
+                            AlcanceForm balc = new AlcanceForm();  
+                            balc.setCodigo(res.getMensaje());                            
+                            balc.setTipoTramite("DUI");
+                            balc.setGestion(bean.getMgestion());
+                            balc.setAduana(bean.getMaduana());
+                            balc.setNumero(bean.getMnumero());
+                            if(bean.getDifTipoDocPersona().equals("NIT"))
+                                balc.setNumeroOperador(bean.getDifNitEmpresa());
+                            else
+                                balc.setNumeroOperador(bean.getDifNroCIPersona());
+                            balc.setUsuario(bean.getUsuario());
+                            balc.setChvalor("on");
+                            balc.setChpartida("on");
+                            balc.setChorigen("on");
+                            balc.setChotro("on");
+                            Respuesta<Boolean> alc = alcneg.graba_tramite_dec(balc);
+                            if (alc.getCodigo() == 1) {
+                                bean.setCodigocontrol(res.getMensaje());
+                                Respuesta<Boolean> des = neg.desestimaDiferido(bean);
+                                request.setAttribute("OK",
+                                                     "Se desestim&oacute; correctamente el Control Diferido. " + des.getMensaje());
+                                
                                 request.getSession().setAttribute("scodigo", bean.getCodigocontrol());
                                 /* colocar lo del index de control diferido*/
                                 Respuesta<List<Aduana>> adu = gen.obtenerAduanas2();

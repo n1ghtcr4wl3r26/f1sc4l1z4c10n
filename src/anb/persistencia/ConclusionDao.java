@@ -177,7 +177,7 @@ public class ConclusionDao extends Conexion {
         String res;
         try {
             open();
-            call = cn.prepareCall("{ ? = call pkg_conclusion.graba_con_resdeter ( ?,?,?,? ,?,?,?  ,?,?)}");
+            call = cn.prepareCall("{ ? = call pkg_conclusion.graba_con_resdeter ( ?,?,?,? ,?,?,?  ,?,?  ,?,?)}");
             call.registerOutParameter(1, OracleTypes.VARCHAR);
             call.setString(2, bean.getCodigo());
             call.setString(3, bean.getCrd_rd_final());
@@ -188,6 +188,8 @@ public class ConclusionDao extends Conexion {
             call.setString(8, bean.getTipo_grabado());
             call.setString(9, bean.getCrd_archivo());
             call.setString(10, bean.getCrd_ubicacion());
+            call.setString(11, bean.getCrd_fecha_rd_final());
+            call.setString(12, bean.getCrd_tipo_notificacion());
             call.execute();
             res = (String)call.getObject(1);
         } finally {
@@ -214,6 +216,8 @@ public class ConclusionDao extends Conexion {
                bean.setCrd_fecha_informe(rs.getString(9));
                bean.setCrd_archivo(rs.getString(10));
                bean.setCrd_ubicacion(rs.getString(11));
+               bean.setCrd_fecha_rd_final(rs.getString(12));
+               bean.setCrd_tipo_notificacion(rs.getString(13));
            }
        } finally {
            if (cn != null) {

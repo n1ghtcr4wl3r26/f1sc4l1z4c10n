@@ -134,10 +134,12 @@ public class InputAction extends Action {
             request.getSession().setAttribute("user", ini.getUsuario().toUpperCase());
             request.getSession().setAttribute("user.codger", GetTagXML(doc, "CodigoGerencia"));
             request.getSession().setAttribute("gerencia", Util.gusuarioGerencia(GetTagXML(doc, "CodigoGerencia")));
-            request.getSession().setAttribute("numerogerencia", Util.numeroGerencia(Util.gusuarioGerencia(GetTagXML(doc, "CodigoGerencia"))));
+            request.getSession().setAttribute("nombregerencia", GetTagXML(doc, "NombreGerencia"));
+            String aux =  Util.gusuarioGerencia(GetTagXML(doc, "CodigoGerencia"));
             
-            request.getSession().setAttribute("estado_reg", "0");
-            
+            aux = GetTagXML(doc, "CodigoGerencia");
+            request.getSession().setAttribute("numerogerencia", Util.numeroGerencia(Util.gusuarioGerencia(GetTagXML(doc, "CodigoGerencia"))));            
+            request.getSession().setAttribute("estado_reg", "0");            
             request.getSession().setAttribute("user.data", user);
 
             ClaseSession cs = new ClaseSession();

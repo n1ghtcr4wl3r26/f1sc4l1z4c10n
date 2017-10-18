@@ -25,8 +25,9 @@ public class MemorizacionControlDao extends Conexion {
     public MemorizacionControlDao() {
         super();
     }
-    
-    public List<Bandeja> devuelveBandejaJefe(String gerencia) throws SQLException, ClassNotFoundException, NamingException {
+
+    public List<Bandeja> devuelveBandejaJefe(String gerencia) throws SQLException, ClassNotFoundException,
+                                                                     NamingException {
         List<Bandeja> params = new ArrayList<Bandeja>();
         try {
             open();
@@ -60,8 +61,9 @@ public class MemorizacionControlDao extends Conexion {
         }
         return params;
     }
-    
-    public List<Bandeja> devuelveBandejaFiscalizador(String fiscalizador) throws SQLException, ClassNotFoundException, NamingException {
+
+    public List<Bandeja> devuelveBandejaFiscalizador(String fiscalizador) throws SQLException, ClassNotFoundException,
+                                                                                 NamingException {
         List<Bandeja> params = new ArrayList<Bandeja>();
         try {
             open();
@@ -90,7 +92,7 @@ public class MemorizacionControlDao extends Conexion {
                 f.setEstado(rs.getString(12));
                 f.setFechaAsignacion(rs.getString(13));
                 f.setOrigen(rs.getString(14));
-                f.setPlazoDias(rs.getString(15));                
+                f.setPlazoDias(rs.getString(15));
                 params.add(f);
             }
         } finally {
@@ -101,7 +103,8 @@ public class MemorizacionControlDao extends Conexion {
         return params;
     }
 
-    public List<Bandeja> devuelveBandejaLegal(String gerencia) throws SQLException, ClassNotFoundException, NamingException {
+    public List<Bandeja> devuelveBandejaLegal(String gerencia) throws SQLException, ClassNotFoundException,
+                                                                      NamingException {
         List<Bandeja> params = new ArrayList<Bandeja>();
         try {
             open();
@@ -130,7 +133,7 @@ public class MemorizacionControlDao extends Conexion {
                 f.setEstado(rs.getString(12));
                 f.setFechaAsignacion(rs.getString(13));
                 f.setOrigen(rs.getString(14));
-                f.setPlazoDias(rs.getString(15));        
+                f.setPlazoDias(rs.getString(15));
                 params.add(f);
             }
         } finally {
@@ -171,8 +174,9 @@ public class MemorizacionControlDao extends Conexion {
         }
         return params;
     }
-    
-    public List<Declaracion> devuelveDatosDUI(String codigo) throws SQLException, ClassNotFoundException, NamingException {
+
+    public List<Declaracion> devuelveDatosDUI(String codigo) throws SQLException, ClassNotFoundException,
+                                                                    NamingException {
         List<Declaracion> params = new ArrayList<Declaracion>();
         try {
             open();
@@ -204,6 +208,7 @@ public class MemorizacionControlDao extends Conexion {
         }
         return params;
     }
+
     public List<Aduana> obtenerAduanas() throws SQLException, ClassNotFoundException, NamingException {
         List<Aduana> aduanas = null;
         try {
@@ -276,6 +281,26 @@ cn.prepareCall("{ ? = call pkg_memorizacion.graba_memorizacion_diferido ( ?,?,?,
 
             res = call.getString(1);
 
+        } finally {
+            if (!esTransaccional()) {
+                close();
+            }
+        }
+        return res;
+    }
+
+
+    public String desestimaDiferido(MemorizacionControlForm bean) throws SQLException, ClassNotFoundException,
+                                                                         NamingException {
+        String res;
+        try {
+            open();
+            call = cn.prepareCall("{ ? = call pkg_memorizacion.desestima_control ( ?, ?)}");
+            call.registerOutParameter(1, OracleTypes.VARCHAR);
+            call.setString(2, bean.getCodigocontrol());
+            call.setString(3, bean.getGerencia());
+            call.execute();
+            res = call.getString(1);
         } finally {
             if (!esTransaccional()) {
                 close();
@@ -414,7 +439,7 @@ cn.prepareCall("{ ? = call pkg_memorizacion.graba_memorizacion_ampliatoria ( ?,?
                 dec.setFechaPase(rs.getString(20));
                 dec.setItems(rs.getString(21));
                 dec.setPatron(rs.getString(22));
-                
+
                 dec.setSequencia(String.valueOf(cont++));
                 if (dec.getEstado().substring(0, 7).equals("SICODIF")) {
                     dec.setVerifitem("1111");
@@ -434,7 +459,7 @@ cn.prepareCall("{ ? = call pkg_memorizacion.graba_memorizacion_ampliatoria ( ?,?
         }
         return decls;
     }
-    
+
     public List<Declaracion> consulta2(MemorizacionControlForm bean) throws SQLException, ClassNotFoundException,
                                                                             NamingException {
         List<Declaracion> decls = new ArrayList<Declaracion>();
@@ -498,7 +523,7 @@ cn.prepareCall("{ ? = call pkg_memorizacion.graba_memorizacion_ampliatoria ( ?,?
         }
         return decls;
     }
-    
+
     public List<Declaracion> consulta3(MemorizacionControlForm bean) throws SQLException, ClassNotFoundException,
                                                                             NamingException {
         List<Declaracion> decls = new ArrayList<Declaracion>();

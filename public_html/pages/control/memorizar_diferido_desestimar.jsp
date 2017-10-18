@@ -6,11 +6,11 @@
 <div class="panel panel-default">
     
     <div class="panel-heading">
-        <h4 class="panel-title"><strong>MEMORIZACIÓN DEL CONTROL</strong></h4>
+        <h4 class="panel-title"><strong>DESESTIMACI&Oacute;N DEL CONTROL</strong></h4>
     </div>
     <div class="modal-body form-horizontal">        
                     <div class="tab-pane active" id="1a">
-                        <html:form styleId="form-diferido" action="memorizaciondiferido.do">
+                        <html:form styleId="form-diferido" action="memorizaciondiferidodesestimar.do">
                             <html:hidden property="boton" value= "diferido"/>
                             <html:hidden property="difTipoDocumento"/>
                             <html:hidden property="difNroDocumento"/>
@@ -29,18 +29,21 @@
                             <html:hidden property="difApMatPersona"/>
                             <html:hidden property="difNombrePersona"/>
                             <html:hidden property="difExpCIPersona"/>
+                            <html:hidden property="mgestion"/>
+                            <html:hidden property="maduana"/>
+                            <html:hidden property="mnumero"/>
                             <br>
                             <div class="form-group">
                                 <h3>
                                     <label class="col-sm-6">
-                                        Memorización de Control Diferido
+                                        Desestimación de Control Diferido
                                     </label>
                                 </h3>
                             </div>
                             <div class="form-group">                            
                                 <label class="col-sm-3 control-label">Tipo de Documento:</label>
                                 <div class="col-sm-3">
-                                    ${MemorizacionControlForm.difTipoDocumento}
+                                    DECLARACIÓN
                                 </div>
                             </div>
                             <div class="form-group">
@@ -133,7 +136,7 @@
                             </div>
                             <div class="form-group">
                                 <label class="label-message-required">
-                                    * Campos Obligatorios
+                                    * Campo Obligatorio
                                 </label>
                             </div>
                         </html:form>

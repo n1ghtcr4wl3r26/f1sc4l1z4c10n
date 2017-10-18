@@ -168,10 +168,16 @@
         <action path="/memorizaciondiferidoidx" type="anb.action.MemorizacionControlAction" name="MemorizacionControlForm" parameter="memorizardiferidoindex" scope="request">
             <forward name="ok" path="memorizacion.diferido.index" redirect="true" />
             <forward name="success" path="memorizacion.diferido" redirect="true" />
+            <forward name="successd" path="memorizacion.diferido.desestimar" redirect="true" />
             <forward name="nook" path="/input.jsp"/>
         </action>
         <action path="/memorizaciondiferido" type="anb.action.MemorizacionControlAction" name="MemorizacionControlForm" parameter="memorizardiferido" scope="request">
             <forward name="ok" path="memorizacion.diferido" redirect="true" />
+            <forward name="index" path="memorizacion.diferido.index" redirect="true" />
+            <forward name="nook" path="/input.jsp"/>
+        </action>
+        <action path="/memorizaciondiferidodesestimar" type="anb.action.MemorizacionControlAction" name="MemorizacionControlForm" parameter="memorizardiferidodesestimar" scope="request">
+            <forward name="ok" path="memorizacion.diferido.desestimar" redirect="true" />
             <forward name="index" path="memorizacion.diferido.index" redirect="true" />
             <forward name="nook" path="/input.jsp"/>
         </action>

@@ -44,6 +44,9 @@
     <definition name="memorizacion.diferido" extends="aud.home">
         <put name="content" value="/pages/control/memorizar_diferido.jsp"/>
     </definition> 
+    <definition name="memorizacion.diferido.desestimar" extends="aud.home">
+        <put name="content" value="/pages/control/memorizar_diferido_desestimar.jsp"/>
+    </definition> 
     <definition name="alcance.control.index" extends="aud.home">
         <put name="content" value="/pages/control/alcance_control_index.jsp"/>
     </definition>

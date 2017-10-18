@@ -151,7 +151,7 @@
                                 ${esc.sequencia}
                             </td>
                             <td>
-                                <a onclick="window.open('http://anbsw07.aduana.gob.bo:7601/mira/repduiform.jsp?gestion=${esc.gestion}&amp;aduana=${esc.aduana}&amp;registro=${esc.numero}&amp;vdec=&amp;vop=&amp;vusu=&amp;bandera=undefined','_blank','width=550,height=580,menubar=0,scrollbars=yes,toolbar=0,location=0,directories=0,resizable=0,top=0,left=0')"
+                                <a onclick="window.open('http://anbsw09.aduana.gob.bo:7401/mira/repduiform.jsp?gestion=${esc.gestion}&amp;aduana=${esc.aduana}&amp;registro=${esc.numero}&amp;vdec=&amp;vop=&amp;vusu=&amp;bandera=undefined','_blank','width=550,height=580,menubar=0,scrollbars=yes,toolbar=0,location=0,directories=0,resizable=0,top=0,left=0')"
                                    href='javascript:void(0)'>
                                     ${esc.tramite}</a>
                             </td>
@@ -162,7 +162,9 @@
                                 ${esc.patron}
                             </td>
                             <td class="text-center">
-                                ${esc.ficha}
+                                <a onclick=window.open('http://anbsw09.aduana.gob.bo:7401/mira/reportes/Dili1.jsp?dma=${esc.ficha}&tec=${AlcanceForm.usuario}','_blank','width=550,height=580,menubar=0,scrollbars=yes,toolbar=0,location=0,directories=0,resizable=0,top=0,left=0') href='javascript:void(0)' >
+                                    ${esc.ficha}
+                                </a>
                             </td>
                             <td class="text-center">
                                 ${esc.fechaRegistro}
@@ -189,23 +191,23 @@
                                 ${esc.estado}
                             </td>
                             <td class="text-center">
-                                <a onclick="window.open('http://anbsw07.aduana.gob.bo:7601/mira/repduiform.jsp?gestion=${esc.gestion}&amp;aduana=${esc.aduana}&amp;registro=${esc.numero}&amp;vdec=&amp;vop=&amp;vusu=&amp;bandera=undefined','_blank','width=550,height=580,menubar=0,scrollbars=yes,toolbar=0,location=0,directories=0,resizable=0,top=0,left=0')"
+                                <a onclick="window.open('http://anbsw09.aduana.gob.bo:7401/mira/repduiform.jsp?gestion=${esc.gestion}&amp;aduana=${esc.aduana}&amp;registro=${esc.numero}&amp;vdec=&amp;vop=&amp;vusu=&amp;bandera=undefined','_blank','width=550,height=580,menubar=0,scrollbars=yes,toolbar=0,location=0,directories=0,resizable=0,top=0,left=0')"
                                    href='javascript:void(0)'>DUI</a>
                             </td>
                             <td class="text-center">
-                                <a onclick="window.open('http://anbsw07.aduana.gob.bo:7601/mira/DUI_docadi.jsp?gestion=${esc.gestion}&amp;aduana=${esc.aduana}&amp;registro=${esc.numero}&amp;vdec=&amp;vop=&amp;vusu=&amp;bandera=undefined','_blank','width=550,height=580,menubar=0,scrollbars=yes,toolbar=0,location=0,directories=0,resizable=0,top=0,left=0')"
+                                <a onclick="window.open('http://anbsw09.aduana.gob.bo:7401/mira/DUI_docadi.jsp?gestion=${esc.gestion}&amp;aduana=${esc.aduana}&amp;registro=${esc.numero}&amp;vdec=&amp;vop=&amp;vusu=&amp;bandera=undefined','_blank','width=550,height=580,menubar=0,scrollbars=yes,toolbar=0,location=0,directories=0,resizable=0,top=0,left=0')"
                                    href='javascript:void(0)'>Doc. Adicionales</a>
                             </td>
                             <td class="text-center">
-                                <a onclick="window.open('http://anbsw07.aduana.gob.bo:7601/mira/DUI_notaval.jsp?gestion=${esc.gestion}&amp;aduana=${esc.aduana}&amp;registro=${esc.numero}&amp;vdec=&amp;vop=&amp;vusu=&amp;bandera=undefined','_blank','width=550,height=580,menubar=0,scrollbars=yes,toolbar=0,location=0,directories=0,resizable=0,top=0,left=0')"
+                                <a onclick="window.open('http://anbsw09.aduana.gob.bo:7401/mira/DUI_notaval.jsp?gestion=${esc.gestion}&amp;aduana=${esc.aduana}&amp;registro=${esc.numero}&amp;vdec=&amp;vop=&amp;vusu=&amp;bandera=undefined','_blank','width=550,height=580,menubar=0,scrollbars=yes,toolbar=0,location=0,directories=0,resizable=0,top=0,left=0')"
                                    href='javascript:void(0)'>Nota de Valor</a>
                             </td>
                             <td class="text-center">
-                                <a onclick="window.open('http://anbsw07.aduana.gob.bo:7601/mira/DUI_infadi.jsp?gestion=${esc.gestion}&amp;aduana=${esc.aduana}&amp;registro=${esc.numero}&amp;vdec=&amp;vop=&amp;vusu=&amp;bandera=undefined','_blank','width=550,height=580,menubar=0,scrollbars=yes,toolbar=0,location=0,directories=0,resizable=0,top=0,left=0')"
+                                <a onclick="window.open('http://anbsw09.aduana.gob.bo:7401/mira/DUI_infadi.jsp?gestion=${esc.gestion}&amp;aduana=${esc.aduana}&amp;registro=${esc.numero}&amp;vdec=&amp;vop=&amp;vusu=&amp;bandera=undefined','_blank','width=550,height=580,menubar=0,scrollbars=yes,toolbar=0,location=0,directories=0,resizable=0,top=0,left=0')"
                                    href='javascript:void(0)'>Inf. Adicional</a>
                             </td>
                             <td class="text-center">
-                                <a onclick="window.open('http://anbsw07.aduana.gob.bo:7601/mira/DUI_frv.jsp?gestion=${esc.gestion}&amp;aduana=${esc.aduana}&amp;registro=${esc.numero}&amp;vdec=&amp;vop=&amp;vusu=&amp;bandera=undefined','_blank','width=550,height=580,menubar=0,scrollbars=yes,toolbar=0,location=0,directories=0,resizable=0,top=0,left=0')"
+                                <a onclick="window.open('http://anbsw09.aduana.gob.bo:7401/mira/DUI_frv.jsp?gestion=${esc.gestion}&amp;aduana=${esc.aduana}&amp;registro=${esc.numero}&amp;vdec=&amp;vop=&amp;vusu=&amp;bandera=undefined','_blank','width=550,height=580,menubar=0,scrollbars=yes,toolbar=0,location=0,directories=0,resizable=0,top=0,left=0')"
                                    href='javascript:void(0)'>FRV</a>
                             </td>
                             <td class="text-center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>

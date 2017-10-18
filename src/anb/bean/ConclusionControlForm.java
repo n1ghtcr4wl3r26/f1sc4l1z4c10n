@@ -61,7 +61,9 @@ public class ConclusionControlForm extends ActionForm {
     private FormFile crd_archivo_adjunto;
     private String crd_archivo;
     private String crd_ubicacion;
-
+    
+    private String crd_fecha_rd_final;
+    private String crd_tipo_notificacion;
 
     private String cai_numero_informe;
     private String cai_fecha_informe;
@@ -109,6 +111,8 @@ public class ConclusionControlForm extends ActionForm {
     private FormFile cra_archivo_adjunto;
     private String cra_archivo;
     private String cra_ubicacion;
+    
+    private String cra_tipo_notificacion;
 
     private String cas_numero_informe;
     private String cas_fecha_informe;
@@ -131,6 +135,9 @@ public class ConclusionControlForm extends ActionForm {
     private String cas_archivo;
     private String cas_ubicacion;
     
+    private String cas_fecha_numero_aisc;
+    private String cas_tipo_notificacion;
+        
     private String tipo_grabado;
 
 
@@ -948,5 +955,45 @@ public class ConclusionControlForm extends ActionForm {
 
     public String getTipo_grabado() {
         return tipo_grabado;
+    }
+
+    public void setCrd_fecha_rd_final(String crd_fecha_rd_final) {
+        this.crd_fecha_rd_final = crd_fecha_rd_final;
+    }
+
+    public String getCrd_fecha_rd_final() {
+        return crd_fecha_rd_final;
+    }
+
+    public void setCrd_tipo_notificacion(String crd_tipo_notificacion) {
+        this.crd_tipo_notificacion = crd_tipo_notificacion;
+    }
+
+    public String getCrd_tipo_notificacion() {
+        return crd_tipo_notificacion;
+    }
+
+    public void setCra_tipo_notificacion(String cra_tipo_notificacion) {
+        this.cra_tipo_notificacion = cra_tipo_notificacion;
+    }
+
+    public String getCra_tipo_notificacion() {
+        return cra_tipo_notificacion;
+    }
+
+    public void setCas_fecha_numero_aisc(String cas_fecha_numero_aisc) {
+        this.cas_fecha_numero_aisc = cas_fecha_numero_aisc;
+    }
+
+    public String getCas_fecha_numero_aisc() {
+        return cas_fecha_numero_aisc;
+    }
+
+    public void setCas_tipo_notificacion(String cas_tipo_notificacion) {
+        this.cas_tipo_notificacion = cas_tipo_notificacion;
+    }
+
+    public String getCas_tipo_notificacion() {
+        return cas_tipo_notificacion;
     }
 }
