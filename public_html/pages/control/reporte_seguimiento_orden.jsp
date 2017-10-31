@@ -65,20 +65,16 @@
                             <th class="text-center">RESULTADOS DEL CONTROL - TIPO DE DOCUMENTO DE CONCLUSI&Oacute;N</th>
                             <th class="text-center">RESULTADOS DEL CONTROL - N&Uacute;MERO DE DOCUMENTO DE CONCLUSI&Oacute;N</th>
                             <th class="text-center">RESULTADOS DEL CONTROL - FECHA DE DOCUMENTO DE CONCLUSI&Oacute;N</th>
-                            <th class="text-center">RESULTADOS DEL CONTROL - USUARIO QUE REGISTR&Oacute; LOS RESULTADOS</th>
                             <th class="text-center">RESULTADOS DEL CONTROL - FECHA DE NOTIFICACI&Oacute;N</th>
                             <th class="text-center">RESULTADOS DEL CONTROL - TIPO DE NOTIFICACI&Oacute;N</th>
-                            <th class="text-center">RESULTADOS DEL CONTROL - USUARIO QUE REGISTR&Oacute; LA NOTIFICACI&Oacute;N</th>
                             <th class="text-center">RESULTADOS DEL CONTROL - FECHA COMUNICACI&Oacute;N INTERNA DE
                                                     REMISI&Oacute;N</th>
                             <th class="text-center">RESULTADOS DEL CONTROL - N&Uacute;MERO DE COMUNICACI&Oacute;N
                                                     INTERNA DE REMISI&Oacute;N</th>
-                            <th class="text-center">FINALIZACI&Oacute;N DEL CONTROL - USUARIO QUE REALIZ&Oacute; LA
-                                                    REMISI&Oacute;N A LA UNIDAD LEGAL</th>
                             <th class="text-center">FINALIZACI&Oacute;N DEL CONTROL - FECHA DE FINALIZACI&Oacute;N DEL
                                                     CONTROL</th>
-                            <th class="text-center">FINALIZACI&Oacute;N DEL CONTROL - USUARIO QUE REGISTR&Oacute; LA
-                                                    FINALIZACI&Oacute;N</th>
+                            <th class="text-center">FINALIZACI&Oacute;N DEL CONTROL - USUARIO QUE REGISTR&Oacute; EL
+                                                    PRIMER DOCUMENTO DE CONCLUSI&Oacute;N</th>
                             <th class="text-center">ESTADO DEL CONTROL</th>
                             <th class="text-center">TIPO DE IL&Iacute;CITO - OMISI&Oacute;N DE PAGO</th>
                             <th class="text-center">TIPO DE IL&Iacute;CITO - CONTRAVENCI&Oacute;N ADUANERA</th>
@@ -166,16 +162,10 @@
                                     ${rep.res_documento_fecha}
                                 </td>
                                 <td class="text-center">
-                                    ${rep.res_documento_usuario}
-                                </td>
-                                <td class="text-center">
                                     ${rep.res_notificacion_fecha}
                                 </td>
                                 <td class="text-center">
                                     ${rep.res_notificacion_tipo}
-                                </td>
-                                <td class="text-center">
-                                    ${rep.res_notificacion_usuario}
                                 </td>
                                 <td class="text-center">
                                     ${rep.res_ci_remision_fecha}
@@ -184,13 +174,10 @@
                                     ${rep.res_ci_remision_numero}
                                 </td>
                                 <td class="text-center">
-                                    ${rep.res_ci_remision_usuario}
-                                </td>
-                                <td class="text-center">
                                     ${rep.res_finalizacion_fecha}
                                 </td>
                                 <td class="text-center">
-                                    ${rep.res_finalizacion_usuario}
+                                    ${rep.res_documento_usuario}
                                 </td>
                                 <td class="text-center">
                                     ${rep.orden_estado}

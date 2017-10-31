@@ -313,7 +313,7 @@ public class ConclusionDao extends Conexion {
         String res;
         try {
             open();
-            call = cn.prepareCall("{ ? = call pkg_conclusion.graba_con_resadmin ( ?,?,?,?,? ,?,?,?,?  ,?,?  ,?,?,?,?,? ,?,?)}");
+            call = cn.prepareCall("{ ? = call pkg_conclusion.graba_con_resadmin ( ?,?,?,?,? ,?,?,?,?  ,?,?  ,?,?,?,?,? ,?,?  ,?)}");
             call.registerOutParameter(1, OracleTypes.VARCHAR);
             call.setString(2, bean.getCodigo());
             call.setString(3, bean.getCra_fecha_pago_cuini());
@@ -333,6 +333,7 @@ public class ConclusionDao extends Conexion {
             call.setString(17, bean.getTipo_grabado());
             call.setString(18, bean.getCra_archivo());
             call.setString(19, bean.getCra_ubicacion());
+            call.setString(20, bean.getCra_tipo_notificacion());
             call.execute();
             res = (String)call.getObject(1);
         } finally {
@@ -388,6 +389,7 @@ public class ConclusionDao extends Conexion {
                bean.setCra_gerencia_legal(rs.getString(18));
                bean.setCra_archivo(rs.getString(19));
                bean.setCra_ubicacion(rs.getString(20));
+               bean.setCra_tipo_notificacion(rs.getString(21));
            }
        } finally {
            if (cn != null) {
@@ -402,7 +404,7 @@ public class ConclusionDao extends Conexion {
         String res;
         try {
             open();
-            call = cn.prepareCall("{ ? = call pkg_conclusion.graba_con_autoinicial ( ?,?,?,?,? ,?,?,?,?,? ,?,?,?  ,?,?,?,? ,?,?)}");
+            call = cn.prepareCall("{ ? = call pkg_conclusion.graba_con_autoinicial ( ?,?,?,?,? ,?,?,?,?,? ,?,?,?  ,?,?,?,? ,?,?  ,?,?)}");
             call.registerOutParameter(1, OracleTypes.VARCHAR);
             call.setString(2, bean.getCodigo());
             call.setString(3, bean.getCas_numero_aisc());
@@ -423,6 +425,8 @@ public class ConclusionDao extends Conexion {
             call.setString(18, bean.getTipo_grabado());
             call.setString(19, bean.getCas_archivo());
             call.setString(20, bean.getCas_ubicacion());
+            call.setString(21, bean.getCas_fecha_numero_aisc());
+            call.setString(22, bean.getCas_tipo_notificacion());
             call.execute();
             res = (String)call.getObject(1);
         } finally {

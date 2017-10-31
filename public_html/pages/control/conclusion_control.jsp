@@ -379,12 +379,33 @@
                             </div>
                         </div>
                         <div class="form-group">
+                            <label class="col-sm-3 control-label">Fecha RD final:</label>
+                            <div class="col-sm-3">
+                                <html:text property="crd_fecha_rd_final" styleId="crd_fecha_rd_final"
+                                           styleClass="form-control datepicker date-less-than" size="30" maxlength="10" disabled="<%=ffisca%>" />
+                            </div>
+                        </div>       
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Notificaci&oacute;n RD:</label>
+                            <div class="col-sm-9">
+                                <html:select property="crd_tipo_notificacion" styleId="crd_tipo_notificacion"
+                                             styleClass="form-control" disabled="<%=ffisca%>">
+                                    <html:option value="-">-- Seleccione el Tipo --</html:option>
+                                    <html:option value="ELECTRONICA">ELECTRONICA</html:option>
+                                    <html:option value="PERSONAL">PERSONAL</html:option>
+                                    <html:option value="CEDULA">CEDULA</html:option>
+                                    <html:option value="EDICTO">EDICTO</html:option>
+                                    <html:option value="TACITO">TACITO</html:option>
+                                </html:select>
+                            </div>
+                        </div>
+                        <div class="form-group">
                             <label class="col-sm-3 control-label">Fecha de notificaci&oacute;n de la RD final:</label>
                             <div class="col-sm-3">
                                 <html:text property="crd_fecha_not_rd_final" styleId="crd_fecha_not_rd_final"
                                            styleClass="form-control datepicker date-less-than" size="30" maxlength="10" disabled="<%=ffisca%>" />
                             </div>
-                        </div>
+                        </div>                        
                         <div class="form-group">
                             <label class="col-sm-3 control-label">Documento Digitalizado:</label>
                             <div class="col-sm-9">
@@ -676,6 +697,20 @@
                                            size="30" maxlength="30"  disabled="<%=ffisca%>" />
                             </div>
                         </div>
+                         <div class="form-group">
+                            <label class="col-sm-3 control-label">Notificaci&oacute;n Resoluci&oacute;n Administrativa:</label>
+                            <div class="col-sm-9">
+                                <html:select property="cra_tipo_notificacion" styleId="cra_tipo_notificacion"
+                                             styleClass="form-control" disabled="<%=ffisca%>">
+                                    <html:option value="-">-- Seleccione el Tipo --</html:option>
+                                    <html:option value="ELECTRONICA">ELECTRONICA</html:option>
+                                    <html:option value="PERSONAL">PERSONAL</html:option>
+                                    <html:option value="CEDULA">CEDULA</html:option>
+                                    <html:option value="EDICTO">EDICTO</html:option>
+                                    <html:option value="TACITO">TACITO</html:option>
+                                </html:select>
+                            </div>
+                        </div>
                         <div class="form-group">
                             <label class="col-sm-3 control-label">Fecha de notificaci&oacute;n de la RA:</label>
                             <div class="col-sm-3">
@@ -775,6 +810,27 @@
                             <div class="col-sm-3">
                                 <html:text property="cas_numero_aisc" styleId="cas_numero_aisc"
                                            styleClass="form-control" size="30" maxlength="30" disabled="<%=ffisca%>" />
+                            </div>
+                        </div>
+                         <div class="form-group">
+                            <label class="col-sm-3 control-label">Fecha AISC:</label>
+                            <div class="col-sm-3">
+                                <html:text property="cas_fecha_numero_aisc" styleId="cas_fecha_numero_aisc"
+                                           styleClass="form-control datepicker date-less-than" size="30" maxlength="10" disabled="<%=ffisca%>" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Notificaci&oacute;n AISC:</label>
+                            <div class="col-sm-9">
+                                <html:select property="cas_tipo_notificacion" styleId="cas_tipo_notificacion"
+                                             styleClass="form-control" disabled="<%=ffisca%>">
+                                    <html:option value="-">-- Seleccione el Tipo --</html:option>
+                                    <html:option value="ELECTRONICA">ELECTRONICA</html:option>
+                                    <html:option value="PERSONAL">PERSONAL</html:option>
+                                    <html:option value="CEDULA">CEDULA</html:option>
+                                    <html:option value="EDICTO">EDICTO</html:option>
+                                    <html:option value="TACITO">TACITO</html:option>
+                                </html:select>
                             </div>
                         </div>
                         <div class="form-group">

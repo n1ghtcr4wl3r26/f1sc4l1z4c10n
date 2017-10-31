@@ -41,7 +41,7 @@
                 <table class="table table-striped table-hover" id="main-table">
                     <thead>
                         <tr>
-                           <th class="text-center">N&Uacute;MERO</th>
+                            <th class="text-center">N&Uacute;MERO</th>
                             <th class="text-center">GESTI&Oacute;N</th>
                             <th class="text-center">TIPO DE CONTROL</th>
                             <th class="text-center">GERENCIA</th>
@@ -65,20 +65,16 @@
                             <th class="text-center">RESULTADOS DEL CONTROL - TIPO DE DOCUMENTO DE CONCLUSI&Oacute;N</th>
                             <th class="text-center">RESULTADOS DEL CONTROL - N&Uacute;MERO DE DOCUMENTO DE CONCLUSI&Oacute;N</th>
                             <th class="text-center">RESULTADOS DEL CONTROL - FECHA DE DOCUMENTO DE CONCLUSI&Oacute;N</th>
-                            <th class="text-center">RESULTADOS DEL CONTROL - USUARIO QUE REGISTR&Oacute; LOS RESULTADOS</th>
                             <th class="text-center">RESULTADOS DEL CONTROL - FECHA DE NOTIFICACI&Oacute;N</th>
                             <th class="text-center">RESULTADOS DEL CONTROL - TIPO DE NOTIFICACI&Oacute;N</th>
-                            <th class="text-center">RESULTADOS DEL CONTROL - USUARIO QUE REGISTR&Oacute; LA NOTIFICACI&Oacute;N</th>
                             <th class="text-center">RESULTADOS DEL CONTROL - FECHA COMUNICACI&Oacute;N INTERNA DE
                                                     REMISI&Oacute;N</th>
                             <th class="text-center">RESULTADOS DEL CONTROL - N&Uacute;MERO DE COMUNICACI&Oacute;N
                                                     INTERNA DE REMISI&Oacute;N</th>
-                            <th class="text-center">FINALIZACI&Oacute;N DEL CONTROL - USUARIO QUE REALIZ&Oacute; LA
-                                                    REMISI&Oacute;N A LA UNIDAD LEGAL</th>
                             <th class="text-center">FINALIZACI&Oacute;N DEL CONTROL - FECHA DE FINALIZACI&Oacute;N DEL
                                                     CONTROL</th>
-                            <th class="text-center">FINALIZACI&Oacute;N DEL CONTROL - USUARIO QUE REGISTR&Oacute; LA
-                                                    FINALIZACI&Oacute;N</th>
+                            <th class="text-center">FINALIZACI&Oacute;N DEL CONTROL - USUARIO QUE REGISTR&Oacute; EL
+                                                    PRIMER DOCUMENTO DE CONCLUSI&Oacute;N</th>
                             <th class="text-center">ESTADO DEL CONTROL</th>
                             <th class="text-center">TIPO DE IL&Iacute;CITO - OMISI&Oacute;N DE PAGO</th>
                             <th class="text-center">TIPO DE IL&Iacute;CITO - CONTRAVENCI&Oacute;N ADUANERA</th>
@@ -93,18 +89,19 @@
                             <th class="text-center">TOTAL RECUPERADO - TRIBUTO PAGADO IEHD BS</th>
                             <th class="text-center">TOTAL RECUPERADO - ICD PAGADO BS</th>
                             <th class="text-center">TOTAL RECUPERADO - TOTAL TRIBUTO PAGADO BS</th>
-                            
                             <th class="text-center">TOTAL RECUPERADO - SANCI&Oacute;N OMISI&Oacute;N BS</th>
-                            <th class="text-center">TOTAL RECUPERADO - MULTA POR CONTRAVENCI&Oacute;N ADUANERA RELACIONADA A LA DECLARACI&Oacute;N BS</th>
-                            <th class="text-center">TOTAL RECUPERADO - MULTA POR CONTRAVENCI&Oacute;N ADUANERA RELACIONADA A LA ORDEN BS</th>
+                            <th class="text-center">TOTAL RECUPERADO - MULTA POR CONTRAVENCI&Oacute;N ADUANERA
+                                                    RELACIONADA A LA DECLARACI&Oacute;N BS</th>
+                            <th class="text-center">TOTAL RECUPERADO - MULTA POR CONTRAVENCI&Oacute;N ADUANERA
+                                                    RELACIONADA A LA ORDEN BS</th>
                             <th class="text-center">TOTAL RECUPERADO - MULTA CONTRABANDO CONTRAVENCIONAL</th>
                             <th class="text-center">TOTAL RECUPERADO - MULTA CONTRABANDO DELITO</th>
                             <th class="text-center">TOTAL RECUPERADO - MULTA POR DEFRAUDACI&Oacute;N</th>
                             <th class="text-center">TOTAL RECUPERADO - TOTAL RECUPERADO</th>
                             <th class="text-center">FACILIDADES DE PAGO - CUOTA INICIAL BS</th>
                             <th class="text-center">FACILIDADES DE PAGO - GARANT&Iacute;A EN EFECTIVO BS</th>
-                            <th class="text-center" width="180px">FACILIDADES DE PAGO - SALDO POR COBRAR SUJETO A FACILIDADES DE PAGO
-                                                    EN BS</th>
+                            <th class="text-center" width="180px">FACILIDADES DE PAGO - SALDO POR COBRAR SUJETO A
+                                                                  FACILIDADES DE PAGO EN BS</th>
                             <th class="text-center">FACILIDADES DE PAGO - USUARIO QUE REGISTR&Oacute; LOS PAGOS</th>
                         </tr>
                     </thead>
@@ -185,16 +182,10 @@
                                     ${rep.res_documento_fecha}
                                 </td>
                                 <td class="text-center">
-                                    ${rep.res_documento_usuario}
-                                </td>
-                                <td class="text-center">
                                     ${rep.res_notificacion_fecha}
                                 </td>
                                 <td class="text-center">
                                     ${rep.res_notificacion_tipo}
-                                </td>
-                                <td class="text-center">
-                                    ${rep.res_notificacion_usuario}
                                 </td>
                                 <td class="text-center">
                                     ${rep.res_ci_remision_fecha}
@@ -203,13 +194,10 @@
                                     ${rep.res_ci_remision_numero}
                                 </td>
                                 <td class="text-center">
-                                    ${rep.res_ci_remision_usuario}
-                                </td>
-                                <td class="text-center">
                                     ${rep.res_finalizacion_fecha}
                                 </td>
                                 <td class="text-center">
-                                    ${rep.res_finalizacion_usuario}
+                                    ${rep.res_documento_usuario}
                                 </td>
                                 <td class="text-center">
                                     ${rep.orden_estado}
