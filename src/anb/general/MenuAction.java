@@ -62,6 +62,9 @@ public class MenuAction extends Action {
         case 151:
             return mapping.findForward("presentaciondocumentacion");
     
+        case 162:
+            return mapping.findForward("cargadescargadma");
+        
         case 16:
             return mapping.findForward("generacionhoja");
 

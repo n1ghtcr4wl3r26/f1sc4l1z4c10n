@@ -98,6 +98,15 @@
     <definition name="presentacion.documentacion" extends="aud.home">
         <put name="content" value="/pages/control/presentacion_documentacion.jsp"/>
     </definition>
+    <definition name="cargadescarga.dma.index" extends="aud.home">
+        <put name="content" value="/pages/control/carga_descarga_dma_index.jsp"/>
+    </definition>
+    <definition name="cargadescarga.dma" extends="aud.home">
+        <put name="content" value="/pages/control/carga_descarga_dma.jsp"/>
+    </definition>
+    <definition name="cargadescarga.dilig" extends="aud.home">
+        <put name="content" value="/pages/control/carga_descarga_diligencia.jsp"/>
+    </definition>
     <definition name="generacion.hoja.index" extends="aud.home">
         <put name="content" value="/pages/control/generacion_hoja_index.jsp"/>
     </definition>
