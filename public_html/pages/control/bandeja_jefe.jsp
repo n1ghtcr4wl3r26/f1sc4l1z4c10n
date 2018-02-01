@@ -28,6 +28,7 @@
                     <th class="text-center">&Iacute;tems</th>
                     <th class="text-center">Importador</th>
                     <th class="text-center">Fecha Levante</th>
+                    <th class="text-center">Riesgo P.A.</th>
                 </tr>
             </thead>
              
@@ -44,7 +45,15 @@
                             ${esc.fechaRegistro}
                         </td>
                         <td class="text-left">
-                            ${esc.declaracion}
+                            <c:if test="${esc.declaracion != 'TRAMITES' }">
+                            <a onclick="window.open('lista_dma.jsp?p=${esc.param}','_blank','width=800,height=400,menubar=0,scrollbars=yes,toolbar=0,location=0,directories=0,resizable=0,top=0,left=0')"
+                                   href='javascript:void(0)'>                            
+                                    ${esc.declaracion}
+                            </a>
+                            </c:if>    
+                            <c:if test="${esc.declaracion == 'TRAMITES' }">                                                     
+                                    ${esc.declaracion}
+                            </c:if>   
                         </td>
                         <td class="text-center">
                             ${esc.cantidadDUIs}
@@ -60,6 +69,14 @@
                         </td>
                         <td class="text-center">
                             ${esc.fechaLevante}
+                        </td>
+                        <td class="text-center">
+                            <c:if test="${esc.riesgopa == '1' }">
+                                <a onclick=window.open('/fiscalizacion/pages/control/reporte_riesgopa.jsp?gestion=${esc.gestion}&aduana=${esc.aduana}&numero=${esc.numero}&vdec=&vop=&vusu=${AlcanceForm.usuario}&bandera=undefined','_blank','width=550,height=580,menubar=0,scrollbars=yes,toolbar=0,location=0,directories=0,resizable=0,top=0,left=0') href='javascript:void(0)' >
+                                    con_CCA
+                                </a>
+                            </c:if>
+                            &nbsp;
                         </td>
                     </tr>
                 </c:forEach>

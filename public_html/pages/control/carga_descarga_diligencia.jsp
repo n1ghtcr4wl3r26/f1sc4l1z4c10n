@@ -13,9 +13,13 @@
         CargaDescargaDmaForm gen = (CargaDescargaDmaForm)request.getAttribute("CargaDescargaDmaForm");
     %>
     <div class="modal-body form-horizontal">
-        <html:form styleId="form-cargadescargadma" action="cargadescargadilig.do">
+        <html:form styleId="form-cargadescargadma" action="cargadescargadilig.do" enctype="multipart/form-data">
             <html:hidden property="codigo" styleId="codigo"/>
             <html:hidden property="mostrarid" styleId="mostrarid"/>
+            <html:hidden property="dma" styleId="dma"/>     
+            <html:hidden property="gestion" styleId="gestion"/>  
+            <html:hidden property="aduana" styleId="aduana"/> 
+            <html:hidden property="numero" styleId="numero"/> 
             <input type="hidden" name="opcion" id="opcion"/>
             <div class="form-group">
                 <label class="col-sm-2 control-label">Código:</label>
@@ -92,7 +96,54 @@
                 <div class="col-sm-2">
                     ${infoControl.fechaRegistro}
                 </div>
-            </div>            
+            </div>  
+            <br/>
+            <br/>
+            <table width="100%">
+                <tr>
+                    <td>
+                        <% //if(off4.equals("0")){
+                        if( gen.getDmaxml() != null && gen.getDmaxml().equals("CORRECTO") ){ 
+                            String tramite = "Descarga.jsp?dma=" + gen.getDma()+".xml";
+                        %>
+                            <table align="left">
+                                <tbody >
+                                    <tr>
+                                        <td>
+                                            <a href="<%= tramite%>" target="_blank" style="font-size:130%; color:#003366">Descargar Archivo XML: &nbsp; <%= gen.getDma()+".xml"  %></a>
+                                        </td>                                        
+                                    </tr>
+                                </tbody>
+                            </table>
+                        <%  
+                        }
+                        %>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="button" class="btn btn-primary" name="descargar" value="Descargar DMA Resumen" onclick="ejecutaXml('8');"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        &nbsp;
+                        <br/>
+                        &nbsp;
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <html:file property="docXml" size="60"/>
+                        <br/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="button" class="btn btn-primary" name="cargar" value="Cargar DMA" onclick="ejecutaXml2('5');"/>
+                    </td>
+                </tr>            
+            </table>
         </html:form>
     </div>
 </div>
@@ -113,7 +164,10 @@
       
       Anb.form.submit('#form-cargadescargadma', function (form) {
           Anb.form.cleanErrors(form);
-          if ($("#opcion").val() =='MOSTRAR')
+          if ($("#opcion").val() =='DESCARGA')
+                form.submit();
+            else
+            if ($("#opcion").val() =='CARGA')
                 form.submit();
             else
           if (Anb.validate.run(form)) {
@@ -135,5 +189,17 @@
   function consultar(){
       $("#opcion").val('CONSULTAR3'); 
   }
+  
+  function ejecutaXml(aux){
+      var f=document.forms["CargaDescargaDmaForm"];    
+      $("#opcion").val('DESCARGA'); 
+      f.submit();
+  }
+  function ejecutaXml2(aux){
+      var f=document.forms["CargaDescargaDmaForm"];    
+      $("#opcion").val('CARGA'); 
+      f.submit();
+  }
+
   
 </script>

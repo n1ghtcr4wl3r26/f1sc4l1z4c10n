@@ -1,5 +1,9 @@
 package anb.bean;
 
+import java.io.File;
+
+import org.apache.struts.upload.FormFile;
+
 public class CargaDescargaDmaForm extends org.apache.struts.action.ActionForm {
     private String cargo;
     private String funcionario;
@@ -22,7 +26,18 @@ public class CargaDescargaDmaForm extends org.apache.struts.action.ActionForm {
     private String usuarioger;
     
     private String dav;
-
+    private boolean isDescarga;
+    private String dma;
+    private String tramite;
+    private Boolean descarga;
+    private String opcion_d;
+    private String dmaxml;
+    private FormFile docXml;
+    
+    private String gestion;
+    private String aduana;
+    private String numero;
+    
     public void setCargo(String cargo) {
         this.cargo = cargo;
     }
@@ -149,5 +164,87 @@ public class CargaDescargaDmaForm extends org.apache.struts.action.ActionForm {
 
     public String getDav() {
         return dav;
+    }
+
+    public void setIsDescarga(boolean isDescarga) {
+        this.isDescarga = isDescarga;
+    }
+
+    public boolean isIsDescarga() {
+        return isDescarga;
+    }
+
+    public void setDma(String dma) {
+        this.dma = dma;
+    }
+
+    public String getDma() {
+        return dma;
+    }
+
+    public void setTramite(String tramite) {
+        this.tramite = tramite;
+    }
+
+    public String getTramite() {
+        return tramite;
+    }
+
+    public void setDescarga(Boolean descarga) {
+        this.descarga = descarga;
+    }
+
+    public Boolean getDescarga() {
+        return descarga;
+    }
+
+    public void setOpcion_d(String opcion_d) {
+        this.opcion_d = opcion_d;
+    }
+
+    public String getOpcion_d() {
+        return opcion_d;
+    }
+
+   
+
+    public void setDmaxml(String dmaxml) {
+        this.dmaxml = dmaxml;
+    }
+
+    public String getDmaxml() {
+        return dmaxml;
+    }
+
+    public void setDocXml(FormFile docXml) {
+        this.docXml = docXml;
+    }
+
+    public FormFile getDocXml() {
+        return docXml;
+    }
+
+    public void setGestion(String gestion) {
+        this.gestion = gestion;
+    }
+
+    public String getGestion() {
+        return gestion;
+    }
+
+    public void setAduana(String aduana) {
+        this.aduana = aduana;
+    }
+
+    public String getAduana() {
+        return aduana;
+    }
+
+    public void setNumero(String numero) {
+        this.numero = numero;
+    }
+
+    public String getNumero() {
+        return numero;
     }
 }

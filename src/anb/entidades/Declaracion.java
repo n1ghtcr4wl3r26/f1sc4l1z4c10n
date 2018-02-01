@@ -20,7 +20,7 @@ public class Declaracion {
     private String sequencia;
     private String verifitem;
     private String canal;
-    
+
     private String key_year;
     private String key_cuo;
     private String key_dec;
@@ -31,11 +31,13 @@ public class Declaracion {
     private String sad_consignee;
     private String sad_reg_date;
     private String sad_itm_total;
-    
+
     private String ficha;
     private String fechaLevante;
     private String items;
     private String patron;
+
+    private String param;
 
     public void setGestion(String gestion) {
         this.gestion = gestion;
@@ -291,5 +293,13 @@ public class Declaracion {
 
     public String getSad_itm_total() {
         return sad_itm_total;
+    }
+
+    public void setParam(String param) {
+        this.param = param;
+    }
+
+    public String getParam() {
+        return param;
     }
 }

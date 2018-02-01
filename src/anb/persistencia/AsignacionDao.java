@@ -22,12 +22,13 @@ public class AsignacionDao extends Conexion {
         String res;
         try {
             open();
-            call = cn.prepareCall("{ ? = call pkg_memorizacion.graba_asignacion ( ?,?,?,?)}");
+            call = cn.prepareCall("{ ? = call pkg_memorizacion.graba_asignacion ( ?,?,?,?,?)}");
             call.registerOutParameter(1, OracleTypes.VARCHAR);
             call.setString(2, bean.getCodigo());
             call.setString(3, bean.getFuncionario());
             call.setString(4, bean.getCargo());
             call.setString(5, bean.getUsuario());
+            call.setString(6, bean.getTipofiscalizador());
             call.execute();
             res = (String)call.getObject(1);
         } finally {
@@ -62,12 +63,13 @@ public class AsignacionDao extends Conexion {
         String res;
         try {
             open();
-            call = cn.prepareCall("{ ? = call pkg_memorizacion.graba_acceso ( ?,?,?,?)}");
+            call = cn.prepareCall("{ ? = call pkg_memorizacion.graba_acceso ( ?,?,?,?,?)}");
             call.registerOutParameter(1, OracleTypes.VARCHAR);
             call.setString(2, bean.getCodigo());
             call.setString(3, bean.getFuncionario());
             call.setString(4, bean.getCargo());
             call.setString(5, bean.getUsuario());
+            call.setString(6, bean.getTipofiscalizador());
             call.execute();
             res = (String)call.getObject(1);
         } finally {

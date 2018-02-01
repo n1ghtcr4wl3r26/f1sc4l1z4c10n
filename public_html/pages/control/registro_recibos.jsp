@@ -89,6 +89,7 @@
                         <html:option value="CI FP">Cuota Inicial - Facilidades de Pago</html:option>
                         <html:option value="GE FP">Garant&iacute;a en efectivo -
                                                                                         Facilidades de Pago</html:option>
+                        <html:option value="MC">Miscelaneos</html:option>
                     </html:select>
                 </div>
             </div>
@@ -163,15 +164,7 @@
 </div>
 <script>
   $(document).ready(function () {
-      Anb.form.submit('#form-recibos', function (form) {
-          Anb.form.cleanErrors(form);
-          if (Anb.validate.run(form)) {
-              $("#opcion").val('GRABA');
-              console.log('Enviado!');
-              Anb.loading.show()
-              form.submit();
-          }
-      });
+      
       
       var DT = new Anb.datatable({
             filter: true,
@@ -194,6 +187,7 @@
                 form.submit();
             else
                 if (Anb.validate.run(form)) {
+                    $("#opcion").val('GRABA');
                     console.log('Enviado!');
                     Anb.loading.show()                
                     form.submit();

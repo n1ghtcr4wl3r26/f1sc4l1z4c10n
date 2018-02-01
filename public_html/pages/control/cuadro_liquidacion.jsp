@@ -165,11 +165,10 @@
                         <th class="text-center">TRIBUTO OMITIDO + INTERES IEHD UFV</th>
                         <th class="text-center">TRIBUTO OMITIDO + INTERES ICD UFV</th>
                         
-                        
+                        <th class="text-center">TOTAL DEUDA TRIBUTARIA UFV</th>
                         <th class="text-center">SANCIÓN POR OMISION DE PAGO UFV</th>
                         <th class="text-center">ADEUDO TOTAL UFV</th>
                         <th class="text-center">ADEUDO TOTAL BS</th>
-                        
                     </tr>
                 </thead>
                  
@@ -340,9 +339,11 @@
                             <td class="text-right">
                                 ${esc.dtufvicd}
                             </td>
-                           
                             <td class="text-right">
-                                ${esc.toufvtotal}
+                                ${esc.dtufvtotal}
+                            </td>                           
+                            <td class="text-right">
+                                ${esc.sancion}
                             </td>
                             <td class="text-right">
                                 ${esc.adeudo_totalufv}

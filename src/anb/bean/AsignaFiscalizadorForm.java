@@ -5,6 +5,7 @@ import org.apache.struts.action.ActionForm;
 public class AsignaFiscalizadorForm extends ActionForm {
     private String cargo;
     private String funcionario;
+    private String tipofiscalizador;
     
     private String fmemorizado;
     private String fgestion;
@@ -132,5 +133,13 @@ public class AsignaFiscalizadorForm extends ActionForm {
 
     public String getUsuarioger() {
         return usuarioger;
+    }
+
+    public void setTipofiscalizador(String tipofiscalizador) {
+        this.tipofiscalizador = tipofiscalizador;
+    }
+
+    public String getTipofiscalizador() {
+        return tipofiscalizador;
     }
 }

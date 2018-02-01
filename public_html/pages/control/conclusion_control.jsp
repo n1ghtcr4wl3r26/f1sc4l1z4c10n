@@ -231,6 +231,7 @@
                                     <html:option value="CEDULA">CEDULA</html:option>
                                     <html:option value="EDICTO">EDICTO</html:option>
                                     <html:option value="TACITO">TACITO</html:option>
+                                    <html:option value="SECRETARIA">SECRETARIA</html:option>
                                 </html:select>
                             </div>
                         </div>
@@ -395,7 +396,8 @@
                                     <html:option value="PERSONAL">PERSONAL</html:option>
                                     <html:option value="CEDULA">CEDULA</html:option>
                                     <html:option value="EDICTO">EDICTO</html:option>
-                                    <html:option value="TACITO">TACITO</html:option>
+                                    <html:option value="TACITO">TACITO</html:option>                                    
+                                    <html:option value="SECRETARIA">SECRETARIA</html:option>
                                 </html:select>
                             </div>
                         </div>
@@ -536,7 +538,8 @@
                                     <html:option value="PERSONAL">PERSONAL</html:option>
                                     <html:option value="CEDULA">CEDULA</html:option>
                                     <html:option value="EDICTO">EDICTO</html:option>
-                                    <html:option value="TACITO">TACITO</html:option>
+                                    <html:option value="TACITO">TACITO</html:option>                                    
+                                    <html:option value="SECRETARIA">SECRETARIA</html:option>
                                 </html:select>
                             </div>
                         </div>                        
@@ -707,7 +710,8 @@
                                     <html:option value="PERSONAL">PERSONAL</html:option>
                                     <html:option value="CEDULA">CEDULA</html:option>
                                     <html:option value="EDICTO">EDICTO</html:option>
-                                    <html:option value="TACITO">TACITO</html:option>
+                                    <html:option value="TACITO">TACITO</html:option>                                    
+                                    <html:option value="SECRETARIA">SECRETARIA</html:option>
                                 </html:select>
                             </div>
                         </div>
@@ -829,7 +833,8 @@
                                     <html:option value="PERSONAL">PERSONAL</html:option>
                                     <html:option value="CEDULA">CEDULA</html:option>
                                     <html:option value="EDICTO">EDICTO</html:option>
-                                    <html:option value="TACITO">TACITO</html:option>
+                                    <html:option value="TACITO">TACITO</html:option>                                    
+                                    <html:option value="SECRETARIA">SECRETARIA</html:option>
                                 </html:select>
                             </div>
                         </div>

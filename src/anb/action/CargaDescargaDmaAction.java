@@ -10,6 +10,7 @@ import anb.entidades.InfoControl;
 import anb.entidades.Tramite;
 
 import anb.general.Respuesta;
+import anb.general.Util;
 
 import anb.negocio.CargaDescargaDmaNeg;
 import anb.negocio.GeneralNeg;
@@ -135,10 +136,13 @@ public class CargaDescargaDmaAction extends MappingDispatchAction {
                     if (bean.getOpcion().equals("CONSULTAR2")) {
                         Respuesta<InfoControl> inf = gen.devuelveControl(bean.getCodigo());
                         request.setAttribute("infoControl", inf.getResultado());
+                        bean.setGestion(Util.devuelve_alc_gestion(bean.getMostrarid()) );
+                        bean.setAduana(Util.devuelve_alc_aduana(bean.getMostrarid()) );
+                        bean.setNumero(Util.devuelve_alc_numero(bean.getMostrarid()) );
+                        bean.setDma(Util.devuelve_dma(bean.getMostrarid(), bean.getDav()));
                         link = "dma";
                     }
                 }
-
             }
             return mapping.findForward(link);
         }
@@ -150,6 +154,8 @@ public class CargaDescargaDmaAction extends MappingDispatchAction {
         CargaDescargaDmaForm bean = new CargaDescargaDmaForm();
         bean = (CargaDescargaDmaForm)request.getAttribute("CargaDescargaDmaForm");
         String usuario = (String)request.getSession().getAttribute("user");
+        Boolean sw = false;
+        bean.setDmaxml("");
         if (usuario == null) {
             return mapping.findForward("nook");
         } else {
@@ -157,7 +163,7 @@ public class CargaDescargaDmaAction extends MappingDispatchAction {
             bean.setCodger((String)request.getSession().getAttribute("user.codger"));
             String link = "index";
             String codigo;
-            if (!(bean.getOpcion() == null) && bean.getOpcion().equals("CONSULTAR")) {
+            if (!(bean.getOpcion() == null) && bean.getOpcion().equals("CONSULTAR2")) {
                 Respuesta<Boolean> res =
                     gen.devuelveCodigo(bean.getFgestion(), bean.getFcontrol(), bean.getFgerencia(), bean.getFnumero());
                 request.setAttribute("codigo", res.getResultado());
@@ -191,10 +197,45 @@ public class CargaDescargaDmaAction extends MappingDispatchAction {
                     request.setAttribute("lista_dma", ben.getResultado());
                     link = "ok";
                 } else {
-                    if (bean.getOpcion().equals("CONSULTAR2")) {
+                    if (bean.getOpcion().equals("DESCARGA")) {
                         Respuesta<InfoControl> inf = gen.devuelveControl(bean.getCodigo());
                         request.setAttribute("infoControl", inf.getResultado());
+                        Respuesta<Boolean> des;
+                        if(bean.getDma().indexOf('M')>0){
+                            des = neg.pDescargarDFdm(bean.getDma(),Util.devuelve_alc_gestion(bean.getMostrarid())+"/"+Util.devuelve_alc_aduana(bean.getMostrarid())+"/C-"+Util.devuelve_alc_numero(bean.getMostrarid()));
+                        }else{
+                            des = neg.pDescargarD(bean.getDma());
+                        }
+                        if (des.getCodigo() == 1) {
+                            bean.setDmaxml("CORRECTO");
+                        } else {
+                            bean.setDmaxml("CORRECTO");
+                        }
                         link = "dma";
+                    } else {
+                        if (bean.getOpcion().equals("CARGA")) {
+                            Respuesta<InfoControl> inf = gen.devuelveControl(bean.getCodigo());
+                            request.setAttribute("infoControl", inf.getResultado());
+                            Respuesta<Boolean> des;
+                            if(bean.getDma().indexOf('M')>0){
+                                des = neg.pSubeLoDatosR(bean.getDocXml(), "/u03/oracle/user_projects/data/fiscalizacion/dma/xml/" + bean.getDocXml().getFileName(), bean.getGestion(),bean.getAduana() , bean.getNumero(), bean.getUsuario(), "R");
+                            }else{
+                                des = neg.pSubeLoDatosDMAR(bean.getDocXml(), "/u03/oracle/user_projects/data/fiscalizacion/dma/xml/" + bean.getDocXml().getFileName(), bean.getGestion(),bean.getAduana() , bean.getNumero(), bean.getUsuario(), "R");
+                            }
+                            if (des.getCodigo() == 1) {
+                                bean.setDmaxml("");
+                                request.setAttribute("CargaDescargaDmaForm",bean);
+                                request.setAttribute("OK", "Se cargo correctamente el archivo XML");
+                                sw = Util.actualiza_valores_hoja_trabajo(bean.getMostrarid(), usuario);
+                            } else {
+                                if (des.getCodigo() == 0) {
+                                    request.setAttribute("WARNING", des.getMensaje());
+                                } else {
+                                    request.setAttribute("ERROR", des.getMensaje());
+                                }
+                            }
+                            link = "dma";
+                        }
                     }
                 }
 

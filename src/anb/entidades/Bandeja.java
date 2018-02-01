@@ -16,6 +16,13 @@ public class Bandeja {
     private String fechaAsignacion;
     private String origen;
     private String plazoDias;
+    private String gestion;
+    private String aduana;
+    private String numero;
+    private String riesgopa;
+    private String param;
+    private String aux1;
+    private String aux2;
  
     public void setNumeroControl(String numeroControl) {
         this.numeroControl = numeroControl;
@@ -135,5 +142,61 @@ public class Bandeja {
 
     public String getCodigo() {
         return codigo;
+    }
+
+    public void setGestion(String gestion) {
+        this.gestion = gestion;
+    }
+
+    public String getGestion() {
+        return gestion;
+    }
+
+    public void setAduana(String aduana) {
+        this.aduana = aduana;
+    }
+
+    public String getAduana() {
+        return aduana;
+    }
+
+    public void setNumero(String numero) {
+        this.numero = numero;
+    }
+
+    public String getNumero() {
+        return numero;
+    }
+
+    public void setRiesgopa(String riesgopa) {
+        this.riesgopa = riesgopa;
+    }
+
+    public String getRiesgopa() {
+        return riesgopa;
+    }
+
+    public void setAux1(String aux1) {
+        this.aux1 = aux1;
+    }
+
+    public String getAux1() {
+        return aux1;
+    }
+
+    public void setAux2(String aux2) {
+        this.aux2 = aux2;
+    }
+
+    public String getAux2() {
+        return aux2;
+    }
+
+    public void setParam(String param) {
+        this.param = param;
+    }
+
+    public String getParam() {
+        return param;
     }
 }

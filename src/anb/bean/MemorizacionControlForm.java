@@ -7,31 +7,31 @@ public class MemorizacionControlForm extends ActionForm {
     private String tipoControl;
     private String tab;
     private String gerencia;
-    
+
     private String mgestion;
     private String maduana;
     private String mnumero;
-    
+
     private String fropcion;
     private String frcodigo;
-    
+
     private String fecIni;
     private String fecFin;
     private String aduana;
     private String codigo;
     private String opcion;
-    private String usuarioger; 
+    private String usuarioger;
     private int cantidad_dec;
-    
+
     private String fd1FecIni;
     private String fd1FecFin;
     private String fd1Aduana;
-    
+
     private String fd2FecIni;
     private String fd2FecFin;
     private String fd2Aduana;
     private String fd2Importador;
-    
+
     private String fd3Gestion;
     private String fd3Aduana;
     private String fd3Numero;
@@ -52,7 +52,7 @@ public class MemorizacionControlForm extends ActionForm {
     private String posDireccion;
     private String posActividad;
     private String posTipoOperador;
-    
+
     private String posTribTodos;
     private String posTribGa;
     private String posTribIva;
@@ -61,12 +61,12 @@ public class MemorizacionControlForm extends ActionForm {
     private String posTribIcd;
     private String posTribNoaplica;
     private String posPeriodo;
-    
+
     private String posRiesgoDelito;
     private String posRiesgoSubval;
     private String posRiesgoClas;
     private String posRiesgoContrab;
-    
+
     private String ampNroOrden;
     private String ampTipoDocPersona;
     private String ampNitEmpresa;
@@ -100,7 +100,7 @@ public class MemorizacionControlForm extends ActionForm {
     private String difDireccion;
     private String difActividad;
     private String difTipoOperador;
-    
+
     private String difTribTodos;
     private String difTribGa;
     private String difTribIva;
@@ -109,15 +109,24 @@ public class MemorizacionControlForm extends ActionForm {
     private String difTribIcd;
     private String difTribNoaplica;
     private String difPeriodo;
-    
+
     private String difRiesgoDelito;
     private String difRiesgoSubval;
     private String difRiesgoClas;
     private String difRiesgoContrab;
 
+    private String difTipoControl;
+    private String difNoOperador;
+
     private String boton;
     private String usuario;
     private String codigocontrol;
+    
+    private String difAuxNombre;
+    private String difAuxNumero;
+    
+    private String aux1;
+    private String aux2;
 
     public void setTipoControl(String tipoControl) {
         this.tipoControl = tipoControl;
@@ -175,7 +184,6 @@ public class MemorizacionControlForm extends ActionForm {
         return posTipoDocPersona;
     }
 
-    
 
     public void setPosNomEmpresa(String posNomEmpresa) {
         this.posNomEmpresa = posNomEmpresa;
@@ -241,7 +249,6 @@ public class MemorizacionControlForm extends ActionForm {
         return posActividad;
     }
 
-    
 
     public void setAmpNomEmpresa(String ampNomEmpresa) {
         this.ampNomEmpresa = ampNomEmpresa;
@@ -331,7 +338,7 @@ public class MemorizacionControlForm extends ActionForm {
         return difFecDocumento;
     }
 
-   
+
     public void setDifNomEmpresa(String difNomEmpresa) {
         this.difNomEmpresa = difNomEmpresa;
     }
@@ -922,5 +929,53 @@ public class MemorizacionControlForm extends ActionForm {
 
     public String getFrcodigo() {
         return frcodigo;
+    }
+
+    public void setDifTipoControl(String difTipoControl) {
+        this.difTipoControl = difTipoControl;
+    }
+
+    public String getDifTipoControl() {
+        return difTipoControl;
+    }
+
+    public void setDifNoOperador(String difNoOperador) {
+        this.difNoOperador = difNoOperador;
+    }
+
+    public String getDifNoOperador() {
+        return difNoOperador;
+    }
+
+    public void setDifAuxNombre(String difAuxNombre) {
+        this.difAuxNombre = difAuxNombre;
+    }
+
+    public String getDifAuxNombre() {
+        return difAuxNombre;
+    }
+
+    public void setDifAuxNumero(String difAuxNumero) {
+        this.difAuxNumero = difAuxNumero;
+    }
+
+    public String getDifAuxNumero() {
+        return difAuxNumero;
+    }
+
+    public void setAux1(String aux1) {
+        this.aux1 = aux1;
+    }
+
+    public String getAux1() {
+        return aux1;
+    }
+
+    public void setAux2(String aux2) {
+        this.aux2 = aux2;
+    }
+
+    public String getAux2() {
+        return aux2;
     }
 }

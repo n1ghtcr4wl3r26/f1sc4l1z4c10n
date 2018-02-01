@@ -1,6 +1,8 @@
 package anb.general;
 
 
+import anb.entidades.RiesgoPA;
+
 import anb.persistencia.GeneralDao;
 
 import java.io.File;
@@ -9,12 +11,21 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
+import java.security.MessageDigest;
+
 import java.text.SimpleDateFormat;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.List;
 import java.util.Random;
+
+import javax.crypto.Cipher;
+import javax.crypto.SecretKey;
+import javax.crypto.spec.SecretKeySpec;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -33,14 +44,127 @@ import org.apache.struts.upload.FormFile;
 */
 
 public class Util {
-    
-    public static String devuelve_marca(){
+
+    private static String secretKey = "aduananacionaldeboliviamiradeclaracion2015";
+
+    public static String Encriptar(String texto) {
+
+        String base64EncryptedString = "";
+
+        try {
+
+            MessageDigest md = MessageDigest.getInstance("MD5");
+            byte[] digestOfPassword = md.digest(secretKey.getBytes("utf-8"));
+            byte[] keyBytes = Arrays.copyOf(digestOfPassword, 24);
+
+            SecretKey key = new SecretKeySpec(keyBytes, "DESede");
+            Cipher cipher = Cipher.getInstance("DESede");
+            cipher.init(Cipher.ENCRYPT_MODE, key);
+
+            byte[] plainTextBytes = texto.getBytes("utf-8");
+            byte[] buf = cipher.doFinal(plainTextBytes);
+            byte[] base64Bytes = Base64.encodeBase64(buf);
+            base64EncryptedString = new String(base64Bytes);
+
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+        return base64EncryptedString;
+    }
+
+    public static String Desencriptar(String textoEncriptado) throws Exception {
+
+        String base64EncryptedString = "";
+
+        try {
+            byte[] message = Base64.decodeBase64(textoEncriptado.getBytes("utf-8"));
+            MessageDigest md = MessageDigest.getInstance("MD5");
+            byte[] digestOfPassword = md.digest(secretKey.getBytes("utf-8"));
+            byte[] keyBytes = Arrays.copyOf(digestOfPassword, 24);
+            SecretKey key = new SecretKeySpec(keyBytes, "DESede");
+
+            Cipher decipher = Cipher.getInstance("DESede");
+            decipher.init(Cipher.DECRYPT_MODE, key);
+
+            byte[] plainText = decipher.doFinal(message);
+
+            base64EncryptedString = new String(plainText, "UTF-8");
+
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+        return base64EncryptedString;
+    }
+
+    public static String devuelveListaDMA(String gestion, String aduana, String numero, String usuario, String pass) {
+        String res;
+        GeneralDao dao = new GeneralDao();
+        try {
+            res = dao.devuelveListaDMA(gestion, aduana, numero, usuario, pass);
+        } catch (Exception ex) {
+            res = "";
+        }
+        return res;
+    }
+
+    public static String devuelveRutaMira() {
+        String res;
+        GeneralDao dao = new GeneralDao();
+        try {
+            res = dao.devuelveRutaMira();
+        } catch (Exception ex) {
+            res = "";
+        }
+        return res;
+    }
+
+    public static String devuelveNombreMira() {
+        String res;
+        GeneralDao dao = new GeneralDao();
+        try {
+            res = dao.devuelveNombreMira();
+        } catch (Exception ex) {
+            res = "";
+        }
+        return res;
+    }
+
+    public static List<RiesgoPA> listariesgoPA(String gestion, String aduana, String numero) {
+        GeneralDao neg = new GeneralDao();
+        List<RiesgoPA> res = new ArrayList<RiesgoPA>();
+        try {
+            res = neg.listaRiesgoPA(gestion, aduana, numero);
+        } catch (Exception ex) {
+        }
+        return res;
+    }
+
+    public static Boolean actualiza_valores_hoja_trabajo(String id_alcance, String usuario) {
+        Boolean res;
+        GeneralDao dao = new GeneralDao();
+        try {
+            res = dao.actualiza_valores_hoja_trabajo(id_alcance, usuario);
+        } catch (Exception ex) {
+            res = false;
+        }
+        return res;
+    }
+
+    public static String devuelve_marca() {
         SimpleDateFormat fFecha = new SimpleDateFormat("yyyyMMddHHmmss");
         Calendar fecha = Calendar.getInstance();
         fecha.setTime(fecha.getTime());
-        String fecmarca = fFecha.format(fecha.getTime()); 
+        String fecmarca = fFecha.format(fecha.getTime());
         return fecmarca;
-    }    
+    }
+    
+    public static String devuelve_marca_fecha() {
+        SimpleDateFormat fFecha = new SimpleDateFormat("yyyyMMdd");
+        Calendar fecha = Calendar.getInstance();
+        fecha.setTime(fecha.getTime());
+        String fecmarca = fFecha.format(fecha.getTime());
+        return fecmarca;
+    }
 
     public static String subePDF(FormFile filepdf, String nomArch, String ubicacion) {
         try {
@@ -50,8 +174,8 @@ public class Util {
                 tam = file.getFileSize();
                 if (file.getFileSize() <= 0)
                     return "El archivo que envio no tiene el formato PDF";
-                if (file.getFileSize() > 1024 * 1024) //restriccion de tamaño 1mb maximo
-                    return "<font size='4px' color='red'>El archivo supera los <b>1024 Kb </b> permitidos </font>";
+                if (file.getFileSize() > 1024 * 1024 * 2) //restriccion de tamaño 2mb maximo
+                    return "El archivo supera los 2mb permitidos";
                 String str = file.getFileName();
                 boolean resultado = str.toLowerCase().endsWith(".pdf");
                 if (!resultado)
@@ -114,6 +238,50 @@ public class Util {
             res = dao.esFecha(fecha);
         } catch (Exception ex) {
             res = false;
+        }
+        return res;
+    }
+
+    public static String devuelve_dma(String codigo, String dav) {
+        String res;
+        GeneralDao dao = new GeneralDao();
+        try {
+            res = dao.devuelve_dma(codigo, dav);
+        } catch (Exception ex) {
+            res = "";
+        }
+        return res;
+    }
+
+    public static String devuelve_alc_gestion(String codigo) {
+        String res;
+        GeneralDao dao = new GeneralDao();
+        try {
+            res = dao.devuelve_alc_gestion(codigo);
+        } catch (Exception ex) {
+            res = "";
+        }
+        return res;
+    }
+
+    public static String devuelve_alc_aduana(String codigo) {
+        String res;
+        GeneralDao dao = new GeneralDao();
+        try {
+            res = dao.devuelve_alc_aduana(codigo);
+        } catch (Exception ex) {
+            res = "";
+        }
+        return res;
+    }
+
+    public static String devuelve_alc_numero(String codigo) {
+        String res;
+        GeneralDao dao = new GeneralDao();
+        try {
+            res = dao.devuelve_alc_numero(codigo);
+        } catch (Exception ex) {
+            res = "";
         }
         return res;
     }

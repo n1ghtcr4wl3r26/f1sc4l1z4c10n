@@ -143,6 +143,7 @@ public class RegistroControlAction extends MappingDispatchAction {
             Respuesta<InfoControl> inf = gen.devuelveControl(bean.getCodigo());
             request.setAttribute("infoControl", inf.getResultado());
             bean.setTieneAsignacion(inf.getResultado().getTieneAsignacion());
+            bean.setTipo_control(inf.getResultado().getTipo_control());            
             Respuesta<Tramite[]> tram = gen.ver_TramitesControl(bean.getCodigo());
             request.setAttribute("tramites", tram.getResultado());
             if (!(bean.getOpcion() == null) && bean.getOpcion().equals("REGISTRA")) {
@@ -156,12 +157,20 @@ public class RegistroControlAction extends MappingDispatchAction {
                     if(bean.getUsuariofis().equals(bean.getUsuariojefe())){
                         request.setAttribute("ERROR", "El Jefe/Supervisor y el Fiscalizador, no pueden ser la misma persona");
                     } else {
+                        //Determina plazo con o sin mercancia
+                        if(bean.getTipo_control().equals("CON MERCANCIA")){
+                            bean.setInn_plazo_conclusion("20");    
+                        }
+                        if(bean.getTipo_control().equals("SIN MERCANCIA")){
+                            bean.setInn_plazo_conclusion("40");    
+                        }
                         //GRABA ASIGNACION FISCALIZADOR
                         AsignaFiscalizadorForm asig = new AsignaFiscalizadorForm();
                         asig.setCodigo(bean.getCodigo());
                         asig.setFuncionario(bean.getUsuariofis());
                         asig.setCargo("FISCALIZADOR");
                         asig.setUsuario(bean.getUsuario());
+                        asig.setTipofiscalizador(bean.getTipofiscalizador());
                         Respuesta<Boolean> resasig = aneg.graba_asignacion(asig);
                         if (resasig.getCodigo() == 1) {
                             //GRABA ASIGNACION JEFE

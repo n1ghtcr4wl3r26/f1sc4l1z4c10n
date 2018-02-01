@@ -2,6 +2,7 @@ package anb.action;
 
 
 import anb.bean.AlcanceForm;
+import anb.bean.AnulacionForm;
 import anb.bean.MemorizacionControlForm;
 
 import anb.entidades.Aduana;
@@ -14,6 +15,7 @@ import anb.general.Respuesta;
 import anb.general.Util;
 
 import anb.negocio.AlcanceNeg;
+import anb.negocio.AnulacionNeg;
 import anb.negocio.GeneralNeg;
 import anb.negocio.MemorizacionControlNeg;
 
@@ -33,6 +35,7 @@ public class MemorizacionControlAction extends MappingDispatchAction {
     private final MemorizacionControlNeg neg = new MemorizacionControlNeg();
     private final GeneralNeg gen = new GeneralNeg();
     private final AlcanceNeg alcneg = new AlcanceNeg();
+    private final AnulacionNeg anuneg = new AnulacionNeg();
     
     public ActionForward index(ActionMapping mapping, ActionForm form, HttpServletRequest request,
                                HttpServletResponse response) throws Exception {
@@ -47,11 +50,13 @@ public class MemorizacionControlAction extends MappingDispatchAction {
 
         String usuario = (String)request.getSession().getAttribute("user");
         String gerencia;
+        String aux1 = (String)request.getSession().getAttribute("aux1");
+        String aux2 = (String)request.getSession().getAttribute("aux2");  
         if (usuario == null) {
             return mapping.findForward("nook");
         } else {
             gerencia = (String)request.getSession().getAttribute("sgerencia");
-            Respuesta<Bandeja[]> res = neg.devuelveBandejaJefe(gerencia);
+            Respuesta<Bandeja[]> res = neg.devuelveBandejaJefe(gerencia, aux1, aux2);
             if (res.getCodigo() == 1) {
                 request.setAttribute("reporteBandejaJefe", res.getResultado());
             }
@@ -64,11 +69,12 @@ public class MemorizacionControlAction extends MappingDispatchAction {
 
         String usuario = (String)request.getSession().getAttribute("user");
         String gerencia;
+        String aux2 = (String)request.getSession().getAttribute("aux2");  
         if (usuario == null) {
             return mapping.findForward("nook");
         } else {
             gerencia = (String)request.getSession().getAttribute("sgerencia");
-            Respuesta<Bandeja[]> res = neg.devuelveBandejaFiscalizador(usuario);
+            Respuesta<Bandeja[]> res = neg.devuelveBandejaFiscalizador(usuario, aux2);
             if (res.getCodigo() == 1) {
                 request.setAttribute("reporteBandejaFiscalizador", res.getResultado());
             }
@@ -267,6 +273,8 @@ public class MemorizacionControlAction extends MappingDispatchAction {
         MemorizacionControlForm bean = new MemorizacionControlForm();
         bean = (MemorizacionControlForm)request.getAttribute("MemorizacionControlForm");
         String usuario = (String)request.getSession().getAttribute("user");
+        bean.setAux1((String)request.getSession().getAttribute("aux1"));
+        bean.setAux2((String)request.getSession().getAttribute("aux2"));        
         if (usuario == null) {
             return mapping.findForward("nook");
         } else {
@@ -333,6 +341,7 @@ public class MemorizacionControlAction extends MappingDispatchAction {
                             Declaracion dec = dui.getResultado()[0];
                             Respuesta<Nit[]>res=neg.devuelveNit(dec.getSad_consignee());
                             if(res.getCodigo()==1){
+                                bean.setDifNoOperador("NO");
                                 Nit imp = res.getResultado()[0];
                                 bean.setDifTipoDocumento("DECLARACION");
                                 bean.setDifNroDocumento(dec.getSad_reg_year()+"/"+dec.getKey_cuo()+"/C-"+dec.getSad_reg_nber());
@@ -354,6 +363,20 @@ public class MemorizacionControlAction extends MappingDispatchAction {
                                 bean.setDifApMatPersona(imp.getMaterno());
                                 bean.setDifNombrePersona(imp.getNombre());
                                 bean.setDifExpCIPersona(imp.getEmision());
+                            } else {
+                                bean.setDifAuxNombre(dec.getSad_consignee());
+                                bean.setDifAuxNumero(dec.getOperadorNombre());
+                                bean.setDifNoOperador("SI");
+                                bean.setDifTipoDocumento("DECLARACION");
+                                bean.setDifNroDocumento(dec.getSad_reg_year()+"/"+dec.getKey_cuo()+"/C-"+dec.getSad_reg_nber());
+                                bean.setMgestion(dec.getSad_reg_year());
+                                bean.setMaduana(dec.getKey_cuo());
+                                bean.setMnumero(dec.getSad_reg_nber());
+                                bean.setDifFecDocumento(dec.getSad_reg_date());
+                                bean.setDifRiesgoSubval("on");
+                                bean.setDifTipoOperador("IMPORTADOR/EXPORTADOR");
+                                bean.setDifTribNoaplica("on");
+                                bean.setDifPeriodo(dec.getSad_reg_year());                                
                             }
                         }
                         request.setAttribute("MemorizacionControlForm", bean);
@@ -411,6 +434,7 @@ public class MemorizacionControlAction extends MappingDispatchAction {
             if (!(bean == null)) {
                 if (!(bean.getBoton() == null)) {
                     if (bean.getBoton().equals("diferido")) {
+                        bean.setDifTribNoaplica("on");
                         //deberia estar el proceso que verifique que el control es con o sin mercancia 
                         Respuesta<Boolean> res = neg.grabaMemorizacionDiferido(bean);
                         if (res.getCodigo() == 1) {
@@ -445,11 +469,17 @@ public class MemorizacionControlAction extends MappingDispatchAction {
                                 
                                 return mapping.findForward("index");
                             } else {
-                                if (res.getCodigo() == 0) {
-                                    request.setAttribute("WARNING", res.getMensaje());
+                                if (alc.getCodigo() == 0) {
+                                    request.setAttribute("WARNING", alc.getMensaje());
                                 } else {
-                                    request.setAttribute("ERROR", res.getMensaje());
+                                    request.setAttribute("ERROR", alc.getMensaje());
                                 }
+                                AnulacionForm anuform = new AnulacionForm();
+                                anuform.setCodigo(res.getMensaje().toString());
+                                anuform.setGerencia(bean.getGerencia());
+                                anuform.setUsuario("FISCALIZACION");
+                                anuform.setJustificacion("ERROR AL MEMORIZAR CONTROL DIFERIDO");
+                                anuneg.anula_control(anuform);
                             }                            
                         } else {
                             request.setAttribute("ERROR", res.getMensaje());

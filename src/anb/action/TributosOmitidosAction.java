@@ -96,7 +96,7 @@ public class TributosOmitidosAction extends MappingDispatchAction {
                             ben.getResultado()[i].setTotal(formato.format(Double.parseDouble(ben.getResultado()[i].getTotal())));
                         }                        
                         bentot.getResultado().setTotal(String.valueOf(total));
-                        /*Calculo de la Sancion*/
+                        /*Calculo de la Sancion*/                        
                         if(fecnotvc == null){
                             sancion = 0;
                         } else {

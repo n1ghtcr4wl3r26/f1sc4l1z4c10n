@@ -76,6 +76,7 @@ public class InfoControl {
     private String riesgoContrab;
     
     private String tieneAsignacion;
+    private String tipo_control;
     
     public void setTipoDocumento(String tipoDocumento) {
         this.tipoDocumento = tipoDocumento;
@@ -620,5 +621,13 @@ public class InfoControl {
 
     public String getTieneAsignacion() {
         return tieneAsignacion;
+    }
+
+    public void setTipo_control(String tipo_control) {
+        this.tipo_control = tipo_control;
+    }
+
+    public String getTipo_control() {
+        return tipo_control;
     }
 }

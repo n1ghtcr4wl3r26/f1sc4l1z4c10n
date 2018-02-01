@@ -61,8 +61,10 @@ public class RegistroControlForm extends ActionForm {
     private String cargojefe;
     private String usuariojefe;
     private String usuariofis;
+    private String tipofiscalizador;
     private String codger;
     private String tieneAsignacion;
+    private String tipo_control;
 
     public void setCodigo(String codigo) {
         this.codigo = codigo;
@@ -454,5 +456,21 @@ public class RegistroControlForm extends ActionForm {
 
     public String getTieneAsignacion() {
         return tieneAsignacion;
+    }
+
+    public void setTipo_control(String tipo_control) {
+        this.tipo_control = tipo_control;
+    }
+
+    public String getTipo_control() {
+        return tipo_control;
+    }
+
+    public void setTipofiscalizador(String tipofiscalizador) {
+        this.tipofiscalizador = tipofiscalizador;
+    }
+
+    public String getTipofiscalizador() {
+        return tipofiscalizador;
     }
 }

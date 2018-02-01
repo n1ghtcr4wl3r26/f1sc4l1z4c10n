@@ -280,7 +280,9 @@
     <definition name="reporte.recuperacion.dui" extends="aud.home">
         <put name="content" value="/pages/control/reporte_recuperacion_dui.jsp"/>
     </definition> 
-    
+    <definition name="lista.dma" extends="aud.home">
+        <put name="content" value="/pages/control/lista_dma.jsp"/>
+    </definition> 
 </tiles-definitions>
 
 

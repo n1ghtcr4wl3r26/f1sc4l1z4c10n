@@ -116,6 +116,18 @@
                     </html:select>
                 </div>
             </div>
+            <div id="personal-panel" style="display:none">
+                <div class="form-group">
+                    <label class="col-sm-3 control-label person ">Tipo de Fiscalizador:</label>
+                    <div class="col-sm-3">
+                        <html:select property="tipofiscalizador" styleId="tipofiscalizador" styleClass="form-control">
+                        <html:option value="-">Seleccione...</html:option>
+                        <html:option value="CONSULTOR">CONSULTOR</html:option>
+                        <html:option value="FISCALIZADOR">FISCALIZADOR</html:option>
+                    </html:select>
+                    </div>
+                </div>
+            </div>
             
             <div class="btn-container">
                 <button type="submit" id="boton" onclick="consultar()" class="btn btn-primary" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Asignar Fiscalizador&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>            
@@ -124,7 +136,7 @@
                 <label class="label-message-required">
                     * Campos Obligatorios
                 </label>
-            </div>
+            </div>            
             <br/>
             <br/>
             
@@ -170,7 +182,30 @@
     </div>
 </div>
 <script>
-    $(document).ready(function () {    
+    $(document).ready(function () {   
+        if ($('#cargo').val() == "FISCALIZADOR") {
+            $('#personal-panel').show();
+            $('#tipofiscalizador').addClass('required');
+            $('.person').addClass('label-required');
+        } else {
+            $('#personal-panel').hide();
+            $('#tipofiscalizador').val('-');
+            $('#tipofiscalizador').removeClass('required');
+            $('.person').removeClass('label-required');            
+        }
+        $('#cargo').change(function () {
+            if ($('#cargo').val() == "FISCALIZADOR") {
+                $('#personal-panel').show();
+                $('#tipofiscalizador').addClass('required');
+                $('.person').addClass('label-required');
+            } else {
+                $('#personal-panel').hide();
+                $('#tipofiscalizador').val('-');
+                $('#tipofiscalizador').removeClass('required');
+                $('.person').removeClass('label-required');
+            }
+        });    
+    
         var DT = new Anb.datatable({
             filter: true,
             "iDisplayLength": -1

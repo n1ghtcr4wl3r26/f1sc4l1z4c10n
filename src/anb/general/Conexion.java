@@ -25,6 +25,7 @@ public class Conexion {
     protected Connection cn = null;
     protected Statement st = null;
     protected CallableStatement call = null;
+    protected CallableStatement cald = null;
     protected ResultSet rs = null;
     private boolean transaccional = false;
 
@@ -62,7 +63,11 @@ public class Conexion {
             if (call != null) {
                 call.close();
                 call = null;
-            }            
+            }   
+            if (cald != null) {
+                cald.close();
+                cald = null;
+            }   
             cn = null;
             st = null;
         } catch (SQLException e) {

@@ -305,13 +305,15 @@
                                styleClass="form-control required" size="50" maxlength="30"/>
                 </div>
             </div>
-            <div class="form-group">
-                <label class="col-sm-4 control-label">Plazo de conclusi&oacute;n de la Fiscalizaci&oacute;n (d&iacute;as):</label>
-                <div class="col-sm-6">
-                    <html:text property="inn_plazo_conclusion" styleId="inn_plazo_conclusion"
-                               styleClass="form-control numeric required" size="50" maxlength="5"/>
+            <c:if test="${infoControl.tipoControl == 'FISCALIZACI&Oacute;N ADUANERA POSTERIOR' }">
+                <div class="form-group">
+                    <label class="col-sm-4 control-label">Plazo de conclusi&oacute;n de la Fiscalizaci&oacute;n (d&iacute;as):</label>
+                    <div class="col-sm-6">
+                        <html:text property="inn_plazo_conclusion" styleId="inn_plazo_conclusion"
+                                   styleClass="form-control numeric required" size="50" maxlength="5"/>
+                    </div>
                 </div>
-            </div>
+            </c:if>
             <div class="form-group">
                 <label class="col-sm-4 control-label">Nro. de Documento:</label>
                 <div class="col-sm-6">
@@ -378,6 +380,16 @@
                                     <html:option value="${fis.codigo}">${fis.nombre}</html:option>
                                 </c:forEach>
                             </html:select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">Tipo de Fiscalizador:</label>
+                        <div class="col-sm-6">
+                            <html:select property="tipofiscalizador" styleId="tipofiscalizador" styleClass="form-control required">
+                            <html:option value="-">Seleccione...</html:option>
+                            <html:option value="CONSULTOR">CONSULTOR</html:option>
+                            <html:option value="FISCALIZADOR">FISCALIZADOR</html:option>
+                        </html:select>
                         </div>
                     </div>
                 </c:if>

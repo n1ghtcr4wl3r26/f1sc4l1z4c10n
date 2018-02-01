@@ -6,6 +6,7 @@ import anb.entidades.Fiscalizador;
 import anb.entidades.Gerencia;
 import anb.entidades.InfoControl;
 import anb.entidades.Paises;
+import anb.entidades.RiesgoPA;
 import anb.entidades.Tramite;
 
 import anb.general.Conexion;
@@ -25,6 +26,137 @@ import oracle.jdbc.OracleTypes;
 public class GeneralDao extends Conexion{
     public GeneralDao() {
         super();
+    }
+    
+    public String devuelveListaDMA(String gestion, String aduana, String numero, String usuario, String pass) throws SQLException, ClassNotFoundException, NamingException {
+       String res = "";
+       try {
+           open();
+           call = cn.prepareCall("{ ? = call pkg_general.devuelve_lista_dma (?,?,?) }");
+           call.registerOutParameter(1, -10);
+           call.setString(2, gestion);
+           call.setString(3, aduana);
+           call.setString(4, numero);
+           call.execute();
+           
+           String token = Util.devuelve_marca_fecha();
+           
+           rs = (ResultSet)call.getObject(1);
+           int cont = 1; 
+           if (rs != null) {
+               while (rs.next()) {
+                   res = res + "<tr>";
+                   res = res + "<td>" + cont + "</td>";
+                   res = res + "<td>" + rs.getString(1) + "</td>";
+                   res = res + "<td>" + rs.getString(2) + "</td>";
+                   res = res + "<td>";
+                   String parametro = rs.getString(3)+"&"+rs.getString(4)+"&"+rs.getString(5)+"&"+rs.getString(2)+"&FISAP&"+ token +"&"+usuario+"&"+pass;
+                   String param = Util.Encriptar(parametro);
+                   res = res + "<a target=\"_blank\" href=\"http://deslogic01.aduana.gob.bo:7011/mira/remoto.jsp?p=" + param + "\" >";
+                   res = res + "Acta de Inspecci&oacute;n";
+                   res = res + "</a>";
+                   res = res + "</td>";
+                   res = res + "</tr>";
+                   cont = cont + 1;
+               }               
+           }        
+           call.execute();          
+       } finally {
+           if (cn != null) {
+               cn.close();
+           }
+       }
+       return res;
+    }
+    
+    public String devuelveRutaMira() throws SQLException, ClassNotFoundException, NamingException {
+       String res;
+       try {
+           open();
+           call = cn.prepareCall("{ ? = call pkg_general.devuelve_ruta_mira }");
+           call.registerOutParameter(1, OracleTypes.VARCHAR);
+           call.execute();
+           res = (String) call.getObject(1);
+       } finally {
+           if (cn != null) {
+               cn.close();
+           }
+       }
+       return res;
+    }
+        
+    public String devuelveNombreMira() throws SQLException, ClassNotFoundException, NamingException {
+       String res;
+       try {
+           open();
+           call = cn.prepareCall("{ ? = call pkg_general.devuelve_nombre_mira }");
+           call.registerOutParameter(1, OracleTypes.VARCHAR);
+           call.execute();
+           res = (String) call.getObject(1);
+       } finally {
+           if (cn != null) {
+               cn.close();
+           }
+       }
+       return res;
+    }
+    
+    public List<RiesgoPA> listaRiesgoPA(String gestion, String aduana, String numero) throws SQLException, ClassNotFoundException, NamingException {
+        List<RiesgoPA> riesgolst = null;
+        try {
+            open();
+            call = cn.prepareCall("{ call semca.pkg_reporte.LISTA_ITEMS_CCA (?,?,?,?) }");
+            call.setString(1, gestion);
+            call.setString(2, aduana);
+            call.setString(3, numero);
+            call.registerOutParameter(4, -10);
+            call.execute();
+            rs = (ResultSet)call.getObject(4);
+            if (rs != null) {
+                riesgolst = new ArrayList<RiesgoPA>();
+                while (rs.next()) {
+                    RiesgoPA riesgo_pa = new RiesgoPA();
+                    riesgo_pa.setGestion(rs.getString(2));
+                    riesgo_pa.setAduana(rs.getString(3));
+                    riesgo_pa.setNumero(rs.getString(4));
+                    riesgo_pa.setItem(rs.getString(5));
+                    riesgo_pa.setPartida(rs.getString(6));
+                    riesgolst.add(riesgo_pa);
+                }
+            }            
+        } catch (Exception e){
+            String error = e.getMessage();
+        }
+        finally {
+            if (!esTransaccional()) {
+                close();
+            }
+        }
+        return riesgolst;
+    }
+    
+    public Boolean actualiza_valores_hoja_trabajo(String id_alcance,String usuario) throws SQLException, ClassNotFoundException, NamingException {
+       Boolean res;
+       String valor;
+       try {
+           open();
+           call = cn.prepareCall("{ ? = call pkg_seguimiento.actualiza_valores_hoja_trabajo ( ?,? )}");
+           call.registerOutParameter(1, OracleTypes.VARCHAR);
+           call.setString(2, id_alcance);
+           call.setString(3, usuario);
+           call.execute();
+           valor = (String) call.getObject(1);
+           if(valor.equals("CORRECTO")){
+               res = true;    
+           } else {
+               res = false;
+           }
+       } finally {
+           if (cn != null) {
+               cn.close();
+           }
+       }
+       return res;
     }
     
     public String nombrecompleto(String codigo) throws SQLException, ClassNotFoundException, NamingException {
@@ -320,6 +452,7 @@ public class GeneralDao extends Conexion{
                inf.setRiesgoContrab(rs.getString(66));
                
                inf.setTieneAsignacion(rs.getString(67));
+               inf.setTipo_control(rs.getString(68));
             }
        } finally {
            if (cn != null) {
@@ -836,4 +969,71 @@ public class GeneralDao extends Conexion{
        }
        return res;
     }
+    
+    public String devuelve_dma(String codigo, String dav) throws SQLException, ClassNotFoundException, NamingException {
+       String res;
+       try {
+           open();
+           call = cn.prepareCall("{ ? = call pkg_general.devuelve_dma ( ?,?)}");
+           call.registerOutParameter(1, OracleTypes.VARCHAR);
+           call.setString(2, codigo);
+           call.setString(3, dav);
+           call.execute();
+           res = (String) call.getObject(1);
+       } finally {
+           if (cn != null) {
+               cn.close();
+           }
+       }
+       return res;
+    }
+    public String devuelve_alc_gestion(String codigo) throws SQLException, ClassNotFoundException, NamingException {
+       String res;
+       try {
+           open();
+           call = cn.prepareCall("{ ? = call pkg_general.devuelve_alc_gestion ( ?)}");
+           call.registerOutParameter(1, OracleTypes.VARCHAR);
+           call.setString(2, codigo);
+           call.execute();
+           res = (String) call.getObject(1);
+       } finally {
+           if (cn != null) {
+               cn.close();
+           }
+       }
+       return res;
+    }
+    public String devuelve_alc_aduana(String codigo) throws SQLException, ClassNotFoundException, NamingException {
+       String res;
+       try {
+           open();
+           call = cn.prepareCall("{ ? = call pkg_general.devuelve_alc_aduana ( ?)}");
+           call.registerOutParameter(1, OracleTypes.VARCHAR);
+           call.setString(2, codigo);
+           call.execute();
+           res = (String) call.getObject(1);
+       } finally {
+           if (cn != null) {
+               cn.close();
+           }
+       }
+       return res;
+    }
+    public String devuelve_alc_numero(String codigo) throws SQLException, ClassNotFoundException, NamingException {
+       String res;
+       try {
+           open();
+           call = cn.prepareCall("{ ? = call pkg_general.devuelve_alc_numero ( ?)}");
+           call.registerOutParameter(1, OracleTypes.VARCHAR);
+           call.setString(2, codigo);
+           call.execute();
+           res = (String) call.getObject(1);
+       } finally {
+           if (cn != null) {
+               cn.close();
+           }
+       }
+       return res;
+    }
+    
 }

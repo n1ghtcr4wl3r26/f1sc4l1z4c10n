@@ -6,6 +6,7 @@ import anb.entidades.Fiscalizador;
 import anb.entidades.Gerencia;
 import anb.entidades.InfoControl;
 import anb.entidades.Paises;
+import anb.entidades.RiesgoPA;
 import anb.entidades.Tramite;
 
 import anb.general.Respuesta;
@@ -74,6 +75,35 @@ public class GeneralNeg {
         if (estaConectadoBd()) {
             try {
                 List<Aduana> res = dao.obtenerAduanas2();
+                if (res == null && res.size() == 0) {
+                    respuesta.setCodigo(0);
+                    respuesta.setMensaje("No existen aduanas registradas");
+                } else {
+                    respuesta.setCodigo(1);
+                    respuesta.setMensaje("OK");
+                    respuesta.setResultado(res);
+                }
+            } catch (SQLException e) {
+                respuesta.setMensaje("Error no identificado - " + e.getMessage());
+                e.printStackTrace();
+            } catch (ClassNotFoundException e) {
+                respuesta.setMensaje("Error no identificado - " + e.getMessage());
+            } catch (NamingException e) {
+                respuesta.setMensaje("Error no identificado - " + e.getMessage());
+            }
+        } else {
+            respuesta.setMensaje("Error. No se puede conectar a la base de datos.");
+        }
+
+        return respuesta;
+    }
+    
+    public Respuesta<List<RiesgoPA>> listaRiesgoPA(String gestion, String aduana, String numero) {
+        Respuesta<List<RiesgoPA>> respuesta = new Respuesta<List<RiesgoPA>>();
+        respuesta.setCodigo(-1);
+        if (estaConectadoBd()) {
+            try {
+                List<RiesgoPA> res = dao.listaRiesgoPA(gestion, aduana, numero);
                 if (res == null && res.size() == 0) {
                     respuesta.setCodigo(0);
                     respuesta.setMensaje("No existen aduanas registradas");

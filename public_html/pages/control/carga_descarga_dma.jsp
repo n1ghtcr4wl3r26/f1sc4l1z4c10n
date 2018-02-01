@@ -93,12 +93,6 @@
                     ${infoControl.fechaRegistro}
                 </div>
             </div>
-            
-            
-             
-           
-            
-            
             <h4>
                 <strong>LISTA DEL ALCANCE DE LA FISCALIZACIÓN</strong>
             </h4>            
@@ -151,7 +145,8 @@
                         <html:optionsCollection name="lista_dma" value="codigo" label="descripcion"/>
                     </html:select>
                 </div>
-                 <div class="btn-container">
+            </div>
+                <div class="btn-container">
                     <button type="submit" id="boton" onclick="consultar()" class="btn btn-primary" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Procesar&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>            
                 </div>
                 <div class="form-group">
@@ -159,7 +154,6 @@
                         * Campos Obligatorios
                     </label>
                 </div>
-            </div>
             <%
               
             }

@@ -9,6 +9,7 @@ import anb.entidades.Declaracion;
 import anb.entidades.Nit;
 
 import anb.general.Conexion;
+import anb.general.Util;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -26,7 +27,7 @@ public class MemorizacionControlDao extends Conexion {
         super();
     }
 
-    public List<Bandeja> devuelveBandejaJefe(String gerencia) throws SQLException, ClassNotFoundException,
+    public List<Bandeja> devuelveBandejaJefe(String gerencia,String aux1,String aux2) throws SQLException, ClassNotFoundException,
                                                                      NamingException {
         List<Bandeja> params = new ArrayList<Bandeja>();
         try {
@@ -52,6 +53,13 @@ public class MemorizacionControlDao extends Conexion {
                 f.setImportadorNIT(rs.getString(9));
                 f.setImportadorNombre(rs.getString(10));
                 f.setFechaLevante(rs.getString(11));
+                f.setRiesgopa(rs.getString(13));
+                f.setGestion(rs.getString(14));
+                f.setAduana(rs.getString(15));
+                f.setNumero(rs.getString(16));
+                String token = Util.devuelve_marca_fecha();
+                String parametro = f.getGestion()+"&"+f.getAduana()+"&"+f.getNumero()+"&"+token+"&"+aux1+"&"+aux2;
+                f.setParam(Util.Encriptar(parametro));
                 params.add(f);
             }
         } finally {
@@ -62,7 +70,7 @@ public class MemorizacionControlDao extends Conexion {
         return params;
     }
 
-    public List<Bandeja> devuelveBandejaFiscalizador(String fiscalizador) throws SQLException, ClassNotFoundException,
+    public List<Bandeja> devuelveBandejaFiscalizador(String fiscalizador, String aux2) throws SQLException, ClassNotFoundException,
                                                                                  NamingException {
         List<Bandeja> params = new ArrayList<Bandeja>();
         try {
@@ -93,6 +101,13 @@ public class MemorizacionControlDao extends Conexion {
                 f.setFechaAsignacion(rs.getString(13));
                 f.setOrigen(rs.getString(14));
                 f.setPlazoDias(rs.getString(15));
+                f.setRiesgopa(rs.getString(16));
+                f.setGestion(rs.getString(17));
+                f.setAduana(rs.getString(18));
+                f.setNumero(rs.getString(19));
+                String token = Util.devuelve_marca_fecha();
+                String parametro = f.getGestion()+"&"+f.getAduana()+"&"+f.getNumero()+"&"+token+"&"+fiscalizador+"&"+aux2;
+                f.setParam(Util.Encriptar(parametro));
                 params.add(f);
             }
         } finally {
@@ -199,6 +214,7 @@ public class MemorizacionControlDao extends Conexion {
                 f.setSad_consignee(rs.getString(8));
                 f.setSad_reg_date(rs.getString(9));
                 f.setSad_itm_total(rs.getString(10));
+                f.setOperadorNombre(rs.getString(12));
                 params.add(f);
             }
         } finally {
@@ -243,7 +259,7 @@ public class MemorizacionControlDao extends Conexion {
         try {
             open();
             call =
-cn.prepareCall("{ ? = call pkg_memorizacion.graba_memorizacion_diferido ( ?,?,?,?,?, ?,?,?,?,?, ?,?,?,?,?, ?,?,?,?,?, ?,?,?,?,? ,?,?,?,?,?)}");
+cn.prepareCall("{ ? = call pkg_memorizacion.graba_memorizacion_diferido ( ?,?,?,?,?, ?,?,?,?,?, ?,?,?,?,?, ?,?,?,?,?, ?,?,?,?,? ,?,?,?,?,?,?)}");
             call.registerOutParameter(1, OracleTypes.VARCHAR);
 
             call.setString(2, bean.getDifTipoDocumento());
@@ -277,6 +293,7 @@ cn.prepareCall("{ ? = call pkg_memorizacion.graba_memorizacion_diferido ( ?,?,?,
             call.setString(29, bean.getDifRiesgoClas());
             call.setString(30, bean.getDifRiesgoContrab());
             call.setString(31, bean.getGerencia());
+            call.setString(32, bean.getDifTipoControl());
             call.execute();
 
             res = call.getString(1);
@@ -450,6 +467,9 @@ cn.prepareCall("{ ? = call pkg_memorizacion.graba_memorizacion_ampliatoria ( ?,?
                         dec.setVerifitem(rs.getString(14));
                     }
                 }
+                String token = Util.devuelve_marca_fecha();
+                String parametro = dec.getGestion()+"&"+dec.getAduana()+"&"+dec.getNumero()+"&"+token+"&"+bean.getAux1()+"&"+bean.getAux2();
+                dec.setParam(Util.Encriptar(parametro));
                 decls.add(dec);
             }
         } finally {
@@ -514,6 +534,9 @@ cn.prepareCall("{ ? = call pkg_memorizacion.graba_memorizacion_ampliatoria ( ?,?
                         dec.setVerifitem(rs.getString(14));
                     }
                 }
+                String token = Util.devuelve_marca_fecha();
+                String parametro = dec.getGestion()+"&"+dec.getAduana()+"&"+dec.getNumero()+"&"+token+"&"+bean.getAux1()+"&"+bean.getAux2();
+                dec.setParam(Util.Encriptar(parametro));
                 decls.add(dec);
             }
         } finally {
@@ -577,6 +600,9 @@ cn.prepareCall("{ ? = call pkg_memorizacion.graba_memorizacion_ampliatoria ( ?,?
                         dec.setVerifitem(rs.getString(14));
                     }
                 }
+                String token = Util.devuelve_marca_fecha();
+                String parametro = dec.getGestion()+"&"+dec.getAduana()+"&"+dec.getNumero()+"&"+token+"&"+bean.getAux1()+"&"+bean.getAux2();
+                dec.setParam(Util.Encriptar(parametro));
                 decls.add(dec);
             }
         } finally {

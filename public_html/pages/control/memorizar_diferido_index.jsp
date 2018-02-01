@@ -4,6 +4,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%@ page import="anb.bean.*"%>
+<%@ page import="anb.entidades.*"%>
+<%@ page import="anb.general.*"%>
 <div class="panel panel-default">
     <div class="panel-heading">
         <h4 class="panel-title">
@@ -87,7 +89,7 @@
                                 ${esc.sequencia}
                             </td>
                             <td>
-                                <a onclick="window.open('http://anbsw09.aduana.gob.bo:7401/mira/repduiform.jsp?gestion=${esc.gestion}&amp;aduana=${esc.aduana}&amp;registro=${esc.numero}&amp;vdec=&amp;vop=&amp;vusu=&amp;bandera=undefined','_blank','width=550,height=580,menubar=0,scrollbars=yes,toolbar=0,location=0,directories=0,resizable=0,top=0,left=0')"
+                                <a onclick="window.open('lista_dma.jsp?p=${esc.param}','_blank','width=800,height=400,menubar=0,scrollbars=yes,toolbar=0,location=0,directories=0,resizable=0,top=0,left=0')"
                                    href='javascript:void(0)'>
                                     ${esc.tramite}</a>
                             </td>
@@ -98,7 +100,7 @@
                                 ${esc.patron}
                             </td>
                             <td class="text-center">
-                                <a onclick=window.open('http://anbsw09.aduana.gob.bo:7401/mira/reportes/Dili1.jsp?dma=${esc.ficha}&tec=${AlcanceForm.usuario}','_blank','width=550,height=580,menubar=0,scrollbars=yes,toolbar=0,location=0,directories=0,resizable=0,top=0,left=0') href='javascript:void(0)' >
+                                <a onclick=window.open('${sessionScope.devuelveRutaMira}/reportes/Dili1.jsp?dma=${esc.ficha}&tec=${AlcanceForm.usuario}','_blank','width=550,height=580,menubar=0,scrollbars=yes,toolbar=0,location=0,directories=0,resizable=0,top=0,left=0') href='javascript:void(0)' >
                                     ${esc.ficha}
                                 </a>
                             </td>
@@ -130,27 +132,27 @@
                                 <table>
                                     <tr>
                                         <td>
-                                            <a onclick="window.open('http://anbsw09.aduana.gob.bo:7401/mira/repduiform.jsp?gestion=${esc.gestion}&amp;aduana=${esc.aduana}&amp;registro=${esc.numero}&amp;vdec=&amp;vop=&amp;vusu=&amp;bandera=undefined','_blank','width=550,height=580,menubar=0,scrollbars=yes,toolbar=0,location=0,directories=0,resizable=0,top=0,left=0')"
+                                            <a onclick="window.open('${sessionScope.devuelveRutaMira}/repduiform.jsp?gestion=${esc.gestion}&amp;aduana=${esc.aduana}&amp;registro=${esc.numero}&amp;vdec=&amp;vop=&amp;vusu=&amp;bandera=undefined','_blank','width=550,height=580,menubar=0,scrollbars=yes,toolbar=0,location=0,directories=0,resizable=0,top=0,left=0')"
                                                href='javascript:void(0)'>DUI</a>
                                         </td>
                                         <td class="text-center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
                                         <td class="text-center">
-                                            <a onclick="window.open('http://anbsw09.aduana.gob.bo:7401/mira/DUI_docadi.jsp?gestion=${esc.gestion}&amp;aduana=${esc.aduana}&amp;registro=${esc.numero}&amp;vdec=&amp;vop=&amp;vusu=&amp;bandera=undefined','_blank','width=550,height=580,menubar=0,scrollbars=yes,toolbar=0,location=0,directories=0,resizable=0,top=0,left=0')"
+                                            <a onclick="window.open('${sessionScope.devuelveRutaMira}/DUI_docadi.jsp?gestion=${esc.gestion}&amp;aduana=${esc.aduana}&amp;registro=${esc.numero}&amp;vdec=&amp;vop=&amp;vusu=&amp;bandera=undefined','_blank','width=550,height=580,menubar=0,scrollbars=yes,toolbar=0,location=0,directories=0,resizable=0,top=0,left=0')"
                                                href='javascript:void(0)'>Doc. Adicionales</a>
                                         </td>
                                         <td class="text-center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
                                         <td class="text-center">
-                                            <a onclick="window.open('http://anbsw09.aduana.gob.bo:7401/mira/DUI_notaval.jsp?gestion=${esc.gestion}&amp;aduana=${esc.aduana}&amp;registro=${esc.numero}&amp;vdec=&amp;vop=&amp;vusu=&amp;bandera=undefined','_blank','width=550,height=580,menubar=0,scrollbars=yes,toolbar=0,location=0,directories=0,resizable=0,top=0,left=0')"
+                                            <a onclick="window.open('${sessionScope.devuelveRutaMira}/DUI_notaval.jsp?gestion=${esc.gestion}&amp;aduana=${esc.aduana}&amp;registro=${esc.numero}&amp;vdec=&amp;vop=&amp;vusu=&amp;bandera=undefined','_blank','width=550,height=580,menubar=0,scrollbars=yes,toolbar=0,location=0,directories=0,resizable=0,top=0,left=0')"
                                                href='javascript:void(0)'>Nota de Valor</a>
                                         </td>
                                         <td class="text-center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
                                         <td class="text-center">
-                                            <a onclick="window.open('http://anbsw09.aduana.gob.bo:7401/mira/DUI_infadi.jsp?gestion=${esc.gestion}&amp;aduana=${esc.aduana}&amp;registro=${esc.numero}&amp;vdec=&amp;vop=&amp;vusu=&amp;bandera=undefined','_blank','width=550,height=580,menubar=0,scrollbars=yes,toolbar=0,location=0,directories=0,resizable=0,top=0,left=0')"
+                                            <a onclick="window.open('${sessionScope.devuelveRutaMira}/DUI_infadi.jsp?gestion=${esc.gestion}&amp;aduana=${esc.aduana}&amp;registro=${esc.numero}&amp;vdec=&amp;vop=&amp;vusu=&amp;bandera=undefined','_blank','width=550,height=580,menubar=0,scrollbars=yes,toolbar=0,location=0,directories=0,resizable=0,top=0,left=0')"
                                                href='javascript:void(0)'>Inf. Adicional</a>
                                         </td>
                                         <td class="text-center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
                                         <td class="text-center">
-                                            <a onclick="window.open('http://anbsw09.aduana.gob.bo:7401/mira/DUI_frv.jsp?gestion=${esc.gestion}&amp;aduana=${esc.aduana}&amp;registro=${esc.numero}&amp;vdec=&amp;vop=&amp;vusu=&amp;bandera=undefined','_blank','width=550,height=580,menubar=0,scrollbars=yes,toolbar=0,location=0,directories=0,resizable=0,top=0,left=0')"
+                                            <a onclick="window.open('${sessionScope.devuelveRutaMira}/DUI_frv.jsp?gestion=${esc.gestion}&amp;aduana=${esc.aduana}&amp;registro=${esc.numero}&amp;vdec=&amp;vop=&amp;vusu=&amp;bandera=undefined','_blank','width=550,height=580,menubar=0,scrollbars=yes,toolbar=0,location=0,directories=0,resizable=0,top=0,left=0')"
                                                href='javascript:void(0)'>FRV</a>
                                         </td>
                                     </tr>
@@ -171,16 +173,16 @@
     
         <html:form styleId="form-alcance" action="memorizaciondiferidoidx.do">
             <html:hidden property="opcion" value="CONSULTA1"/>
-            <legend>Por Ficha Informativa</legend>
+            <legend>Por rango de fechas (con o sin Ficha Informativa)</legend>
             <div class="form-group">
-                <label class="col-sm-3 control-label">Fecha de Registro Ficha Informativa Desde:</label>
+                <label class="col-sm-3 control-label">Fecha de Registro Declaraci&oacute;n Desde:</label>
                 <div class="col-sm-3">
-                    <html:text property="fd1FecIni" maxlength="10" styleClass="form-control required datepicker"
+                    <html:text property="fd1FecIni" maxlength="10" styleClass="form-control required datepicker date-less-than"
                                size="50"/>
                 </div>
-                <label class="col-sm-3 control-label">Fecha de Registro Ficha Informativa Hasta:</label>
+                <label class="col-sm-3 control-label">Fecha de Registro Declaraci&oacute;n Hasta:</label>
                 <div class="col-sm-3">
-                    <html:text property="fd1FecFin" maxlength="10" styleClass="form-control required datepicker"
+                    <html:text property="fd1FecFin" maxlength="10" styleClass="form-control required datepicker date-less-than"
                                size="50"/>
                 </div>
             </div>
@@ -202,13 +204,52 @@
         </html:form>
         <br/>
         <br/>
+        <html:form styleId="form-alcance2" action="memorizaciondiferidoidx.do">
+            <html:hidden property="opcion" value="CONSULTA2"/>
+            <legend>Por N&uacute;mero de Documento del Importador</legend>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">N&uacute;mero de Documento del Importador:</label>
+                <div class="col-sm-3">
+                    <html:text property="fd2Importador" maxlength="15" styleClass="form-control required numeric" size="50"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">Fecha de Registro Declaraci&oacute;n Desde:</label>
+                <div class="col-sm-3">
+                    <html:text property="fd2FecIni" maxlength="10" styleClass="form-control required datepicker date-less-than"
+                               size="50"/>
+                </div>
+                <label class="col-sm-3 control-label">Fecha de Registro Declaraci&oacute;n Hasta:</label>
+                <div class="col-sm-3">
+                    <html:text property="fd2FecFin" maxlength="10" styleClass="form-control required datepicker date-less-than"
+                               size="50"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">Aduana:</label>
+                <div class="col-sm-3">
+                    <html:select property="fd2Aduana" styleClass="form-control required">
+                        <option value="-">Seleccione...</option>
+                        <html:optionsCollection name="aduanas" value="codigo" label="descripcion"/>
+                    </html:select>
+                </div>
+            </div>
+            <div class="btn-container">
+                <button type="submit" id="boton2" value="Consultar" onclick="consultar()" class="btn btn-primary">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Consultar&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+            </div>
+            <div class="form-group">
+                <label class="label-message-required">* Campos Obligatorios</label>
+            </div>
+        </html:form>
+        <br/>
+        <br/>
         <html:form styleId="form-alcance3" action="memorizaciondiferidoidx.do">
             <html:hidden property="opcion" value="CONSULTA3"/>
             <legend>Por Declaraci&oacute;n</legend>
             <div class="form-group">
                 <label class="col-sm-3 control-label">Gesti&oacute;n:</label>
                 <div class="col-sm-3">
-                    <html:text property="fd3Gestion" maxlength="10" styleClass="form-control required" size="50"/>
+                    <html:text property="fd3Gestion" maxlength="10" styleClass="form-control required numeric" size="50"/>
                 </div>
                 <label class="col-sm-3 control-label">Aduana:</label>
                 <div class="col-sm-3">
@@ -221,7 +262,7 @@
             <div class="form-group">
                 <label class="col-sm-3 control-label">N&uacute;mero de C:</label>
                 <div class="col-sm-3">
-                    <html:text property="fd3Numero" maxlength="10" styleClass="form-control required" size="50"/>
+                    <html:text property="fd3Numero" maxlength="10" styleClass="form-control required numeric" size="50"/>
                 </div>
             </div>
             <div class="btn-container">
@@ -279,6 +320,17 @@
           }
       });
       $("#boton").removeAttr("disabled");
+      
+      Anb.form.submit('#form-alcance2', function (form) {
+          Anb.form.cleanErrors(form);
+          
+          if (Anb.validate.run(form)) {
+              console.log('Enviado!');
+              Anb.loading.show()
+              form.submit();
+          }
+      });
+      $("#boton2").removeAttr("disabled");
 
       Anb.form.submit('#form-alcance3', function (form) {
           Anb.form.cleanErrors(form);

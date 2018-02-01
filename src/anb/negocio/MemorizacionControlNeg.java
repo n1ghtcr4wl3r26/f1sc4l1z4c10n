@@ -28,12 +28,12 @@ public class MemorizacionControlNeg {
         return dao != null;
     }
     
-    public Respuesta<Bandeja[]> devuelveBandejaJefe(String gerencia) {
+    public Respuesta<Bandeja[]> devuelveBandejaJefe(String gerencia,String aux1,String aux2) {
         Respuesta<Bandeja[]> respuesta = new Respuesta<Bandeja[]>();
         respuesta.setCodigo(-1);
         if (estaConectadoBd()) {
             try {
-                List<Bandeja> result = dao.devuelveBandejaJefe(gerencia);
+                List<Bandeja> result = dao.devuelveBandejaJefe(gerencia, aux1, aux2);
                 if (result == null || result.size() == 0) {
                     respuesta.setMensaje("No existen registros");
                     respuesta.setCodigo(0);
@@ -56,12 +56,12 @@ public class MemorizacionControlNeg {
         return respuesta;
     }
     
-    public Respuesta<Bandeja[]> devuelveBandejaFiscalizador(String fiscalizador) {
+    public Respuesta<Bandeja[]> devuelveBandejaFiscalizador(String fiscalizador, String aux2) {
         Respuesta<Bandeja[]> respuesta = new Respuesta<Bandeja[]>();
         respuesta.setCodigo(-1);
         if (estaConectadoBd()) {
             try {
-                List<Bandeja> result = dao.devuelveBandejaFiscalizador(fiscalizador);
+                List<Bandeja> result = dao.devuelveBandejaFiscalizador(fiscalizador, aux2);
                 if (result == null || result.size() == 0) {
                     respuesta.setMensaje("No existen registros");
                     respuesta.setCodigo(0);
