@@ -449,10 +449,10 @@ public class MemorizacionControlAction extends MappingDispatchAction {
                             else
                                 balc.setNumeroOperador(bean.getDifNroCIPersona());
                             balc.setUsuario(bean.getUsuario());
-                            balc.setChvalor("on");
-                            balc.setChpartida("on");
-                            balc.setChorigen("on");
-                            balc.setChotro("on");
+                            balc.setChvalor(bean.getDifChvalor());
+                            balc.setChpartida(bean.getDifChpartida());
+                            balc.setChorigen(bean.getDifChorigen());
+                            balc.setChotro(bean.getDifChotro());
                             Respuesta<Boolean> alc = alcneg.graba_tramite_dec(balc);
                             if (alc.getCodigo() == 1) {
                                 request.setAttribute("OK",

@@ -58,6 +58,31 @@
                                     <textarea name="difDetDocumento" id="difDetDocumento" class="form-control required" data-maxlength="500" onkeyup="Textarea_Sin_Enter(event.keyCode, event.which, 'difDetDocumento');" >${MemorizacionControlForm.difDetDocumento}</textarea>
                                 </div>
                             </div>
+                            <div class="form-group">
+                                <label class="col-sm-1 control-label">Valor:</label>
+                                 
+                                <label class="col-sm-1 control-label">Partida:</label>
+                                 
+                                <label class="col-sm-1 control-label">Origen:</label>
+                                 
+                                <label class="col-sm-1 control-label">Otro:</label>
+                            </div>
+                            <div class="form-group">
+                                <div class="form-group">
+                                    <div class="col-sm-1" style="text-align:center">
+                                        <html:checkbox property="difChvalor" style="width:13px;height:13px" styleId="chvalor"  styleClass="form-control "/>
+                                    </div>
+                                    <div class="col-sm-1" style="text-align:center">
+                                        <html:checkbox property="difChpartida" style="width:13px;height:13px" styleId="chvalor"  styleClass="form-control "/>
+                                    </div>
+                                    <div class="col-sm-1" style="text-align:center">
+                                        <html:checkbox property="difChorigen" style="width:13px;height:13px" styleId="chvalor"  styleClass="form-control "/>
+                                    </div>
+                                    <div class="col-sm-1" style="text-align:center">
+                                        <html:checkbox property="difChotro" style="width:13px;height:13px" styleId="chvalor"  styleClass="form-control "/>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="form-group">                            
                                 <label class="col-sm-3 control-label">Tipo de Control:</label>
 				<div class="col-sm-4">

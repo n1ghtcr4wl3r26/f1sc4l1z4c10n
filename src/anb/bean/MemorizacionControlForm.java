@@ -117,6 +117,11 @@ public class MemorizacionControlForm extends ActionForm {
 
     private String difTipoControl;
     private String difNoOperador;
+    
+    private String difChvalor;
+    private String difChpartida;
+    private String difChorigen;
+    private String difChotro;
 
     private String boton;
     private String usuario;
@@ -977,5 +982,37 @@ public class MemorizacionControlForm extends ActionForm {
 
     public String getAux2() {
         return aux2;
+    }
+
+    public void setDifChvalor(String difChvalor) {
+        this.difChvalor = difChvalor;
+    }
+
+    public String getDifChvalor() {
+        return difChvalor;
+    }
+
+    public void setDifChpartida(String difChpartida) {
+        this.difChpartida = difChpartida;
+    }
+
+    public String getDifChpartida() {
+        return difChpartida;
+    }
+
+    public void setDifChorigen(String difChorigen) {
+        this.difChorigen = difChorigen;
+    }
+
+    public String getDifChorigen() {
+        return difChorigen;
+    }
+
+    public void setDifChotro(String difChotro) {
+        this.difChotro = difChotro;
+    }
+
+    public String getDifChotro() {
+        return difChotro;
     }
 }
